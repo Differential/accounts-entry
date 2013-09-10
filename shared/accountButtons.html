@@ -1,0 +1,9 @@
+<template name="differentialAccountButtons">
+{{#if loggedIn}}
+  <a href="/sign-out">Sign Out</a>
+{{else}}
+  <a href="/sign-in">Sign In</a>
+  <span>OR</span>
+  <a href="/sign-up">Sign Up</a>
+{{/if}}
+</template>

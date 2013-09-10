@@ -1,0 +1,33 @@
+<template name='differentialSignIn'>
+  <div class="container">
+    <div class="row">
+      <div class="entry-logo">
+        <a href="/"><img src="/img/logo.png" alt="logo"></a>
+      </div>
+      <div class="entry col-md-4 col-md-offset-4">
+        {{#if otherLoginServices}}
+        <div class="entry-social">
+          {{#each loginServices}}
+            {{> differentialSocial}}
+          {{/each}}
+          <div class="email-option">
+            <strong class="line-thru or-sign-in">OR</strong>
+          </div>
+        </div>
+        {{/if}}
+        {{> differentialError}}
+        <form class="entry-form" id='signIn'>
+          <div class="form-group">
+            <input type="email" class="form-control" value='{{email}}' placeholder="Email">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" value='{{password}}' placeholder="Password">
+          </div>
+          <p><a href="/forgot-password">Forgot password?</a></p>
+          <button type="submit" class="submit btn btn-default">Sign in</button>
+        </form>
+        <p class="entry-signup-cta">Don't have an account? <a href="/sign-up">Sign up</a></p>
+      </div>
+    </div>
+  </div>
+</template>

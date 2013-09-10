@@ -1,0 +1,44 @@
+<template name='differentialSignUp'>
+  <div class="container">
+    <div class="row">
+      <div class="entry-logo">
+        <a href="/"><img src="/img/logo.png" alt="logo"></a>
+      </div>
+      <div class="entry col-md-4 col-md-offset-4">
+        <h3>Create an Account</h3>
+        <p class="entry-signin-cta">Create your account now. If you already have an account <a href="/sign-in">sign in</a>.</p>
+        {{#if otherLoginServices}}
+          <div class="entry-social">
+            {{#each loginServices}}
+              {{> differentialSocial}}
+            {{/each}}
+            <div class="email-option">
+              <strong class="line-thru">OR</strong>
+              <a data-toggle="collapse" href="#signUp">
+                Sign up with your email address
+              </a>
+            </div>
+          </div>
+        {{else}}
+            <div class="email-option">
+              <h4>Sign up with your email address</h4>
+            </div>
+        {{/if}}
+        {{> differentialError}}
+        <form class="entry-form {{#if otherLoginServices}}collapse{{/if}}" id='signUp'>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" class="form-control" value=''>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" value=''>
+          </div>
+          <button type="submit" class="submit btn btn-default">Sign up</button>
+        </form>
+        <p class="entry-agreement">By clicking Sign up, you agree to our Privacy Policy and Terms of Service.</p>
+      </div>
+    </div>
+  </div>
+</template>
+
