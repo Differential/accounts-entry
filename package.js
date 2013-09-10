@@ -3,17 +3,33 @@ Package.describe({
 });
 
 Package.on_use(function(api) {
-  api.use(['deps', 'service-configuration', 'accounts-base',
-               'underscore', 'templating',
-                          'handlebars', 'spark', 'session', 'coffeescript',
-                          'less'], 'client');
+  api.use(['deps',
+          'service-configuration',
+          'accounts-base',
+          'accounts-ui-unstyled',
+          'underscore',
+          'templating',
+          'handlebars',
+          'spark',
+          'session',
+          'coffeescript',
+          'iron-router',
+          'less'],
+        'client');
   api.imply('accounts-base', ['client', 'server']);
-  api.use('iron-router', 'client');
-  api.use('accounts-ui-unstyled', 'client');
-  api.add_files(['router.coffee', 'signIn.html', 'join.html',
-                  'forgotPassword.html', 'social.html', 'error.html',
-                  'accountButtons.html', 
-                  'signIn.coffee', 'join.coffee', 'social.coffee',
-                  'accountButtons.coffee',
-                  'forgotPassword.coffee', 'error.coffee', 'entry.less'], 'client');
+  api.add_files(['router.coffee',
+                'sign-in/signIn.html',
+                'sign-in/signIn.coffee',
+                'sign-up/signUp.html',
+                'sign-up/signUp.coffee',
+                'forgot-password/forgotPassword.html',
+                'forgot-password/forgotPassword.coffee',
+                'shared/social.html',
+                'shared/social.coffee',
+                'shared/error.html',
+                'shared/error.coffee',
+                'shared/accountButtons.html',
+                'shared/accountButtons.coffee',
+                'entry.less']
+              , 'client');
 });
