@@ -1,6 +1,10 @@
 Template.differentialSocial.helpers
   buttonText: ->
     Session.get('buttonText')
+    
+  google: ->
+    if @[0] == 'g'
+      true
 
 Template.differentialSocial.events
   'click .btn': ->
