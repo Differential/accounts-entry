@@ -1,3 +1,8 @@
 <template name='differentialSocial'>
-  <button class="btn" id="entry-{{this}}"><i class="icon-{{this}}"></i> Sign {{buttonText}} with {{capitalize this}}</button>
+  <button class="btn" id="entry-{{this}}" name="{{this}}">
+  	{{#if google}}
+  		<i class="icon-{{this}}-plus"></i> Sign {{buttonText}} with {{capitalize this}}</button>
+  	{{else}}
+  		<i class="icon-{{this}}"></i> Sign {{buttonText}} with {{capitalize this}}</button>
+  	{{/if}}
 </template>
