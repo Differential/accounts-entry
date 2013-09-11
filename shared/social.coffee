@@ -23,6 +23,7 @@ Template.differentialSocial.events
     if (Accounts.ui._options.requestOfflineToken[serviceName])
       options.requestOfflineToken = Accounts.ui._options.requestOfflineToken[serviceName]
     loginWithService(options, callback)
+    Router.go('/')
 
 capitalize = (str) ->
   str.charAt(0).toUpperCase() + str.slice(1)
