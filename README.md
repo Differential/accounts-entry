@@ -20,4 +20,4 @@ After that you will get routes for:
 /forgot-password
 ````
 
-You can then either add links to those directly, or use the ````{{accountsButton}}```` helper we provide to give you the proper links.
+You can then either add links to those directly, or use the ````{{accountButtons}}```` helper we provide to give you the proper links.
