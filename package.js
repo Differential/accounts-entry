@@ -12,26 +12,25 @@ Package.on_use(function(api) {
           'handlebars',
           'spark',
           'session',
-          'coffeescript',
           'iron-router',
           'less'],
         'client');
   api.imply('accounts-base', ['client', 'server']);
   api.add_files([
-    'entry.coffee',
-    'router.coffee',
+    'entry.js',
+    'router.js',
     'sign-in/signIn.html',
-    'sign-in/signIn.coffee',
+    'sign-in/signIn.js',
     'sign-up/signUp.html',
-    'sign-up/signUp.coffee',
+    'sign-up/signUp.js',
     'forgot-password/forgotPassword.html',
-    'forgot-password/forgotPassword.coffee',
+    'forgot-password/forgotPassword.js',
     'shared/social.html',
-    'shared/social.coffee',
+    'shared/social.js',
     'shared/error.html',
-    'shared/error.coffee',
+    'shared/error.js',
     'shared/accountButtons.html',
-    'shared/accountButtons.coffee',
+    'shared/accountButtons.js',
     'entry.less']
   , 'client');
 });

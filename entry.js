@@ -1,0 +1,3 @@
+AccountsEntry = {
+  config: {}
+};
