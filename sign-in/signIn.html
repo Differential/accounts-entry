@@ -18,6 +18,11 @@
         </div>
         {{/if}}
         {{> differentialError}}
+        {{#unless otherLoginServices}}
+          <div class="email-option">
+            <h4>Sign in</h4>
+          </div>
+        {{/unless}}
         <form class="entry-form" id='signIn'>
           <div class="form-group">
             <input type="email" class="form-control" value='{{email}}' placeholder="Email">
