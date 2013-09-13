@@ -1,6 +1,10 @@
 Template.differentialForgotPassword.helpers
   error: -> Session.get('error')
 
+Template.differentialForgotPassword.helpers
+  logo: ->
+    AccountsEntry.config.logo
+
 Template.differentialForgotPassword.events
   'submit #forgotPassword': (event) ->
     event.preventDefault()
