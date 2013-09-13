@@ -1,9 +1,11 @@
 <template name='differentialSignIn'>
   <div class="container">
     <div class="row">
-      <div class="entry-logo">
-        <a href="/"><img src="/img/logo.png" alt="logo"></a>
-      </div>
+      {{#if logo}}
+        <div class="entry-logo">
+          <a href="/"><img src="/img/logo.png" alt="logo"></a>
+        </div>
+      {{/if}}
       <div class="entry col-md-4 col-md-offset-4">
         {{#if otherLoginServices}}
         <div class="entry-social">

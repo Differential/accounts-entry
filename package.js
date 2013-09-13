@@ -17,19 +17,21 @@ Package.on_use(function(api) {
           'less'],
         'client');
   api.imply('accounts-base', ['client', 'server']);
-  api.add_files(['router.coffee',
-                'sign-in/signIn.html',
-                'sign-in/signIn.coffee',
-                'sign-up/signUp.html',
-                'sign-up/signUp.coffee',
-                'forgot-password/forgotPassword.html',
-                'forgot-password/forgotPassword.coffee',
-                'shared/social.html',
-                'shared/social.coffee',
-                'shared/error.html',
-                'shared/error.coffee',
-                'shared/accountButtons.html',
-                'shared/accountButtons.coffee',
-                'entry.less']
-              , 'client');
+  api.add_files([
+    'entry.coffee',
+    'router.coffee',
+    'sign-in/signIn.html',
+    'sign-in/signIn.coffee',
+    'sign-up/signUp.html',
+    'sign-up/signUp.coffee',
+    'forgot-password/forgotPassword.html',
+    'forgot-password/forgotPassword.coffee',
+    'shared/social.html',
+    'shared/social.coffee',
+    'shared/error.html',
+    'shared/error.coffee',
+    'shared/accountButtons.html',
+    'shared/accountButtons.coffee',
+    'entry.less']
+  , 'client');
 });

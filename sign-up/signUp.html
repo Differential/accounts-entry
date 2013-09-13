@@ -1,13 +1,16 @@
 <template name='differentialSignUp'>
   <div class="container">
     <div class="row">
-      <div class="entry-logo">
-        <a href="/"><img src="/img/logo.png" alt="logo"></a>
-      </div>
+      {{#if logo}}
+        <div class="entry-logo">
+          <a href="/"><img src="/img/logo.png" alt="logo"></a>
+        </div>
+      {{/if}}
       <div class="entry col-md-4 col-md-offset-4">
-        <h3>Create an Account</h3>
-        <p class="entry-signin-cta">Create your account now. If you already have an account <a href="/sign-in">sign in</a>.</p>
+
         {{#if otherLoginServices}}
+          <h3>Create an Account</h3>
+          <p class="entry-signin-cta">If you already have an account <a href="/sign-in">sign in</a>.</p>
           <div class="entry-social">
             {{#each loginServices}}
               {{> differentialSocial}}
@@ -20,6 +23,7 @@
             </div>
           </div>
         {{else}}
+            <p class="entry-signin-cta">If you already have an account <a href="/sign-in">sign in</a>.</p>
             <div class="email-option">
               <h4>Sign up with your email address</h4>
             </div>
@@ -36,7 +40,19 @@
           </div>
           <button type="submit" class="submit btn btn-default">Sign up</button>
         </form>
-        <p class="entry-agreement">By clicking Sign up, you agree to our Privacy Policy and Terms of Service.</p>
+        {{#if both}}
+          <p class="entry-agreement">By clicking Sign up, you agree to our
+            <a href="{{privacyUrl}}">Privacy Policy</a> and
+            <a href="{{termsUrl}}">Terms of Use</a>.
+          </p>
+        {{else}}
+          {{#unless neither}}
+            <p class="entry-agreement">By clicking Sign up, you agree to our
+              {{#if privacyUrl}}<a href="{{privacyUrl}}">Privacy Policy</a>.{{/if}}
+              {{#if termsUrl}}<a href="{{termsUrl}}">Terms of Use</a>.{{/if}}
+            </p>
+          {{/unless}}
+        {{/if}}
       </div>
     </div>
   </div>

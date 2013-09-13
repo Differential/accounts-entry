@@ -21,3 +21,16 @@ After that you will get routes for:
 ````
 
 You can then either add links to those directly, or use the ````{{accountButtons}}```` helper we provide to give you the proper links.
+
+## Configuration
+
+Set `AccountsEntry.config` equal to a hash of configuration options:
+
+```
+{
+  logo: 'logo.png',
+  privacyUrl: '/privacy-policy',
+  termsUrl: '/terms-of-use'
+}
+```
+

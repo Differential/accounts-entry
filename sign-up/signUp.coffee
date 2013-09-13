@@ -2,14 +2,29 @@ Handlebars.registerHelper 'capitalize', (str) ->
   str.charAt(0).toUpperCase() + str.slice(1)
 
 Handlebars.registerHelper 'otherLoginServices', ->
+  Accounts.oauth &&
   Accounts.oauth.serviceNames().length > 0
 
 Handlebars.registerHelper 'loginServices', ->
   Accounts.oauth.serviceNames()
 
 Template.differentialSignUp.helpers
-  buttonText:
-    'up'
+  logo: ->
+    AccountsEntry.config.logo
+
+  privacyUrl: ->
+    AccountsEntry.config.privacyUrl
+
+  termsUrl: ->
+    AccountsEntry.config.termsUrl
+
+  both: ->
+    AccountsEntry.config.privacyUrl &&
+    AccountsEntry.config.termsUrl
+
+  neither: ->
+    !AccountsEntry.config.privacyUrl &&
+    !AccountsEntry.config.termsUrl
 
 Template.differentialSignUp.events
   'submit #signUp': (event) ->

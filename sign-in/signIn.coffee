@@ -1,3 +1,7 @@
+Template.differentialSignIn.helpers
+  logo: ->
+    AccountsEntry.config.logo
+
 Template.differentialSignIn.events
   'submit #signIn': (event) ->
     event.preventDefault()
