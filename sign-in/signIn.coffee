@@ -1,5 +1,5 @@
 Template.differentialSignIn.events
-  'submit #signIn': ->
+  'submit #signIn': (event) ->
     event.preventDefault()
     Session.set('email', $('input[type="email"]').val())
     Session.set('password', $('input[type="password"]').val())

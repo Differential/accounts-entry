@@ -2,7 +2,7 @@ Template.differentialForgotPassword.helpers
   error: -> Session.get('error')
 
 Template.differentialForgotPassword.events
-  'submit #forgotPassword': ->
+  'submit #forgotPassword': (event) ->
     event.preventDefault()
     Session.set('email', $('input[type="email"]').val())
 

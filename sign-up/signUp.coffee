@@ -12,7 +12,7 @@ Template.differentialSignUp.helpers
     'up'
 
 Template.differentialSignUp.events
-  'submit #signUp': ->
+  'submit #signUp': (event) ->
     event.preventDefault()
     email = $('input[type="email"]').val()
     password = $('input[type="password"]').val()
