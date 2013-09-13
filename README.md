@@ -36,3 +36,6 @@ Somewhere in your client code, set `AccountsEntry.config` equal to a hash of con
 }
 ```
 
+It's OK to leave this config blank, if you don't have a logo, privacy
+policy, terms of use for your app.
+
