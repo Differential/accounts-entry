@@ -47,5 +47,5 @@ Template.differentialSignUp.events
         if error
           Session.set('error', error.reason)
         else
-          Router.go('/dashboard')
+          Router.go(AccountsEntry.config.dashboardRoute)
     )

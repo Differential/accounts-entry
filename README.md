@@ -32,10 +32,15 @@ Somewhere in your client code, set `AccountsEntry.config` equal to a hash of con
 {
   logo: 'logo.png',
   privacyUrl: '/privacy-policy',
-  termsUrl: '/terms-of-use'
+  termsUrl: '/terms-of-use',
+  homeRoute: 'home',
+  dashboardRoute: 'dashboard'
 }
 ```
 
-It's OK to leave this config blank, if you don't have a logo, privacy
+It's OK to leave some config blank, if you don't have a logo, privacy
 policy, terms of use for your app.
+
+But you must provide a route for home (used when signing out) and
+dashboard (used after signing in).
 

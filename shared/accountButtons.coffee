@@ -3,9 +3,9 @@ Handlebars.registerHelper(
     return new Handlebars.SafeString(Template.differentialAccountButtons())
   )
 
-Template.differentialAccountButtons.helpers
 Template.differentialAccountButtons.events
   "click .differential-sign-out": (event) ->
     event.preventDefault()
 		Meteor.logout()
-		Router.go('/')
+    if AccountsEntry.config.homeRoute
+      Router.go(AccountsEntry.config.homeRoute)
