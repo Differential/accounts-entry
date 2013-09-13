@@ -6,7 +6,6 @@ Package.on_use(function(api) {
   api.use(['deps',
           'service-configuration',
           'accounts-base',
-          'accounts-ui-unstyled',
           'underscore',
           'templating',
           'handlebars',
