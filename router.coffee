@@ -16,4 +16,3 @@ Router.map ->
     path: "/forgot-password"
     onBeforeRun: ->
       Session.set('error', undefined)
-  
