@@ -2,7 +2,9 @@
 
 A meteorite package that relies on Iron Router and gives you sign page login styles.
 
-We wanted something to work with that used [Iron Router](https://github.com/EventedMind/iron-router), Bootstrap 3, and didn't require the forcing of the dropdown box that didn't seem to be easily styled. But we love the ease of adding more packages like accounts-facebook or accounts-twitter, so we fully support the oauth packages by adding buttons to let people sign-up/sign-in with those services if you add them.  Right now it also assumes you will be using accounts-password, but we will likely make that optional in the future.
+We wanted something to work with that used [Iron
+Router](https://github.com/EventedMind/iron-router), [Bootstrap
+3](https://github.com/mangasocial/meteor-bootstrap-3), and didn't require the forcing of the dropdown box that didn't seem to be easily styled. But we love the ease of adding more packages like accounts-facebook or accounts-twitter, so we fully support the oauth packages by adding buttons to let people sign-up/sign-in with those services if you add them.  Right now it also assumes you will be using accounts-password, but we will likely make that optional in the future.
 
 ## Getting started
 
@@ -24,7 +26,7 @@ You can then either add links to those directly, or use the ````{{accountButtons
 
 ## Configuration
 
-Set `AccountsEntry.config` equal to a hash of configuration options:
+Somewhere in your client code, set `AccountsEntry.config` equal to a hash of configuration options:
 
 ```
 {
