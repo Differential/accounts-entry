@@ -1,10 +1,38 @@
 <template name="differentialAccountButtons">
 {{#if currentUser}}
-  {{signedInAs}}
+  {{#if wrapLinks}}
+    <li>
+  {{/if}}
+    {{signedInAs}}
+  {{#if wrapLinks}}
+    </li>
+  {{/if}}
+  {{#if wrapLinks}}
+    <li>
+  {{/if}}
   <a class="differential-sign-out">Sign Out</a>
+  {{#if wrapLinks}}
+    </li>
+  {{/if}}
 {{else}}
+  {{#if wrapLinks}}
+    <li>
+  {{/if}}
   <a href="/sign-in">Sign In</a>
-  <span>or</span>
+  {{#if wrapLinks}}
+    </li>
+  {{/if}}
+
+  {{#unless wrapLinks}}
+    <span>or</span>
+  {{/unless}}
+
+  {{#if wrapLinks}}
+    <li>
+  {{/if}}
   <a href="/sign-up">Sign Up</a>
+  {{#if wrapLinks}}
+    </li>
+  {{/if}}
 {{/if}}
 </template>

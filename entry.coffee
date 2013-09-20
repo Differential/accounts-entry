@@ -1,3 +1,6 @@
 @AccountsEntry = {
-  config: {}
+  config:
+    wrapLinks: true
+    homeRoute: 'home'
+    dashboardRoute: 'dashboard'
 }

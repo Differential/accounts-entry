@@ -13,3 +13,7 @@ Template.differentialAccountButtons.events
     if AccountsEntry.config.homeRoute
       Meteor.logout()
       Router.go(AccountsEntry.config.homeRoute)
+
+Template.differentialAccountButtons.helpers
+  wrapLinks: ->
+    AccountsEntry.config.wrapLinks
