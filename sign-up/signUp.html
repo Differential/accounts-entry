@@ -30,10 +30,20 @@
         {{/if}}
         {{> differentialError}}
         <form class="entry-form {{#if otherLoginServices}}collapse{{/if}}" id='signUp'>
-          <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" class="form-control" value=''>
-          </div>
+          {{#if showUsername}}
+            <div class="form-group">
+              <label>Username</label>
+              <input type="string" class="form-control" value=''>
+            </div>
+          {{/if}}
+
+          {{#if showEmail}}
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" class="form-control" value=''>
+            </div>
+          {{/if}}
+
           <div class="form-group">
             <label>Password</label>
             <input type="password" class="form-control" value=''>

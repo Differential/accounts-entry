@@ -9,6 +9,22 @@ Handlebars.registerHelper 'loginServices', ->
   Accounts.oauth.serviceNames()
 
 Template.differentialSignUp.helpers
+  showEmail: ->
+    fields = Accounts.ui._options.passwordSignupFields
+
+    _.contains([
+      'USERNAME_AND_EMAIL',
+      'USERNAME_AND_OPTIONAL_EMAIL',
+      'EMAIL_ONLY'], fields)
+
+  showUsername: ->
+    fields = Accounts.ui._options.passwordSignupFields
+
+    _.contains([
+      'USERNAME_AND_EMAIL',
+      'USERNAME_AND_OPTIONAL_EMAIL',
+      'USERNAME_ONLY'], fields)
+
   logo: ->
     AccountsEntry.config.logo
 
@@ -29,10 +45,25 @@ Template.differentialSignUp.helpers
 Template.differentialSignUp.events
   'submit #signUp': (event) ->
     event.preventDefault()
+    username = $('input[type="string"]').val()
     email = $('input[type="email"]').val()
     password = $('input[type="password"]').val()
 
-    if email.length is 0
+    fields = Accounts.ui._options.passwordSignupFields
+
+    emailRequired = _.contains([
+      'USERNAME_AND_EMAIL',
+      'EMAIL_ONLY'], fields)
+
+    usernameRequired = _.contains([
+      'USERNAME_AND_EMAIL',
+      'USERNAME_ONLY'], fields)
+
+    if usernameRequired && email.length is 0
+      Session.set('error', 'Username is required')
+      return
+
+    if emailRequired && email.length is 0
       Session.set('error', 'Email is required')
       return
 
@@ -41,6 +72,7 @@ Template.differentialSignUp.events
       return
 
     Accounts.createUser({
+      username: username,
       email: email,
       password: password
       }, (error)->
