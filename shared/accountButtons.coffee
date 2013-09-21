@@ -8,7 +8,7 @@ Template.differentialAccountButtons.helpers
     Meteor.user().username || Meteor.user().emails[0].address
 
   profileUrl: ->
-    AccountsEntry.config.profileRoute
+    Router.path(AccountsEntry.config.profileRoute)
 
 Template.differentialAccountButtons.events
   "click .differential-sign-out": (event) ->
