@@ -74,7 +74,8 @@ Template.differentialSignUp.events
     Accounts.createUser({
       username: username,
       email: email,
-      password: password
+      password: password,
+      profile: {}
       }, (error)->
         if error
           Session.set('error', error.reason)

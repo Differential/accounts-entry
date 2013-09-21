@@ -7,6 +7,9 @@ Template.differentialAccountButtons.helpers
   signedInAs: ->
     Meteor.user().username || Meteor.user().emails[0].address
 
+  profileUrl: ->
+    AccountsEntry.config.profileRoute
+
 Template.differentialAccountButtons.events
   "click .differential-sign-out": (event) ->
     event.preventDefault()

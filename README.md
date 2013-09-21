@@ -34,7 +34,8 @@ Somewhere in your client code, set `AccountsEntry.config` equal to a hash of con
   privacyUrl: '/privacy-policy',
   termsUrl: '/terms-of-use',
   homeRoute: 'home',
-  dashboardRoute: 'dashboard'
+  dashboardRoute: 'dashboard',
+  profileRoute: 'profile'
 }
 ```
 
