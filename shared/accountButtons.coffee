@@ -15,6 +15,7 @@ Template.differentialAccountButtons.helpers
       "Logged In"
 
   profileUrl: ->
+    return false unless AccountsEntry.config.profileRoute
     Router.path(AccountsEntry.config.profileRoute)
 
 Template.differentialAccountButtons.events
@@ -27,3 +28,6 @@ Template.differentialAccountButtons.events
 Template.differentialAccountButtons.helpers
   wrapLinks: ->
     AccountsEntry.config.wrapLinks
+
+  showUserName: ->
+    AccountsEntry.config.showUserName

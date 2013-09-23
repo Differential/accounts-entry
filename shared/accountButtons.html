@@ -7,7 +7,9 @@
       {{#if wrapLinks}}</li>{{/if}}
     {{else}}
       {{#if wrapLinks}}<li>{{/if}}
+        {{#if showUserName}}
         <p class="navbar-text">{{signedInAs}}</p>
+        {{/if}}
       {{#if wrapLinks}}</li>{{/if}}
     {{/if}}
 
