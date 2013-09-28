@@ -1,4 +1,4 @@
-Template.differentialSignIn.helpers
+Template.entrySignIn.helpers
   emailOnly: ->
     Accounts.ui._options.passwordSignupFields is 'EMAIL_ONLY'
 
@@ -16,7 +16,7 @@ Template.differentialSignIn.helpers
   logo: ->
     AccountsEntry.config.logo
 
-Template.differentialSignIn.events
+Template.entrySignIn.events
   'submit #signIn': (event) ->
     event.preventDefault()
     Session.set('email', $('input[name="email"]').val())

@@ -1,4 +1,4 @@
-Template.differentialForgotPassword.helpers
+Template.entryForgotPassword.helpers
   error: -> Session.get('error')
 
 Template.differentialForgotPassword.helpers

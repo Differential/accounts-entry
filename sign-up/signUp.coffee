@@ -8,7 +8,7 @@ Handlebars.registerHelper 'otherLoginServices', ->
 Handlebars.registerHelper 'loginServices', ->
   Accounts.oauth.serviceNames()
 
-Template.differentialSignUp.helpers
+Template.entrySignUp.helpers
   showEmail: ->
     fields = Accounts.ui._options.passwordSignupFields
 
@@ -42,7 +42,7 @@ Template.differentialSignUp.helpers
     !AccountsEntry.config.privacyUrl &&
     !AccountsEntry.config.termsUrl
 
-Template.differentialSignUp.events
+Template.entrySignUp.events
   'submit #signUp': (event) ->
     event.preventDefault()
     username = $('input[type="string"]').val()

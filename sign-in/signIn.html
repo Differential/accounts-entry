@@ -1,4 +1,4 @@
-<template name='differentialSignIn'>
+<template name='entrySignIn'>
   <div class="container">
     <div class="row">
       {{#if logo}}
@@ -10,14 +10,14 @@
         {{#if otherLoginServices}}
         <div class="entry-social">
           {{#each loginServices}}
-            {{> differentialSocial}}
+            {{> entrySocial}}
           {{/each}}
           <div class="email-option">
             <strong class="line-thru or-sign-in">OR</strong>
           </div>
         </div>
         {{/if}}
-        {{> differentialError}}
+        {{> entryError}}
         {{#unless otherLoginServices}}
           <div class="email-option">
             <h4>Sign in</h4>
