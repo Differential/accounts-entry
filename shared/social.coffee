@@ -11,7 +11,7 @@ Template.entrySocial.events
     serviceName = $(event.target).attr('id').split('-')[1]
     callback = (err) ->
       if (!err)
-        Router.go('dashboard')
+        Router.go(AccountsEntry.config.dashboardRoute)
       else if (err instanceof Accounts.LoginCancelledError)
         # do nothing
       else if (err instanceof ServiceConfiguration.ConfigError)
