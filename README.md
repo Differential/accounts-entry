@@ -31,17 +31,29 @@ You can then either add links to those directly, or use the ````{{accountButtons
 
 ## Configuration
 
+Since this is a young package, we are maintaining compatibility with accounts-ui (so if in a pinch accounts-entry is broken for you, you could easily switch to accounts-ui).
+
+As such, the `passwordSignunFields` attributes from Accounts.ui.config is read by accounts-entry to determine what fields to show during sign up and sign in.
+
+```
+Meteor.startup ->
+  Accounts.ui.config(
+    passwordSignupFields: 'EMAIL_ONLY'
+  )
+```
+
 Somewhere in your client code, set `AccountsEntry.config` equal to a hash of configuration options:
 
 ```
-{
-  logo: 'logo.png',
-  privacyUrl: '/privacy-policy',
-  termsUrl: '/terms-of-use',
-  homeRoute: 'home',
-  dashboardRoute: 'dashboard',
-  profileRoute: 'profile'
-}
+Meteor.startup ->
+  AccountsEntry.config = {
+    logo: 'logo.png',
+    privacyUrl: '/privacy-policy',
+    termsUrl: '/terms-of-use',
+    homeRoute: 'home',
+    dashboardRoute: 'dashboard',
+    profileRoute: 'profile'
+  }
 ```
 
 It's OK to leave some config blank, if you don't have a logo, privacy
