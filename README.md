@@ -8,13 +8,18 @@ Router](https://github.com/EventedMind/iron-router), [Bootstrap
 
 ## Getting started
 
-Just run:
+Run:
 
 ````
+mrt add accounts-ui
 mrt add accounts-entry
 ````
 
-After that you will get routes for:
+You need to have `accounts-ui` package, as we depend on aspects of it.
+
+## Provided routes
+
+You will get routes for:
 ````
 /sign-in
 /sign-out
