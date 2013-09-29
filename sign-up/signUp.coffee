@@ -45,13 +45,9 @@ Template.entrySignUp.helpers
 Template.entrySignUp.events
   'submit #signUp': (event, t) ->
       event.preventDefault()
-      console.log "t", t
-      console.log t.find('input[type="string"]')
       username = t.find('input[type="string"]')?.value? || undefined
       email = t.find('input[type="email"]').value
       password = t.find('input[type="password"]').value
-
-      console.log username, email, password, "pass"
 
       fields = Accounts.ui._options.passwordSignupFields
 
@@ -60,7 +56,6 @@ Template.entrySignUp.events
 
       passwordErrors = do (password)->
           errMsg = []
-          console.log errMsg, password, "init"
           msg = false
           if password.length < 7
               errMsg.push "7 character minimum password."
@@ -106,7 +101,6 @@ Template.entrySignUp.events
           profile: AccountsEntry.config.defaultProfile || {}
       }, (error)->
           if error
-              console.log error
               Session.set('entryError', error.reason)
           else
               Router.go(AccountsEntry.config.dashboardRoute)
