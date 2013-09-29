@@ -29,6 +29,10 @@ You will get routes for:
 
 You can then either add links to those directly, or use the ````{{accountButtons}}```` helper we provide to give you the proper links.
 
+## Setting up oauth/social integrations
+
+Use `accounts-ui` to configure your social/oauth integrations (or manually create records in your database, if you have those skills). We don't have the nice instructions on how to configure the services built into this package.
+
 ## Configuration
 
 Since this is a young package, we are maintaining compatibility with accounts-ui (so if in a pinch accounts-entry is broken for you, you could easily switch to accounts-ui).
