@@ -58,7 +58,7 @@ Meteor.startup ->
     dashboardRoute: 'dashboard',
     profileRoute: 'profile'
     defaultProfile: 
-        isAdmin: false
+        someDefault: 'default'
   }
 ```
 
