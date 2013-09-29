@@ -1,5 +1,5 @@
 Template.entryForgotPassword.helpers
-  error: -> Session.get('error')
+  error: -> Session.get('entryError')
 
 Template.differentialForgotPassword.helpers
   logo: ->
@@ -11,14 +11,14 @@ Template.differentialForgotPassword.events
     Session.set('email', $('input[type="email"]').val())
 
     if Session.get('email').length is 0
-      Session.set('error', 'Email is required')
+      Session.set('entryError', 'Email is required')
       return
 
     Accounts.forgotPassword({
       email: Session.get('email')
       }, (error)->
         if error
-          Session.set('error', error.reason)
+          Session.set('entryError', error.reason)
         else
           Router.go('/')
     )

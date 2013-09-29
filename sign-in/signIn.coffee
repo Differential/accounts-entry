@@ -24,7 +24,7 @@ Template.entrySignIn.events
 
     Meteor.loginWithPassword(Session.get('email'), Session.get('password'), (error)->
       if error
-        Session.set('error', error.reason)
+        Session.set('entryError', error.reason)
       else
         Router.go('/')
     )

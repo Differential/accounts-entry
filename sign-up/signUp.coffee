@@ -60,15 +60,15 @@ Template.entrySignUp.events
       'USERNAME_ONLY'], fields)
 
     if usernameRequired && email.length is 0
-      Session.set('error', 'Username is required')
+      Session.set('entryError', 'Username is required')
       return
 
     if emailRequired && email.length is 0
-      Session.set('error', 'Email is required')
+      Session.set('entryError', 'Email is required')
       return
 
     if password.length is 0
-      Session.set('error', 'Password is required')
+      Session.set('entryError', 'Password is required')
       return
 
     Accounts.createUser({
@@ -78,7 +78,7 @@ Template.entrySignUp.events
       profile: {}
       }, (error)->
         if error
-          Session.set('error', error.reason)
+          Session.set('entryError', error.reason)
         else
           Router.go(AccountsEntry.config.dashboardRoute)
     )
