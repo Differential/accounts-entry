@@ -43,42 +43,65 @@ Template.entrySignUp.helpers
     !AccountsEntry.config.termsUrl
 
 Template.entrySignUp.events
-  'submit #signUp': (event) ->
-    event.preventDefault()
-    username = $('input[type="string"]').val()
-    email = $('input[type="email"]').val()
-    password = $('input[type="password"]').val()
+  'submit #signUp': (event, t) ->
+      event.preventDefault()
+      username = t.find('input[type="string"]')?.value? || undefined
+      email = t.find('input[type="email"]').value
+      password = t.find('input[type="password"]').value
 
-    fields = Accounts.ui._options.passwordSignupFields
+      fields = Accounts.ui._options.passwordSignupFields
 
-    emailRequired = _.contains([
-      'USERNAME_AND_EMAIL',
-      'EMAIL_ONLY'], fields)
+      trimInput = (val)->
+          val.replace /^\s*|\s*$/g, ""
 
-    usernameRequired = _.contains([
-      'USERNAME_AND_EMAIL',
-      'USERNAME_ONLY'], fields)
+      passwordErrors = do (password)->
+          errMsg = []
+          msg = false
+          if password.length < 7
+              errMsg.push "7 character minimum password."
+          if password.search(/[a-z]/i) < 0
+              errMsg.push "Password requires 1 letter."
+          if password.search(/[0-9]/) < 0
+              errMsg.push "Password must have at least one digit."
 
-    if usernameRequired && email.length is 0
-      Session.set('entryError', 'Username is required')
-      return
+          if errMsg.length > 0
+              msg = ""
+              errMsg.forEach (e) ->
+                  msg = msg.concat "#{e}\r\n"
 
-    if emailRequired && email.length is 0
-      Session.set('entryError', 'Email is required')
-      return
+              Session.set 'entryError', msg
+              return true
 
-    if password.length is 0
-      Session.set('entryError', 'Password is required')
-      return
+          return false
 
-    Accounts.createUser({
-      username: username,
-      email: email,
-      password: password,
-      profile: {}
+      if passwordErrors then return
+
+      email = trimInput email
+
+      emailRequired = _.contains([
+          'USERNAME_AND_EMAIL',
+          'EMAIL_ONLY'], fields)
+
+      usernameRequired = _.contains([
+          'USERNAME_AND_EMAIL',
+          'USERNAME_ONLY'], fields)
+
+      if usernameRequired && email.length is 0
+          Session.set('entryError', 'Username is required')
+          return
+
+      if emailRequired && email.length is 0
+          Session.set('entryError', 'Email is required')
+          return
+
+      Accounts.createUser({
+          username: username,
+          email: email,
+          password: password,
+          profile: AccountsEntry.config.defaultProfile || {}
       }, (error)->
-        if error
-          Session.set('entryError', error.reason)
-        else
-          Router.go(AccountsEntry.config.dashboardRoute)
-    )
+          if error
+              Session.set('entryError', error.reason)
+          else
+              Router.go(AccountsEntry.config.dashboardRoute)
+      )

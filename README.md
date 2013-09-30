@@ -57,6 +57,8 @@ Meteor.startup ->
     homeRoute: 'home',
     dashboardRoute: 'dashboard',
     profileRoute: 'profile'
+    defaultProfile: 
+        someDefault: 'default'
   }
 ```
 

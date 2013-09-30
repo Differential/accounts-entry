@@ -1,11 +1,10 @@
 Template.entryForgotPassword.helpers
   error: -> Session.get('entryError')
 
-Template.differentialForgotPassword.helpers
   logo: ->
     AccountsEntry.config.logo
 
-Template.differentialForgotPassword.events
+Template.entryForgotPassword.events
   'submit #forgotPassword': (event) ->
     event.preventDefault()
     Session.set('email', $('input[type="email"]').val())
