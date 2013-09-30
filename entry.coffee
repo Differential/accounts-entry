@@ -15,6 +15,7 @@ Template.identityInput.helpers
        id = Session.get('entryIdentity')  ? ""
 
 Template.identityInput.rendered = ->
+    console.log "identityinput rendered."
     $('#identityInput')?.parsley('destroy')?.parsley()
     true
 
@@ -23,6 +24,7 @@ Template.passwordInput.helpers
        pw = Session.get('entryPassword') ? ""
 
 Template.passwordInput.rendered = ->
+    console.log "password rendered"
     $('#passwordInput')?.parsley('destroy')?.parsley({
         validators: {
             hasNumber: (val, hasNumber) ->
