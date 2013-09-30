@@ -3,7 +3,7 @@ Template.entrySocial.helpers
     Session.get('buttonText')
 
   google: ->
-    if @[0] == 'g'
+    if @[0] == 'g' && @[1] == 'o'
       true
 
 Template.entrySocial.events
