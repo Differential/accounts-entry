@@ -17,8 +17,8 @@ Package.on_use(function(api) {
         'client');
   api.imply('accounts-base', ['client', 'server']);
   api.add_files([
-    'accountEntryWidget.coffee',
     'accountEntryWidget.html',
+    'accountEntryWidget.coffee',
     'entry.coffee',
     'router.coffee',
     'sign-in/signIn.html',

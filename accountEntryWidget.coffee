@@ -1,3 +1,4 @@
+
 Template.accountEntryWidget.helpers
   inline: ->
       AccountsEntry.config.inline
@@ -17,12 +18,12 @@ Template.accountEntryWidget.helpers
   showUserName: ->
     AccountsEntry.config.showUserName
 
-Template.accountEntry.events
+Template.accountEntryWidget.events
   "click .sign-out": (event) ->
     event.preventDefault()
     if AccountsEntry.config.homeRoute
       Meteor.logout()
-      Router.go(AccountsEntry.config.homeRoute)
+      Router.go AccountsEntry.config.homeRoute
 
   "click button.loginputBtn": (e, t)->
       e.preventDefault()
