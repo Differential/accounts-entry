@@ -1,6 +1,6 @@
 Handlebars.registerHelper(
   "accountButtons", ->
-    return new Handlebars.SafeString(Template.differentialAccountButtons())
+    return new Handlebars.SafeString(Template.entryAccountButtons())
   )
 
 Template.entryAccountButtons.helpers
@@ -19,7 +19,7 @@ Template.entryAccountButtons.helpers
     Router.path(AccountsEntry.config.profileRoute)
 
 Template.entryAccountButtons.events
-  "click .differential-sign-out": (event) ->
+  "click .entry-sign-out": (event) ->
     event.preventDefault()
     if AccountsEntry.config.homeRoute
       Meteor.logout()
