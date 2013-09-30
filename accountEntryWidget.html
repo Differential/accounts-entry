@@ -13,7 +13,7 @@
     {{/if}}
 
     {{#if wrapLinks}}<li>{{/if}}
-      <a class="/sign-out">Sign Out</a>
+      {{> entrySignOutButton}}
     {{#if wrapLinks}}</li>{{/if}}
 
     {{else}}
@@ -33,16 +33,15 @@
   {{/if}}
 </template>
 <template name="inlineLogin">
-    <form id="inlineLoginForm" class="navbar-form navbar-right">
-      <div class="form-group input-group-sm">
-        <input type="text" class="form-control" placeholder="email" id="login-email">
-      </div><!-- /.form-group -->
-      <div class="form-group input-group-sm">
-        <input type="password" class="form-control" placeholder="password" id="login-password">
-      </div><!-- /.form-group -->
-      <button class="btn btn-primary loginputBtn" id="loginputBtn" type="submit">
-      Sign In
-      </button>
-      <a href="/sign-up" class="btn btn-info helpBtn">Sign Up</a>
+    <form id="inlineLoginForm" data-entry="signin" class="navbar-form navbar-right">
+        <div class="form-group input-group-sm">
+            {{> identityInput }}
+        </div><!-- /.form-group -->
+        <div class="form-group input-group-sm">
+            {{> passwordInput }}
+        </div><!-- /.form-group -->
+        {{> entrySignInButton }}
+        <a href="/sign-up" class="btn btn-info helpBtn">Sign Up</a>
   </form><!-- /.loginputForm -->
 </template>
+   

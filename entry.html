@@ -1,0 +1,21 @@
+<template name="identityInput">
+<input type="text" data-required="true" data-type={{#if emailOnly}}"email"{{else}}"alphanum"{{/if}} class="form-control" placeholder="{{emailPlaceholder}}" value="{{entryIdentity}}" data-trigger="focusout" data-validation-minlength="1" id="identityInput">
+</template>
+<template name="passwordInput">
+<input type="password" class="form-control" data-minlength="6" data-required="true"  data-validation-minlength='1' data-hasNumber='1' data-hasLetter='1' value="{{entryPassword}}" data-trigger="change" placeholder="password" id="passwordInput">
+</template>
+<template name="entrySignInButton">
+<button class="btn btn-primary" id="entrySignInButton" type="submit">
+    {{sign}}
+</button>
+</template>
+<template name="entrySignUpButton">
+<button class="btn btn-success" id="entrySignUpButton" type="submit">
+    {{sign}}
+</button>
+</template>
+<template name="entrySignOutButton">
+<button class="btn btn-danger" id="entrySignOutButton" type="button">
+    <a class="/sign-out">{{sign}}</a>
+</button>
+</template>

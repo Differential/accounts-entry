@@ -13,13 +13,15 @@ Package.on_use(function(api) {
           'session',
           'coffeescript',
           'iron-router',
+          'parsley',
           'less'],
         'client');
   api.imply('accounts-base', ['client', 'server']);
   api.add_files([
+    'entry.html',
+    'entry.coffee',
     'accountEntryWidget.html',
     'accountEntryWidget.coffee',
-    'entry.coffee',
     'router.coffee',
     'sign-in/signIn.html',
     'sign-in/signIn.coffee',
