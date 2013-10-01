@@ -84,18 +84,16 @@ Template.entrySignInButton.events
             if err
                 switch err.reason
                     when "User not found"
-                        a = new ErrorAlert err.reason, "/sign-up", "Sign Up", true
                         Session.set 'entryIdentity', email
                         Session.set 'entryPassword', password
                         Router.go "/sign-in"
+                        n = new Noty {type: 'error', layout: 'topRight', text: err.reason}
                     when "Incorrect password"
-                        a = new ErrorAlert err.reason, 'forgot-password', " Request password reset link for: #{email}"
+                        a = new Noty {type: 'error', layout: 'topRight', text: err.reason}
                     else
-                        a = new ErrorAlert err.reason
-            else
-                a = new SuccessAlert "Welcome back."
+                        a = new Noty {type: 'error', layout: 'topRight', text: err.reason}
+            a = new Noty {type: 'success', layout: 'topRight',  text: "Welcome back."}
 
-            Alerts.insert a
 
 Template.entrySignUpButton.events
     "click #entrySignUpButton": (e,t) ->
