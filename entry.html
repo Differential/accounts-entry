@@ -2,7 +2,7 @@
 <input type="text" data-required="true" data-type={{#if emailOnly}}"email"{{else}}"alphanum"{{/if}} class="form-control" placeholder="{{emailPlaceholder}}" value="{{entryIdentity}}" data-trigger="focusout" data-validation-minlength="1" id="identityInput">
 </template>
 <template name="passwordInput">
-<input type="password" class="form-control" data-minlength="6" data-required="true"  data-validation-minlength='1' data-hasNumber='1' data-hasLetter='1' value="{{entryPassword}}" data-trigger="change" placeholder="password" id="passwordInput">
+<input type="password" class="form-control" data-minlength="6" data-required="true"  data-validation-minlength='1' data-hasnumber='1' data-hasletter='1' value="{{entryPassword}}" data-trigger="change" placeholder="password" id="passwordInput">
 </template>
 <template name="entrySignInButton">
 <button class="btn btn-primary" id="entrySignInButton" type="submit">

@@ -15,32 +15,32 @@ Template.identityInput.helpers
        id = Session.get('entryIdentity')  ? ""
 
 Template.identityInput.rendered = ->
-    console.log "identityinput rendered."
-    $('#identityInput')?.parsley('destroy')?.parsley()
+    f = @firstNode.form
+    $(f)?.find('input#identityInput').parsley('destroy')?.parsley()
     true
 
 Template.passwordInput.helpers
    entryPassword: ->
        pw = Session.get('entryPassword') ? ""
 
-Template.passwordInput.rendered = ->
-    console.log "password rendered"
-    $('#passwordInput')?.parsley('destroy')?.parsley({
+Template.passwordInput.rendered = (params)->
+    f = @firstNode.form
+    $(f)?.find('input#passwordInput').parsley('destroy').parsley({
         validators: {
-            hasNumber: (val, hasNumber) ->
-                if val.search(/[0-9]/) < hasNumber
-                    return false
-                else
+            hasnumber: (val, hasnumber) ->
+                if /[0-9]/.test val
                     return true
-            hasLetter: (val, hasLetter) ->
-                if val.search(/[a-z]/i) < hasLetter
-                    return false
                 else
+                    return false
+            hasletter: (val, hasletter) ->
+                if /[A-Za-z]/.test val
                     return true
+                else
+                    return false
         },
         messages: {
-            hasNumber: "Password requires %s numbers."
-            hasLetter: "Password requires %s letters."
+            hasnumber: "Password requires %s numbers."
+            hasletter: "Password requires %s letters."
         }
     })
     true

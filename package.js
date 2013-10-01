@@ -13,6 +13,7 @@ Package.on_use(function(api) {
           'session',
           'coffeescript',
           'iron-router',
+          'noty',
           'parsley',
           'less'],
         'client');
