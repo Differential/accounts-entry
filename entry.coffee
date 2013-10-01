@@ -98,7 +98,10 @@ Template.entrySignInButton.events
 Template.entrySignUpButton.events
     "click #entrySignUpButton": (e,t) ->
         e.preventDefault()
-        password = $('#passwordInput').val()
+        console.log "entry sign up.", e, t
+        f= t.firstNode.form
+        $f = $ f
+        password = $f.find('#passwordInput').val()
         fields = Accounts.ui._options.passwordSignupFields
 
         emailRequired = _.contains([
@@ -110,14 +113,16 @@ Template.entrySignUpButton.events
             'USERNAME_ONLY'], fields)
 
         if usernameRequired
-            if not $('[data-type="alphanum"]').parsley('isValid') then return
-        username = $('[data-type="alphanum"]').val()
+            if not $f.find('[data-type="alphanum"]').parsley('isValid') then return
+        username = $f.find('[data-type="alphanum"]').val()
         username = username?.replace? /^\s*|\s*$/g, ""
+        console.log "username", username
 
         if emailRequired
-            if not $('[data-type="email"]').parsley('isValid') then return
-        email = $('[data-type="email"]').val()
+            if not $f.find('[data-type="email"]').parsley('isValid') then return
+        email = $f.find('[data-type="email"]').val()
         email = email?.replace? /^\s*|\s*$/g, ""
+        console.log "email", email
 
         Accounts.createUser({
             username: username,
@@ -126,9 +131,9 @@ Template.entrySignUpButton.events
             profile: AccountsEntry.config.defaultProfile || {}
         }, (error)->
             if error?
-                Alerts.insert new ErrorAlert error.reason
+                new Noty {type: 'error', layout: 'topRight', text: error.reason}
             else
-                Alerts.insert new SuccessAlert 'Account creation success!'
+                new Noty {type: 'success', layout: 'topRight', text: 'Welcome new user.'}
                 Router.go AccountsEntry.config.dashboardRoute
         )
 
