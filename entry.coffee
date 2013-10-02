@@ -92,7 +92,8 @@ Template.entrySignInButton.events
                         a = new Noty {type: 'error', layout: 'topRight', text: err.reason}
                     else
                         a = new Noty {type: 'error', layout: 'topRight', text: err.reason}
-            a = new Noty {type: 'success', layout: 'topRight',  text: "Welcome back."}
+            else
+                a = new Noty {type: 'success', layout: 'topRight',  text: "Welcome back."}
 
 
 Template.entrySignUpButton.events
