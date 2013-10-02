@@ -1,19 +1,74 @@
 <template name="identityInput">
-<input type="text" data-required="true" data-type={{#if emailOnly}}"email"{{else}}"alphanum"{{/if}} class="form-control" placeholder="{{emailPlaceholder}}" value="{{entryIdentity}}" data-trigger="focusout" data-validation-minlength="1" id="identityInput">
+<input
+     type="text"
+     data-required="true"
+     data-type={{#if emailOnly}}"email"{{else}}"alphanum"{{/if}}
+     class="form-control"
+     placeholder="{{identityPlaceholder}}"
+     value="{{entryIdentity}}"
+     data-trigger="focusout focusin change"
+     data-validation-minlength="1"
+     id="identityInput"
+     >
 </template>
+
+<template name="emailInput">
+<input
+     type="text"
+     data-required="true"
+     data-type="email"
+     class="form-control"
+     placeholder="{{emailPlaceholder}}"
+     value="{{entryEmail}}"
+     data-trigger="focusout focusin change"
+     data-validation-minlength="1"
+     id="emailInput"
+     >
+</template>
+
+<template name="usernameInput">
+<input
+     type="text"
+     data-required="true"
+     data-type="email"
+     class="form-control"
+     placeholder="{{usernamePlaceholder}}"
+     value="{{entryUsernmae}}"
+     data-trigger="focusout change focusin"
+     data-validation-minlength="1"
+     id="usernameInput"
+     >
+</template>
+
 <template name="passwordInput">
-<input type="password" class="form-control" data-minlength="6" data-required="true"  data-validation-minlength='1' data-hasnumber='1' data-hasletter='1' value="{{entryPassword}}" data-trigger="change" placeholder="password" id="passwordInput">
+ <input
+     type="password"
+     data-type="alphanum"
+     class="form-control"
+     data-minlength="6"
+     data-required="true"
+     data-validation-minlength='1'
+     data-hasnumber='1'
+     data-hasletter='1'
+     value="{{entryPassword}}"
+     data-trigger="change focusin focusout"
+     placeholder="password"
+     id="passwordInput"
+    >
 </template>
+
 <template name="entrySignInButton">
 <button class="btn btn-primary" id="entrySignInButton" type="submit">
     {{sign}}
 </button>
 </template>
+
 <template name="entrySignUpButton">
 <button class="btn btn-success" id="entrySignUpButton" type="submit">
     {{sign}}
 </button>
 </template>
+
 <template name="entrySignOutButton">
 <button class="btn btn-danger" id="entrySignOutButton" type="button">
     <a class="/sign-out">{{sign}}</a>

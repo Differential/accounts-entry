@@ -35,13 +35,15 @@
 <template name="inlineLogin">
     <form id="inlineLoginForm" data-entry="signin" class="navbar-form navbar-right">
         <div class="form-group input-group-sm">
-            {{> identityInput }}
+          {{> identityInput }}
         </div><!-- /.form-group -->
         <div class="form-group input-group-sm">
-            {{> passwordInput }}
+          {{> passwordInput }}
         </div><!-- /.form-group -->
-        {{> entrySignInButton }}
-        <a href="/sign-up" class="btn btn-info helpBtn">Sign Up</a>
+          {{> entrySignInButton }}
+        <div class="form-group input-group-sm">
+          {{> entrySignUpButton }}
+        </div>
   </form><!-- /.loginputForm -->
 </template>
    

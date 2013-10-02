@@ -6,7 +6,7 @@ Router.map ->
       Session.set('entryError', undefined)
       Session.set('buttonText', 'in')
 
-  @route "entrySignUp",
+  @route "entrySignUpForm",
     path: "/sign-up"
     onBeforeRun: ->
       Session.set('entryError', undefined)

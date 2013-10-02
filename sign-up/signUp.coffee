@@ -8,7 +8,7 @@ Handlebars.registerHelper 'otherLoginServices', ->
 Handlebars.registerHelper 'loginServices', ->
   Accounts.oauth.serviceNames()
 
-Template.entrySignUp.helpers
+Template.entrySignUpForm.helpers
   showEmail: ->
     fields = Accounts.ui._options.passwordSignupFields
 

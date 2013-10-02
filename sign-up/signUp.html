@@ -1,4 +1,4 @@
-<template name='entrySignUp'>
+<template name='entrySignUpForm'>
   <div class="container">
     <div class="row">
       {{#if logo}}
@@ -33,14 +33,14 @@
           {{#if showUsername}}
             <div class="form-group">
               <label>Username</label>
-              <input type="string" class="form-control" value=''>
-            </div>
+              {{> usernameInput }}
+          </div>
           {{/if}}
 
           {{#if showEmail}}
             <div class="form-group">
               <label>Email Address</label>
-              {{> identityInput}}
+              {{> emailInput}}
           </div>
           {{/if}}
 

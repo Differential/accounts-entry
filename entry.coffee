@@ -1,5 +1,5 @@
 Template.identityInput.helpers
-   emailPlaceholder: ->
+   identityPlaceholder: ->
        fields = Accounts.ui._options.passwordSignupFields
        if _.contains([
            'USERNAME_AND_EMAIL'
@@ -10,13 +10,34 @@ Template.identityInput.helpers
 
    emailOnly: ->
        Accounts.ui._options.passwordSignupFields is 'EMAIL_ONLY'
+   entryType: 'Multi'
 
-   entryIdentity: ->
+   entryIdentity: ()->
        id = Session.get('entryIdentity')  ? ""
 
 Template.identityInput.rendered = ->
     f = @firstNode.form
     $(f)?.find('input#identityInput').parsley('destroy')?.parsley()
+    true
+
+Template.emailInput.helpers
+   emailPlaceholder: "Email"
+   entryEmail: ()->
+       id = Session.get('entryEmail')  ? ""
+
+Template.emailInput.rendered = ->
+    f = @firstNode.form
+    $(f)?.find('input#emailInput').parsley('destroy')?.parsley()
+    true
+
+Template.usernameInput.helpers
+   usernamePlaceholder: "username"
+   entryUsername: ()->
+       id = Session.get('entryUsername')  ? ""
+
+Template.usernameInput.rendered = ->
+    f = @firstNode.form
+    $(f)?.find('input#usernameInput').parsley('destroy')?.parsley()
     true
 
 Template.passwordInput.helpers
@@ -75,10 +96,32 @@ Template.entrySignInButton.helpers
 
 Template.entrySignInButton.events
     "click button#entrySignInButton": (e, t)->
+        hasErrors = false
         e.preventDefault()
-        if not $('[data-type="email"]').parsley('isValid') then return
-        email = $('#identityInput').val()
-        password = $('#passwordInput').val()
+        f= t.firstNode.form
+        $f = $ f
+        if not $f.find('#passwordInput').parsley('isValid')
+            new Noty {
+                    type: 'error'
+                    layout: 'topRight'
+                    timeout: 4200
+                    text: 'A valid password is required for signin.'
+                }
+            hasErrors = true
+
+        if not $f.find('#identityInput').parsley('isValid')
+            new Noty {
+                    type: 'error'
+                    layout: 'topRight'
+                    timeout: 4200
+                    text: 'An valid identity is required for signin.'
+                }
+            hasErrors = true
+
+        if hasErrors then return
+
+        email = $f.find('#identityInput').val()
+        password = $f.find('#passwordInput').val()
         email = email.replace /^\s*|\s*$/g, ""
         Meteor.loginWithPassword email, password, (err)->
             if err
@@ -87,22 +130,53 @@ Template.entrySignInButton.events
                         Session.set 'entryIdentity', email
                         Session.set 'entryPassword', password
                         Router.go "/sign-in"
-                        n = new Noty {type: 'error', layout: 'topRight', text: err.reason}
+                        new Noty {
+                            closeWith: ['hover']
+                            timeout: 5100
+                            type: 'error'
+                            layout: 'topRight'
+                            text: err.reason
+                        }
                     when "Incorrect password"
-                        a = new Noty {type: 'error', layout: 'topRight', text: err.reason}
+                        new Noty {
+                            timeout: 5100
+                            closeWith: ['hover']
+                            type: 'error'
+                            layout: 'topRight'
+                            text: err.reason
+                        }
                     else
-                        a = new Noty {type: 'error', layout: 'topRight', text: err.reason}
+                         new Noty {
+                             timeout: 5100
+                             type: 'error'
+                             layout: 'topRight'
+                             text: err.reason
+                         }
             else
-                a = new Noty {type: 'success', layout: 'topRight',  text: "Welcome back."}
+                new Noty {
+                    timeout: 5100
+                    closeWith: ['hover']
+                    type: 'success'
+                    layout: 'topRight'
+                    text: "Welcome back."
+                }
 
 
 Template.entrySignUpButton.events
     "click #entrySignUpButton": (e,t) ->
+        hasErrors = false
         e.preventDefault()
-        console.log "entry sign up.", e, t
         f= t.firstNode.form
         $f = $ f
-        password = $f.find('#passwordInput').val()
+        if not $f.find('#passwordInput').parsley('isValid')
+            new Noty {
+                type: 'error'
+                layout: 'topRight'
+                timeout: 4200
+                text: 'A valid password is required for signup.'
+            }
+            hasErrors = true
+
         fields = Accounts.ui._options.passwordSignupFields
 
         emailRequired = _.contains([
@@ -114,16 +188,37 @@ Template.entrySignUpButton.events
             'USERNAME_ONLY'], fields)
 
         if usernameRequired
-            if not $f.find('[data-type="alphanum"]').parsley('isValid') then return
-        username = $f.find('[data-type="alphanum"]').val()
-        username = username?.replace? /^\s*|\s*$/g, ""
-        console.log "username", username
+            if not $f.find('#usernameInput').parsley('isValid')
+                new Noty {
+                    type: 'error'
+                    layout: 'topRight'
+                    timeout: 4200
+                    text: 'A username is required for signup.'
+                }
+                hasErrors = true
 
         if emailRequired
-            if not $f.find('[data-type="email"]').parsley('isValid') then return
+            if not $f.find('[data-type="email"]').parsley('isValid')
+                new Noty {
+                    type: 'error'
+                    layout: 'topRight'
+                    timeout: 4200
+                    text: 'A valid email address is required for signup.'
+                }
+                hasErrors = true
+
+        if hasErrors
+            Router.go '/sign-up'
+            return
+
+        password = $f.find('#passwordInput').val()
+        Session.set 'entryPassword', password
+        username = $f.find('#usernameInput').val()
+        username = username?.replace? /^\s*|\s*$/g, ""
+        Session.set 'entryUsername', username
         email = $f.find('[data-type="email"]').val()
         email = email?.replace? /^\s*|\s*$/g, ""
-        console.log "email", email
+        Session.set 'entryEmail', email
 
         Accounts.createUser({
             username: username,
@@ -132,9 +227,21 @@ Template.entrySignUpButton.events
             profile: AccountsEntry.config.defaultProfile || {}
         }, (error)->
             if error?
-                new Noty {type: 'error', layout: 'topRight', text: error.reason}
+                new Noty {
+                    timeout: 5100
+                    closeWith: ['hover']
+                    type: 'error'
+                    layout: 'topRight'
+                    text: error.reason
+                }
             else
-                new Noty {type: 'success', layout: 'topRight', text: 'Welcome new user.'}
+                new Noty {
+                    timeout: 5100
+                    closeWith: ['hover']
+                    type: 'success'
+                    layout: 'topRight'
+                    text: 'Welcome new user.'
+                }
                 Router.go AccountsEntry.config.dashboardRoute
         )
 
