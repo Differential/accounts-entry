@@ -107,6 +107,7 @@ Template.entrySignInButton.events
                     timeout: 4200
                     text: 'A valid password is required for signin.'
                 }
+            Session.set 'entryPassword', ""
             hasErrors = true
 
         if not $f.find('#identityInput').parsley('isValid')
@@ -116,9 +117,11 @@ Template.entrySignInButton.events
                     timeout: 4200
                     text: 'An valid identity is required for signin.'
                 }
+            Session.set 'entryIdentity', ""
             hasErrors = true
 
-        if hasErrors then return
+        if hasErrors
+            return
 
         email = $f.find('#identityInput').val()
         password = $f.find('#passwordInput').val()
@@ -175,6 +178,7 @@ Template.entrySignUpButton.events
                 timeout: 4200
                 text: 'A valid password is required for signup.'
             }
+            Session.set 'entryPassword', ""
             hasErrors = true
 
         fields = Accounts.ui._options.passwordSignupFields
@@ -195,6 +199,7 @@ Template.entrySignUpButton.events
                     timeout: 4200
                     text: 'A username is required for signup.'
                 }
+                Session.set 'entryUsername', ""
                 hasErrors = true
 
         if emailRequired
@@ -205,6 +210,7 @@ Template.entrySignUpButton.events
                     timeout: 4200
                     text: 'A valid email address is required for signup.'
                 }
+                Session.set 'entryEmail', ""
                 hasErrors = true
 
         if hasErrors
