@@ -45,7 +45,11 @@ Template.entrySignUp.helpers
 Template.entrySignUp.events
   'submit #signUp': (event, t) ->
       event.preventDefault()
-      username = t.find('input[type="string"]')?.value? || undefined
+      username =
+        if t.find('input[type="string"]')
+          t.find('input[type="string"]').value
+        else
+          undefined
       email = t.find('input[type="email"]').value
       password = t.find('input[type="password"]').value
 
