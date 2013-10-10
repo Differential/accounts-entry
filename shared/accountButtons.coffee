@@ -18,13 +18,6 @@ Template.entryAccountButtons.helpers
     return false unless AccountsEntry.config.profileRoute
     Router.path(AccountsEntry.config.profileRoute)
 
-Template.entryAccountButtons.events
-  "click .entry-sign-out": (event) ->
-    event.preventDefault()
-    if AccountsEntry.config.homeRoute
-      Meteor.logout()
-      Router.go(AccountsEntry.config.homeRoute)
-
 Template.entryAccountButtons.helpers
   wrapLinks: ->
     AccountsEntry.config.wrapLinks
