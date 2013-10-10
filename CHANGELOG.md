@@ -1,5 +1,10 @@
 ## Accounts Entry changelog
 
+### v0.2.10
+
+* Add a sign out route via iron router (/sign-out)
+* Make signedInAs a global helper instead of just in the accountButtons template
+
 ### v0.2.9
 
 * Return a string instead of true for the username on signup
