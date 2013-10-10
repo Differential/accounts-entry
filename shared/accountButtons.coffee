@@ -15,19 +15,16 @@ Template.entryAccountButtons.helpers
       "Logged In"
 
   profileUrl: ->
-    return false unless AccountsEntry.config.profileRoute
-    Router.path(AccountsEntry.config.profileRoute)
+    return false unless Meteor.call('entryProfileRoute')
+    Router.path(Meteor.call('entryProfileRoute'))
 
 Template.entryAccountButtons.events
   "click .entry-sign-out": (event) ->
     event.preventDefault()
-    if AccountsEntry.config.homeRoute
+    if Meteor.call('entryHomeRoute')
       Meteor.logout()
-      Router.go(AccountsEntry.config.homeRoute)
+      Router.go(Meteor.call('entryHomeRoute'))
 
 Template.entryAccountButtons.helpers
   wrapLinks: ->
-    AccountsEntry.config.wrapLinks
-
-  showUserName: ->
-    AccountsEntry.config.showUserName
+    Meteor.call('entryWrapLinks')

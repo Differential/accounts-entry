@@ -3,21 +3,23 @@ Package.describe({
 });
 
 Package.on_use(function(api) {
-  api.use(['deps',
-          'service-configuration',
-          'accounts-base',
-          'underscore',
-          'templating',
-          'handlebars',
-          'spark',
-          'session',
-          'coffeescript',
-          'iron-router',
-          'less'],
-        'client');
+  api.use([
+    'deps',
+    'service-configuration',
+    'accounts-base',
+    'underscore',
+    'templating',
+    'handlebars',
+    'spark',
+    'session',
+    'coffeescript',
+    'iron-router',
+    'less']
+  , 'client');
+
   api.imply('accounts-base', ['client', 'server']);
+
   api.add_files([
-    'entry.coffee',
     'router.coffee',
     'sign-in/signIn.html',
     'sign-in/signIn.coffee',
@@ -33,4 +35,16 @@ Package.on_use(function(api) {
     'shared/accountButtons.coffee',
     'entry.less']
   , 'client');
+
+  api.use([
+    'deps',
+    'service-configuration',
+    'accounts-password',
+    'accounts-base',
+    'underscore',
+    'coffeescript']
+  , 'server');
+
+  api.export('AccountsEntry', 'server');
+  api.add_files('entry.coffee', 'server');
 });

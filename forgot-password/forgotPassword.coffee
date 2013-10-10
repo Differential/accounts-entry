@@ -2,7 +2,7 @@ Template.entryForgotPassword.helpers
   error: -> Session.get('entryError')
 
   logo: ->
-    AccountsEntry.config.logo
+    Meteor.call('entryLogo')
 
 Template.entryForgotPassword.events
   'submit #forgotPassword': (event) ->
