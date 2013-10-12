@@ -20,7 +20,7 @@ Router.map ->
   @route 'entrySignOut',
     path: '/sign-out'
     before: ->
-      if AccountsEntry.config.homeRoute
+      if Session.get('entrySettings').homeRoute
         Meteor.logout()
-        Router.go AccountsEntry.config.homeRoute
+        Router.go Session.get('entrySettings').homeRoute
       @stop()
