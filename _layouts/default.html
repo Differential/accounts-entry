@@ -24,7 +24,7 @@
         )
       );
     </script>
-    <link rel="icon" href="{{ site.baseurl}}/favicon.ico" />
+    <link rel="icon" href="{{ site.baseurl }}/favicon.ico" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="{{ site.baseurl}}/css/bootstrap.css">
@@ -40,7 +40,7 @@
         <div class="col-md-3">
           <ul class="sidebar">
             <li {% if page.url == "/index.html" %}class="active"{% endif %}><a href="/">Documentation</a></li>
-            <li {% if page.url == "/changelog.html" %}class="active"{% endif %}><a href="/changelog.html">Changelog</a></li>
+            <li {% if page.url == "/changelog.html" %}class="active"{% endif %}><a href="{{ site.baseurl }}/changelog.html">Changelog</a></li>
           </ul>
         </div>
         <div class="col-md-9">
