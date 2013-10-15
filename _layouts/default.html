@@ -14,9 +14,12 @@
         $.get(
           'https://api.github.com/repos/bedifferential/accounts-entry/contributors',
           function(data) {
-            _.each(data, function(contributor) {
-              $('ul.contributors').append('<li><a href="' + contributor.url  + '"><img src="' +  contributor.avatar_url + '"></a></li>')
-            })
+            _.each(
+              _.first(data, 40),
+              function(contributor) {
+                $('ul.contributors').append('<li><a href="' + contributor.url  + '"><img src="' +  contributor.avatar_url + '"></a></li>')
+              }
+            )
           }
         )
       );
