@@ -39,8 +39,8 @@ You will get routes for:
 /forgot-password
 ```
 
-You can then either add links to those directly, or use the `\{\{accountButtons\}\}`
-helper we provide to give you the proper links.
+{% assign special = '{{accountButtons}}' %}
+You can then either add links to those directly, or use the `{{ special }}` helper we provide to give you the proper links.
 
 ## Setting up oauth/social integrations
 
