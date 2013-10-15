@@ -13,14 +13,12 @@ Package.on_use(function(api) {
     'spark',
     'session',
     'coffeescript',
-    'iron-router',
     'less']
   , 'client');
 
   api.imply('accounts-base', ['client', 'server']);
 
   api.add_files([
-    'router.coffee',
     'sign-in/signIn.html',
     'sign-in/signIn.coffee',
     'sign-up/signUp.html',
@@ -48,4 +46,7 @@ Package.on_use(function(api) {
 
   api.export('AccountsEntry', 'server');
   api.add_files('entry.coffee', 'server');
+
+  api.use('iron-router', ['client', 'server']);
+  api.add_files('router.coffee', ['client', 'server']);
 });
