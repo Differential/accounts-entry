@@ -15,7 +15,6 @@
           'https://api.github.com/repos/bedifferential/accounts-entry/contributors',
           function(data) {
             _.each(data, function(contributor) {
-              console.log(contributor)
               $('ul.contributors').append('<li><a href="' + contributor.url  + '"><img src="' +  contributor.avatar_url + '"></a></li>')
             })
           }
