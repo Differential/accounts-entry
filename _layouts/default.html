@@ -7,7 +7,22 @@
     <meta name="description" content="{{ page.desc }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    <script>
+        $.ready({
+        el = $('ul.contributors')
+        $.get(
+          'https://api.github.com/repos/bedifferential/accounts-entry/contributors',
+          function(data) {
+            _.each(data, function(contributor) {
+              el.append(
+                '<li><a href="' + contributor.url  + '"><img src="' +  contributor.avatar_url + '"></a></li>'
+              )
+            });
+          });
+        });
+    </script>
     <link rel="icon" href="{{ site.baseurl}}/favicon.ico" />
 
     <!-- CSS -->
@@ -43,24 +58,7 @@
           </div>
           <div class="col-md-4">
             <h3>Contributors</h3>
-            <ul class="contributors">
-              <li><a href="#"><img src="http://differential.io/assets/people/david.jpg"></a></li>
-              <li><a href="#"><img src="http://differential.io/assets/people/david.jpg"></a></li>
-              <li><a href="#"><img src="http://differential.io/assets/people/david.jpg"></a></li>
-              <li><a href="#"><img src="http://differential.io/assets/people/david.jpg"></a></li>
-              <li><a href="#"><img src="http://differential.io/assets/people/david.jpg"></a></li>
-              <li><a href="#"><img src="http://differential.io/assets/people/david.jpg"></a></li>
-              <li><a href="#"><img src="http://differential.io/assets/people/david.jpg"></a></li>
-              <li><a href="#"><img src="http://differential.io/assets/people/david.jpg"></a></li>
-              <li><a href="#"><img src="http://differential.io/assets/people/david.jpg"></a></li>
-              <li><a href="#"><img src="http://differential.io/assets/people/david.jpg"></a></li>
-              <li><a href="#"><img src="http://differential.io/assets/people/david.jpg"></a></li>
-              <li><a href="#"><img src="http://differential.io/assets/people/david.jpg"></a></li>
-              <li><a href="#"><img src="http://differential.io/assets/people/david.jpg"></a></li>
-              <li><a href="#"><img src="http://differential.io/assets/people/david.jpg"></a></li>
-              <li><a href="#"><img src="http://differential.io/assets/people/david.jpg"></a></li>
-              <li><a href="#"><img src="http://differential.io/assets/people/david.jpg"></a></li>
-            </ul>
+            <ul class="contributors"></ul>
           </div>
         </div>
       </div>
