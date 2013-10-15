@@ -21,10 +21,10 @@ Router](https://github.com/EventedMind/iron-router), [Bootstrap
 
 Run:
 
-````
+```
 mrt add accounts-ui
 mrt add accounts-entry
-````
+```
 
 You need to have `accounts-ui` package, as we depend on aspects of it.
 
@@ -32,18 +32,14 @@ You need to have `accounts-ui` package, as we depend on aspects of it.
 
 You will get routes for:
 
-````
+```
 /sign-in
 /sign-out
 /sign-up
 /forgot-password
-````
+```
 
-You can then either add links to those directly, or use the 
-
-````
-{{accountButtons}}
-```` 
+You can then either add links to those directly, or use the `{{accountButtons}}`
 helper we provide to give you the proper links.
 
 ## Setting up oauth/social integrations
