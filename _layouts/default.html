@@ -55,7 +55,9 @@
             <h1>{{ page.repo }}</h1>
             <p class="lead">{{ page.desc }}</p>
             <div class="version">{{ page.version }}</div>
-            <iframe src="http://ghbtns.com/github-btn.html?user={{ page.username }}&repo={{ page.repo }}&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="200" height="35"></iframe>
+            <a href="http://github.com/{{ page.username }}/{{ page.repo }}" class="bttn bttnBlue"><i class="icon-github"></i> View on Github</a>
+
+            <a href="https://github.com/{{ page.username }}/{{ page.repo }}/archive/master.zip" class="bttn bttnOrange"><i class="icon-download"></i> Download Zip ({{ page.version }})</a>
           </div>
           <div class="col-md-4">
             <h3>Contributors</h3>
@@ -64,6 +66,12 @@
         </div>
       </div>
     </section>
+
+    <div class="main container">
+
+      {{ content }}
+
+    </div>
 
   </body>
 </html>
