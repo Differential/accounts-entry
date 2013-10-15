@@ -6,7 +6,7 @@ version: 0.2.10
 desc: A meteorite package for meteor sign up and sign in pages.
 
 ---
-## Accounts Entry changelog
+# Changelog
 
 ### v0.2.10
 
