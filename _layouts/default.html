@@ -33,45 +33,23 @@
   </head>
   <body>
 
-    <header>
-      <div class="navbar navbar-inverse">
-        <div class="container">
-          <div class="navbar-brand">
-            <div class="navbar-admin-brand">
-              <a href="http://differential.io" target="_blank"><img src="{{ site.baseurl}}/images/logo-sq-orange-web.png"></a>
-              DEVELOPERS
-            </div>
-          </div>
-          <ul class="nav navbar-nav pull-right">
-          </ul>
-        </div>
-      </div>
-    </header>
-
-    <section class="billboard">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8">
-            <h1>{{ page.repo }}</h1>
-            <p class="lead">{{ page.desc }}</p>
-            <div class="version">{{ page.version }}</div>
-            <a href="http://github.com/{{ page.username }}/{{ page.repo }}" class="bttn bttnBlue"><i class="icon-github"></i> View on Github</a>
-
-            <a href="https://github.com/{{ page.username }}/{{ page.repo }}/archive/master.zip" class="bttn bttnOrange"><i class="icon-download"></i> Download Zip ({{ page.version }})</a>
-          </div>
-          <div class="col-md-4">
-            <h3>Contributors</h3>
-            <ul class="contributors"></ul>
-          </div>
-        </div>
-      </div>
-    </section>
+    {% include header.html %}
 
     <div class="main container">
-
-      {{ content }}
-
+      <div class="row">
+        <div class="col-md-3">
+          <ul class="sidebar">
+            <li class="active"><a href="{{ site.baseurl}}">Documentation</a></li>
+            <li><a href="/changelog">Changelog</a></li>
+          </ul>
+        </div>
+        <div class="col-md-9">
+          {{ content }}
+        </div>
+      </div>
     </div>
+
+    {% include footer.html %}
 
   </body>
 </html>
