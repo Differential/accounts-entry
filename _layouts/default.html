@@ -10,18 +10,17 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
     <script>
-        $.ready({
-        el = $('ul.contributors')
+      $(
         $.get(
           'https://api.github.com/repos/bedifferential/accounts-entry/contributors',
           function(data) {
             _.each(data, function(contributor) {
-              el.append(
-                '<li><a href="' + contributor.url  + '"><img src="' +  contributor.avatar_url + '"></a></li>'
-              )
-            });
-          });
-        });
+              console.log(contributor)
+              $('ul.contributors').append('<li><a href="' + contributor.url  + '"><img src="' +  contributor.avatar_url + '"></a></li>')
+            })
+          }
+        )
+      );
     </script>
     <link rel="icon" href="{{ site.baseurl}}/favicon.ico" />
 
