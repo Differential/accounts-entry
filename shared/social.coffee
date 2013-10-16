@@ -7,7 +7,7 @@ Template.entrySocial.helpers
       true
 
 Template.entrySocial.events
-  'click .btn': ->
+  'click .btn': (event)->
     serviceName = $(event.target).attr('id').split('-')[1]
     callback = (err) ->
       if (!err)
