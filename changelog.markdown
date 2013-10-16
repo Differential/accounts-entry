@@ -8,6 +8,13 @@ desc: A meteorite package for meteor sign up and sign in pages.
 ---
 # Changelog
 
+### v0.3.0
+
+* Optionally protect signup form with a signup code
+* Move configuration to server
+* Configuration is set by calling a method rather than setting an
+  attribute of AccountsEntry object
+
 ### v0.2.10
 
 * Add a sign out route via iron router (/sign-out)

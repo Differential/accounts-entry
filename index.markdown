@@ -2,7 +2,7 @@
 layout: default
 username: BeDifferential
 repo: accounts-entry
-version: 0.2.10
+version: 0.3.0
 desc: A meteorite package for meteor sign up and sign in pages.
 
 ---
@@ -58,25 +58,31 @@ Meteor.startup ->
     passwordSignupFields: 'EMAIL_ONLY'
   )
 ```
-
-Somewhere in your client code, set `AccountsEntry.config` equal to a hash of configuration options:
+Somewhere in your server code, call `AccountsEntry.config`
+with a hash of optional configuration:
 
 ```
 Meteor.startup ->
-  AccountsEntry.config = {
-    logo: 'logo.png',
-    privacyUrl: '/privacy-policy',
-    termsUrl: '/terms-of-use',
-    homeRoute: 'home',
-    dashboardRoute: 'dashboard',
+  AccountsEntry.config
+    logo: 'logo.png'
+    signupCode: 's3cr3t'
+    privacyUrl: '/privacy-policy'
+    termsUrl: '/terms-of-use'
+    homeRoute: 'home'
+    dashboardRoute: 'dashboard'
     profileRoute: 'profile'
     defaultProfile: 
         someDefault: 'default'
-  }
 ```
 
-It's OK to leave some config blank, if you don't have a logo, privacy
-policy, terms of use for your app.
+The default configuration includes:
 
-But you must provide a route for home (used when signing out) and
+````
+  wrapLinks: true
+  homeRoute: 'home'
+  dashboardRoute: 'dashboard'
+  defaultProfile: {}
+````
+
+You must provide a route for home (used when signing out) and
 dashboard (used after signing in).
