@@ -10,6 +10,7 @@ desc: A meteorite package for meteor sign up and sign in pages.
 
 ### v0.3.0
 
+* Fix client side login to happen after we create the user server side [#24](https://github.com/BeDifferential/accounts-entry/issues/24)
 * Fix an issue with event passing and Firefox/IE issues [#23](https://github.com/BeDifferential/accounts-entry/issues/23)
 * Optionally protect signup form with a signup code
 * Move configuration to server
