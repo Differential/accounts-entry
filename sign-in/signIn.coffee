@@ -14,7 +14,7 @@ Template.entrySignIn.helpers
     return 'Email'
 
   logo: ->
-    AccountsEntry.config.logo
+    Meteor.call('entryLogo')
 
 Template.entrySignIn.events
   'submit #signIn': (event) ->

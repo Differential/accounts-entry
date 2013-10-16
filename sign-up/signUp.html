@@ -29,7 +29,7 @@
           {{#if showUsername}}
             <div class="form-group">
               <label>Username</label>
-              <input type="string" class="form-control" value=''>
+              <input name="username" type="string" class="form-control" value=''>
             </div>
           {{/if}}
 
@@ -44,6 +44,14 @@
             <label>Password</label>
             <input type="password" class="form-control" value=''>
           </div>
+
+          {{#if showSignupCode}}
+            <div class="form-group">
+              <label>Signup Code</label>
+              <input name="signupCode" type="string" class="form-control" value=''>
+            </div>
+          {{/if}}
+
           <button type="submit" class="submit btn btn-default">Sign up</button>
         </form>
         {{#if both}}

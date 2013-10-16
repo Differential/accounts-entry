@@ -3,22 +3,22 @@ Package.describe({
 });
 
 Package.on_use(function(api) {
-  api.use(['deps',
-          'service-configuration',
-          'accounts-base',
-          'underscore',
-          'templating',
-          'handlebars',
-          'spark',
-          'session',
-          'coffeescript',
-          'iron-router',
-          'less'],
-        'client');
+  api.use([
+    'deps',
+    'service-configuration',
+    'accounts-base',
+    'underscore',
+    'templating',
+    'handlebars',
+    'spark',
+    'session',
+    'coffeescript',
+    'less']
+  , 'client');
+
   api.imply('accounts-base', ['client', 'server']);
+
   api.add_files([
-    'entry.coffee',
-    'router.coffee',
     'sign-in/signIn.html',
     'sign-in/signIn.coffee',
     'sign-up/signUp.html',
@@ -34,4 +34,19 @@ Package.on_use(function(api) {
     'entry.less',
     'helper.js']
   , 'client');
+
+  api.use([
+    'deps',
+    'service-configuration',
+    'accounts-password',
+    'accounts-base',
+    'underscore',
+    'coffeescript']
+  , 'server');
+
+  api.export('AccountsEntry', 'server');
+  api.add_files('entry.coffee', 'server');
+
+  api.use('iron-router', ['client', 'server']);
+  api.add_files('router.coffee', ['client', 'server']);
 });

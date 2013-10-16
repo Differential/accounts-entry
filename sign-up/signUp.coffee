@@ -1,3 +1,10 @@
+Meteor.call('entrySettings', (err, data) ->
+  if err
+    console.log err
+
+  Session.set('entrySettings', data)
+)
+
 Handlebars.registerHelper 'capitalize', (str) ->
   str.charAt(0).toUpperCase() + str.slice(1)
 
@@ -25,87 +32,107 @@ Template.entrySignUp.helpers
       'USERNAME_AND_OPTIONAL_EMAIL',
       'USERNAME_ONLY'], fields)
 
+  showSignupCode: ->
+    Session.get('entrySettings').showSignupCode
+
   logo: ->
-    AccountsEntry.config.logo
+    Session.get('entrySettings').logo
 
   privacyUrl: ->
-    AccountsEntry.config.privacyUrl
+    Session.get('entrySettings').privacyUrl
 
   termsUrl: ->
-    AccountsEntry.config.termsUrl
+    Session.get('entrySettings').termsUrl
 
   both: ->
-    AccountsEntry.config.privacyUrl &&
-    AccountsEntry.config.termsUrl
+    Session.get('entrySettings').privacyUrl &&
+    Session.get('entrySettings').termsUrl
 
   neither: ->
-    !AccountsEntry.config.privacyUrl &&
-    !AccountsEntry.config.termsUrl
+    !Session.get('entrySettings').privacyUrl &&
+    !Session.get('entrySettings').termsUrl
 
 Template.entrySignUp.events
   'submit #signUp': (event, t) ->
-      event.preventDefault()
-      username =
-        if t.find('input[type="string"]')
-          t.find('input[type="string"]').value
-        else
-          undefined
-      email = t.find('input[type="email"]').value
-      password = t.find('input[type="password"]').value
+    event.preventDefault()
 
-      fields = Accounts.ui._options.passwordSignupFields
+    username =
+      if t.find('input[name="username"]')
+        t.find('input[name="username"]').value
+      else
+        undefined
 
-      trimInput = (val)->
-          val.replace /^\s*|\s*$/g, ""
+    signupCode =
+      if t.find('input[name="signupCode"]')
+        t.find('input[name="signupCode"]').value
+      else
+        undefined
 
-      passwordErrors = do (password)->
-          errMsg = []
-          msg = false
-          if password.length < 7
-              errMsg.push "7 character minimum password."
-          if password.search(/[a-z]/i) < 0
-              errMsg.push "Password requires 1 letter."
-          if password.search(/[0-9]/) < 0
-              errMsg.push "Password must have at least one digit."
+    email = t.find('input[type="email"]').value
+    password = t.find('input[type="password"]').value
 
-          if errMsg.length > 0
-              msg = ""
-              errMsg.forEach (e) ->
-                  msg = msg.concat "#{e}\r\n"
+    fields = Accounts.ui._options.passwordSignupFields
 
-              Session.set 'entryError', msg
-              return true
+    trimInput = (val)->
+      val.replace /^\s*|\s*$/g, ""
 
-          return false
+    passwordErrors = do (password)->
+      errMsg = []
+      msg = false
+      if password.length < 7
+        errMsg.push "7 character minimum password."
+      if password.search(/[a-z]/i) < 0
+        errMsg.push "Password requires 1 letter."
+      if password.search(/[0-9]/) < 0
+        errMsg.push "Password must have at least one digit."
 
-      if passwordErrors then return
+      if errMsg.length > 0
+        msg = ""
+        errMsg.forEach (e) ->
+          msg = msg.concat "#{e}\r\n"
 
-      email = trimInput email
+        Session.set 'entryError', msg
+        return true
 
-      emailRequired = _.contains([
-          'USERNAME_AND_EMAIL',
-          'EMAIL_ONLY'], fields)
+      return false
 
-      usernameRequired = _.contains([
-          'USERNAME_AND_EMAIL',
-          'USERNAME_ONLY'], fields)
+    if passwordErrors then return
 
-      if usernameRequired && email.length is 0
-          Session.set('entryError', 'Username is required')
-          return
+    email = trimInput email
 
-      if emailRequired && email.length is 0
-          Session.set('entryError', 'Email is required')
-          return
+    emailRequired = _.contains([
+      'USERNAME_AND_EMAIL',
+      'EMAIL_ONLY'], fields)
 
-      Accounts.createUser({
-          username: username,
-          email: email,
-          password: password,
-          profile: AccountsEntry.config.defaultProfile || {}
-      }, (error)->
-          if error
-              Session.set('entryError', error.reason)
-          else
-              Router.go(AccountsEntry.config.dashboardRoute)
-      )
+    usernameRequired = _.contains([
+      'USERNAME_AND_EMAIL',
+      'USERNAME_ONLY'], fields)
+
+    if usernameRequired && email.length is 0
+      Session.set('entryError', 'Username is required')
+      return
+
+    if emailRequired && email.length is 0
+      Session.set('entryError', 'Email is required')
+      return
+
+    if Session.get('entrySettings').showSignupCode && signupCode.length is 0
+      Session.set('entryError', 'Signup code is required')
+      return
+
+    Meteor.call('entryValidateSignupCode', signupCode, (err, valid) ->
+      if err
+        console.log err
+      if valid
+        Meteor.call('accountsCreateUser', username, email, password, (err, data) ->
+          if err
+            Session.set('entryError', err.reason)
+            return
+
+          Router.go(Session.get('entrySettings').dashboardRoute)
+        )
+      else
+        Session.set('entryError', 'Signup code is incorrect')
+        return
+    )
+
