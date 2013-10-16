@@ -52,16 +52,17 @@ Since this is a young package, we are maintaining compatibility with accounts-ui
 
 As such, the `passwordSignupFields` attributes from Accounts.ui.config is read by accounts-entry to determine what fields to show during sign up and sign in.
 
-```
+{% highlight coffee %}
 Meteor.startup ->
   Accounts.ui.config(
     passwordSignupFields: 'EMAIL_ONLY'
   )
-```
+{% endhighlight %}
+
 Somewhere in your server code, call `AccountsEntry.config`
 with a hash of optional configuration:
 
-```
+{% highlight coffee %}
 Meteor.startup ->
   AccountsEntry.config
     logo: 'logo.png'
@@ -73,16 +74,16 @@ Meteor.startup ->
     profileRoute: 'profile'
     defaultProfile: 
         someDefault: 'default'
-```
+{% endhighlight %}
 
 The default configuration includes:
 
-````
+{% highlight coffee %}
   wrapLinks: true
   homeRoute: 'home'
   dashboardRoute: 'dashboard'
   defaultProfile: {}
-````
+{% endhighlight %}
 
 You must provide a route for home (used when signing out) and
 dashboard (used after signing in).
