@@ -129,6 +129,16 @@ Template.entrySignUp.events
             Session.set('entryError', err.reason)
             return
 
+
+          #login on client
+          if  _.contains([
+            'USERNAME_AND_EMAIL',
+            'USERNAME_AND_OPTIONAL_EMAIL',
+            'EMAIL_ONLY'], Accounts.ui._options.passwordSignupFields)
+            Meteor.loginWithPassword(email, password)
+          else
+            Meteor.loginWithPassword(username, password)
+
           Router.go(Session.get('entrySettings').dashboardRoute)
         )
       else
