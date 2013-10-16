@@ -52,7 +52,7 @@ Since this is a young package, we are maintaining compatibility with accounts-ui
 
 As such, the `passwordSignupFields` attributes from Accounts.ui.config is read by accounts-entry to determine what fields to show during sign up and sign in.
 
-{% highlight coffee %}
+{% highlight coffeescript %}
 Meteor.startup ->
   Accounts.ui.config(
     passwordSignupFields: 'EMAIL_ONLY'
@@ -62,7 +62,7 @@ Meteor.startup ->
 Somewhere in your server code, call `AccountsEntry.config`
 with a hash of optional configuration:
 
-{% highlight coffee %}
+{% highlight coffeescript %}
 Meteor.startup ->
   AccountsEntry.config
     logo: 'logo.png'
@@ -78,7 +78,7 @@ Meteor.startup ->
 
 The default configuration includes:
 
-{% highlight coffee %}
+{% highlight coffeescript %}
   wrapLinks: true
   homeRoute: 'home'
   dashboardRoute: 'dashboard'
