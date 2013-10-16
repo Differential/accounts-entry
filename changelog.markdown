@@ -10,6 +10,7 @@ desc: A meteorite package for meteor sign up and sign in pages.
 
 ### v0.3.0
 
+* Fix an issue with event passing and Firefox/IE issues [#23]
 * Optionally protect signup form with a signup code
 * Move configuration to server
 * Configuration is set by calling a method rather than setting an
