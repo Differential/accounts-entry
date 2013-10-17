@@ -31,7 +31,7 @@ Template.entrySocial.events
 
     loginWithService(options, callback)
 
-    Router.go('/')
+    Router.go Session.get('entrySettings').dashboardRoute
 
 capitalize = (str) ->
   str.charAt(0).toUpperCase() + str.slice(1)
