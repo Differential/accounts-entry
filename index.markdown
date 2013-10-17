@@ -48,6 +48,8 @@ Use `accounts-ui` to configure your social/oauth integrations (or manually creat
 
 ## Configuration
 
+### On the client (only)
+
 Since this is a young package, we are maintaining compatibility with accounts-ui (so if in a pinch accounts-entry is broken for you, you could easily switch to accounts-ui).
 
 As such, the `passwordSignupFields` attributes from Accounts.ui.config is read by accounts-entry to determine what fields to show during sign up and sign in.
@@ -59,8 +61,9 @@ Meteor.startup ->
   )
 {% endhighlight %}
 
-Somewhere in your server code, call `AccountsEntry.config`
-with a hash of optional configuration:
+### On the server (only)
+
+Call `AccountsEntry.config` with a hash of optional configuration:
 
 {% highlight coffeescript %}
 Meteor.startup ->
