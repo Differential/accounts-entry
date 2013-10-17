@@ -26,5 +26,5 @@ Template.entrySignIn.events
       if error
         Session.set('entryError', error.reason)
       else
-        Router.go('/')
+        Router.go Session.get('entrySettings').dashboardRoute
     )
