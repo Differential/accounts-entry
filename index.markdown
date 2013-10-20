@@ -23,6 +23,7 @@ Run:
 
 ```
 mrt add accounts-ui
+mrt add accounts-password
 mrt add accounts-entry
 ```
 
