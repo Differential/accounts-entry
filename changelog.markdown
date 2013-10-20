@@ -8,6 +8,10 @@ desc: Meteor sign up and sign in pages.
 ---
 # Changelog
 
+### v0.3.1
+
+* Fix various router redirects to use variables set in the config instead of hardcodings [#25](https://github.com/BeDifferential/accounts-entry/issues/25) and [#26](https://github.com/BeDifferential/accounts-entry/issues/26)
+
 ### v0.3.0
 
 * Fix client side login to happen after we create the user server side [#24](https://github.com/BeDifferential/accounts-entry/issues/24)
