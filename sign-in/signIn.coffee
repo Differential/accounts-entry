@@ -1,3 +1,7 @@
+Deps.autorun ->
+  if Session.get('entrySettings') and Meteor.userId()?
+    Router.go Session.get('entrySettings').dashboardRoute
+
 Template.entrySignIn.helpers
   emailOnly: ->
     Accounts.ui._options.passwordSignupFields is 'EMAIL_ONLY'
