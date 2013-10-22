@@ -1,8 +1,3 @@
-Meteor.startup ->
-  Deps.autorun ->
-    if Session.get('entrySettings') and Meteor.userId()?
-      Router.go Session.get('entrySettings').dashboardRoute
-
 Meteor.call('entrySettings', (err, data) ->
   if err
     console.log err
