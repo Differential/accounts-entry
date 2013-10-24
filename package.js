@@ -19,6 +19,7 @@ Package.on_use(function(api) {
   api.imply('accounts-base', ['client', 'server']);
 
   api.add_files([
+    'shared/start.coffee',
     'sign-in/signIn.html',
     'sign-in/signIn.coffee',
     'sign-up/signUp.html',
@@ -44,7 +45,7 @@ Package.on_use(function(api) {
     'coffeescript']
   , 'server');
 
-  api.export('AccountsEntry', 'server');
+  api.export('AccountsEntry', ['client', 'server']);
   api.add_files('entry.coffee', 'server');
 
   api.use('iron-router', ['client', 'server']);
