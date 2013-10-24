@@ -9,4 +9,4 @@ Template.entryAccountButtons.helpers
     Router.path(Meteor.call('entryProfileRoute'))
 
   wrapLinks: ->
-    Meteor.call('entryWrapLinks')
+    Session.get('entrySettings').wrapLinks
