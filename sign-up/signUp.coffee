@@ -1,20 +1,3 @@
-Meteor.call('entrySettings', (err, data) ->
-  if err
-    console.log err
-
-  Session.set('entrySettings', data)
-)
-
-Handlebars.registerHelper 'capitalize', (str) ->
-  str.charAt(0).toUpperCase() + str.slice(1)
-
-Handlebars.registerHelper 'otherLoginServices', ->
-  Accounts.oauth &&
-  Accounts.oauth.serviceNames().length > 0
-
-Handlebars.registerHelper 'loginServices', ->
-  Accounts.oauth.serviceNames()
-
 Template.entrySignUp.helpers
   showEmail: ->
     fields = Accounts.ui._options.passwordSignupFields

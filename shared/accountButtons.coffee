@@ -1,3 +1,10 @@
+Meteor.call('entrySettings', (err, data) ->
+  if err
+    console.log err
+
+  Session.set('entrySettings', data)
+)
+
 Handlebars.registerHelper(
   "accountButtons", ->
     return new Handlebars.SafeString(Template.entryAccountButtons())
