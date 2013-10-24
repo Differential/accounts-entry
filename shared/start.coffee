@@ -1,12 +1,11 @@
-Meteor.startup ->
-  AccountsEntry =
-    settings:
-      wrapLinks: true
+AccountsEntry =
+  settings:
+    wrapLinks: true
 
-    config: (appConfig) ->
-      @settings = _.extend(@settings, appConfig)
+  config: (appConfig) ->
+    @settings = _.extend(@settings, appConfig)
 
-  @AccountsEntry = AccountsEntry
+@AccountsEntry = AccountsEntry
 
 Handlebars.registerHelper 'capitalize', (str) ->
   str.charAt(0).toUpperCase() + str.slice(1)
