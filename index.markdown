@@ -64,8 +64,8 @@ Meteor.startup ->
     logo: 'logo.png'
     privacyUrl: '/privacy-policy'
     termsUrl: '/terms-of-use'
-    homeRoute: 'home'
-    dashboardRoute: 'dashboard'
+    homeRoute: '/'
+    dashboardRoute: '/dashboard'
     profileRoute: 'profile'
     showSignupCode: true
 {% endhighlight %}
@@ -78,7 +78,7 @@ Call `AccountsEntry.config` with a hash of optional configuration:
 Meteor.startup ->
   AccountsEntry.config
     signupCode: 's3cr3t'
-    defaultProfile: 
+    defaultProfile:
         someDefault: 'default'
 {% endhighlight %}
 
@@ -86,9 +86,13 @@ The default configuration includes:
 
 {% highlight coffeescript %}
   wrapLinks: true
-  homeRoute: 'home'
-  dashboardRoute: 'dashboard'
+  homeRoute: '/'
+  dashboardRoute: '/dashboard'
 {% endhighlight %}
 
 You must provide a route for home (used when signing out) and
 dashboard (used after signing in).
+
+## Interested in building a quick meteor app that starts with Accounts-Entry?
+
+We've create a [meteor-boilerplate repo](http://github.differential.io/meteor-boilerplate/) that you can clone as a starting point for an app.  It follows all our standards that we use for building apps for our clients.
