@@ -16,24 +16,24 @@ Template.entrySignUp.helpers
       'USERNAME_ONLY'], fields)
 
   showSignupCode: ->
-    Session.get('entrySettings').showSignupCode
+    AccountsEntry.settings.showSignupCode
 
   logo: ->
-    Session.get('entrySettings').logo
+    AccountsEntry.settings.logo
 
   privacyUrl: ->
-    Session.get('entrySettings').privacyUrl
+    AccountsEntry.settings.privacyUrl
 
   termsUrl: ->
-    Session.get('entrySettings').termsUrl
+    AccountsEntry.settings.termsUrl
 
   both: ->
-    Session.get('entrySettings').privacyUrl &&
-    Session.get('entrySettings').termsUrl
+    AccountsEntry.settings.privacyUrl &&
+    AccountsEntry.settings.termsUrl
 
   neither: ->
-    !Session.get('entrySettings').privacyUrl &&
-    !Session.get('entrySettings').termsUrl
+    !AccountsEntry.settings.privacyUrl &&
+    !AccountsEntry.settings.termsUrl
 
 Template.entrySignUp.events
   'submit #signUp': (event, t) ->
@@ -99,7 +99,7 @@ Template.entrySignUp.events
       Session.set('entryError', 'Email is required')
       return
 
-    if Session.get('entrySettings').showSignupCode && signupCode.length is 0
+    if AccountsEntry.settings.showSignupCode && signupCode.length is 0
       Session.set('entryError', 'Signup code is required')
       return
 
@@ -122,7 +122,7 @@ Template.entrySignUp.events
           else
             Meteor.loginWithPassword(username, password)
 
-          Router.go(Session.get('entrySettings').dashboardRoute)
+          Router.go AccountsEntry.settings.dashboardRoute
         )
       else
         Session.set('entryError', 'Signup code is incorrect')

@@ -11,7 +11,7 @@ Template.entrySocial.events
     serviceName = $(event.target).attr('id').split('-')[1]
     callback = (err) ->
       if (!err)
-        Router.go Session.get('entrySettings').dashboardRoute
+        Router.go AccountsEntry.settings.dashboardRoute
       else if (err instanceof Accounts.LoginCancelledError)
         # do nothing
       else if (err instanceof ServiceConfiguration.ConfigError)
@@ -31,7 +31,7 @@ Template.entrySocial.events
 
     loginWithService(options, callback)
 
-    Router.go Session.get('entrySettings').dashboardRoute
+    Router.go AccountsEntry.settings.dashboardRoute
 
 capitalize = (str) ->
   str.charAt(0).toUpperCase() + str.slice(1)
