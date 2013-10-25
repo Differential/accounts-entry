@@ -8,6 +8,14 @@ desc: Meteor sign up and sign in pages.
 ---
 # Changelog
 
+### v0.4.0
+
+* Change configuration to be partially on client, partially on server.
+  There were issues with getting the Session set based on a Meteor.call
+  with the previous implementation, so most settings are back on the
+  client, only signupCode and defaultProfile are set on server now.
+* Fixes bug to allow signup without signupCode
+
 ### v0.3.1
 
 * Fix various router redirects to use variables set in the config instead of hardcodings [#25](https://github.com/BeDifferential/accounts-entry/issues/25) and [#26](https://github.com/BeDifferential/accounts-entry/issues/26)
