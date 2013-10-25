@@ -2,7 +2,7 @@
 layout: default
 username: BeDifferential
 repo: accounts-entry
-version: 0.3.1
+version: 0.4.0
 desc: Meteor sign up and sign in pages.
 
 ---
@@ -60,6 +60,14 @@ Meteor.startup ->
   Accounts.ui.config(
     passwordSignupFields: 'EMAIL_ONLY'
   )
+  AccountsEntry.config
+    logo: 'logo.png'
+    privacyUrl: '/privacy-policy'
+    termsUrl: '/terms-of-use'
+    homeRoute: 'home'
+    dashboardRoute: 'dashboard'
+    profileRoute: 'profile'
+    showSignupCode: true
 {% endhighlight %}
 
 ### On the server (only)
@@ -69,13 +77,7 @@ Call `AccountsEntry.config` with a hash of optional configuration:
 {% highlight coffeescript %}
 Meteor.startup ->
   AccountsEntry.config
-    logo: 'logo.png'
     signupCode: 's3cr3t'
-    privacyUrl: '/privacy-policy'
-    termsUrl: '/terms-of-use'
-    homeRoute: 'home'
-    dashboardRoute: 'dashboard'
-    profileRoute: 'profile'
     defaultProfile: 
         someDefault: 'default'
 {% endhighlight %}
@@ -86,7 +88,6 @@ The default configuration includes:
   wrapLinks: true
   homeRoute: 'home'
   dashboardRoute: 'dashboard'
-  defaultProfile: {}
 {% endhighlight %}
 
 You must provide a route for home (used when signing out) and
