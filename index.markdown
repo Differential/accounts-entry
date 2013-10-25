@@ -57,9 +57,9 @@ As such, the `passwordSignupFields` attributes from Accounts.ui.config is read b
 
 {% highlight coffeescript %}
 Meteor.startup ->
-  Accounts.ui.config(
+  Accounts.ui.config
     passwordSignupFields: 'EMAIL_ONLY'
-  )
+
   AccountsEntry.config
     logo: 'logo.png'
     privacyUrl: '/privacy-policy'
