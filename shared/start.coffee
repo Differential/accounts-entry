@@ -12,9 +12,9 @@ AccountsEntry =
 Handlebars.registerHelper 'capitalize', (str) ->
   str.charAt(0).toUpperCase() + str.slice(1)
 
-Handlebars.registerHelper 'otherLoginServices', ->
-  Accounts.oauth &&
-  Accounts.oauth.serviceNames().length > 0
+Handlebars.registerHelper 'signupClass', ->
+  if Accounts.oauth && Accounts.oauth.serviceNames().length > 0
+    "collapse"
 
 Handlebars.registerHelper 'loginServices', ->
   Accounts.oauth.serviceNames()
