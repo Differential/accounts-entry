@@ -5,8 +5,8 @@ Handlebars.registerHelper(
 
 Template.entryAccountButtons.helpers
   profileUrl: ->
-    return false unless Meteor.call('entryProfileRoute')
-    Router.path(Meteor.call('entryProfileRoute'))
+    return false unless AccountsEntry.settings.profileRoute
+    Router.path(AccountsEntry.settings.profileRoute)
 
   wrapLinks: ->
     AccountsEntry.settings.wrapLinks

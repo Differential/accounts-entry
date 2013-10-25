@@ -14,7 +14,7 @@ Template.entrySignIn.helpers
     return 'Email'
 
   logo: ->
-    Meteor.call('entryLogo')
+    AccountsEntry.settings.logo
 
 Template.entrySignIn.events
   'submit #signIn': (event) ->
@@ -26,5 +26,5 @@ Template.entrySignIn.events
       if error
         Session.set('entryError', error.reason)
       else
-        Router.go Session.get('entrySettings').dashboardRoute
+        Router.go AccountsEntry.settings.dashboardRoute
     )

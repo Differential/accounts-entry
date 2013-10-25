@@ -19,5 +19,5 @@ Template.entryForgotPassword.events
         if error
           Session.set('entryError', error.reason)
         else
-          Router.go('/')
+          Router.go AccountsEntry.settings.dashboardRoute
     )

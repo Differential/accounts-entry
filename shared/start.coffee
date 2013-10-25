@@ -1,6 +1,8 @@
 AccountsEntry =
   settings:
     wrapLinks: true
+    homeRoute: 'home'
+    dashboardRoute: 'dashboard'
 
   config: (appConfig) ->
     @settings = _.extend(@settings, appConfig)
