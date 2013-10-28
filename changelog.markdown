@@ -2,11 +2,15 @@
 layout: default
 username: BeDifferential
 repo: accounts-entry
-version: 0.4.0
+version: 0.4.1
 desc: Meteor sign up and sign in pages.
 
 ---
 # Changelog
+
+### v0.4.1
+
+* Change version of iron-router we are pulling in, now use 0.6.0
 
 ### v0.4.0
 
