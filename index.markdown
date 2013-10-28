@@ -17,6 +17,10 @@ Router](https://github.com/EventedMind/iron-router), [Bootstrap
 
 [Changelog](https://github.com/BeDifferential/accounts-entry/blob/master/CHANGELOG.md)
 
+## Compatibility
+
+accounts-entry is presently compatible with Iron Router 0.5.4 and 0.6.0.
+
 ## Getting started
 
 Run:
