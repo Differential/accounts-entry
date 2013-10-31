@@ -53,6 +53,12 @@ Use `accounts-ui` to configure your social/oauth integrations (or manually creat
 
 ## Configuration
 
+### Signup codes
+
+We have added support for a signupCode in case you want to have a special code to handout to keep signups as a pace you want. This code is checked if you turn on the client and server side options listed below.
+
+The signup code is only checked for accounts-password logins, so know that oAuth logins will still allow people in.
+
 ### On the client (only)
 
 Since this is a young package, we are maintaining compatibility with accounts-ui (so if in a pinch accounts-entry is broken for you, you could easily switch to accounts-ui).
@@ -96,12 +102,6 @@ The default configuration includes:
 
 You must provide a route for home (used when signing out) and
 dashboard (used after signing in).
-
-### Signup codes
-
-We have added support for a signupCode in case you want to have a special code to handout to keep signups as a pace you want. This code is checked if you turn on the client and server side options listed below.
-
-The signup code is only checked for accounts-password logins, so know that oAuth logins will still allow people in.
 
 ## Interested in building a quick meteor app that starts with Accounts-Entry?
 
