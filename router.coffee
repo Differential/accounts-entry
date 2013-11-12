@@ -11,6 +11,10 @@ Router.map ->
     before: ->
       Session.set('entryError', undefined)
       Session.set('buttonText', 'up')
+    after: ->
+      if Accounts._options['forbidClientAccountCreation'] 
+        Router.go  "entrySignIn"
+
 
   @route "entryForgotPassword",
     path: "/forgot-password"
