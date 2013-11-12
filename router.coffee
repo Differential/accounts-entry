@@ -9,11 +9,12 @@ Router.map ->
   @route "entrySignUp",
     path: "/sign-up"
     before: ->
-      Session.set('entryError', undefined)
-      Session.set('buttonText', 'up')
-    after: ->
       if Accounts._options['forbidClientAccountCreation'] 
-        Router.go  "entrySignIn"
+        Session.set('entryError', "New account creation is disabled");
+      else
+        Session.set('entryError', undefined)
+
+      Session.set('buttonText', 'up')
 
 
   @route "entryForgotPassword",

@@ -11,6 +11,18 @@ Meteor.startup ->
     entryValidateSignupCode: (signupCode) ->
       not AccountsEntry.settings.showSignupCode or signupCode is AccountsEntry.settings.signupCode
 
-Accounts.onCreateUser (options,user) ->
-  user.profile = AccountsEntry.settings.defaultProfile || {}
-  return user
+    accountsCreateUser: (username, email, password) ->
+      if Accounts._options['forbidClientAccountCreation']
+        throw new Meteor.Error 403, "New account creation is forbidden"
+
+      if username
+        Accounts.createUser
+          username: username,
+          email: email,
+          password: password,
+          profile: AccountsEntry.settings.defaultProfile || {}
+      else
+        Accounts.createUser
+          email: email
+          password: password
+          profile: AccountsEntry.settings.defaultProfile || {}
