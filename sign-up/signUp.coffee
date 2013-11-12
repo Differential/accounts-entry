@@ -107,7 +107,15 @@ Template.entrySignUp.events
       if err
         console.log err
       if valid
-        Meteor.call('accountsCreateUser', username, email, password, (err, data) ->
+        user = 
+          email: email
+          password: password
+        if username
+          user.username = username
+
+
+
+        Accounts.createUser user,  (err, data) ->
           if err
             Session.set('entryError', err.reason)
             return
@@ -123,7 +131,8 @@ Template.entrySignUp.events
             Meteor.loginWithPassword(username, password)
 
           Router.go AccountsEntry.settings.dashboardRoute
-        )
+        
+        
       else
         Session.set('entryError', 'Signup code is incorrect')
         return
