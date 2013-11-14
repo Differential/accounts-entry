@@ -8,6 +8,13 @@ desc: Meteor sign up and sign in pages.
 ---
 # Changelog
 
+### v0.4.3
+
+* Switch to Font-Awesome 4.0 syntax
+* More IronRouter syntax changes
+* Fix typo in register handlebars helper
+* Return a string instead of a route from the helper
+
 ### v0.4.2
 
 * Fixed bug with missing helper (otherServicesLogin) on signup page.
