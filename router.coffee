@@ -25,3 +25,9 @@ Router.map ->
         Meteor.logout()
         Router.go AccountsEntry.settings.homeRoute
       @stop()
+
+  @route 'entryResetPassword',
+    path: 'reset-password/:resetToken'
+    before: ->
+      Session.set('entryError', undefined)
+      Session.set('resetToken', @params.resetToken)

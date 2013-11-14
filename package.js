@@ -26,6 +26,8 @@ Package.on_use(function(api) {
     'sign-up/signUp.coffee',
     'forgot-password/forgotPassword.html',
     'forgot-password/forgotPassword.coffee',
+    'reset-password/resetPassword.html',
+    'reset-password/resetPassword.coffee',
     'shared/social.html',
     'shared/social.coffee',
     'shared/error.html',
@@ -50,4 +52,5 @@ Package.on_use(function(api) {
 
   api.use('iron-router', ['client', 'server']);
   api.add_files('router.coffee', ['client', 'server']);
+  api.add_files('server/accountsUrl.coffee', 'server');
 });
