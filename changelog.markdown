@@ -9,6 +9,7 @@ desc: Meteor sign up and sign in pages.
 
 ### v0.4.3
 
+* Update to IronRouter 0.6.1
 * Switch to Font-Awesome 4.0 syntax
 * More IronRouter syntax changes
 * Fix typo in register handlebars helper
