@@ -2,5 +2,5 @@ name: accounts-entry
 markdown: redcarpet
 pygments: true
 baseurl: /accounts-entry
-version: 0.4.3
+version: 0.4.4
 exclude: ["vendor"]

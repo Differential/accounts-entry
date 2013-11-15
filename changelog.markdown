@@ -7,6 +7,11 @@ desc: Meteor sign up and sign in pages.
 ---
 # Changelog
 
+### v0.4.4
+
+* Switch to our own reset-password setup in IronRouter
+* Tweaked wording on forgot password header
+
 ### v0.4.3
 
 * Update to IronRouter 0.6.1
