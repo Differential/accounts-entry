@@ -29,14 +29,14 @@
           {{#if showUsername}}
             <div class="form-group">
               <label>{{i18n "username"}}</label>
-              <input name="username" type="string" class="form-control" value=''>
+              <input autofocus name="username" type="string" class="form-control" value=''>
             </div>
           {{/if}}
 
           {{#if showEmail}}
             <div class="form-group">
               <label>{{i18n "emailAddress"}}</label>
-              <input type="email" class="form-control" value=''{{#if emailIsOptional}} placeholder="{{i18n 'optional'}}"{{/if}}>
+              <input autofocus type="email" class="form-control" value=''>
             </div>
           {{/if}}
 
