@@ -1,5 +1,5 @@
-Handlebars.registerHelper "accountButtons", ->
-    return new Handlebars.SafeString(Template.entryAccountButtons())
+Handlebars.registerHelper 'accountButtons', ()->
+  throw new Error("Use {{> entryAccountButtons}} instead of {{accountButtons}}")
 
 Template.entryAccountButtons.helpers
   profileUrl: ->

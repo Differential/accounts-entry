@@ -10,7 +10,7 @@ Package.on_use(function(api) {
     'underscore',
     'templating',
     'handlebars',
-    'spark',
+    'spacebars',
     'session',
     'coffeescript',
     'less']
