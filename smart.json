@@ -6,6 +6,7 @@
   "version": "0.4.4",
   "git": "https://github.com/BeDifferential/accounts-entry.git",
   "packages": {
-    "iron-router": "0.6.1"
+    "iron-router": "0.6.1",
+    "branch": "shark"
   }
 }
