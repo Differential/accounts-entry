@@ -4,37 +4,37 @@
     {{#if profileUrl}}
       {{#if wrapLinks}}
       <li>
-      {{/if}}
         <a class='profileLink' href='{{profileUrl}}'>{{signedInAs}}</a>
-      {{#if wrapLinks}}
       </li>
+      {{else}}
+      <a class='profileLink' href='{{profileUrl}}'>{{signedInAs}}</a>
       {{/if}}
     {{else}}
       {{#if wrapLinks}}
       <li>
-      {{/if}}
         <p class="navbar-text">{{signedInAs}}</p>
-      {{#if wrapLinks}}
       </li>
+      {{else}}
+      <p class="navbar-text">{{signedInAs}}</p>
       {{/if}}
     {{/if}}
 
     {{#if wrapLinks}}
     <li>
-    {{/if}}
       <a href="/sign-out">Sign Out</a>
-    {{#if wrapLinks}}
     </li>
+    {{else}}
+    <a href="/sign-out">Sign Out</a>
     {{/if}}
 
   {{else}}
 
     {{#if wrapLinks}}
     <li>
-    {{/if}}
       <a href="/sign-in">Sign In</a>
-    {{#if wrapLinks}}
     </li>
+    {{else}}
+    <a href="/sign-in">Sign In</a>
     {{/if}}
 
     {{#unless wrapLinks}}
@@ -43,10 +43,10 @@
 
     {{#if wrapLinks}}
     <li>
-    {{/if}}
       <a href="/sign-up">Sign Up</a>
-    {{#if wrapLinks}}
     </li>
+    {{else}}
+    <a href="/sign-up">Sign Up</a>
     {{/if}}
 
   {{/if}}
