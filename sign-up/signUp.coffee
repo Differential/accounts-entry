@@ -35,6 +35,11 @@ Template.entrySignUp.helpers
     !AccountsEntry.settings.privacyUrl &&
     !AccountsEntry.settings.termsUrl
 
+  emailIsOptional: ->
+    fields = Accounts.ui._options.passwordSignupFields
+
+    _.contains(['USERNAME_AND_OPTIONAL_EMAIL'], fields)
+
 Template.entrySignUp.events
   'submit #signUp': (event, t) ->
     event.preventDefault()
