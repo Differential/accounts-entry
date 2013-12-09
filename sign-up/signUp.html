@@ -25,7 +25,7 @@
             <p class="entry-signin-cta">If you already have an account <a href="/sign-in">sign in</a>.</p>
         {{/if}}
         {{> entryError}}
-        <form class="entry-form {{#if otherLoginServices}}collapse{{/if}}" id='signUp'>
+        <form class="entry-form {{signupClass}}" id='signUp'>
           {{#if showUsername}}
             <div class="form-group">
               <label>Username</label>
