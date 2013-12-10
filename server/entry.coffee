@@ -1,4 +1,7 @@
 Meteor.startup ->
+  Accounts.urls.resetPassword = (token) ->
+    Meteor.absoluteUrl('reset-password/' + token)
+
   AccountsEntry =
     settings: {}
 
@@ -9,7 +12,7 @@ Meteor.startup ->
 
   Meteor.methods
     entryValidateSignupCode: (signupCode) ->
-      not AccountsEntry.settings.showSignupCode or signupCode is AccountsEntry.settings.signupCode
+      signupCode is AccountsEntry.settings.signupCode
 
     accountsCreateUser: (username, email, password) ->
       if username

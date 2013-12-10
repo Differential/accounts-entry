@@ -3,6 +3,8 @@ Package.describe({
 });
 
 Package.on_use(function(api) {
+
+  // CLIENT
   api.use([
     'deps',
     'service-configuration',
@@ -16,41 +18,43 @@ Package.on_use(function(api) {
     'less']
   , 'client');
 
-  api.imply('accounts-base', ['client', 'server']);
 
   api.add_files([
-    'shared/start.coffee',
-    'sign-in/signIn.html',
-    'sign-in/signIn.coffee',
-    'sign-up/signUp.html',
-    'sign-up/signUp.coffee',
-    'forgot-password/forgotPassword.html',
-    'forgot-password/forgotPassword.coffee',
-    'reset-password/resetPassword.html',
-    'reset-password/resetPassword.coffee',
-    'shared/social.html',
-    'shared/social.coffee',
-    'shared/error.html',
-    'shared/error.coffee',
-    'shared/accountButtons.html',
-    'shared/accountButtons.coffee',
-    'entry.less',
-    'helper.js']
-  , 'client');
+    'client/entry.coffee',
+    'client/entry.less',
+    'client/helpers.coffee',
+    'client/views/signIn/signIn.html',
+    'client/views/signIn/signIn.coffee',
+    'client/views/signUp/signUp.html',
+    'client/views/signUp/signUp.coffee',
+    'client/views/forgotPassword/forgotPassword.html',
+    'client/views/forgotPassword/forgotPassword.coffee',
+    'client/views/resetPassword/resetPassword.html',
+    'client/views/resetPassword/resetPassword.coffee',
+    'client/views/social/social.html',
+    'client/views/social/social.coffee',
+    'client/views/error/error.html',
+    'client/views/error/error.coffee',
+    'client/views/accountButtons/accountButtons.html',
+    'client/views/accountButtons/accountButtons.coffee'
+  ], 'client');
 
+  // SERVER
   api.use([
     'deps',
     'service-configuration',
     'accounts-password',
     'accounts-base',
     'underscore',
-    'coffeescript']
-  , 'server');
+    'coffeescript'
+  ], 'server');
 
+  api.add_files(['server/entry.coffee'], 'server');
+
+  // CLIENT and SERVER
+  api.imply('accounts-base', ['client', 'server']);
   api.export('AccountsEntry', ['client', 'server']);
-  api.add_files('entry.coffee', 'server');
-
   api.use('iron-router', ['client', 'server']);
-  api.add_files('router.coffee', ['client', 'server']);
-  api.add_files('server/accountsUrl.coffee', 'server');
+  api.add_files(['shared/router.coffee'], ['client', 'server']);
+
 });
