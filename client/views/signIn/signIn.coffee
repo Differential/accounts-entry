@@ -1,3 +1,5 @@
+Template.entrySignIn.helpers AccountsEntry.templateHelpers
+
 Template.entrySignIn.helpers
   emailInputType: ->
     if Accounts.ui._options.passwordSignupFields is 'EMAIL_ONLY'
@@ -11,13 +13,10 @@ Template.entrySignIn.helpers
     if _.contains([
       'USERNAME_AND_EMAIL'
       'USERNAME_AND_OPTIONAL_EMAIL'
-      ], fields)
+    ], fields)
       return 'Username or email'
 
     return 'Email'
-
-  logo: ->
-    AccountsEntry.settings.logo
 
 Template.entrySignIn.events
   'submit #signIn': (event) ->
