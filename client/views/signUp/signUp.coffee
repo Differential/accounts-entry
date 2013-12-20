@@ -1,4 +1,6 @@
-Template.entrySignUp.helpers
+Template.entrySignUp.helpers AccountsEntry.templateHelpers
+
+Template.entrySignIn.helpers
   showEmail: ->
     fields = Accounts.ui._options.passwordSignupFields
 
@@ -17,9 +19,6 @@ Template.entrySignUp.helpers
 
   showSignupCode: ->
     AccountsEntry.settings.showSignupCode
-
-  logo: ->
-    AccountsEntry.settings.logo
 
   privacyUrl: ->
     AccountsEntry.settings.privacyUrl

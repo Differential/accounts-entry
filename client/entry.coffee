@@ -16,4 +16,16 @@ AccountsEntry =
           path: 'sign-up',
           template: appConfig.signUpTemplate
 
+  templateHelpers:
+    error: ->
+      Session.get('entryError')
+
+    logo: ->
+      #Meteor.call('entryLogo')
+      AccountsEntry.settings.logo
+
+    isForbidClientAccountCreation: ->
+      #console.log "is-forbid-client-account-creation: #{Accounts._options.forbidClientAccountCreation}"
+      Accounts._options.forbidClientAccountCreation
+
 @AccountsEntry = AccountsEntry

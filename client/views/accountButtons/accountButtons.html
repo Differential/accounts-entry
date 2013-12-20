@@ -21,11 +21,12 @@
       <a href="/sign-in">Sign In</a>
     {{#if wrapLinks}}</li>{{/if}}
 
-    {{#unless wrapLinks}}<span>or</span>{{/unless}}
-
-    {{#if wrapLinks}}<li>{{/if}}
-      <a href="/sign-up">Sign Up</a>
-    {{#if wrapLinks}}</li>{{/if}}
+    {{#unless isForbidClientAccountCreation}}
+      {{#unless wrapLinks}}<span>or</span>{{/unless}}
+      {{#if wrapLinks}}<li>{{/if}}
+        <a href="/sign-up">Sign Up</a>
+      {{#if wrapLinks}}</li>{{/if}}
+    {{/unless}}
 
   {{/if}}
 </template>

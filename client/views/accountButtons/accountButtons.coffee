@@ -1,3 +1,5 @@
+Template.entryAccountButtons.helpers AccountsEntry.templateHelpers
+
 Template.entryAccountButtons.helpers
   profileUrl: ->
     return false unless AccountsEntry.settings.profileRoute
@@ -5,3 +7,6 @@ Template.entryAccountButtons.helpers
 
   wrapLinks: ->
     AccountsEntry.settings.wrapLinks
+
+
+

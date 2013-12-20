@@ -1,3 +1,1 @@
-Template.entryError.helpers
- error: ->
-   Session.get('entryError')
+Template.entryError.helpers AccountsEntry.templateHelpers
