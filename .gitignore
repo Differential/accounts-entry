@@ -2,3 +2,6 @@
 _site/
 .bundle/
 vendor/
+*.iml
+packages
+*.lock
