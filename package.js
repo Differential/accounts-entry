@@ -36,7 +36,9 @@ Package.on_use(function(api) {
     'client/views/error/error.html',
     'client/views/error/error.coffee',
     'client/views/accountButtons/accountButtons.html',
-    'client/views/accountButtons/accountButtons.coffee'
+    'client/views/accountButtons/accountButtons.coffee',
+    'client/i18n/english.coffee',
+    'client/i18n/spanish.coffee'
   ], 'client');
 
   // SERVER
@@ -55,6 +57,8 @@ Package.on_use(function(api) {
   api.imply('accounts-base', ['client', 'server']);
   api.export('AccountsEntry', ['client', 'server']);
   api.use('iron-router', ['client', 'server']);
+  api.use('just-i18n', ['client']);
+  api.use('headers', ['client']);
   api.add_files(['shared/router.coffee'], ['client', 'server']);
 
 });

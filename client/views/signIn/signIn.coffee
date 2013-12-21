@@ -8,13 +8,14 @@ Template.entrySignIn.helpers
   emailPlaceholder: ->
     fields = Accounts.ui._options.passwordSignupFields
 
+    console.log "hi"
     if _.contains([
       'USERNAME_AND_EMAIL'
       'USERNAME_AND_OPTIONAL_EMAIL'
       ], fields)
-      return 'Username or email'
+      return i18n("usernameOrEmail")
 
-    return 'Email'
+    return i18n("email")
 
   logo: ->
     AccountsEntry.settings.logo
