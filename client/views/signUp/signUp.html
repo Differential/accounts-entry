@@ -9,7 +9,7 @@
       <div class="entry col-md-4 col-md-offset-4">
         <h3>Create an Account</h3>
         {{#if otherLoginServices}}
-          <p class="entry-signin-cta">If you already have an account <a href="/sign-in">sign in</a>.</p>
+          <p class="entry-signin-cta">{{i18n "ifYouAlreadyHaveAnAccount"}} <a href="/sign-in">{{i18n "signin"}}</a>.</p>
           <div class="entry-social">
             {{#each loginServices}}
               {{> entrySocial}}
@@ -17,53 +17,53 @@
             <div class="email-option">
               <strong class="line-thru">OR</strong>
               <a data-toggle="collapse" href="#signUp">
-                Sign up with your email address
+                {{i18n "signUpWithYourEmailAddress"}}
               </a>
             </div>
           </div>
         {{else}}
-            <p class="entry-signin-cta">If you already have an account <a href="/sign-in">sign in</a>.</p>
+            <p class="entry-signin-cta">{{i18n "ifYouAlreadyHaveAnAccount"}}t <a href="/sign-in">{{i18n "signin"}}</a>.</p>
         {{/if}}
         {{> entryError}}
         <form class="entry-form {{signupClass}}" id='signUp'>
           {{#if showUsername}}
             <div class="form-group">
-              <label>Username</label>
+              <label>{{i18n "username"}}</label>
               <input name="username" type="string" class="form-control" value=''>
             </div>
           {{/if}}
 
           {{#if showEmail}}
             <div class="form-group">
-              <label>Email Address</label>
-              <input type="email" class="form-control" value=''{{#if emailIsOptional}} placeholder="Optional"{{/if}}>
+              <label>{{i18n "emailAddress"}}</label>
+              <input type="email" class="form-control" value=''{{#if emailIsOptional}} placeholder="{{i18n 'optional'}}"{{/if}}>
             </div>
           {{/if}}
 
           <div class="form-group">
-            <label>Password</label>
+            <label>{{i18n "password"}}</label>
             <input type="password" class="form-control" value=''>
           </div>
 
           {{#if showSignupCode}}
             <div class="form-group">
-              <label>Signup Code</label>
+              <label>{{i18n "signupCode"}}</label>
               <input name="signupCode" type="string" class="form-control" value=''>
             </div>
           {{/if}}
 
-          <button type="submit" class="submit btn btn-default">Sign up</button>
+          <button type="submit" class="submit btn btn-default">{{i18n "signUp"}}</button>
         </form>
         {{#if both}}
-          <p class="entry-agreement">By clicking Sign up, you agree to our
-            <a href="{{privacyUrl}}">Privacy Policy</a> and
-            <a href="{{termsUrl}}">Terms of Use</a>.
+          <p class="entry-agreement">{{i18n "clickAgree"}}
+            <a href="{{privacyUrl}}">{{i18n "privacyPolicy"}}</a> and
+            <a href="{{termsUrl}}">{{i18n "terms"}}</a>.
           </p>
         {{else}}
           {{#unless neither}}
-            <p class="entry-agreement">By clicking Sign up, you agree to our
-              {{#if privacyUrl}}<a href="{{privacyUrl}}">Privacy Policy</a>.{{/if}}
-              {{#if termsUrl}}<a href="{{termsUrl}}">Terms of Use</a>.{{/if}}
+            <p class="entry-agreement">{{i18n "clickAgree"}}
+              {{#if privacyUrl}}<a href="{{privacyUrl}}">{{i18n "privacyPolicy"}}</a>.{{/if}}
+              {{#if termsUrl}}<a href="{{termsUrl}}">{{i18n "terms"}}</a>.{{/if}}
             </p>
           {{/unless}}
         {{/if}}

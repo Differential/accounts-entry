@@ -19,7 +19,7 @@ Template.entrySocial.events
         loginButtonsSession.configureService(serviceName)
       else
         # FIX THIS
-        loginButtonsSession.errorMessage(err.reason || "Unknown error")
+        loginButtonsSession.errorMessage(err.reason || i18n("error.unknown"))
     loginWithService = Meteor["loginWith" + capitalize(serviceName)]
     options = {}
 
