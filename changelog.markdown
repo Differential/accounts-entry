@@ -6,6 +6,12 @@ desc: Meteor sign up and sign in pages.
 
 ---
 # Changelog
+### Master
+
+* Switch package to use i18n and add english and spanish translations [#46](https://github.com/BeDifferential/accounts-entry/pull/46)
+* Allow signupTemplate to be overridden [ad0381d](https://github.com/BeDifferential/accounts-entry/commit/ad0381d3fa80aa2247b9d6200d4489f1fd3430c8)
+* Refactor the folder structure of the package [ad0381d](https://github.com/BeDifferential/accounts-entry/commit/ad0381d3fa80aa2247b9d6200d4489f1fd3430c8)
+* Add an optional placeholder if email is marked as optional in the config. [#39](https://github.com/BeDifferential/accounts-entry/pull/39)
 
 ### v0.4.4
 
