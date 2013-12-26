@@ -122,7 +122,6 @@ Template.entrySignUp.events
           #login on client
           if  _.contains([
             'USERNAME_AND_EMAIL',
-            'USERNAME_AND_OPTIONAL_EMAIL',
             'EMAIL_ONLY'], AccountsEntry.settings.passwordSignupFields)
             Meteor.loginWithPassword(email, password)
           else
