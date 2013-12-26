@@ -3,6 +3,7 @@ AccountsEntry =
     wrapLinks: true
     homeRoute: '/home'
     dashboardRoute: '/dashboard'
+    passwordSignupFields: 'EMAIL_ONLY'
 
   config: (appConfig) ->
     @settings = _.extend(@settings, appConfig)
