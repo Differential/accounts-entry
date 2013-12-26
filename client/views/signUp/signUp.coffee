@@ -113,12 +113,16 @@ Template.entrySignUp.events
       if err
         console.log err
       if valid
-        Meteor.call('accountsCreateUser', username, email, password, (err, data) ->
+        newUserData = 
+          email: email
+          password: password
+          profile: profile: AccountsEntry.settings.defaultProfile || {}
+        if username
+          data.username = username
+        Accounts.createUser newUserData, (err, data) ->
           if err
             Session.set('entryError', err.reason)
             return
-
-
           #login on client
           if  _.contains([
             'USERNAME_AND_EMAIL',
@@ -129,7 +133,6 @@ Template.entrySignUp.events
             Meteor.loginWithPassword(username, password)
 
           Router.go AccountsEntry.settings.dashboardRoute
-        )
       else
         Session.set('entryError', i18n("error.signupCodeIncorrect"))
         return
