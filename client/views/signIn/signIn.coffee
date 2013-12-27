@@ -1,12 +1,12 @@
 Template.entrySignIn.helpers
   emailInputType: ->
-    if Accounts.ui._options.passwordSignupFields is 'EMAIL_ONLY'
+    if AccountsEntry.settings.passwordSignupFields is 'EMAIL_ONLY'
       'email'
     else
       'string'
 
   emailPlaceholder: ->
-    fields = Accounts.ui._options.passwordSignupFields
+    fields = AccountsEntry.settings.passwordSignupFields
 
     if _.contains([
       'USERNAME_AND_EMAIL'

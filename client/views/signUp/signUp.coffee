@@ -1,6 +1,6 @@
 Template.entrySignUp.helpers
   showEmail: ->
-    fields = Accounts.ui._options.passwordSignupFields
+    fields = AccountsEntry.settings.passwordSignupFields
 
     _.contains([
       'USERNAME_AND_EMAIL',
@@ -8,7 +8,7 @@ Template.entrySignUp.helpers
       'EMAIL_ONLY'], fields)
 
   showUsername: ->
-    fields = Accounts.ui._options.passwordSignupFields
+    fields = AccountsEntry.settings.passwordSignupFields
 
     _.contains([
       'USERNAME_AND_EMAIL',
@@ -36,7 +36,7 @@ Template.entrySignUp.helpers
     !AccountsEntry.settings.termsUrl
 
   emailIsOptional: ->
-    fields = Accounts.ui._options.passwordSignupFields
+    fields = AccountsEntry.settings.passwordSignupFields
 
     _.contains(['USERNAME_AND_OPTIONAL_EMAIL'], fields)
 
@@ -59,7 +59,7 @@ Template.entrySignUp.events
     email = t.find('input[type="email"]').value
     password = t.find('input[type="password"]').value
 
-    fields = Accounts.ui._options.passwordSignupFields
+    fields = AccountsEntry.settings.passwordSignupFields
 
     trimInput = (val)->
       val.replace /^\s*|\s*$/g, ""
@@ -122,8 +122,7 @@ Template.entrySignUp.events
           #login on client
           if  _.contains([
             'USERNAME_AND_EMAIL',
-            'USERNAME_AND_OPTIONAL_EMAIL',
-            'EMAIL_ONLY'], Accounts.ui._options.passwordSignupFields)
+            'EMAIL_ONLY'], AccountsEntry.settings.passwordSignupFields)
             Meteor.loginWithPassword(email, password)
           else
             Meteor.loginWithPassword(username, password)
