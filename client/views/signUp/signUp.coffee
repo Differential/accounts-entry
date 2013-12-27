@@ -116,7 +116,7 @@ Template.entrySignUp.events
         newUserData = 
           email: email
           password: password
-          profile: profile: AccountsEntry.settings.defaultProfile || {}
+          profile: AccountsEntry.settings.defaultProfile || {}
         if username
           data.username = username
         Accounts.createUser newUserData, (err, data) ->
