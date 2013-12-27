@@ -113,7 +113,7 @@ Template.entrySignUp.events
       if err
         console.log err
       if valid
-        newUserData = 
+        newUserData =
           email: email
           password: password
           profile: AccountsEntry.settings.defaultProfile || {}
