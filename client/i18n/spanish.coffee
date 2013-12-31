@@ -22,6 +22,7 @@ es =
   terms: "Terminos de Uso"
   sign: "Ingresar"
   with: "con"
+  signedIn: "Firmado En"
 
   error:
     minChar: "7 carácteres minimo."
@@ -32,5 +33,6 @@ es =
     signupCodeRequired: "Codigo para suscribir es necesario"
     signupCodeIncorrect: "Codigo para suscribir no coincide"
     unknown: "Error desconocido"
+    signupForbidden: "registro de clientes deshabilitado"
 
 i18n.map "es", es

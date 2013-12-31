@@ -1,5 +1,3 @@
 <template name="entryError">
-  {{#if error}}
-  <div class='alert alert-danger'>{{error}}</div>
-  {{/if}}
+  {{> flashMessages flashId}}
 </template>

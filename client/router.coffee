@@ -1,26 +1,27 @@
+# this should be moved client side as their are no server side routes...
+#
 Router.map ->
 
   @route "entrySignIn",
     path: "/sign-in"
     before: ->
-      Session.set('entryError', undefined)
       Session.set('buttonText', 'in')
 
   @route "entrySignUp",
     path: "/sign-up"
     before: ->
-      Session.set('entryError', undefined)
-      Session.set('buttonText', 'up')
+      if Accounts._options.forbidClientAccountCreation
+        share.setError i18n('error.signupForbidden')
+        this.redirect 'entrySignIn'
+      else
+        Session.set('buttonText', 'up')
 
   @route "entryForgotPassword",
     path: "/forgot-password"
-    before: ->
-      Session.set('entryError', undefined)
 
   @route 'entrySignOut',
     path: '/sign-out'
     before: ->
-      Session.set('entryError', undefined)
       if AccountsEntry.settings.homeRoute
         Meteor.logout()
         Router.go AccountsEntry.settings.homeRoute
@@ -29,5 +30,4 @@ Router.map ->
   @route 'entryResetPassword',
     path: 'reset-password/:resetToken'
     before: ->
-      Session.set('entryError', undefined)
       Session.set('resetToken', @params.resetToken)

@@ -1,3 +1,5 @@
+Template.entrySignIn.helpers share.templateHelpers
+
 Template.entrySignIn.helpers
   emailInputType: ->
     if AccountsEntry.settings.passwordSignupFields is 'EMAIL_ONLY'
@@ -16,9 +18,6 @@ Template.entrySignIn.helpers
 
     return i18n("email")
 
-  logo: ->
-    AccountsEntry.settings.logo
-
 Template.entrySignIn.events
   'submit #signIn': (event) ->
     event.preventDefault()
@@ -27,7 +26,7 @@ Template.entrySignIn.events
 
     Meteor.loginWithPassword(Session.get('email'), Session.get('password'), (error)->
       if error
-        Session.set('entryError', error.reason)
+        share.setError error.reason || i18n('error.unknown')
       else
         Router.go AccountsEntry.settings.dashboardRoute
     )

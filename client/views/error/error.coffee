@@ -1,3 +1,6 @@
+Template.entryError.helpers share.templateHelpers
+
 Template.entryError.helpers
- error: ->
-   Session.get('entryError')
+  flashId: ->
+    #console.log "flashId: share.flashId=%s", share.flashId
+    id: share.flashId

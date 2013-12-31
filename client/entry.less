@@ -170,3 +170,13 @@
 .entry-sign-out {
   cursor: pointer;
 }
+
+.transition (@property: all; @duration: 1s; @timing-function: linear; @delay: 0s) {
+  -webkit-transition: @property @duration @timing-function @delay;
+  transition: @property @duration @timing-function @delay;
+}
+
+.fade {
+  opacity: 0;
+  .transition
+}
