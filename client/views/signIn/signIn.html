@@ -13,14 +13,14 @@
             {{> entrySocial}}
           {{/each}}
           <div class="email-option">
-            <strong class="line-thru or-sign-in">OR</strong>
+            <strong class="line-thru or-sign-in">{{i18n "OR"}}</strong>
           </div>
         </div>
         {{/if}}
         {{> entryError}}
         {{#unless otherLoginServices}}
           <div class="email-option">
-            <h3>Sign In</h3>
+            <h3>{{i18n "signIn"}}</h3>
           </div>
         {{/unless}}
         <form class="entry-form" id='signIn'>
@@ -28,12 +28,14 @@
             <input name="email" type="{{emailInputType}}" class="form-control" value='{{email}}' placeholder="{{emailPlaceholder}}">
           </div>
           <div class="form-group">
-            <input name="password" type="password" class="form-control" value='{{password}}' placeholder="Password">
+            <input name="password" type="password" class="form-control" value='{{password}}' placeholder="{{i18n 'password'}}">
           </div>
-          <p><a href="/forgot-password">Forgot password?</a></p>
-          <button type="submit" class="submit btn btn-default">Sign in</button>
+          <p><a href="/forgot-password">{{i18n "forgotPassword"}}</a></p>
+          <button type="submit" class="submit btn btn-default">{{i18n "signIn"}}</button>
         </form>
-        <p class="entry-signup-cta">Don't have an account? <a href="/sign-up">Sign up</a></p>
+        {{#if showSignupCode}}
+          <p class="entry-signup-cta">{{i18n "dontHaveAnAccount"}} <a href="/sign-up">{{i18n "signUp"}}</a></p>
+        {{/if}}
       </div>
     </div>
   </div>
