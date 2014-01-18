@@ -4,6 +4,8 @@ en =
   signOut: "Sign Out"
   signUp: "Sign Up"
   OR: "OR"
+  AND: "AND"
+  and: "and"
   forgotPassword: "Forgot your Password?"
   emailAddress: "Email Address"
   emailResetLink: "Email Reset Link"

@@ -3,6 +3,8 @@ es =
   signOut: "Salir"
   signUp: "Suscribir"
   OR: "O"
+  AND: "AND"
+  and: "and"
   forgotPassword: "Contraseña olvidada?"
   emailAddress: "Dirección de Email"
   emailResetLink: "Reiniciar Email"
