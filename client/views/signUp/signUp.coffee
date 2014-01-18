@@ -108,32 +108,37 @@ Template.entrySignUp.events
       Session.set('entryError', i18n("error.signupCodeRequired"))
       return
 
+    validateUser = ->
+      newUserData =
+        email: email
+        password: password
+        profile: AccountsEntry.settings.defaultProfile || {}
+      if username
+        newUserData.username = username
+      Accounts.createUser newUserData, (err, newUserData) ->
+        if err
+          Session.set('entryError', err.reason)
+          return
+        #login on client
+        if  _.contains([
+          'USERNAME_AND_EMAIL',
+          'EMAIL_ONLY'], AccountsEntry.settings.passwordSignupFields)
+          Meteor.loginWithPassword(email, password)
+        else
+          Meteor.loginWithPassword(username, password)
 
-    Meteor.call('entryValidateSignupCode', signupCode, (err, valid) ->
-      if err
-        console.log err
-      if valid
-        newUserData =
-          email: email
-          password: password
-          profile: AccountsEntry.settings.defaultProfile || {}
-        if username
-          data.username = username
-        Accounts.createUser newUserData, (err, data) ->
-          if err
-            Session.set('entryError', err.reason)
-            return
-          #login on client
-          if  _.contains([
-            'USERNAME_AND_EMAIL',
-            'EMAIL_ONLY'], AccountsEntry.settings.passwordSignupFields)
-            Meteor.loginWithPassword(email, password)
-          else
-            Meteor.loginWithPassword(username, password)
+        Router.go AccountsEntry.settings.dashboardRoute
 
-          Router.go AccountsEntry.settings.dashboardRoute
-      else
-        Session.set('entryError', i18n("error.signupCodeIncorrect"))
-        return
-    )
+    if AccountsEntry.settings.showSignupCode
+      Meteor.call('entryValidateSignupCode', signupCode, (err, valid) ->
+        if err
+          console.log err
+        if valid
+          validateUser()
+        else
+          Session.set('entryError', i18n("error.signupCodeIncorrect"))
+          return
+      )
+    else
+      validateUser()
 
