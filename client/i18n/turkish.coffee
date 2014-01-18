@@ -22,7 +22,7 @@ tr =
   signupCode: "Üyelik Kodu"
   clickAgree: "Kayıt Ol butonuna basarak şu sözleşme(leri) kabul etmiş olursunuz"
   privacyPolicy: "Gizlilik Sözleşmesi"
-  terms: "Kullanım Sözleşmesi"
+  terms: "Üyelik Sözleşmesi"
   sign: "Giriş"
   with: "ile birlikte"
 
