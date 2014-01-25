@@ -1,3 +1,5 @@
+Template.entrySignUp.helpers share.templateHelpers
+
 Template.entrySignUp.helpers
   showEmail: ->
     fields = AccountsEntry.settings.passwordSignupFields
@@ -15,12 +17,6 @@ Template.entrySignUp.helpers
       'USERNAME_AND_OPTIONAL_EMAIL',
       'USERNAME_ONLY'], fields)
 
-  showSignupCode: ->
-    AccountsEntry.settings.showSignupCode
-
-  logo: ->
-    AccountsEntry.settings.logo
-
   privacyUrl: ->
     AccountsEntry.settings.privacyUrl
 
@@ -37,8 +33,11 @@ Template.entrySignUp.helpers
 
   emailIsOptional: ->
     fields = AccountsEntry.settings.passwordSignupFields
-
     _.contains(['USERNAME_AND_OPTIONAL_EMAIL'], fields)
+
+  signupClass: ->
+    if share.otherLoginServices()
+      'collapse'
 
 Template.entrySignUp.events
   'submit #signUp': (event, t) ->
@@ -79,7 +78,7 @@ Template.entrySignUp.events
         errMsg.forEach (e) ->
           msg = msg.concat "#{e}\r\n"
 
-        Session.set 'entryError', msg
+        share.setError msg
         return true
 
       return false
@@ -97,31 +96,34 @@ Template.entrySignUp.events
       'USERNAME_ONLY'], fields)
 
     if usernameRequired && email.length is 0
-      Session.set('entryError', i18n("error.uernameRequired"))
+      share.setError i18n("error.uernameRequired")
       return
 
     if emailRequired && email.length is 0
-      Session.set('entryError', i18n("error.emailRequired"))
+      share.setError i18n("error.emailRequired")
       return
 
     if AccountsEntry.settings.showSignupCode && signupCode.length is 0
-      Session.set('entryError', i18n("error.signupCodeRequired"))
+      share.setError i18n("error.signupCodeRequired")
       return
 
 
     Meteor.call('entryValidateSignupCode', signupCode, (err, valid) ->
       if err
         console.log err
+
       if valid
         newUserData =
           email: email
           password: password
           profile: AccountsEntry.settings.defaultProfile || {}
+
         if username
           data.username = username
+
         Accounts.createUser newUserData, (err, data) ->
           if err
-            Session.set('entryError', err.reason)
+            share.setError err.reason || i18n('error.unknown')
             return
           #login on client
           if  _.contains([
@@ -133,7 +135,7 @@ Template.entrySignUp.events
 
           Router.go AccountsEntry.settings.dashboardRoute
       else
-        Session.set('entryError', i18n("error.signupCodeIncorrect"))
+        share.setError i18n("error.signupCodeIncorrect")
         return
     )
 

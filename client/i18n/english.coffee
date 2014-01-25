@@ -23,6 +23,7 @@ en =
   terms: "Terms of Use"
   sign: "Sign"
   with: "with"
+  signedIn: "Signed In"
 
   error:
     minChar: "7 character minimum password."
@@ -33,5 +34,6 @@ en =
     signupCodeRequired: "Signup code is required"
     signupCodeIncorrect: "Signup code is incorrect"
     unknown: "Unknown error"
+    signupForbidden: "client registration disabled"
 
 i18n.map "en", en

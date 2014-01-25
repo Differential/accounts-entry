@@ -1,28 +1,24 @@
 <template name='entrySignIn'>
   <div class="container">
     <div class="row">
-      {{#if logo}}
-        <div class="entry-logo">
-            <a href="/"><img src="{{logo}}" alt="logo"></a>
-        </div>
-      {{/if}}
+      {{> logo}}
       <div class="entry col-md-4 col-md-offset-4">
         {{#if otherLoginServices}}
-        <div class="entry-social">
-          {{#each loginServices}}
-            {{> entrySocial}}
-          {{/each}}
-          <div class="email-option">
-            <strong class="line-thru or-sign-in">{{i18n "OR"}}</strong>
+          <div class="entry-social">
+            {{#each loginServices}}
+              {{> entrySocial}}
+            {{/each}}
+            <div class="email-option">
+              <strong class="line-thru or-sign-in">{{i18n "OR"}}</strong>
+            </div>
           </div>
-        </div>
         {{/if}}
-        {{> entryError}}
         {{#unless otherLoginServices}}
           <div class="email-option">
             <h3>{{i18n "signIn"}}</h3>
           </div>
         {{/unless}}
+        {{> entryError}}
         <form class="entry-form" id='signIn'>
           <div class="form-group">
             <input name="email" type="{{emailInputType}}" class="form-control" value='{{email}}' placeholder="{{emailPlaceholder}}">
@@ -33,9 +29,9 @@
           <p><a href="/forgot-password">{{i18n "forgotPassword"}}</a></p>
           <button type="submit" class="submit btn btn-default">{{i18n "signIn"}}</button>
         </form>
-        {{#if showSignupCode}}
+        {{#unless forbidClientAccountCreation}}
           <p class="entry-signup-cta">{{i18n "dontHaveAnAccount"}} <a href="/sign-up">{{i18n "signUp"}}</a></p>
-        {{/if}}
+        {{/unless}}
       </div>
     </div>
   </div>
