@@ -19,9 +19,9 @@ the dropdown box that didn't seem to be easily styled. But we love the ease of a
 Examples of the package in action (check out the sign up or sign in
 links):
 
-* https://carp.io/
-* https://getliquid.io/
-* http://support.unpolishedcr.com/
+* [https://carp.io/](https://carp.io/)
+* [https://getliquid.io/](https://getliquid.io/)
+* [http://support.unpolishedcr.com/](http://support.unpolishedcr.com/)
 * Email team@differential.io to add your project to the list.
 
 [Changelog](https://github.com/BeDifferential/accounts-entry/blob/master/CHANGELOG.md)
