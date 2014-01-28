@@ -62,3 +62,16 @@ Package.on_use(function(api) {
   api.add_files(['shared/router.coffee'], ['client', 'server']);
 
 });
+
+
+
+Package.on_test(function (api) {
+  api.use([
+    'accounts-entry',
+    'tinytest',
+    'test-helpers'
+
+    ]);
+
+  api.add_files('accounts-entry-test.js', ['client', 'server']);
+});
