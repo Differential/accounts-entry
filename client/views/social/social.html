@@ -1,8 +1,9 @@
 <template name='entrySocial'>
   <button class="btn" id="entry-{{this}}" name="{{this}}">
   	{{#if google}}
-  		<i class="fa fa-{{this}}-plus"></i> {{i18n "sign"}} {{buttonText}} {{i18n "with"}} {{capitalize this}}</button>
+  		<i class="fa fa-{{this}}-plus"></i> {{i18n "sign"}} {{buttonText}} {{i18n "with"}} {{capitalize this}}
   	{{else}}
-  		<i class="fa fa-{{this}}"></i> {{i18n "sign"}} {{buttonText}} {{i18n "with"}} {{capitalize this}}</button>
+  		<i class="fa fa-{{this}}"></i> {{i18n "sign"}} {{buttonText}} {{i18n "with"}} {{capitalize this}}
   	{{/if}}
+  </button>
 </template>
