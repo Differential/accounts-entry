@@ -27,4 +27,4 @@ Handlebars.registerHelper 'loginServices', ->
   Accounts.oauth.serviceNames()
 
 Handlebars.registerHelper 'showSignupCode', ->
-  AccountsEntry.config.showSignupCode is true
+  AccountsEntry.settings.showSignupCode is true

@@ -26,6 +26,7 @@ Template.entrySignIn.events
     Session.set('password', $('input[name="password"]').val())
 
     Meteor.loginWithPassword(Session.get('email'), Session.get('password'), (error)->
+      Session.set('password', undefined)
       if error
         Session.set('entryError', error.reason)
       else

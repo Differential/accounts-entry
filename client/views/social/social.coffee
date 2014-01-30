@@ -15,11 +15,9 @@ Template.entrySocial.events
       else if (err instanceof Accounts.LoginCancelledError)
         # do nothing
       else if (err instanceof ServiceConfiguration.ConfigError)
-        # FIX THIS
-        loginButtonsSession.configureService(serviceName)
+        Accounts._loginButtonsSession.configureService(serviceName)
       else
-        # FIX THIS
-        loginButtonsSession.errorMessage(err.reason || i18n("error.unknown"))
+        Accounts._loginButtonsSession.errorMessage(err.reason || i18n("error.unknown"))
     loginWithService = Meteor["loginWith" + capitalize(serviceName)]
     options = {}
 
