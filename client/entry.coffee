@@ -8,7 +8,7 @@ AccountsEntry =
   config: (appConfig) ->
     @settings = _.extend(@settings, appConfig)
 
-    i18n.setDefaultLanguage "en_US"
+    i18n.setDefaultLanguage "en"
     if appConfig.language
       i18n.setLanguage appConfig.language
 
