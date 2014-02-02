@@ -101,6 +101,8 @@ Meteor.startup ->
         someDefault: 'default'
 {% endhighlight %}
 
+*Note: don't set a signupCode unless you want to use that feature*
+
 The default configuration includes:
 
 {% highlight coffeescript %}
