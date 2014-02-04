@@ -17,3 +17,7 @@ links):
 * Email team@differential.io to add your project to the list.
 
 See more in our [documentation](http://github.differential.io/accounts-entry/).
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/BeDifferential/accounts-entry/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
