@@ -13,7 +13,7 @@ de =
   password: "Passwort"
   usernameOrEmail: "Benutzername oder E-Mail"
   email: "E-Mail"
-  ifYouAlreadyHaveAnAccount: "Falls Sie schon ein Konto haben"
+  ifYouAlreadyHaveAnAccount: "Falls Sie ein Konto haben, bitte hier"
   signUpWithYourEmailAddress: "Mit E-Mail registrieren"
   username: "Benutzername"
   optional: "Optional"
