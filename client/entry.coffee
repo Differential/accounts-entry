@@ -18,7 +18,7 @@ AccountsEntry =
 
       Router.map ->
         @route 'signUp',
-          path: 'sign-up',
+          path: '/sign-up',
           template: appConfig.signUpTemplate
 
 @AccountsEntry = AccountsEntry
