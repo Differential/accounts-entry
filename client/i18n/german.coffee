@@ -24,6 +24,8 @@ de =
   terms: "Geschäftsbedingungen"
   sign: "Anmelden"
   with: "mit"
+  createAccount: "Konto erzeugen"
+  and: "und"
 
   error:
     minChar: "Passwort muss mindesten 7 Zeichen lang sein."

@@ -23,6 +23,8 @@ en =
   terms: "Terms of Use"
   sign: "Sign"
   with: "with"
+  createAccount: "Create an Account"
+  and: "and"
 
   error:
     minChar: "7 character minimum password."

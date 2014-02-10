@@ -7,7 +7,7 @@
         </div>
       {{/if}}
       <div class="entry col-md-4 col-md-offset-4">
-        <h3>Create an Account</h3>
+        <h3>{{i18n "createAccount"}}</h3>
         {{#if otherLoginServices}}
           <p class="entry-signin-cta">{{i18n "ifYouAlreadyHaveAnAccount"}} <a href="/sign-in">{{i18n "signin"}}</a>.</p>
           <div class="entry-social">
@@ -56,7 +56,7 @@
         </form>
         {{#if both}}
           <p class="entry-agreement">{{i18n "clickAgree"}}
-            <a href="{{privacyUrl}}">{{i18n "privacyPolicy"}}</a> and
+            <a href="{{privacyUrl}}">{{i18n "privacyPolicy"}}</a> {{i18n "and"}}
             <a href="{{termsUrl}}">{{i18n "terms"}}</a>.
           </p>
         {{else}}
