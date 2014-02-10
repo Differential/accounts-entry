@@ -22,6 +22,8 @@ es =
   terms: "Terminos de Uso"
   sign: "Ingresar"
   with: "con"
+  createAccount: "Crear cuenta"
+  and: "y"
 
   error:
     minChar: "7 carácteres minimo."
