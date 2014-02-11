@@ -114,12 +114,10 @@ Template.entrySignUp.events
         console.log err
       if valid
         profile = AccountsEntry.settings.defaultProfile || {}
-        if username
-          profile.username = username
         newUserData =
+          username: username
           email: email
           password: password
-          profile: profile
         Accounts.createUser newUserData, (err, data) ->
           if err
             Session.set('entryError', err.reason)
