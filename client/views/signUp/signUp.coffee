@@ -1,3 +1,9 @@
+signUpErrorMap = {
+  'User validation failed': 'error.userValidationFailed',
+  'Email already exists.': 'error.emailAlreadyExists',
+  'Username already exists.': 'error.usernameAlreadyExists'
+}
+
 Template.entrySignUp.helpers
   showEmail: ->
     fields = AccountsEntry.settings.passwordSignupFields
@@ -97,7 +103,7 @@ Template.entrySignUp.events
       'USERNAME_ONLY'], fields)
 
     if usernameRequired && username.length is 0
-      Session.set('entryError', i18n("error.uernameRequired"))
+      Session.set('entryError', i18n("error.usernameRequired"))
       return
 
     if emailRequired && email.length is 0
@@ -118,20 +124,30 @@ Template.entrySignUp.events
           password: password
           profile: AccountsEntry.settings.defaultProfile || {}
         if username
-          data.username = username
+          newUserData.username = username
         Accounts.createUser newUserData, (err, data) ->
           if err
-            Session.set('entryError', err.reason)
+            errorMsg = signUpErrorMap[err.reason]
+            errorMsg = 'error.unknown' if errorMsg is undefined
+            Session.set('entryError', i18n(errorMsg))
             return
           #login on client
           if  _.contains([
             'USERNAME_AND_EMAIL',
             'EMAIL_ONLY'], AccountsEntry.settings.passwordSignupFields)
-            Meteor.loginWithPassword(email, password)
+            Meteor.loginWithPassword(email, password, (error) ->
+              if error
+                Session.set('entryError', i18n("error.unknown"))
+              else
+                Router.go AccountsEntry.settings.dashboardRoute
+            )
           else
-            Meteor.loginWithPassword(username, password)
-
-          Router.go AccountsEntry.settings.dashboardRoute
+            Meteor.loginWithPassword(username, password, (error) ->
+              if error
+                Session.set('entryError', i18n("error.unknown"))
+              else
+                Router.go AccountsEntry.settings.dashboardRoute
+            )
       else
         Session.set('entryError', i18n("error.signupCodeIncorrect"))
         return
