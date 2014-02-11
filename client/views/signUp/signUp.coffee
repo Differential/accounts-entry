@@ -1,3 +1,9 @@
+signUpErrorMap = {
+  'User validation failed': 'error.userValidationFailed',
+  'Email already exists.': 'error.emailAlreadyExists',
+  'Username already exists.': 'error.usernameAlreadyExists'
+}
+
 Template.entrySignUp.helpers
   showEmail: ->
     fields = AccountsEntry.settings.passwordSignupFields
@@ -121,7 +127,9 @@ Template.entrySignUp.events
           data.username = username
         Accounts.createUser newUserData, (err, data) ->
           if err
-            Session.set('entryError', err.reason)
+            errorMsg = signUpErrorMap[err.reason]
+            errorMsg = 'error.unknown' if errorMsg is undefined
+            Session.set('entryError', i18n(errorMsg))
             return
           #login on client
           if  _.contains([
@@ -129,14 +137,14 @@ Template.entrySignUp.events
             'EMAIL_ONLY'], AccountsEntry.settings.passwordSignupFields)
             Meteor.loginWithPassword(email, password, (error) ->
               if error
-                Session.set('entryError', error.reason)
+                Session.set('entryError', i18n("error.unknown"))
               else
                 Router.go AccountsEntry.settings.dashboardRoute
             )
           else
             Meteor.loginWithPassword(username, password, (error) ->
               if error
-                Session.set('entryError', error.reason)
+                Session.set('entryError', i18n("error.unknown"))
               else
                 Router.go AccountsEntry.settings.dashboardRoute
             )

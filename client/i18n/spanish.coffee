@@ -34,6 +34,9 @@ es =
     emailRequired: "Email es necesario"
     signupCodeRequired: "Código para suscribir es necesario"
     signupCodeIncorrect: "Código para suscribir no coincide"
+    userValidationFailed: "[SP] User validation failed"
+    emailAlreadyExists: "[SP] Email already exists."
+    usernameAlreadyExists: "[SP] Username already exists."
     unknown: "Error desconocido"
 
 i18n.map "es", es

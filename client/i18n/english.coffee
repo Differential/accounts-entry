@@ -35,6 +35,9 @@ en =
     emailRequired: "Email is required"
     signupCodeRequired: "Signup code is required"
     signupCodeIncorrect: "Signup code is incorrect"
+    userValidationFailed: "User validation failed"
+    emailAlreadyExists: "Email already exists."
+    usernameAlreadyExists: "Username already exists."
     unknown: "Unknown error"
 
 i18n.map "en", en
