@@ -32,8 +32,8 @@ es =
     pwOneDigit: "Minimo un dígito."
     uernameRequired: "Usuario es necesario"
     emailRequired: "Email es necesario"
-    signupCodeRequired: "Codigo para suscribir es necesario"
-    signupCodeIncorrect: "Codigo para suscribir no coincide"
+    signupCodeRequired: "Código para suscribir es necesario"
+    signupCodeIncorrect: "Código para suscribir no coincide"
     unknown: "Error desconocido"
 
 i18n.map "es", es
