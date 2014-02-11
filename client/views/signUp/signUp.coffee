@@ -124,7 +124,7 @@ Template.entrySignUp.events
           password: password
           profile: AccountsEntry.settings.defaultProfile || {}
         if username
-          data.username = username
+          newUserData.username = username
         Accounts.createUser newUserData, (err, data) ->
           if err
             errorMsg = signUpErrorMap[err.reason]
