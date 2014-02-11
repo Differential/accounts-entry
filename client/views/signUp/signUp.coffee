@@ -117,8 +117,8 @@ Template.entrySignUp.events
           email: email
           password: password
           profile: AccountsEntry.settings.defaultProfile || {}
-        if username
-          data = {username: username}
+#        if username
+#          data = {username: username}
         Accounts.createUser newUserData, (err, data) ->
           if err
             Session.set('entryError', err.reason)
