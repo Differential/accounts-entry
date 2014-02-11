@@ -22,6 +22,7 @@ en =
   privacyPolicy: "Privacy Policy"
   terms: "Terms of Use"
   sign: "Sign"
+  configure: "Configure"
   with: "with"
   createAccount: "Create an Account"
   and: "and"
