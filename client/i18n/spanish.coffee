@@ -21,6 +21,7 @@ es =
   privacyPolicy: "Póliza de Privacidad"
   terms: "Terminos de Uso"
   sign: "Ingresar"
+  configure: "Disposición"
   with: "con"
   createAccount: "Crear cuenta"
   and: "y"

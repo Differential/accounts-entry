@@ -23,6 +23,7 @@ de =
   privacyPolicy: "Datenschutzerklärung"
   terms: "Geschäftsbedingungen"
   sign: "Anmelden"
+  configure: "Konfigurieren"
   with: "mit"
   createAccount: "Konto erzeugen"
   and: "und"
