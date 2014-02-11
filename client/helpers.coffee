@@ -28,3 +28,6 @@ Handlebars.registerHelper 'loginServices', ->
 
 Handlebars.registerHelper 'showSignupCode', ->
   AccountsEntry.settings.showSignupCode is true
+
+Handlebars.registerHelper 'passwordLoginService', ->
+  !!Package['accounts-password']

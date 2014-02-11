@@ -12,9 +12,11 @@
           {{#each loginServices}}
             {{> entrySocial}}
           {{/each}}
+          {{#if passwordLoginService}}
           <div class="email-option">
             <strong class="line-thru or-sign-in">{{i18n "OR"}}</strong>
           </div>
+          {{/if}}
         </div>
         {{/if}}
         {{> entryError}}
@@ -23,16 +25,18 @@
             <h3>{{i18n "signIn"}}</h3>
           </div>
         {{/unless}}
-        <form class="entry-form" id='signIn'>
-          <div class="form-group">
-            <input autofocus name="email" type="{{emailInputType}}" class="form-control" value='{{email}}' placeholder="{{emailPlaceholder}}">
-          </div>
-          <div class="form-group">
-            <input name="password" type="password" class="form-control" value='{{password}}' placeholder="{{i18n 'password'}}">
-          </div>
-          <p><a href="/forgot-password">{{i18n "forgotPassword"}}</a></p>
-          <button type="submit" class="submit btn btn-default">{{i18n "signIn"}}</button>
-        </form>
+        {{#if passwordLoginService}}
+          <form class="entry-form" id='signIn'>
+            <div class="form-group">
+              <input autofocus name="email" type="{{emailInputType}}" class="form-control" value='{{email}}' placeholder="{{emailPlaceholder}}">
+            </div>
+            <div class="form-group">
+              <input name="password" type="password" class="form-control" value='{{password}}' placeholder="{{i18n 'password'}}">
+            </div>
+            <p><a href="/forgot-password">{{i18n "forgotPassword"}}</a></p>
+            <button type="submit" class="submit btn btn-default">{{i18n "signIn"}}</button>
+          </form>
+        {{/if}}
         <p class="entry-signup-cta">{{i18n "dontHaveAnAccount"}} <a href="/sign-up">{{i18n "signUp"}}</a></p>
       </div>
     </div>
