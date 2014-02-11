@@ -103,7 +103,7 @@ Template.entrySignUp.events
       'USERNAME_ONLY'], fields)
 
     if usernameRequired && username.length is 0
-      Session.set('entryError', i18n("error.uernameRequired"))
+      Session.set('entryError', i18n("error.usernameRequired"))
       return
 
     if emailRequired && email.length is 0
