@@ -127,11 +127,19 @@ Template.entrySignUp.events
           if  _.contains([
             'USERNAME_AND_EMAIL',
             'EMAIL_ONLY'], AccountsEntry.settings.passwordSignupFields)
-            Meteor.loginWithPassword(email, password)
+            Meteor.loginWithPassword(email, password, (error) ->
+              if error
+                Session.set('entryError', error.reason)
+              else
+                Router.go AccountsEntry.settings.dashboardRoute
+            )
           else
-            Meteor.loginWithPassword(username, password)
-
-          Router.go AccountsEntry.settings.dashboardRoute
+            Meteor.loginWithPassword(username, password, (error) ->
+              if error
+                Session.set('entryError', error.reason)
+              else
+                Router.go AccountsEntry.settings.dashboardRoute
+            )
       else
         Session.set('entryError', i18n("error.signupCodeIncorrect"))
         return
