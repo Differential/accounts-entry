@@ -52,7 +52,7 @@ Template.entrySignUp.events
 
     username =
       if t.find('input[name="username"]')
-        t.find('input[name="username"]').value
+        t.find('input[name="username"]').value.toLowerCase()
       else
         undefined
 
