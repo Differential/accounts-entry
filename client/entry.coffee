@@ -14,6 +14,6 @@ AccountsEntry =
 
     if appConfig.signUpTemplate
       signUpRoute = Router.routes['entrySignUp']
-      signUpRoute.template = appConfig.signUpTemplate
+      signUpRoute.options.template = appConfig.signUpTemplate
 
 @AccountsEntry = AccountsEntry
