@@ -13,12 +13,7 @@ AccountsEntry =
       i18n.setLanguage appConfig.language
 
     if appConfig.signUpTemplate
-      Router.routes = _.reject Router.routes, (e, i) ->
-        e.name is 'entrySignUp'
-
-      Router.map ->
-        @route 'signUp',
-          path: '/sign-up',
-          template: appConfig.signUpTemplate
+      signUpRoute = Router.routes['entrySignUp']
+      signUpRoute.template = appConfig.signUpTemplate
 
 @AccountsEntry = AccountsEntry
