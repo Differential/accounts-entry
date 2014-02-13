@@ -34,6 +34,7 @@ es =
     emailRequired: "Email es necesario."
     signupCodeRequired: "Código para suscribir es necesario."
     signupCodeIncorrect: "Código para suscribir no coincide."
+    signInRequired: "Debes iniciar sesión para hacer eso."
     userValidationFailed: "[SP] User validation failed."
     emailAlreadyExists: "[SP] Email already exists."
     usernameAlreadyExists: "[SP] Username already exists."

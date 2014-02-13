@@ -36,6 +36,7 @@ de =
     emailRequired: "E-Mail benötigt."
     signupCodeRequired: "Registrierungscode benötigt."
     signupCodeIncorrect: "Registrierungscode ungültig."
+    signInRequired: "Sie müssen das tun unterzeichnet werden."
     userValidationFailed: "[DE] User validation failed."
     emailAlreadyExists: "[DE] Email already exists."
     usernameAlreadyExists: "[DE] Username already exists."

@@ -35,6 +35,7 @@ en =
     emailRequired: "Email is required."
     signupCodeRequired: "Signup code is required."
     signupCodeIncorrect: "Signup code is incorrect."
+    signInRequired: "You must be signed in to do that."
     userValidationFailed: "User validation failed."
     emailAlreadyExists: "Email already exists."
     usernameAlreadyExists: "Username already exists."
