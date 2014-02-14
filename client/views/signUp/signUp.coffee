@@ -120,7 +120,7 @@ Template.entrySignUp.events
         console.log err
       if valid
         newUserData =
-        	username: username
+          username: username
           email: email
           password: password
         Accounts.createUser newUserData, (err, data) ->
