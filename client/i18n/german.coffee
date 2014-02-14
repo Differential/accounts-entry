@@ -36,10 +36,10 @@ de =
     emailRequired: "E-Mail benötigt."
     signupCodeRequired: "Registrierungscode benötigt."
     signupCodeIncorrect: "Registrierungscode ungültig."
-    signInRequired: "Sie müssen das tun unterzeichnet werden."
-    userValidationFailed: "[DE] User validation failed."
-    emailAlreadyExists: "[DE] Email already exists."
-    usernameAlreadyExists: "[DE] Username already exists."
+    signInRequired: "Sie müssen sich anmelden."
+    userValidationFailed: "Die Benutzerdaten scheinen ungültig."
+    emailAlreadyExists: "Die Email existiert schon."
+    usernameAlreadyExists: "Der Benuztername existiert schon."
     unknown: "Unbekannter Fehler."
 
 i18n.map "de", de
