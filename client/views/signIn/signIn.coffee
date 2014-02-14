@@ -28,7 +28,7 @@ Template.entrySignIn.events
     Meteor.loginWithPassword(Session.get('email'), Session.get('password'), (error)->
       Session.set('password', undefined)
       if error
-        Session.set('entryError', error.reason)
+        T9NHelper.accountsError err
       else
         Router.go AccountsEntry.settings.dashboardRoute
     )
