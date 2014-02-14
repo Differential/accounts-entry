@@ -120,11 +120,9 @@ Template.entrySignUp.events
         console.log err
       if valid
         newUserData =
+        	username: username
           email: email
           password: password
-          profile: AccountsEntry.settings.defaultProfile || {}
-        if username
-          newUserData.username = username
         Accounts.createUser newUserData, (err, data) ->
           if err
             errorMsg = signUpErrorMap[err.reason]
