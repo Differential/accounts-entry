@@ -29,6 +29,8 @@ Template.entrySignIn.events
       Session.set('password', undefined)
       if error
         Session.set('entryError', error.reason)
+      else if Session.get('fromWhere')
+        Router.go Session.get('fromWhere')
       else
         Router.go AccountsEntry.settings.dashboardRoute
     )

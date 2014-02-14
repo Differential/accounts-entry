@@ -145,6 +145,8 @@ Template.entrySignUp.events
             Meteor.loginWithPassword(username, password, (error) ->
               if error
                 Session.set('entryError', i18n("error.unknown"))
+              else if Session.get('fromWhere')
+                Router.go Session.get('fromWhere')
               else
                 Router.go AccountsEntry.settings.dashboardRoute
             )
