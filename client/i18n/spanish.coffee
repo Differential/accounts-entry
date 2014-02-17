@@ -35,9 +35,5 @@ es =
     signupCodeRequired: "Código para suscribir es necesario."
     signupCodeIncorrect: "Código para suscribir no coincide."
     signInRequired: "Debes iniciar sesión para hacer eso."
-    userValidationFailed: "[SP] User validation failed."
-    emailAlreadyExists: "[SP] Email already exists."
-    usernameAlreadyExists: "[SP] Username already exists."
-    unknown: "Error desconocido."
 
-i18n.map "es", es
+T9n.map "es", es
