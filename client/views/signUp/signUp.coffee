@@ -136,6 +136,8 @@ Template.entrySignUp.events
             Meteor.loginWithPassword(username, password, (error) ->
               if error
                 T9NHelper.accountsError err
+              else if Session.get('fromWhere')
+                Router.go Session.get('fromWhere')
               else
                 Router.go AccountsEntry.settings.dashboardRoute
             )
