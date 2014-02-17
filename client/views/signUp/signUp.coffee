@@ -117,6 +117,7 @@ Template.entrySignUp.events
           username: username
           email: email
           password: password
+          profile: AccountsEntry.settings.defaultProfile || {}
         Accounts.createUser newUserData, (err, data) ->
           if err
             T9NHelper.accountsError err
