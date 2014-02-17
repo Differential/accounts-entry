@@ -19,6 +19,7 @@ AccountsEntry =
   signInRequired: (router, extraCondition) ->
     extraCondition ?= true
     unless Meteor.user() and extraCondition
+      Session.set('fromWhere', router.path)
       Router.go('/sign-in')
       Session.set('entryError', i18n('error.signInRequired'))
       router.stop()

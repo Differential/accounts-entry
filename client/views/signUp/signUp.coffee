@@ -138,6 +138,7 @@ Template.entrySignUp.events
                 T9NHelper.accountsError err
               else if Session.get('fromWhere')
                 Router.go Session.get('fromWhere')
+                Session.set('fromWhere', undefined)
               else
                 Router.go AccountsEntry.settings.dashboardRoute
             )
