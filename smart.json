@@ -3,7 +3,7 @@
   "description": "A meteorite package that relies on Iron Router and gives you sign page login styles.",
   "homepage": "https://github.com/BeDifferential/accounts-entry",
   "author": "Differential (http://differential.io)",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "git": "https://github.com/BeDifferential/accounts-entry.git",
   "packages": {
     "iron-router": "0.6.2",
