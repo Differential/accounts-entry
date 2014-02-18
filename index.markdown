@@ -56,7 +56,7 @@ You can then either add links to those directly, or use the `{{ special }}` help
 
 ## Ensuring signed in users for routes
 
-Use `AccountsEntry.signInRequested(this)` to require signed in users for a route. Stick that in your before hook function and it will redirect to sign in and stop any rendering. Accounts Entry also tracks where the user was trying to go and will route them back after sign in.
+Use `AccountsEntry.signInRequired(this)` to require signed in users for a route. Stick that in your before hook function and it will redirect to sign in and stop any rendering. Accounts Entry also tracks where the user was trying to go and will route them back after sign in.
 
 For example in coffeescript we would use:
 
