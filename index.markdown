@@ -10,7 +10,7 @@ desc: Meteor sign up and sign in pages.
 
 A meteorite package that relies on Iron Router and provides an
 alternative interface to accounts-ui, with whole pages for sign up
-and sign in. 
+and sign in.
 
 We wanted something to work with that used [Iron Router](https://github.com/EventedMind/iron-router),
 [Bootstrap 3](https://github.com/mangasocial/meteor-bootstrap-3), and didn't require the forcing of
@@ -35,12 +35,10 @@ accounts-entry is presently compatible with Iron Router 0.5.4 and 0.6.0.
 Run:
 
 ```
-mrt add accounts-ui
-mrt add accounts-password
 mrt add accounts-entry
 ```
 
-You need to have `accounts-ui` package, as we depend on aspects of it.
+You can install the `accounts-ui` package, as it is still used for oauth setup.
 
 ## Provided routes
 
@@ -56,6 +54,10 @@ You will get routes for:
 {% assign special = '{{accountButtons}}' %}
 You can then either add links to those directly, or use the `{{ special }}` helper we provide to give you the proper links.
 
+## Setting up password login
+
+Use `mrt add accounts-password` if you want to have email/username login authentication options. This is now optional and will only display if installed. You need to install an oauth option if you choose not to have password logins.
+
 ## Setting up oauth/social integrations
 
 Use `accounts-ui` to configure your social/oauth integrations (or manually create records in your database, if you have those skills). We don't have the nice instructions on how to configure the services built into this package.
@@ -70,15 +72,10 @@ The signup code is only checked for accounts-password logins, so know that oAuth
 
 ### On the client (only)
 
-Since this is a young package, we are maintaining compatibility with accounts-ui (so if in a pinch accounts-entry is broken for you, you could easily switch to accounts-ui).
-
-As such, the `passwordSignupFields` attributes from Accounts.ui.config is read by accounts-entry to determine what fields to show during sign up and sign in.
+Since this is a young package, we are maintaining compatibility with accounts-ui (so if in a pinch accounts-entry is broken for you, you could easily switch to accounts-ui). We also use the UI for oauth configs from accounts-ui.
 
 {% highlight coffeescript %}
 Meteor.startup ->
-  Accounts.ui.config
-    passwordSignupFields: 'EMAIL_ONLY'
-
   AccountsEntry.config
     logo: 'logo.png'
     privacyUrl: '/privacy-policy'
@@ -86,6 +83,7 @@ Meteor.startup ->
     homeRoute: '/'
     dashboardRoute: '/dashboard'
     profileRoute: 'profile'
+    passwordSignupFields: 'EMAIL_ONLY'
     showSignupCode: true
 {% endhighlight %}
 
