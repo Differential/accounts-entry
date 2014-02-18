@@ -128,14 +128,14 @@ Template.entrySignUp.events
             'EMAIL_ONLY'], AccountsEntry.settings.passwordSignupFields)
             Meteor.loginWithPassword(email, password, (error) ->
               if error
-                T9NHelper.accountsError err
+                T9NHelper.accountsError error
               else
                 Router.go AccountsEntry.settings.dashboardRoute
             )
           else
             Meteor.loginWithPassword(username, password, (error) ->
               if error
-                T9NHelper.accountsError err
+                T9NHelper.accountsError error
               else if Session.get('fromWhere')
                 Router.go Session.get('fromWhere')
                 Session.set('fromWhere', undefined)
