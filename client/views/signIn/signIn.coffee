@@ -13,6 +13,8 @@ Template.entrySignIn.helpers
       'USERNAME_AND_OPTIONAL_EMAIL'
       ], fields)
       return i18n("usernameOrEmail")
+    else if fields == "USERNAME_ONLY"
+      return i18n("username")
 
     return i18n("email")
 
