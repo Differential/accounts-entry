@@ -1,5 +1,7 @@
 # accounts-entry
 
+[![Build Status](https://travis-ci.org/BeDifferential/accounts-entry.png)](https://travis-ci.org/BeDifferential/accounts-entry)
+
 A meteorite package that relies on Iron Router and provides an
 alternative interface to accounts-ui, with whole pages for sign up
 and sign in. 
