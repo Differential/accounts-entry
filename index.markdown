@@ -28,7 +28,7 @@ links):
 
 ## Compatibility
 
-accounts-entry is presently compatible with Iron Router 0.5.4 and 0.6.0.
+accounts-entry is presently compatible with Iron Router 0.6.0 and above. Since meteorite doesn't support semantic version locking, we are currently pegged to 0.6.2 of Iron-router.
 
 ## Getting started
 
@@ -53,6 +53,20 @@ You will get routes for:
 
 {% assign special = '{{accountButtons}}' %}
 You can then either add links to those directly, or use the `{{ special }}` helper we provide to give you the proper links.
+
+## Ensuring signed in users for routes
+
+Use `AccountsEntry.signInRequested(this)` to require signed in users for a route. Stick that in your before hook function and it will redirect to sign in and stop any rendering. Accounts Entry also tracks where the user was trying to go and will route them back after sign in.
+
+For example in coffeescript we would use:
+
+````
+Route.map () ->
+  @route 'createPayment',
+    path: '/create/payment'
+    before: ->
+      AccountsEntry.signInRequired(@)
+````
 
 ## Setting up password login
 
