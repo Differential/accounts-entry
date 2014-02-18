@@ -3,10 +3,34 @@ layout: default
 username: BeDifferential
 repo: accounts-entry
 desc: Meteor sign up and sign in pages.
+version: 0.6.0
 
 ---
 # Changelog
 ### Master
+
+### 0.6.0
+
+* Added first tests using TinyTest
+* Switch to using t9n so we get wrapped up translations for Meteor Core accounts-base errors [#86](https://github.com/BeDifferential/accounts-entry/pull/86)
+* Track redirects because of signInRequired and redirect back once sign in/sign up is completed [#13](https://github.com/BeDifferential/accounts-entry/issues/13)
+* Added signInRequired helper method
+* Fixed various langauge issues with translations [6086a1](https://github.com/BeDifferential/accounts-entry/commit/6086a17a3d3fe7fd1d4f2ab71d0ed9553756b1f0)
+* Usernames in sign up + sign in should not be case sensitive [#65](https://github.com/BeDifferential/accounts-entry/issues/65)
+* Add before hooks to the settings so you can tweak html before each accountButtons link (NEEDS DOCS) [8b9555](https://github.com/BeDifferential/accounts-entry/commit/8b9555ed33827fa16d15191377de5e8256be749e)
+* Fix template override to work correctly [#83](https://github.com/BeDifferential/accounts-entry/issues/83)
+* Fix redirect happening before login is finished processing [#78](https://github.com/BeDifferential/accounts-entry/pull/78)
+* Sign up code was being required by faulty logic, make it optional now. [#69](https://github.com/BeDifferential/accounts-entry/issues/69)
+* Add missed translations [cd7192](https://github.com/BeDifferential/accounts-entry/commit/cd719282796e76f1c431e526d650238af6da622d)
+* Add german support [#70](https://github.com/BeDifferential/accounts-entry/pull/70)
+
+### 0.5.3
+
+### 0.5.2
+
+### 0.5.1
+
+### 0.5.0
 
 * Switch package to use i18n and add english and spanish translations [#46](https://github.com/BeDifferential/accounts-entry/pull/46)
 * Allow signupTemplate to be overridden [ad0381d](https://github.com/BeDifferential/accounts-entry/commit/ad0381d3fa80aa2247b9d6200d4489f1fd3430c8)

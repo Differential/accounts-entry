@@ -3,6 +3,7 @@ layout: default
 username: BeDifferential
 repo: accounts-entry
 desc: Meteor sign up and sign in pages.
+version: 0.6.0
 
 ---
 
