@@ -24,7 +24,7 @@ Template.entrySignIn.helpers
 Template.entrySignIn.events
   'submit #signIn': (event) ->
     event.preventDefault()
-    Session.set('email', $('input[name="email"]').val())
+    Session.set('email', $('input[name="email"]').val().toLowerCase())
     Session.set('password', $('input[name="password"]').val())
 
     Meteor.loginWithPassword(Session.get('email'), Session.get('password'), (error)->
