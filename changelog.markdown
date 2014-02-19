@@ -32,6 +32,8 @@ version: 0.6.0
 
 ### 0.5.0
 
+* Use Accounts.createUser call instead of our own [c2b2cf](https://github.com/BeDifferential/accounts-entry/commit/c2b2cfca0be407cb90b8575a9c794549b0c5dbb3)
+* Fix calls to use proper settings for logo now [#47](https://github.com/BeDifferential/accounts-entry/issues/47)
 * Switch package to use i18n and add english and spanish translations [#46](https://github.com/BeDifferential/accounts-entry/pull/46)
 * Allow signupTemplate to be overridden [ad0381d](https://github.com/BeDifferential/accounts-entry/commit/ad0381d3fa80aa2247b9d6200d4489f1fd3430c8)
 * Refactor the folder structure of the package [ad0381d](https://github.com/BeDifferential/accounts-entry/commit/ad0381d3fa80aa2247b9d6200d4489f1fd3430c8)
