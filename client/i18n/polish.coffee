@@ -37,4 +37,4 @@ pl =
     signupCodeIncorrect: "Kod rejestracji jest nieprawidłowy."
     signInRequired: "Musisz być zalogowany, aby to zrobić."
 
-T9n.map "en", en
+T9n.map "pl", pl
