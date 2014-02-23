@@ -4,6 +4,11 @@ AccountsEntry =
     homeRoute: '/home'
     dashboardRoute: '/dashboard'
     passwordSignupFields: 'EMAIL_ONLY'
+    signInTemplate: 'entrySignIn'
+    signUpTemplate: 'entrySignUp'
+    forgotPasswordTemplate: 'entryForgotPassword'
+    signOutTemplate: 'entrySignOut'
+    resetPasswordTemplate: 'entryResetPassword'
 
   config: (appConfig) ->
     @settings = _.extend(@settings, appConfig)

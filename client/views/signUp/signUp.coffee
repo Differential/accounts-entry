@@ -1,4 +1,4 @@
-Template.entrySignUp.helpers
+Template[AccountsEntry.settings.signUpTemplate].helpers
   showEmail: ->
     fields = AccountsEntry.settings.passwordSignupFields
 
@@ -40,7 +40,7 @@ Template.entrySignUp.helpers
 
     _.contains(['USERNAME_AND_OPTIONAL_EMAIL'], fields)
 
-Template.entrySignUp.events
+Template[AccountsEntry.settings.signUpTemplate].events
   'submit #signUp': (event, t) ->
     event.preventDefault()
 

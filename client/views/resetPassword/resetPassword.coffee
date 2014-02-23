@@ -1,10 +1,10 @@
-Template.entryResetPassword.helpers
+Template[AccountsEntry.settings.resetPasswordTemplate].helpers
   error: -> Session.get('entryError')
 
   logo: ->
     AccountsEntry.settings.logo
 
-Template.entryResetPassword.events
+Template[AccountsEntry.settings.resetPasswordTemplate].events
 
   'submit #resetPassword': (event) ->
     event.preventDefault()
