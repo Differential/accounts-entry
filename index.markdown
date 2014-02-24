@@ -3,7 +3,7 @@ layout: default
 username: BeDifferential
 repo: accounts-entry
 desc: Meteor sign up and sign in pages.
-version: 0.6.0
+version: 0.6.1
 
 ---
 
@@ -29,7 +29,7 @@ links):
 
 ## Compatibility
 
-accounts-entry is presently compatible with Iron Router 0.6.0 and above. Since meteorite doesn't support semantic version locking, we are currently pegged to 0.6.2 of Iron-router.
+accounts-entry is presently compatible with Iron Router 0.6.0 and above. Since meteorite doesn't support semantic version locking, we are currently pegged to 0.6.4 of Iron-router.
 
 ## Getting started
 

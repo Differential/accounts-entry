@@ -3,11 +3,15 @@ layout: default
 username: BeDifferential
 repo: accounts-entry
 desc: Meteor sign up and sign in pages.
-version: 0.6.0
+version: 0.6.1
 
 ---
 # Changelog
 ### Master
+
+### 0.6.1
+
+* Bump iron-router version to 0.6.4. Still wish we had semvar support for dependencies [#96](https://github.com/BeDifferential/accounts-entry/issues/96)
 
 ### 0.6.0
 
