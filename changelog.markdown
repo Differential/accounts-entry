@@ -9,6 +9,8 @@ version: 0.6.1
 # Changelog
 ### Master
 
+* Add polish translations [#90](https://github.com/BeDifferential/accounts-entry/pull/90)
+
 ### 0.6.1
 
 * Bump iron-router version to 0.6.4. Still wish we had semvar support for dependencies [#96](https://github.com/BeDifferential/accounts-entry/issues/96)
