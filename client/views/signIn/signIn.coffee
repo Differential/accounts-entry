@@ -13,6 +13,8 @@ Template.entrySignIn.helpers
       'USERNAME_AND_OPTIONAL_EMAIL'
       ], fields)
       return i18n("usernameOrEmail")
+    else if fields == "USERNAME_ONLY"
+      return i18n("username")
 
     return i18n("email")
 
@@ -28,7 +30,10 @@ Template.entrySignIn.events
     Meteor.loginWithPassword(Session.get('email'), Session.get('password'), (error)->
       Session.set('password', undefined)
       if error
-        Session.set('entryError', error.reason)
+        T9NHelper.accountsError error
+      else if Session.get('fromWhere')
+        Router.go Session.get('fromWhere')
+        Session.set('fromWhere', undefined)
       else
         Router.go AccountsEntry.settings.dashboardRoute
     )

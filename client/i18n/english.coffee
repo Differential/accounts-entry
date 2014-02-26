@@ -35,9 +35,6 @@ en =
     emailRequired: "Email is required."
     signupCodeRequired: "Signup code is required."
     signupCodeIncorrect: "Signup code is incorrect."
-    userValidationFailed: "User validation failed."
-    emailAlreadyExists: "Email already exists."
-    usernameAlreadyExists: "Username already exists."
-    unknown: "Unknown error."
+    signInRequired: "You must be signed in to do that."
 
-i18n.map "en", en
+T9n.map "en", en
