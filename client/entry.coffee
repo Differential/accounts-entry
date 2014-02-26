@@ -30,7 +30,6 @@ AccountsEntry =
 class @T9NHelper
 
   @translate: (code) ->
-#    console.log "translate: #{code}"
     T9n.get code, "error.accounts"
 
   @accountsError: (err) ->
