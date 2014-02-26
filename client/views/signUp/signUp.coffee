@@ -109,9 +109,7 @@ Template.entrySignUp.events
       return
 
 
-    Meteor.call('entryValidateSignupCode', signupCode, (err, valid) ->
-      if err
-        console.log err
+    Meteor.call 'entryValidateSignupCode', signupCode, (err, valid) ->
       if valid
         newUserData =
           username: username
@@ -123,27 +121,21 @@ Template.entrySignUp.events
             T9NHelper.accountsError err
             return
           #login on client
-          if  _.contains([
+          isEmailSignUp = _.contains([
             'USERNAME_AND_EMAIL',
             'EMAIL_ONLY'], AccountsEntry.settings.passwordSignupFields)
-            Meteor.loginWithPassword(email, password, (error) ->
-              if error
-                T9NHelper.accountsError error
-              else
-                Router.go AccountsEntry.settings.dashboardRoute
-            )
-          else
-            Meteor.loginWithPassword(username, password, (error) ->
-              if error
-                T9NHelper.accountsError error
-              else if Session.get('fromWhere')
-                Router.go Session.get('fromWhere')
-                Session.set('fromWhere', undefined)
-              else
-                Router.go AccountsEntry.settings.dashboardRoute
-            )
+          userCredential = if isEmailSignUp then email else username
+          Meteor.loginWithPassword userCredential, password, (error) ->
+            if error
+              T9NHelper.accountsError error
+            else if Session.get 'fromWhere'
+              Router.go Session.get('fromWhere')
+              Session.set 'fromWhere', undefined 
+            else
+              Router.go AccountsEntry.settings.dashboardRoute
       else
-        Session.set('entryError', i18n("error.signupCodeIncorrect"))
+        console.log err
+        Session.set 'entryError', i18n("error.signupCodeIncorrect")
         return
-    )
+
 
