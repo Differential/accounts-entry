@@ -37,5 +37,6 @@ de =
     signupCodeRequired: "Registrierungscode benötigt."
     signupCodeIncorrect: "Registrierungscode ungültig."
     signInRequired: "Sie müssen sich anmelden."
+    usernameIsEmail: "Benutzername kann nicht eine E-Mail."
 
 T9n.map "de", de

@@ -36,5 +36,6 @@ pl =
     signupCodeRequired: "Wymagany jest kod rejestracji."
     signupCodeIncorrect: "Kod rejestracji jest nieprawidłowy."
     signInRequired: "Musisz być zalogowany, aby to zrobić."
+    usernameIsEmail: "Nazwa użytkownika nie może być adres e-mail."
 
 T9n.map "pl", pl
