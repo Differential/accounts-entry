@@ -4,8 +4,8 @@ AccountsEntry =
     homeRoute: '/home'
     dashboardRoute: '/dashboard'
     passwordSignupFields: 'EMAIL_ONLY'
-    emailInsensitive: true
-    usernameInsensitive: false
+    emailToLower: true
+    usernameToLower: false
 
   isStringEmail: (email) ->
     emailPattern = /^([\w.-]+)@([\w.-]+)\.([a-zA-Z.]{2,6})$/i 

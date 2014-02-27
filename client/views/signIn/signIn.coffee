@@ -26,8 +26,8 @@ Template.entrySignIn.events
     event.preventDefault()
 
     email = $('input[name="email"]').val()
-    if (AccountsEntry.isStringEmail(email) and AccountsEntry.settings.emailInsensitive) or
-     (not AccountsEntry.isStringEmail(email) and AccountsEntry.settings.usernameInsensitive)
+    if (AccountsEntry.isStringEmail(email) and AccountsEntry.settings.emailToLower) or
+     (not AccountsEntry.isStringEmail(email) and AccountsEntry.settings.usernameToLower)
       email = email.toLowerCase()
 
     Session.set('email', email)
