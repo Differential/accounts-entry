@@ -103,6 +103,10 @@ Template.entrySignUp.events
       Session.set('entryError', i18n("error.usernameRequired"))
       return
 
+    if username && AccountsEntry.isStringEmail(username)
+      Session.set('entryError', i18n("error.usernameIsEmail"))
+      return
+
     if emailRequired && email.length is 0
       Session.set('entryError', i18n("error.emailRequired"))
       return
