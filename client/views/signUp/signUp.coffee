@@ -49,7 +49,7 @@ Template.entrySignUp.events
         t.find('input[name="username"]').value.toLowerCase()
       else
         undefined
-    if username && AccountsEntry.settings.usernameToLower then username = username.toLowerCase()
+    if username and AccountsEntry.settings.usernameToLower then username = username.toLowerCase()
 
     signupCode =
       if t.find('input[name="signupCode"]')
