@@ -4,6 +4,9 @@ AccountsEntry =
     homeRoute: '/home'
     dashboardRoute: '/dashboard'
     passwordSignupFields: 'EMAIL_ONLY'
+    emailInsensitive: true
+    usernameInsensitive: false
+
 
   config: (appConfig) ->
     @settings = _.extend(@settings, appConfig)

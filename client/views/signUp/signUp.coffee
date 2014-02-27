@@ -49,6 +49,7 @@ Template.entrySignUp.events
         t.find('input[name="username"]').value.toLowerCase()
       else
         undefined
+    if username && AccountsEntry.settings.usernameInsensitive then username = username.toLowerCase()
 
     signupCode =
       if t.find('input[name="signupCode"]')
@@ -57,6 +58,8 @@ Template.entrySignUp.events
         undefined
 
     email = t.find('input[type="email"]').value
+    if AccountsEntry.settings.emailInsensitive then email = email.toLowerCase()
+
     password = t.find('input[type="password"]').value
 
     fields = AccountsEntry.settings.passwordSignupFields
