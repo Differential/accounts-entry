@@ -56,13 +56,19 @@ Template.entrySignUp.events
       else
         undefined
 
-    email = t.find('input[type="email"]').value
+    trimInput = (val)->
+      val.replace /^\s*|\s*$/g, ""
+
+    email =
+      if t.find('input[type="email"]')
+        trimInput t.find('input[type="email"]').value
+      else
+        undefined
+
     password = t.find('input[type="password"]').value
 
     fields = AccountsEntry.settings.passwordSignupFields
 
-    trimInput = (val)->
-      val.replace /^\s*|\s*$/g, ""
 
     passwordErrors = do (password)->
       errMsg = []
@@ -85,8 +91,6 @@ Template.entrySignUp.events
       return false
 
     if passwordErrors then return
-
-    email = trimInput email
 
     emailRequired = _.contains([
       'USERNAME_AND_EMAIL',
