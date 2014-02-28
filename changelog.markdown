@@ -9,6 +9,7 @@ version: 0.6.1
 # Changelog
 ### Master
 
+* Fix 'fromWhere' routing to work for both usernames and emails, was an oversight [#100](https://github.com/BeDifferential/accounts-entry/pull/100)
 * Add polish translations [#90](https://github.com/BeDifferential/accounts-entry/pull/90)
 
 ### 0.6.1
