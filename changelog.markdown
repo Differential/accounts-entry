@@ -9,6 +9,10 @@ version: 0.6.1
 # Changelog
 ### Master
 
+### 0.6.2
+
+* Lock just-i18n to v0.1.1 since the refactors seem to break accounts-t9n which we rely on. [a58632](https://github.com/BeDifferential/accounts-entry/commit/a58632e95c0c59e72dd6edce71fa58fe50e8ce94)
+* Fix signup form to work with USERNAME_ONLY, email field was causing errors. [#93](https://github.com/BeDifferential/accounts-entry/issues/93)
 * Fix 'fromWhere' routing to work for both usernames and emails, was an oversight [#100](https://github.com/BeDifferential/accounts-entry/pull/100)
 * Add polish translations [#90](https://github.com/BeDifferential/accounts-entry/pull/90)
 
