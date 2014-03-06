@@ -57,15 +57,20 @@ Template.entrySignUp.events
       else
         undefined
 
-    email = t.find('input[type="email"]').value
-    if AccountsEntry.settings.emailToLower then email = email.toLowerCase()
+    trimInput = (val)->
+      val.replace /^\s*|\s*$/g, ""
+
+    email =
+      if t.find('input[type="email"]')
+        trimInput t.find('input[type="email"]').value
+      else
+        undefined
+    if AccountsEntry.settings.emailToLower and email then email = email.toLowerCase()
 
     password = t.find('input[type="password"]').value
 
     fields = AccountsEntry.settings.passwordSignupFields
 
-    trimInput = (val)->
-      val.replace /^\s*|\s*$/g, ""
 
     passwordErrors = do (password)->
       errMsg = []
@@ -88,8 +93,6 @@ Template.entrySignUp.events
       return false
 
     if passwordErrors then return
-
-    email = trimInput email
 
     emailRequired = _.contains([
       'USERNAME_AND_EMAIL',
@@ -116,9 +119,7 @@ Template.entrySignUp.events
       return
 
 
-    Meteor.call('entryValidateSignupCode', signupCode, (err, valid) ->
-      if err
-        console.log err
+    Meteor.call 'entryValidateSignupCode', signupCode, (err, valid) ->
       if valid
         newUserData =
           username: username
@@ -130,27 +131,21 @@ Template.entrySignUp.events
             T9NHelper.accountsError err
             return
           #login on client
-          if  _.contains([
+          isEmailSignUp = _.contains([
             'USERNAME_AND_EMAIL',
             'EMAIL_ONLY'], AccountsEntry.settings.passwordSignupFields)
-            Meteor.loginWithPassword(email, password, (error) ->
-              if error
-                T9NHelper.accountsError error
-              else
-                Router.go AccountsEntry.settings.dashboardRoute
-            )
-          else
-            Meteor.loginWithPassword(username, password, (error) ->
-              if error
-                T9NHelper.accountsError error
-              else if Session.get('fromWhere')
-                Router.go Session.get('fromWhere')
-                Session.set('fromWhere', undefined)
-              else
-                Router.go AccountsEntry.settings.dashboardRoute
-            )
+          userCredential = if isEmailSignUp then email else username
+          Meteor.loginWithPassword userCredential, password, (error) ->
+            if error
+              T9NHelper.accountsError error
+            else if Session.get 'fromWhere'
+              Router.go Session.get('fromWhere')
+              Session.set 'fromWhere', undefined 
+            else
+              Router.go AccountsEntry.settings.dashboardRoute
       else
-        Session.set('entryError', i18n("error.signupCodeIncorrect"))
+        console.log err
+        Session.set 'entryError', i18n("error.signupCodeIncorrect")
         return
-    )
+
 
