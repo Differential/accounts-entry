@@ -6,3 +6,5 @@ vendor/
 .idea
 packages
 *.lock
+*.sublime-workspace
+*.sublime-project
