@@ -1,4 +1,4 @@
-Template.entrySignIn.helpers
+Template[AccountsEntry.settings.signInTemplate].helpers
   emailInputType: ->
     if AccountsEntry.settings.passwordSignupFields is 'EMAIL_ONLY'
       'email'
@@ -21,7 +21,7 @@ Template.entrySignIn.helpers
   logo: ->
     AccountsEntry.settings.logo
 
-Template.entrySignIn.events
+Template[AccountsEntry.settings.signInTemplate].events
   'submit #signIn': (event) ->
     event.preventDefault()
     Session.set('email', $('input[name="email"]').val())
