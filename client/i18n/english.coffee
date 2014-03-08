@@ -36,5 +36,6 @@ en =
     signupCodeRequired: "Signup code is required."
     signupCodeIncorrect: "Signup code is incorrect."
     signInRequired: "You must be signed in to do that."
+    usernameIsEmail: "Username cannot be an email address."
 
 T9n.map "en", en

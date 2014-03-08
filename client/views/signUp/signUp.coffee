@@ -49,6 +49,7 @@ Template.entrySignUp.events
         t.find('input[name="username"]').value.toLowerCase()
       else
         undefined
+    if username and AccountsEntry.settings.usernameToLower then username = username.toLowerCase()
 
     signupCode =
       if t.find('input[name="signupCode"]')
@@ -64,6 +65,7 @@ Template.entrySignUp.events
         trimInput t.find('input[type="email"]').value
       else
         undefined
+    if AccountsEntry.settings.emailToLower and email then email = email.toLowerCase()
 
     password = t.find('input[type="password"]').value
 
@@ -102,6 +104,10 @@ Template.entrySignUp.events
 
     if usernameRequired && username.length is 0
       Session.set('entryError', i18n("error.usernameRequired"))
+      return
+
+    if username && AccountsEntry.isStringEmail(username)
+      Session.set('entryError', i18n("error.usernameIsEmail"))
       return
 
     if emailRequired && email.length is 0

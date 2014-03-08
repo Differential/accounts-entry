@@ -35,5 +35,6 @@ es =
     signupCodeRequired: "Código para suscribir es necesario."
     signupCodeIncorrect: "Código para suscribir no coincide."
     signInRequired: "Debes iniciar sesión para hacer eso."
+    usernameIsEmail: "Usuario no puede ser Email."
 
 T9n.map "es", es
