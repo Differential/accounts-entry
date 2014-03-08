@@ -9,6 +9,10 @@ version: 0.6.1
 # Changelog
 ### Master
 
+* Add name attribuets on signUp form to be consistent [#107](https://github.com/BeDifferential/accounts-entry/pull/107)
+* Add emailToLower and usernameToLower settings so you can set the package to lowercase email input [#101](https://github.com/BeDifferential/accounts-entry/pull/101)
+* Put autofocus on first field, not just on the email input. [#106](https://github.com/BeDifferential/accounts-entry/pull/106)
+
 ### 0.6.2
 
 * Lock just-i18n to v0.1.1 since the refactors seem to break accounts-t9n which we rely on. [a58632](https://github.com/BeDifferential/accounts-entry/commit/a58632e95c0c59e72dd6edce71fa58fe50e8ce94)
