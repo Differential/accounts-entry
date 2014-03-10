@@ -10,7 +10,7 @@ version: 0.6.1
 ### Master
 
 * Don't pull in spark or just-i18n dependencies, neither are directly needed anymore. [fc994c1](https://github.com/BeDifferential/accounts-entry/commit/fc994c1afe10dfcbb54b7aae2b0cf9fc5ba1f5b6)
-* Add name attribuets on signUp form to be consistent [#107](https://github.com/BeDifferential/accounts-entry/pull/107)
+* Add name attributes on signUp form to be consistent [#107](https://github.com/BeDifferential/accounts-entry/pull/107)
 * Add emailToLower and usernameToLower settings so you can set the package to lowercase email input [#101](https://github.com/BeDifferential/accounts-entry/pull/101)
 * Put autofocus on first field, not just on the email input. [#106](https://github.com/BeDifferential/accounts-entry/pull/106)
 
