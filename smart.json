@@ -8,6 +8,8 @@
   "packages": {
     "iron-router": "0.6.4",
     "just-i18n": "0.1.1",
-    "accounts-t9n": {}
+    "accounts-t9n": {
+      "path": "/Users/josh/Code/Differential/meteor-accounts-t9n"
+    }
   }
 }
