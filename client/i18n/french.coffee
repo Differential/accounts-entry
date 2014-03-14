@@ -18,7 +18,7 @@ en =
   username: "Nom d'utilisateur"
   optional: "Optionnel"
   signupCode: "Code d'inscription"
-  clickAgree: "En cliquant sur S'enregistrer, vous acceptez"
+  clickAgree: "En cliquant sur S'enregistrer, vous acceptez notre"
   privacyPolicy: "Politique de confidentialité"
   terms: "Conditions d'utilisation"
   sign: "S'enregistrer"
