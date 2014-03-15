@@ -1,4 +1,4 @@
-en =
+fr =
   signIn: "Se Connecter"
   signin: "se connecter"
   signOut: "Se Deconnecter"
