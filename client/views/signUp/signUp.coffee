@@ -40,6 +40,9 @@ Template.entrySignUp.helpers
 
     _.contains(['USERNAME_AND_OPTIONAL_EMAIL'], fields)
 
+  emailAddress: ->
+    Session.get('email')
+
 Template.entrySignUp.events
   'submit #signUp': (event, t) ->
     event.preventDefault()
@@ -140,12 +143,10 @@ Template.entrySignUp.events
               T9NHelper.accountsError error
             else if Session.get 'fromWhere'
               Router.go Session.get('fromWhere')
-              Session.set 'fromWhere', undefined 
+              Session.set 'fromWhere', undefined
             else
               Router.go AccountsEntry.settings.dashboardRoute
       else
         console.log err
         Session.set 'entryError', i18n("error.signupCodeIncorrect")
         return
-
-
