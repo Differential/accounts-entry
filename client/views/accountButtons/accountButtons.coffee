@@ -17,3 +17,7 @@ Template.entryAccountButtons.helpers
 
   beforeSignedInAs: ->
     AccountsEntry.settings.beforeSignedInAs
+
+  entrySignUp: ->
+    AccountsEntry.settings.entrySignUp
+    
