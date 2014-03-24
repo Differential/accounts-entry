@@ -9,7 +9,7 @@
     "iron-router": "0.6.4",
     "just-i18n": {},
     "accounts-t9n": {
-      "git": "git@github.com:BeDifferential/meteor-accounts-t9n.git"
+      "git": "git@github.com:BeDifferential/meteor-accounts-t9n.git",
       "branch": "fix-just-i18n"
     }
   }
