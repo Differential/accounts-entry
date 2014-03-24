@@ -7,7 +7,10 @@
   "git": "https://github.com/BeDifferential/accounts-entry.git",
   "packages": {
     "iron-router": "0.6.4",
-    "just-i18n": {},
+    "just-i18n": {
+      "git": "git@github.com:BeDifferential/meteor-just-i18n.git",
+      "branch": "blaze"
+    },
     "accounts-t9n": {
       "git": "git@github.com:BeDifferential/meteor-accounts-t9n.git",
       "branch": "fix-just-i18n"
