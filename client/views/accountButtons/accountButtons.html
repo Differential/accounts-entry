@@ -2,30 +2,52 @@
   {{#if currentUser}}
 
     {{#if profileUrl}}
-      {{#if wrapLinks}}<li>{{/if}}
+      {{#if wrapLinks}}
+        <li>
+      {{/if}}
         <a class='profileLink' href='{{profileUrl}}'>{{{beforeSignedInAs}}}{{signedInAs}}</a>
-      {{#if wrapLinks}}</li>{{/if}}
+      {{#if wrapLinks}}
+        </li>
+      {{/if}}
     {{else}}
-      {{#if wrapLinks}}<li>{{/if}}
+      {{#if wrapLinks}}
+        <li>
+      {{/if}}
         <p class="navbar-text">{{{beforeSignedInAs}}}{{signedInAs}}</p>
-      {{#if wrapLinks}}</li>{{/if}}
+      {{#if wrapLinks}}
+        </li>
+      {{/if}}
     {{/if}}
 
-    {{#if wrapLinks}}<li>{{/if}}
+    {{#if wrapLinks}}
+      <li>
+    {{/if}}
       <a href="/sign-out">{{{beforeSignOut}}}{{i18n "signOut"}}</a>
-    {{#if wrapLinks}}</li>{{/if}}
+    {{#if wrapLinks}}
+      </li>
+    {{/if}}
 
   {{else}}
 
-    {{#if wrapLinks}}<li>{{/if}}
+    {{#if wrapLinks}}
+      <li>
+    {{/if}}
       <a href="/sign-in">{{{beforeSignIn}}}{{i18n "signIn"}}</a>
-    {{#if wrapLinks}}</li>{{/if}}
+    {{#if wrapLinks}}
+      </li>
+    {{/if}}
 
-    {{#unless wrapLinks}}<span>or</span>{{/unless}}
+    {{#unless wrapLinks}}
+      <span>or</span>
+    {{/unless}}
 
-    {{#if wrapLinks}}<li>{{/if}}
+    {{#if wrapLinks}}
+      <li>
+    {{/if}}
       <a href="{{entrySignUp}}">{{{beforeSignUp}}}{{i18n "signUp"}}</a>
-    {{#if wrapLinks}}</li>{{/if}}
+    {{#if wrapLinks}}
+      </li>
+    {{/if}}
 
   {{/if}}
 </template>

@@ -39,7 +39,11 @@
             {{#if showEmail}}
               <div class="form-group">
                 <label>{{i18n "emailAddress"}}</label>
-                <input {{#unless showUsername}}autofocus{{/unless}} type="email" class="form-control" value=''>
+                {{#if showUsername}}
+                  <input type="email" class="form-control" value=''>
+                {{else}}
+                  <input autofocus type="email" class="form-control" value=''>
+                {{/if}}
               </div>
             {{/if}}
 
