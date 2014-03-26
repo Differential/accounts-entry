@@ -9,7 +9,7 @@ version: 0.6.1
 
 # accounts-entry
 
-A meteorite package that relies on Iron Router and provides an
+accounts-entry is a meteorite package that relies on Iron Router and provides an
 alternative interface to accounts-ui, with whole pages for sign up
 and sign in.
 
