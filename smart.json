@@ -1,18 +1,18 @@
 {
   "name": "accounts-entry",
   "description": "A meteorite package that relies on Iron Router and gives you whole-page login styles.",
-  "homepage": "https://github.com/BeDifferential/accounts-entry",
+  "homepage": "https://github.com/Differential/accounts-entry",
   "author": "Differential (http://differential.io)",
   "version": "0.6.3",
-  "git": "https://github.com/BeDifferential/accounts-entry.git",
+  "git": "https://github.com/Differential/accounts-entry.git",
   "packages": {
     "iron-router": "0.6.4",
     "just-i18n": {
-      "git": "git@github.com:BeDifferential/meteor-just-i18n.git",
+      "git": "git@github.com:Differential/meteor-just-i18n.git",
       "branch": "blaze"
     },
     "accounts-t9n": {
-      "git": "git@github.com:BeDifferential/meteor-accounts-t9n.git",
+      "git": "git@github.com:Differential/meteor-accounts-t9n.git",
       "branch": "fix-just-i18n"
     }
   }
