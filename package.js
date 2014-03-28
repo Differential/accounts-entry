@@ -68,7 +68,6 @@ Package.on_test(function (api) {
             'test-helpers',
             'templating',
             'mongo-livedata',
-            'domutils',
             'coffeescript',
             'iron-router'])
   api.use('accounts-entry')
