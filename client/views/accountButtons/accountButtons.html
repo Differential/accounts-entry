@@ -2,30 +2,30 @@
   {{#if currentUser}}
 
     {{#if profileUrl}}
-      {{wrapLinksOpenLi}}
+      {{#wrapLinksLi}}
         <a class='profileLink' href='{{profileUrl}}'>{{{beforeSignedInAs}}}{{signedInAs}}</a>
-      {{wrapLinksCloseLi}}
+      {{/wrapLinksLi}}
     {{else}}
-      {{wrapLinksOpenLi}}
+      {{#wrapLinksLi}}
         <p class="navbar-text">{{{beforeSignedInAs}}}{{signedInAs}}</p>
-      {{wrapLinksCloseLi}}
+      {{/wrapLinksLi}}
     {{/if}}
 
-    {{wrapLinksOpenLi}}
+    {{#wrapLinksLi}}
       <a href="/sign-out">{{{beforeSignOut}}}{{i18n "signOut"}}</a>
-    {{wrapLinksCloseLi}}
+    {{/wrapLinksLi}}
   {{else}}
 
-    {{wrapLinksOpenLi}}
+    {{#wrapLinksLi}}
       <a href="/sign-in">{{{beforeSignIn}}}{{i18n "signIn"}}</a>
-    {{wrapLinksCloseLi}}
+    {{/wrapLinksLi}}
 
     {{#unless wrapLinks}}
       <span>or</span>
     {{/unless}}
 
-    {{wrapLinksOpenLi}}
+    {{#wrapLinksLi}}
       <a href="{{entrySignUp}}">{{{beforeSignUp}}}{{i18n "signUp"}}</a>
-    {{wrapLinksCloseLi}}
+    {{/wrapLinksLi}}
   {{/if}}
 </template>

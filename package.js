@@ -36,6 +36,7 @@ Package.on_use(function(api) {
     'client/views/error/error.coffee',
     'client/views/accountButtons/accountButtons.html',
     'client/views/accountButtons/accountButtons.coffee',
+    'client/views/accountButtons/_wrapLinks.html',
     'client/i18n/english.coffee',
     'client/i18n/german.coffee',
     'client/i18n/spanish.coffee'

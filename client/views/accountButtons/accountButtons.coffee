@@ -3,11 +3,11 @@ Template.entryAccountButtons.helpers
     return false unless AccountsEntry.settings.profileRoute
     AccountsEntry.settings.profileRoute
 
-  wrapLinksOpenLi: ->
-    Spacebars.SafeString("<li>") if AccountsEntry.settings.wrapLinks
-
-  wrapLinksCloseLi: ->
-    Spacebars.SafeString("</li>") if AccountsEntry.settings.wrapLinks
+  wrapLinksLi: ->
+    if AccountsEntry.settings.wrapLinks
+      Template.wrapLinks
+    else
+      Template.noWrapLinks
 
   beforeSignIn: ->
     AccountsEntry.settings.beforeSignIn
