@@ -10,7 +10,7 @@ if typeof Handlebars isnt "undefined"
       "Signed In"
 
 Handlebars.registerHelper 'accountButtons', ->
-    return new Handlebars.SafeString(Template.entryAccountButtons())
+  Template.entryAccountButtons
 
 Handlebars.registerHelper 'capitalize', (str) ->
   str.charAt(0).toUpperCase() + str.slice(1)

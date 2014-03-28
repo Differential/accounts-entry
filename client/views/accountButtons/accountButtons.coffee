@@ -4,10 +4,10 @@ Template.entryAccountButtons.helpers
     AccountsEntry.settings.profileRoute
 
   wrapLinksOpenLi: ->
-    "<li>" if AccountsEntry.settings.wrapLinks
+    Spacebars.SafeString("<li>") if AccountsEntry.settings.wrapLinks
 
   wrapLinksCloseLi: ->
-    "</li>" if AccountsEntry.settings.wrapLinks
+    Spacebars.SafeString("</li>") if AccountsEntry.settings.wrapLinks
 
   beforeSignIn: ->
     AccountsEntry.settings.beforeSignIn

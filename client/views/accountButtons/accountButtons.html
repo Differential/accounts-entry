@@ -11,12 +11,12 @@
       {{wrapLinksCloseLi}}
     {{/if}}
 
-    {wrapLinksOpenLi}}
+    {{wrapLinksOpenLi}}
       <a href="/sign-out">{{{beforeSignOut}}}{{i18n "signOut"}}</a>
     {{wrapLinksCloseLi}}
   {{else}}
 
-    {wrapLinksOpenLi}}
+    {{wrapLinksOpenLi}}
       <a href="/sign-in">{{{beforeSignIn}}}{{i18n "signIn"}}</a>
     {{wrapLinksCloseLi}}
 
@@ -24,7 +24,7 @@
       <span>or</span>
     {{/unless}}
 
-    {wrapLinksOpenLi}}
+    {{wrapLinksOpenLi}}
       <a href="{{entrySignUp}}">{{{beforeSignUp}}}{{i18n "signUp"}}</a>
     {{wrapLinksCloseLi}}
   {{/if}}
