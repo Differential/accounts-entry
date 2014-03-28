@@ -8,8 +8,6 @@
   "packages": {
     "iron-router": "0.7.0",
     "just-i18n": {
-      "git": "https://github.com/Differential/meteor-just-i18n.git",
-      "branch": "blaze"
     },
     "accounts-t9n": {
       "git": "https://github.com/Differential/meteor-accounts-t9n.git",
