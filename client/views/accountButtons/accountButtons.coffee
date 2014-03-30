@@ -9,6 +9,9 @@ Template.entryAccountButtons.helpers
     else
       Template.noWrapLinks
 
+  wrapLinks: ->
+    AccountsEntry.settings.wrapLinks
+
   beforeSignIn: ->
     AccountsEntry.settings.beforeSignIn
 
