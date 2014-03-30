@@ -9,6 +9,8 @@ We wanted something to work with that used [Iron Router](https://github.com/Even
 [Bootstrap 3](https://github.com/mangasocial/meteor-bootstrap-3), and didn't require the forcing of
 the dropdown box that didn't seem to be easily styled. But we love the ease of adding more packages like `accounts-facebook` or `accounts-twitter`, so we fully support the OAuth packages by adding buttons to let people sign-up/sign-in with those services if you add them.  We also supports the `accounts-password` package if you add it.
 
+![Example](http://github.differential.io/accounts-entry/images/Example.png)
+
 Examples of the package in action (check out the sign up or sign in
 links):
 
