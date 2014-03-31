@@ -2,4 +2,4 @@ language: node_js
 node_js:
   - "0.10"
 before_install:
-  - "curl -L https://gist.githubusercontent.com/queso/9330759/raw/a7e91852b895f39dc781849ac2a144d622f143de/runner.sh | /bin/sh"
+  - "curl -L http://git.io/ejPSng | /bin/sh"

@@ -3,6 +3,12 @@ Template.entryAccountButtons.helpers
     return false unless AccountsEntry.settings.profileRoute
     AccountsEntry.settings.profileRoute
 
+  wrapLinksLi: ->
+    if AccountsEntry.settings.wrapLinks
+      Template.wrapLinks
+    else
+      Template.noWrapLinks
+
   wrapLinks: ->
     AccountsEntry.settings.wrapLinks
 
@@ -17,3 +23,6 @@ Template.entryAccountButtons.helpers
 
   beforeSignedInAs: ->
     AccountsEntry.settings.beforeSignedInAs
+
+  entrySignUp: ->
+    AccountsEntry.settings.entrySignUp
