@@ -6,7 +6,7 @@ zhcn =
   OR: "或"
   forgotPassword: "忘记密码?"
   emailAddress: "邮箱地址"
-  emailResetLink: "邮箱充值链接"
+  emailResetLink: "发送重置链接"
   dontHaveAnAccount: "还没有账号?"
   resetYourPassword: "重置密码"
   updateYourPassword: "修改密码"
