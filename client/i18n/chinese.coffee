@@ -13,7 +13,7 @@ zhcn =
   password: "密码"
   usernameOrEmail: "用户名或邮箱地址"
   email: "邮箱地址"
-  ifYouAlreadyHaveAnAccount: "已经拥有帐号"
+  ifYouAlreadyHaveAnAccount: "已经拥有账号"
   signUpWithYourEmailAddress: "通过邮箱登陆"
   username: "用户名"
   optional: "可选"
