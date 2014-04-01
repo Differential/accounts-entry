@@ -2,7 +2,7 @@ zhcn =
   signIn: "登陆"
   signin: "登陆"
   signOut: "登出"
-  signUp: "登陆"
+  signUp: "立即注册"
   OR: "或"
   forgotPassword: "忘记密码?"
   emailAddress: "邮箱地址"
