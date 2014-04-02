@@ -21,6 +21,9 @@ Template.entrySignIn.helpers
   logo: ->
     AccountsEntry.settings.logo
 
+  isUsernameOnly: ->
+    return AccountsEntry.settings.passwordSignupFields == i18n("username")
+
 Template.entrySignIn.events
   'submit #signIn': (event) ->
     event.preventDefault()

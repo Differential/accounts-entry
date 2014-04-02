@@ -34,3 +34,10 @@ Tinytest.add "Accounts Entry - wrapLinks setting off should show 'or span'", (te
   div = renderToDiv(Template.test_helper_account_buttons)
   html = canonicalizeHtml(div.innerHTML)
   test.include html, '<span>or</span>'
+
+Tinytest.add "Accounts Entry - forgot password link should not show up if username only is set", (test) ->
+  AccountsEntry.settings.passwordSignupFields = "USERNAME_ONLY"
+  div = renderToDiv(Template.test_helper_sign_in)
+  html = canonicalizeHtml(div.innerHTML)
+  scan = html.indexOf('<a href="/forgot-password">')
+  test.equal(scan, -1, "Forgot password link should not show up if username only is set")

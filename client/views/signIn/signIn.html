@@ -33,8 +33,10 @@
             <div class="form-group">
               <input name="password" type="password" class="form-control" value='{{password}}' placeholder="{{i18n 'password'}}">
             </div>
-            <p><a href="/forgot-password">{{i18n "forgotPassword"}}</a></p>
-            <button type="submit" class="submit btn btn-block btn-default">{{i18n "signIn"}}</button>
+            {{#unless isUsernameOnly}}
+              <p><a href="/forgot-password">{{i18n "forgotPassword"}}</a></p>
+              <button type="submit" class="submit btn btn-block btn-default">{{i18n "signIn"}}</button>
+            {{/unless}}
           </form>
         {{/if}}
         <p class="entry-signup-cta">{{i18n "dontHaveAnAccount"}} <a href="/sign-up">{{i18n "signUp"}}</a></p>
