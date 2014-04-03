@@ -12,7 +12,7 @@ es =
   password: "Contraseña"
   usernameOrEmail: "Usuario o email"
   email: "Email"
-  ifYouAlreadyHaveAnAccount: "Si ya tenés una cuanta"
+  ifYouAlreadyHaveAnAccount: "Si ya tenés una cuenta"
   signUpWithYourEmailAddress: "Suscribir con tu email"
   username: "Usuario"
   optional: "Opcional"
@@ -27,9 +27,9 @@ es =
   and: "y"
 
   error:
-    minChar: "7 carácteres minimo."
-    pwOneLetter: "Minimo una letra."
-    pwOneDigit: "Minimo un dígito."
+    minChar: "7 carácteres mínimo."
+    pwOneLetter: "mínimo una letra."
+    pwOneDigit: "mínimo un dígito."
     usernameRequired: "Usuario es necesario."
     emailRequired: "Email es necesario."
     signupCodeRequired: "Código para suscribir es necesario."
