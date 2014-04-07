@@ -15,9 +15,9 @@ AccountsEntry =
   config: (appConfig) ->
     @settings = _.extend(@settings, appConfig)
 
-    i18n.setDefaultLanguage "en"
+    T9n.defaultLanguage = "en"
     if appConfig.language
-      i18n.setLanguage appConfig.language
+      T9n.language = appConfig.language
 
     if appConfig.signUpTemplate
       signUpRoute = Router.routes['entrySignUp']

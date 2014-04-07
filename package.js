@@ -58,7 +58,7 @@ Package.on_use(function(api) {
   api.imply('accounts-base', ['client', 'server']);
   api.export('AccountsEntry', ['client', 'server']);
   api.use('iron-router', ['client', 'server']);
-  api.use(['just-i18n', 'accounts-t9n'], ['client', 'server']);
+  api.use(['accounts-t9n'], ['client', 'server']);
   api.add_files(['shared/router.coffee'], ['client', 'server']);
 
 });
