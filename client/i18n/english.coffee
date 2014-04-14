@@ -26,6 +26,8 @@ en =
   with: "with"
   createAccount: "Create an Account"
   and: "and"
+  "Match failed":  "Match failed"
+  "User not found":  "User not found"
 
   error:
     minChar: "7 character minimum password."
