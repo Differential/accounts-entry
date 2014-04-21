@@ -7,9 +7,9 @@
         </div>
       {{/if}}
       <div class="entry col-md-4 col-md-offset-4">
-        <h3>{{i18n "createAccount"}}</h3>
+        <h3>{{t9n "createAccount"}}</h3>
         {{#if otherLoginServices}}
-          <p class="entry-signin-cta">{{i18n "ifYouAlreadyHaveAnAccount"}} <a href="/sign-in">{{i18n "signin"}}</a>.</p>
+          <p class="entry-signin-cta">{{t9n "ifYouAlreadyHaveAnAccount"}} <a href="/sign-in">{{t9n "signin"}}</a>.</p>
           <div class="entry-social">
             {{#each loginServices}}
               {{> entrySocial}}
@@ -18,27 +18,27 @@
               <div class="email-option">
                 <strong class="line-thru">OR</strong>
                 <a data-toggle="collapse" href="#signUp">
-                  {{i18n "signUpWithYourEmailAddress"}}
+                  {{t9n "signUpWithYourEmailAddress"}}
                 </a>
               </div>
             {{/if}}
           </div>
         {{else}}
-            <p class="entry-signin-cta">{{i18n "ifYouAlreadyHaveAnAccount"}} <a href="/sign-in">{{i18n "signin"}}</a>.</p>
+            <p class="entry-signin-cta">{{t9n "ifYouAlreadyHaveAnAccount"}} <a href="/sign-in">{{t9n "signin"}}</a>.</p>
         {{/if}}
         {{> entryError}}
         {{#if passwordLoginService}}
           <form class="entry-form {{signupClass}}" id='signUp'>
             {{#if showUsername}}
               <div class="form-group">
-                <label>{{i18n "username"}}</label>
+                <label>{{t9n "username"}}</label>
                 <input autofocus name="username" type="string" class="form-control" value=''>
               </div>
             {{/if}}
 
             {{#if showEmail}}
               <div class="form-group">
-                <label>{{i18n "emailAddress"}}</label>
+                <label>{{t9n "emailAddress"}}</label>
                 {{#if showUsername}}
                   <input type="email" class="form-control" value='{{emailAddress}}'>
                 {{else}}
@@ -48,30 +48,30 @@
             {{/if}}
 
             <div class="form-group">
-              <label>{{i18n "password"}}</label>
+              <label>{{t9n "password"}}</label>
               <input type="password" class="form-control" value=''>
             </div>
 
             {{#if showSignupCode}}
               <div class="form-group">
-                <label>{{i18n "signupCode"}}</label>
+                <label>{{t9n "signupCode"}}</label>
                 <input name="signupCode" type="string" class="form-control" value=''>
               </div>
             {{/if}}
 
-            <button type="submit" class="submit btn btn-block btn-default">{{i18n "signUp"}}</button>
+            <button type="submit" class="submit btn btn-block btn-default">{{t9n "signUp"}}</button>
           </form>
         {{/if}}
         {{#if both}}
-          <p class="entry-agreement">{{i18n "clickAgree"}}
-            <a href="{{privacyUrl}}">{{i18n "privacyPolicy"}}</a> {{i18n "and"}}
-            <a href="{{termsUrl}}">{{i18n "terms"}}</a>.
+          <p class="entry-agreement">{{t9n "clickAgree"}}
+            <a href="{{privacyUrl}}">{{t9n "privacyPolicy"}}</a> {{t9n "and"}}
+            <a href="{{termsUrl}}">{{t9n "terms"}}</a>.
           </p>
         {{else}}
           {{#unless neither}}
-            <p class="entry-agreement">{{i18n "clickAgree"}}
-              {{#if privacyUrl}}<a href="{{privacyUrl}}">{{i18n "privacyPolicy"}}</a>.{{/if}}
-              {{#if termsUrl}}<a href="{{termsUrl}}">{{i18n "terms"}}</a>.{{/if}}
+            <p class="entry-agreement">{{t9n "clickAgree"}}
+              {{#if privacyUrl}}<a href="{{privacyUrl}}">{{t9n "privacyPolicy"}}</a>.{{/if}}
+              {{#if termsUrl}}<a href="{{termsUrl}}">{{t9n "terms"}}</a>.{{/if}}
             </p>
           {{/unless}}
         {{/if}}

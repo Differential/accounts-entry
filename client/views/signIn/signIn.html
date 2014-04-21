@@ -14,7 +14,7 @@
           {{/each}}
           {{#if passwordLoginService}}
           <div class="email-option">
-            <strong class="line-thru or-sign-in">{{i18n "OR"}}</strong>
+            <strong class="line-thru or-sign-in">{{t9n "OR"}}</strong>
           </div>
           {{/if}}
         </div>
@@ -22,7 +22,7 @@
         {{> entryError}}
         {{#unless otherLoginServices}}
           <div class="email-option">
-            <h3>{{i18n "signIn"}}</h3>
+            <h3>{{t9n "signIn"}}</h3>
           </div>
         {{/unless}}
         {{#if passwordLoginService}}
@@ -31,15 +31,15 @@
               <input autofocus name="email" type="{{emailInputType}}" class="form-control" value='{{email}}' placeholder="{{emailPlaceholder}}">
             </div>
             <div class="form-group">
-              <input name="password" type="password" class="form-control" value='{{password}}' placeholder="{{i18n 'password'}}">
+              <input name="password" type="password" class="form-control" value='{{password}}' placeholder="{{t9n 'password'}}">
             </div>
             {{#unless isUsernameOnly}}
-              <p><a href="/forgot-password">{{i18n "forgotPassword"}}</a></p>
-              <button type="submit" class="submit btn btn-block btn-default">{{i18n "signIn"}}</button>
+              <p><a href="/forgot-password">{{t9n "forgotPassword"}}</a></p>
+              <button type="submit" class="submit btn btn-block btn-default">{{t9n "signIn"}}</button>
             {{/unless}}
           </form>
         {{/if}}
-        <p class="entry-signup-cta">{{i18n "dontHaveAnAccount"}} <a href="/sign-up">{{i18n "signUp"}}</a></p>
+        <p class="entry-signup-cta">{{t9n "dontHaveAnAccount"}} <a href="/sign-up">{{t9n "signUp"}}</a></p>
       </div>
     </div>
   </div>

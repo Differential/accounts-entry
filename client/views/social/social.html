@@ -2,15 +2,15 @@
   <button class="btn" id="entry-{{this}}" name="{{this}}">
     {{#if unconfigured}}
       {{#if google}}
-        <i class="fa fa-{{this}}-plus"></i> {{i18n "configure"}} {{capitalize this}}
+        <i class="fa fa-{{this}}-plus"></i> {{t9n "configure"}} {{capitalize this}}
       {{else}}
-        <i class="fa fa-{{this}}"></i> {{i18n "configure"}} {{capitalize this}}
+        <i class="fa fa-{{this}}"></i> {{t9n "configure"}} {{capitalize this}}
       {{/if}}
     {{else}}
       {{#if google}}
-        <i class="fa fa-{{this}}-plus"></i> {{i18n "sign"}} {{buttonText}} {{i18n "with"}} {{capitalize this}}
+        <i class="fa fa-{{this}}-plus"></i> {{t9n "sign"}} {{buttonText}} {{t9n "with"}} {{capitalize this}}
       {{else}}
-        <i class="fa fa-{{this}}"></i> {{i18n "sign"}} {{buttonText}} {{i18n "with"}} {{capitalize this}}
+        <i class="fa fa-{{this}}"></i> {{t9n "sign"}} {{buttonText}} {{t9n "with"}} {{capitalize this}}
       {{/if}}
     {{/if}}
   </button>

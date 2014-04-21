@@ -79,11 +79,11 @@ Template.entrySignUp.events
       errMsg = []
       msg = false
       if password.length < 7
-        errMsg.push i18n("error.minChar")
+        errMsg.push t9n("error.minChar")
       if password.search(/[a-z]/i) < 0
-        errMsg.push i18n("error.pwOneLetter")
+        errMsg.push t9n("error.pwOneLetter")
       if password.search(/[0-9]/) < 0
-        errMsg.push i18n("error.pwOneDigit")
+        errMsg.push t9n("error.pwOneDigit")
 
       if errMsg.length > 0
         msg = ""
@@ -106,19 +106,19 @@ Template.entrySignUp.events
       'USERNAME_ONLY'], fields)
 
     if usernameRequired && username.length is 0
-      Session.set('entryError', i18n("error.usernameRequired"))
+      Session.set('entryError', t9n("error.usernameRequired"))
       return
 
     if username && AccountsEntry.isStringEmail(username)
-      Session.set('entryError', i18n("error.usernameIsEmail"))
+      Session.set('entryError', t9n("error.usernameIsEmail"))
       return
 
     if emailRequired && email.length is 0
-      Session.set('entryError', i18n("error.emailRequired"))
+      Session.set('entryError', t9n("error.emailRequired"))
       return
 
     if AccountsEntry.settings.showSignupCode && signupCode.length is 0
-      Session.set('entryError', i18n("error.signupCodeRequired"))
+      Session.set('entryError', t9n("error.signupCodeRequired"))
       return
 
 
@@ -148,5 +148,5 @@ Template.entrySignUp.events
               Router.go AccountsEntry.settings.dashboardRoute
       else
         console.log err
-        Session.set 'entryError', i18n("error.signupCodeIncorrect")
+        Session.set 'entryError', t9n("error.signupCodeIncorrect")
         return
