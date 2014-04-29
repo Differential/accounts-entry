@@ -8,6 +8,5 @@
   "packages": {
     "iron-router": "0.7.0",
     "accounts-t9n": "0.0.3"
-    }
   }
 }
