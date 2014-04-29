@@ -14,11 +14,11 @@ Template.entryResetPassword.events
       errMsg = []
       msg = false
       if password.length < 7
-        errMsg.push i18n("error.minChar")
+        errMsg.push t9n("error.minChar")
       if password.search(/[a-z]/i) < 0
-        errMsg.push i18n("error.pwOneLetter")
+        errMsg.push t9n("error.pwOneLetter")
       if password.search(/[0-9]/) < 0
-        errMsg.push i18n("error.pwOneDigit")
+        errMsg.push t9n("error.pwOneDigit")
 
       if errMsg.length > 0
         msg = ""

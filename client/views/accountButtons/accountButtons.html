@@ -12,12 +12,12 @@
     {{/if}}
 
     {{#wrapLinksLi}}
-      <a href="/sign-out">{{{beforeSignOut}}}{{i18n "signOut"}}</a>
+      <a href="/sign-out">{{{beforeSignOut}}}{{t9n "signOut"}}</a>
     {{/wrapLinksLi}}
   {{else}}
 
     {{#wrapLinksLi}}
-      <a href="/sign-in">{{{beforeSignIn}}}{{i18n "signIn"}}</a>
+      <a href="/sign-in">{{{beforeSignIn}}}{{t9n "signIn"}}</a>
     {{/wrapLinksLi}}
 
     {{#unless wrapLinks}}
@@ -25,7 +25,7 @@
     {{/unless}}
 
     {{#wrapLinksLi}}
-      <a href="{{entrySignUp}}">{{{beforeSignUp}}}{{i18n "signUp"}}</a>
+      <a href="{{entrySignUp}}">{{{beforeSignUp}}}{{t9n "signUp"}}</a>
     {{/wrapLinksLi}}
   {{/if}}
 </template>

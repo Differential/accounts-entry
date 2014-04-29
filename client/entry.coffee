@@ -29,7 +29,7 @@ AccountsEntry =
       unless Meteor.user() and extraCondition
         Session.set('fromWhere', router.path)
         Router.go('/sign-in')
-        Session.set('entryError', i18n('error.signInRequired'))
+        Session.set('entryError', t9n('error.signInRequired'))
         router.pause()
 
 @AccountsEntry = AccountsEntry
