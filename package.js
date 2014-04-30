@@ -38,7 +38,9 @@ Package.on_use(function(api) {
     'client/views/accountButtons/accountButtons.coffee',
     'client/views/accountButtons/_wrapLinks.html',
     'client/t9n/english.coffee',
+    'client/t9n/french.coffee',
     'client/t9n/german.coffee',
+    'client/t9n/polish.coffee',
     'client/t9n/spanish.coffee'
   ], 'client');
 
