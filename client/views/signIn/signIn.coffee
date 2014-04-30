@@ -1,4 +1,4 @@
-Template.entrySignIn.helpers
+AccountsEntry.entrySignInHelpers = {
   emailInputType: ->
     if AccountsEntry.settings.passwordSignupFields is 'EMAIL_ONLY'
       'email'
@@ -23,8 +23,9 @@ Template.entrySignIn.helpers
 
   isUsernameOnly: ->
     return AccountsEntry.settings.passwordSignupFields == t9n("username")
+}
 
-Template.entrySignIn.events
+AccountsEntry.entrySignInEvents = {
   'submit #signIn': (event) ->
     event.preventDefault()
 
@@ -46,3 +47,8 @@ Template.entrySignIn.events
       else
         Router.go AccountsEntry.settings.dashboardRoute
     )
+}
+
+Template.entrySignIn.helpers(AccountsEntry.entrySignInHelpers)
+
+Template.entrySignIn.events(AccountsEntry.entrySignInEvents)

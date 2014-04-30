@@ -1,4 +1,4 @@
-Template.entrySignUp.helpers
+AccountsEntry.entrySignUpHelpers = {
   showEmail: ->
     fields = AccountsEntry.settings.passwordSignupFields
 
@@ -42,8 +42,9 @@ Template.entrySignUp.helpers
 
   emailAddress: ->
     Session.get('email')
+}
 
-Template.entrySignUp.events
+AccountsEntry.entrySignUpEvents = {
   'submit #signUp': (event, t) ->
     event.preventDefault()
 
@@ -150,3 +151,8 @@ Template.entrySignUp.events
         console.log err
         Session.set 'entryError', t9n("error.signupCodeIncorrect")
         return
+}
+
+Template.entrySignUp.helpers(AccountsEntry.entrySignUpHelpers)
+
+Template.entrySignUp.events(AccountsEntry.entrySignUpEvents)
