@@ -15,6 +15,9 @@ AccountsEntry.entrySignUpHelpers = {
       'USERNAME_AND_OPTIONAL_EMAIL',
       'USERNAME_ONLY'], fields)
 
+  showProfile: ->
+    AccountsEntry.settings.showProfile
+
   showSignupCode: ->
     AccountsEntry.settings.showSignupCode
 
@@ -48,9 +51,26 @@ AccountsEntry.entrySignUpEvents = {
   'submit #signUp': (event, t) ->
     event.preventDefault()
 
+    firstName =
+      if t.find('input[name="firstName"]')
+        t.find('input[name="firstName"]').value
+      else undefined
+
+    lastName =
+      if t.find('input[name="lastName"]')
+        t.find('input[name="lastName"]').value
+      else undefined
+
+    organization =
+      if t.find('input[name="organization"]')
+        t.find('input[name="organization"]').value
+      else undefined
+
     username =
       if t.find('input[name="username"]')
         t.find('input[name="username"]').value.toLowerCase()
+      else if firstName and lastName
+        firstName + lastName
       else
         undefined
     if username and AccountsEntry.settings.usernameToLower then username = username.toLowerCase()
@@ -106,6 +126,18 @@ AccountsEntry.entrySignUpEvents = {
       'USERNAME_AND_EMAIL',
       'USERNAME_ONLY'], fields)
 
+    if AccountsEntry.settings.profileRequired && firstName.length is 0
+      Session.set('entryError', "First name is required.")
+      return
+
+    if AccountsEntry.settings.profileRequired && lastName.length is 0
+      Session.set('entryError', "Last name is required.")
+      return
+
+    if AccountsEntry.settings.profileRequired && organization.length is 0
+      Session.set('entryError', "Organization is required.")
+      return
+
     if usernameRequired && username.length is 0
       Session.set('entryError', t9n("error.usernameRequired"))
       return
@@ -129,7 +161,11 @@ AccountsEntry.entrySignUpEvents = {
           username: username
           email: email
           password: password
-          profile: AccountsEntry.settings.defaultProfile || {}
+          profile:
+            firstName: firstName
+            lastName: lastName
+            name: firstName + " " + lastName
+            organization: organization
         Accounts.createUser newUserData, (err, data) ->
           if err
             T9NHelper.accountsError err
