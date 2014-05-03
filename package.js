@@ -40,6 +40,7 @@ Package.on_use(function(api) {
     'client/t9n/english.coffee',
     'client/t9n/french.coffee',
     'client/t9n/german.coffee',
+    'client/t9n/italian.coffee',
     'client/t9n/polish.coffee',
     'client/t9n/spanish.coffee'
   ], 'client');
@@ -72,8 +73,8 @@ Package.on_test(function (api) {
             'templating',
             'mongo-livedata',
             'coffeescript',
-            'iron-router'])
-  api.use('accounts-entry')
+            'iron-router']);
+  api.use('accounts-entry');
 
-  api.add_files(['tests/route.coffee', 'tests/client.html', 'tests/client.coffee'], 'client')
+  api.add_files(['tests/route.coffee', 'tests/client.html', 'tests/client.coffee'], 'client');
 })
