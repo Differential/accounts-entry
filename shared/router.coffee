@@ -59,12 +59,12 @@ Router.map ->
 
   @route 'entrySignOut',
     path: '/sign-out'
-    onBeforeAction: ->
+    onBeforeAction: (pause)->
       Session.set('entryError', undefined)
       if AccountsEntry.settings.homeRoute
         Meteor.logout () ->
           Router.go AccountsEntry.settings.homeRoute
-      @pause()
+      pause()
 
   @route 'entryResetPassword',
     path: 'reset-password/:resetToken'
