@@ -47,6 +47,21 @@
               </div>
             {{/if}}
 
+            {{#if showProfile}}
+            <div class="form-group">
+              <label>First Name</label>
+              <input name="firstName" type="string" class="form-control" value=''>
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input name="lastName" type="string" class="form-control" value=''>
+            </div>
+            <div class="form-group">
+              <label>Organization</label>
+              <input name="organization" type="string" class="form-control" value=''>
+            </div>
+            {{/if}}
+
             <div class="form-group">
               <label>{{t9n "password"}}</label>
               <input type="password" class="form-control" value=''>
