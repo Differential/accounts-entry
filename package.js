@@ -42,7 +42,8 @@ Package.on_use(function(api) {
     'client/t9n/german.coffee',
     'client/t9n/italian.coffee',
     'client/t9n/polish.coffee',
-    'client/t9n/spanish.coffee'
+    'client/t9n/spanish.coffee',
+    'client/t9n/swedish.coffee'
   ], 'client');
 
   // SERVER
