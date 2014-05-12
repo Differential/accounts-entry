@@ -21,7 +21,7 @@ sv =
   clickAgree: "När du väljer att skapa ett konto så godkänner du också vår"
   privacyPolicy: "integritetspolicy"
   terms: "användarvilkor"
-  sign: "Logga in"
+  sign: "Logga"
   configure: "Konfigurera"
   with: "med"
   createAccount: "Skapa ett konto"
