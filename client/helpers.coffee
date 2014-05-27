@@ -19,6 +19,9 @@ Handlebars.registerHelper 'signupClass', ->
   if Accounts.oauth && Accounts.oauth.serviceNames().length > 0
     "collapse"
 
+Handlebars.registerHelper 'signedIn', ->
+  return true if Meteor.user()
+
 Handlebars.registerHelper 'otherLoginServices', ->
   Accounts.oauth &&
   Accounts.oauth.serviceNames().length > 0
