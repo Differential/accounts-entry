@@ -14,6 +14,7 @@ Package.on_use(function(api) {
     'handlebars',
     'session',
     'coffeescript',
+    'simple-form',
     'less']
   , 'client');
 
@@ -26,6 +27,8 @@ Package.on_use(function(api) {
     'client/views/signIn/signIn.coffee',
     'client/views/signUp/signUp.html',
     'client/views/signUp/signUp.coffee',
+    'client/views/signUp/extraSignUpFields.html',
+    'client/views/signUp/extraSignUpFields.coffee',
     'client/views/forgotPassword/forgotPassword.html',
     'client/views/forgotPassword/forgotPassword.coffee',
     'client/views/resetPassword/resetPassword.html',
@@ -70,11 +73,13 @@ Package.on_use(function(api) {
 
 Package.on_test(function (api) {
   api.use(['tinytest',
+            'underscore',
             'handlebars',
             'test-helpers',
             'templating',
             'mongo-livedata',
             'coffeescript',
+            'simple-form',
             'iron-router']);
   api.use('accounts-entry');
 
