@@ -41,5 +41,7 @@ sl =
     signupCodeIncorrect: "Prijavna koda je napačna."
     signInRequired: "Za to moraš biti prijavljen(a)."
     usernameIsEmail: "Uporabniško ime ne more biti email naslov."
+    "User not found": "Uporabnik ne obstaja"
+
 
 T9n.map "sl", sl
