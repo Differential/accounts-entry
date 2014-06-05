@@ -6,7 +6,7 @@ sl =
   OR: "ALI"
   forgotPassword: "Pozabljeno geslo?"
   emailAddress: "Email naslov"
-  emailResetLink: "Email ponastavitvena povezava"
+  emailResetLink: "Pošlji ponastavitveno povezavo"
   dontHaveAnAccount: "Nisi registriran?"
   resetYourPassword: "Ponastavi geslo"
   updateYourPassword: "Spremeni geslo"
@@ -28,7 +28,7 @@ sl =
   and: "in"
   "Match failed":  "Prijava neuspešna"
   "User not found":  "Uporabnik ne obstaja"
-  "Incorrect password" : "Napačno geslo"
+  "Incorrect password": "Napačno geslo"
 
   error:
     minChar: "Geslo mora imeti vsaj sedem znakov."
