@@ -7,6 +7,7 @@ AccountsEntry =
     emailToLower: true
     usernameToLower: false
     entrySignUp: '/sign-up'
+    extraSignUpFields: []
 
   isStringEmail: (email) ->
     emailPattern = /^([\w.-]+)@([\w.-]+)\.([a-zA-Z.]{2,6})$/i

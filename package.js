@@ -14,6 +14,7 @@ Package.on_use(function(api) {
     'handlebars',
     'session',
     'coffeescript',
+    'simple-form',
     'less']
   , 'client');
 
@@ -26,6 +27,8 @@ Package.on_use(function(api) {
     'client/views/signIn/signIn.coffee',
     'client/views/signUp/signUp.html',
     'client/views/signUp/signUp.coffee',
+    'client/views/signUp/extraSignUpFields.html',
+    'client/views/signUp/extraSignUpFields.coffee',
     'client/views/forgotPassword/forgotPassword.html',
     'client/views/forgotPassword/forgotPassword.coffee',
     'client/views/resetPassword/resetPassword.html',
@@ -40,8 +43,11 @@ Package.on_use(function(api) {
     'client/t9n/english.coffee',
     'client/t9n/french.coffee',
     'client/t9n/german.coffee',
+    'client/t9n/italian.coffee',
     'client/t9n/polish.coffee',
-    'client/t9n/spanish.coffee'
+    'client/t9n/spanish.coffee',
+    'client/t9n/swedish.coffee',
+    'client/t9n/portuguese.coffee'
   ], 'client');
 
   // SERVER
@@ -67,13 +73,15 @@ Package.on_use(function(api) {
 
 Package.on_test(function (api) {
   api.use(['tinytest',
+            'underscore',
             'handlebars',
             'test-helpers',
             'templating',
             'mongo-livedata',
             'coffeescript',
-            'iron-router'])
-  api.use('accounts-entry')
+            'simple-form',
+            'iron-router']);
+  api.use('accounts-entry');
 
-  api.add_files(['tests/route.coffee', 'tests/client.html', 'tests/client.coffee'], 'client')
+  api.add_files(['tests/route.coffee', 'tests/client.html', 'tests/client.coffee'], 'client');
 })
