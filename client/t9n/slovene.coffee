@@ -28,6 +28,7 @@ sl =
   and: "in"
   "Match failed":  "Prijava neuspešna"
   "User not found":  "Uporabnik ne obstaja"
+  "Incorrect password" : "Napačno geslo"
 
   error:
     minChar: "Geslo mora imeti vsaj sedem znakov."
