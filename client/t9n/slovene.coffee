@@ -29,6 +29,7 @@ sl =
   "Match failed":  "Prijava neuspešna"
   "User not found":  "Uporabnik ne obstaja"
   "Incorrect password": "Napačno geslo"
+  "Email already exists.": "Email že obstaja."
 
   error:
     minChar: "Geslo mora imeti vsaj sedem znakov."
