@@ -1,5 +1,5 @@
 Template.entryForgotPassword.helpers
-  error: -> Session.get('entryError')
+  error: -> t9n(Session.get('entryError'))
 
   logo: ->
     AccountsEntry.settings.logo
