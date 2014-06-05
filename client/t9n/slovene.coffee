@@ -30,7 +30,8 @@ sl =
   "User not found":  "Uporabnik ne obstaja"
   "Incorrect password": "Napačno geslo"
   "Email already exists.": "Email že obstaja."
-
+  "Email is required": "Email je obvezen podatek"
+  
   error:
     minChar: "Geslo mora imeti vsaj sedem znakov."
     pwOneLetter: "V geslu mora biti vsaj ena črka."
@@ -41,7 +42,5 @@ sl =
     signupCodeIncorrect: "Prijavna koda je napačna."
     signInRequired: "Za to moraš biti prijavljen(a)."
     usernameIsEmail: "Uporabniško ime ne more biti email naslov."
-    "User not found": "Uporabnik ne obstaja"
-
-
+    
 T9n.map "sl", sl
