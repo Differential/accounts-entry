@@ -1,19 +1,6 @@
 <template name="entryAccountButtons">
   {{#if currentUser}}
-
-    {{#if profileUrl}}
-      {{#wrapLinksLi}}
-        <a class='profileLink' href='{{profileUrl}}'>{{{beforeSignedInAs}}}{{signedInAs}}</a>
-      {{/wrapLinksLi}}
-    {{else}}
-      {{#wrapLinksLi}}
-        <p class="navbar-text">{{{beforeSignedInAs}}}{{signedInAs}}</p>
-      {{/wrapLinksLi}}
-    {{/if}}
-
-    {{#wrapLinksLi}}
-      <a href="/sign-out">{{{beforeSignOut}}}{{t9n "signOut"}}</a>
-    {{/wrapLinksLi}}
+    {{> signedInTemplate}}
   {{else}}
 
     {{#wrapLinksLi}}

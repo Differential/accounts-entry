@@ -1,7 +1,8 @@
-Template.entryAccountButtons.helpers
+entryAccountButtonsHelpers = {
   profileUrl: ->
     return false unless AccountsEntry.settings.profileRoute
     AccountsEntry.settings.profileRoute
+
 
   wrapLinksLi: ->
     if AccountsEntry.settings.wrapLinks
@@ -26,3 +27,16 @@ Template.entryAccountButtons.helpers
 
   entrySignUp: ->
     AccountsEntry.settings.entrySignUp
+}
+
+Template.entryAccountButtons.helpers entryAccountButtonsHelpers
+
+Template.entryAccountButtons.helpers
+  signedInTemplate: ->
+    if AccountsEntry.settings.signedInTemplate
+      Template[AccountsEntry.settings.signedInTemplate].helpers(entryAccountButtonsHelpers)
+      Template[AccountsEntry.settings.signedInTemplate]
+    else
+      Template.entrySignedIn
+
+Template.entrySignedIn.helpers entryAccountButtonsHelpers
