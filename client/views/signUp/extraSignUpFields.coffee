@@ -4,7 +4,7 @@ Template.entryExtraSignUpFields.helpers
 
 Template._entryExtraSignUpField.helpers
   isTextField: ->
-    @type is "text_box"
+    @type isnt "check_box"
 
   isCheckbox: ->
     @type is "check_box"
