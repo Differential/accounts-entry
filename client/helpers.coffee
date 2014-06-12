@@ -16,13 +16,14 @@ Handlebars.registerHelper 'capitalize', (str) ->
   str.charAt(0).toUpperCase() + str.slice(1)
 
 Handlebars.registerHelper 'signupClass', ->
-  if Accounts.oauth && Accounts.oauth.serviceNames().length > 0
+  if AccountsEntry.settings.showOtherLoginServices && Accounts.oauth && Accounts.oauth.serviceNames().length > 0
     "collapse"
 
 Handlebars.registerHelper 'signedIn', ->
   return true if Meteor.user()
 
 Handlebars.registerHelper 'otherLoginServices', ->
+  AccountsEntry.settings.showOtherLoginServices &&
   Accounts.oauth &&
   Accounts.oauth.serviceNames().length > 0
 
