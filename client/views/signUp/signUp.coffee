@@ -75,6 +75,18 @@ AccountsEntry.entrySignUpEvents = {
 
     fields = AccountsEntry.settings.passwordSignupFields
 
+    booleanify = (str)->
+      str = true if str is "true"
+      str = false if str is "false"
+      return str
+
+    extraFields = AccountsEntry.settings.extraSignUpFields
+    extraFieldValues = {}
+    extraFields.forEach (f)->
+      fieldValue = booleanify(t.find("input[name=\""+f.name+"\"]:last").value);
+      extraFieldValues[f.name] = fieldValue
+
+    _.extend(AccountsEntry.settings.defaultProfile, extraFieldValues)
 
     passwordErrors = do (password)->
       errMsg = []
