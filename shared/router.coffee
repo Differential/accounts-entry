@@ -6,6 +6,9 @@ Router.map ->
       Session.set('entryError', undefined)
       Session.set('buttonText', 'in')
     onRun: ->
+      if Meteor.userId()
+        Router.go AccountsEntry.settings.dashboardRoute
+
       if AccountsEntry.settings.signInTemplate
         @template = AccountsEntry.settings.signInTemplate
 
