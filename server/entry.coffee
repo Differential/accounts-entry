@@ -8,6 +8,12 @@ Meteor.startup ->
     config: (appConfig) ->
       @settings = _.extend(@settings, appConfig)
 
+    onSignIn: (my_func) ->
+      Accounts.onLogin my_func
+
+    onSignUp: (my_func) ->
+      Accounts.onCreateUser my_func
+
   @AccountsEntry = AccountsEntry
 
   Meteor.methods
