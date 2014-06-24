@@ -15,15 +15,17 @@ Meteor.startup ->
       check signupCode, Match.OneOf(String, null, undefined)
       not AccountsEntry.settings.signupCode or signupCode is AccountsEntry.settings.signupCode
 
-    accountsCreateUser: (username, email, password) ->
-      if username
+    entryCreateUser: (user) ->
+      check user, Object
+      profile = AccountsEntry.settings.defaultProfile || {}
+      if user.username
         Accounts.createUser
-          username: username,
-          email: email,
-          password: password,
-          profile: AccountsEntry.settings.defaultProfile || {}
+          username: user.username,
+          email: user.email,
+          password: user.password,
+          profile: _.extend(profile, user.profile)
       else
         Accounts.createUser
-          email: email
-          password: password
-          profile: AccountsEntry.settings.defaultProfile || {}
+          email: user.email
+          password: user.password
+          profile: _.extend(profile, user.profile)

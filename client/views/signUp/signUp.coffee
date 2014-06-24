@@ -71,6 +71,9 @@ AccountsEntry.entrySignUpEvents = {
         undefined
     if AccountsEntry.settings.emailToLower and email then email = email.toLowerCase()
 
+    formValues = SimpleForm.processForm(event.target)
+    extraFields = _.pluck(AccountsEntry.settings.extraSignUpFields, 'name')
+    filteredExtraFields = _.pick(formValues, extraFields)
     password = t.find('input[type="password"]').value
 
     fields = AccountsEntry.settings.passwordSignupFields
@@ -129,9 +132,10 @@ AccountsEntry.entrySignUpEvents = {
           username: username
           email: email
           password: password
-          profile: AccountsEntry.settings.defaultProfile || {}
-        Accounts.createUser newUserData, (err, data) ->
+          profile: filteredExtraFields
+        Meteor.call 'entryCreateUser', newUserData, (err, data) ->
           if err
+            console.log err
             T9NHelper.accountsError err
             return
           #login on client
@@ -141,6 +145,7 @@ AccountsEntry.entrySignUpEvents = {
           userCredential = if isEmailSignUp then email else username
           Meteor.loginWithPassword userCredential, password, (error) ->
             if error
+              console.log err
               T9NHelper.accountsError error
             else if Session.get 'fromWhere'
               Router.go Session.get('fromWhere')
