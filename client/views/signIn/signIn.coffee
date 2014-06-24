@@ -24,8 +24,6 @@ AccountsEntry.entrySignInHelpers = {
   isUsernameOnly: ->
     return AccountsEntry.settings.passwordSignupFields == t9n("username")
 
-  showCreateAccountLink: ->
-    return !Accounts._options.forbidClientAccountCreation
 }
 
 AccountsEntry.entrySignInEvents = {

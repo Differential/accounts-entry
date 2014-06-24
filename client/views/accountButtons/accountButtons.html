@@ -11,8 +11,10 @@
       <span>or</span>
     {{/unless}}
 
-    {{#wrapLinksLi}}
-      <a href="{{entrySignUp}}">{{{beforeSignUp}}}{{t9n "signUp"}}</a>
-    {{/wrapLinksLi}}
+    {{#if showCreateAccountLink}}
+      {{#wrapLinksLi}}
+        <a href="{{entrySignUp}}">{{{beforeSignUp}}}{{t9n "signUp"}}</a>
+      {{/wrapLinksLi}}
+    {{/if}}
   {{/if}}
 </template>

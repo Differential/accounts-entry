@@ -35,3 +35,6 @@ UI.registerHelper 'showSignupCode', ->
 
 UI.registerHelper 'passwordLoginService', ->
   !!Package['accounts-password']
+
+UI.registerHelper 'showCreateAccountLink', ->
+  return !Accounts._options.forbidClientAccountCreation
