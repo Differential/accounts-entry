@@ -8,6 +8,6 @@
   "packages": {
     "iron-router": "0.7.0",
     "accounts-t9n": "0.0.5",
-    "simple-form": "0.1.5"
+    "simple-form": ""
   }
 }
