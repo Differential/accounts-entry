@@ -27,6 +27,9 @@ entryAccountButtonsHelpers = {
 
   entrySignUp: ->
     AccountsEntry.settings.entrySignUp
+
+  profile: ->
+    Meteor.user().profile
 }
 
 Template.entryAccountButtons.helpers entryAccountButtonsHelpers
