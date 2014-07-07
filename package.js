@@ -15,7 +15,8 @@ Package.on_use(function(api) {
     'session',
     'coffeescript',
     'simple-form',
-    'less']
+    'less',
+    'sha']
   , 'client');
 
 
@@ -67,6 +68,7 @@ Package.on_use(function(api) {
 
   // CLIENT and SERVER
   api.imply('accounts-base', ['client', 'server']);
+  api.imply('accounts-password', ['client', 'server']);
   api.export('AccountsEntry', ['client', 'server']);
   api.use('iron-router', ['client', 'server']);
   api.use(['accounts-t9n'], ['client', 'server']);

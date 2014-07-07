@@ -1,3 +1,7 @@
+AccountsEntry.hashPassword = (password) ->
+  digest: SHA256(password),
+  algorithm: "sha-256"
+
 AccountsEntry.entrySignUpHelpers = {
   showEmail: ->
     fields = AccountsEntry.settings.passwordSignupFields
@@ -131,7 +135,7 @@ AccountsEntry.entrySignUpEvents = {
         newUserData =
           username: username
           email: email
-          password: password
+          password: AccountsEntry.hashPassword(password)
           profile: filteredExtraFields
         Meteor.call 'entryCreateUser', newUserData, (err, data) ->
           if err
