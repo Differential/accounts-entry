@@ -22,7 +22,7 @@ AccountsEntry.entrySignInHelpers = {
     AccountsEntry.settings.logo
 
   isUsernameOnly: ->
-    return AccountsEntry.settings.passwordSignupFields == t9n("username")
+    return AccountsEntry.settings.passwordSignupFields == 'USERNAME_ONLY'
 
 }
 
