@@ -15,7 +15,7 @@ and sign in.
 
 We wanted something to work with that used [Iron Router](https://github.com/EventedMind/iron-router),
 [Bootstrap 3](https://github.com/mangasocial/meteor-bootstrap-3), and didn't require the forcing of
-the dropdown box that didn't seem to be easily styled. But we love the ease of adding more packages like `accounts-facebook` or `accounts-twitter`, so we fully support the OAuth packages by adding buttons to let people sign-up/sign-in with those services if you add them.  Right now it also assumes you will be using `accounts-password`, but we will likely make that optional in the future.
+the dropdown box that didn't seem to be easily styled. But we love the ease of adding more packages like `accounts-facebook` or `accounts-twitter`, so we fully support the OAuth packages by adding buttons to let people sign-up/sign-in with those services if you add them.  By default, accounts-entry doesn't offer email/password login functionality.  If you `mrt add accounts-password`, accounts-entry will offer your users the option to sign-up/sign-in with a username and password.
 
 Examples of the package in action (check out the sign up or sign in
 links):
@@ -39,11 +39,11 @@ Run:
 mrt add accounts-entry
 ```
 
-You can install the `accounts-ui` package, as it is still used for oauth setup.
+You can install the `accounts-ui` package, as it is still used for OAuth setup.
 
 ## Provided routes
 
-You will get routes for:
+You will get routes and the necessary templates for:
 
 ```
 /sign-in
@@ -52,81 +52,86 @@ You will get routes for:
 /forgot-password
 ```
 
-{% assign special = '{{accountButtons}}' %}
-You can then either add links to those directly, or use the `{{ special }}` helper we provide to give you the proper links.
+
+You can then either add links to those directly, or use the`{{> accountButtons}}` helper we provide to give you the apppropriate links for signed-in/signed-out users.  The `{{> accountButtons}}` helper will display a sign-out link and the user's email address when they are signed-in.
 
 ## Ensuring signed in users for routes
 
-Use `AccountsEntry.signInRequired(this)` to require signed in users for a route. Stick that in your before hook function and it will redirect to sign in and stop any rendering. Accounts Entry also tracks where the user was trying to go and will route them back after sign in.
+Simply add the following line of code: `AccountsEntry.signInRequired(this);` to require users be signed in for a route and to redirect the user to the included sign-in page and stop any rendering. Accounts-entry also tracks where the user was trying to go and will route them back after sign in.
 
-For example in coffeescript we would use:
-
+Here is an Iron-Router route example:
 ````
-Route.map () ->
-  @route 'createPayment',
-    path: '/create/payment'
-    before: ->
-      AccountsEntry.signInRequired(@)
+  this.route('userProfile', {
+    path: '/profile',
+    template: 'profile',
+    onBeforeAction: function () {
+      AccountsEntry.signInRequired(this);
+    }
+  });
 ````
 
 ## Setting up password login
 
-Use `mrt add accounts-password` if you want to have email/username login authentication options. This is now optional and will only display if installed. You need to install an oauth option if you choose not to have password logins.
+Use `mrt add accounts-password` if you want to have email/username login authentication options. This is now optional and will only display if installed. You need to configure an OAuth option if you choose not to have password logins.
 
-## Setting up oauth/social integrations
+## Setting up OAuth/social integrations
 
-Use `accounts-ui` to configure your social/oauth integrations (or manually create records in your database, if you have those skills). We don't have the nice instructions on how to configure the services built into this package.
+Use `accounts-ui` to configure your social/OAuth integrations (or manually create records in your database, if you have those skills). We don't have the nice instructions on how to configure the services built into this package, but if you choose to use `{{> loginButtons}}` elsewhere in your application (even temporarily), you can configure OAuth logins there.
 
 ## Configuration
 
 ### Signup codes
 
-We have added support for a signupCode in case you want to have a special code to handout to keep signups as a pace you want. This code is checked if you turn on the client and server side options listed below.
+We have added support for a signupCode in case you want to have a special code to handout to keep signups at a pace you want. This code is checked if you turn on the client and server side options listed below.
 
-The signup code is only checked for accounts-password logins, so know that oAuth logins will still allow people in.
+**The signup code is only checked for accounts-password logins, so know that OAuth logins will still allow people in.**
 
-### On the client (only)
+### In CLIENT code only
 
 Since this is a young package, we are maintaining compatibility with accounts-ui (so if in a pinch accounts-entry is broken for you, you could easily switch to accounts-ui). We also use the UI for oauth configs from accounts-ui.
 
-{% highlight coffeescript %}
-Meteor.startup ->
-  AccountsEntry.config
-    logo: 'logo.png'
-    privacyUrl: '/privacy-policy'
-    termsUrl: '/terms-of-use'
-    homeRoute: '/'
-    dashboardRoute: '/dashboard'
-    profileRoute: 'profile'
-    passwordSignupFields: 'EMAIL_ONLY'
-    showSignupCode: true
-{% endhighlight %}
+```
+  Meteor.startup(function () {
+    AccountsEntry.config({
+      logo: 'logo.png'                  // if set displays logo above sign-in options
+      privacyUrl: '/privacy-policy'     // if set adds link to privacy policy and 'you agree to ...' on sign-up page
+      termsUrl: '/terms-of-use'         // if set adds link to terms  'you agree to ...' on sign-up page
+      homeRoute: '/'                    // mandatory - path to redirect to after sign-out
+      dashboardRoute: '/dashboard'      // mandatory - path to redirect to after successful sign-in
+      profileRoute: 'profile'
+      passwordSignupFields: 'EMAIL_ONLY'
+      showSignupCode: true
+    });
+  });
+```
 
-### On the server (only)
+### In SERVER code only
 
 Call `AccountsEntry.config` with a hash of optional configuration:
 
-{% highlight coffeescript %}
-Meteor.startup ->
-  AccountsEntry.config
-    signupCode: 's3cr3t'
-    defaultProfile:
-        someDefault: 'default'
-{% endhighlight %}
+```
+  Meteor.startup(function () {
+    AccountsEntry.config({
+      signupCode: 's3cr3t',         // only restricts username+password users, not OAuth
+      defaultProfile:
+          someDefault: 'default'
+    });
+  });
+```
 
-*Note: don't set a signupCode unless you want to use that feature.*
+*Note: only set a signupCode if you want to use that feature.*
 
 The default configuration includes:
 
-{% highlight coffeescript %}
-  wrapLinks: true
-  homeRoute: '/'
-  dashboardRoute: '/dashboard'
-{% endhighlight %}
+```
+  wrapLinks: true                   // wraps accounts-entry links in <li> for bootstrap compatability purposes
+  homeRoute: '/'                    // MUST BE SET - redirect to this path after sign-out
+  dashboardRoute: '/dashboard'      // MUST BE SET - redirect to this path after sign-in
+```
 
-You must provide a route for home (used when signing out) and
+Remember, you must provide a route for home (used when signing out) and
 dashboard (used after signing in).
 
 ## Interested in building a quick meteor app that starts with Accounts-Entry?
 
-We've create a [meteor-boilerplate repo](http://github.differential.io/meteor-boilerplate/) that you can clone as a starting point for an app.  It follows all our standards that we use for building apps for our clients.
+We've created a [meteor-boilerplate repo](http://github.differential.io/meteor-boilerplate/) that you can clone as a starting point for an app.  It follows all our standards that we use for building apps for our clients.
