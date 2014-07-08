@@ -60,6 +60,7 @@ You can then either add links to those directly, or use the `{{ special }}` help
 Simply add the following line of code: `AccountsEntry.signInRequired(this);` to require users be signed in for a route and to redirect the user to the included sign-in page and stop any rendering. Accounts-entry also tracks where the user was trying to go and will route them back after sign in.
 
 Here is an Iron-Router route example:
+
 ````
   this.route('userProfile', {
     path: '/profile',
