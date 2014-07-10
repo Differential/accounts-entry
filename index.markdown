@@ -61,7 +61,7 @@ Simply add the following line of code: `AccountsEntry.signInRequired(this);` to 
 
 Here is an Iron-Router route example:
 
-````
+````js
   this.route('userProfile', {
     path: '/profile',
     template: 'profile',
@@ -92,7 +92,7 @@ We have added support for a signupCode in case you want to have a special code t
 
 Since this is a young package, we are maintaining compatibility with accounts-ui (so if in a pinch accounts-entry is broken for you, you could easily switch to accounts-ui). We also use the UI for oauth configs from accounts-ui.
 
-```
+```js
   Meteor.startup(function () {
     AccountsEntry.config({
       logo: 'logo.png'                  // if set displays logo above sign-in options
@@ -111,7 +111,7 @@ Since this is a young package, we are maintaining compatibility with accounts-ui
 
 Call `AccountsEntry.config` with a hash of optional configuration:
 
-```
+```js
   Meteor.startup(function () {
     AccountsEntry.config({
       signupCode: 's3cr3t',         // only restricts username+password users, not OAuth
@@ -125,7 +125,7 @@ Call `AccountsEntry.config` with a hash of optional configuration:
 
 The default configuration includes:
 
-```
+```js
   wrapLinks: true                   // wraps accounts-entry links in <li> for bootstrap compatability purposes
   homeRoute: '/'                    // MUST BE SET - redirect to this path after sign-out
   dashboardRoute: '/dashboard'      // MUST BE SET - redirect to this path after sign-in
