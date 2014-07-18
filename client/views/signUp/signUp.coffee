@@ -76,7 +76,7 @@ AccountsEntry.entrySignUpEvents = {
     if AccountsEntry.settings.emailToLower and email then email = email.toLowerCase()
 
     formValues = SimpleForm.processForm(event.target)
-    extraFields = _.pluck(AccountsEntry.settings.extraSignUpFields, 'name')
+    extraFields = _.pluck(AccountsEntry.settings.extraSignUpFields, 'field')
     filteredExtraFields = _.pick(formValues, extraFields)
     password = t.find('input[type="password"]').value
 
