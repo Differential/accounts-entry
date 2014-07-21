@@ -19,13 +19,15 @@ Meteor.startup ->
       check user, Object
       profile = AccountsEntry.settings.defaultProfile || {}
       if user.username
-        Accounts.createUser
+        userId = Accounts.createUser
           username: user.username,
           email: user.email,
           password: user.password,
           profile: _.extend(profile, user.profile)
       else
-        Accounts.createUser
+        userId = Accounts.createUser
           email: user.email
           password: user.password
           profile: _.extend(profile, user.profile)
+      if (user.email && Accounts._options.sendVerificationEmail)
+        Accounts.sendVerificationEmail(userId, user.email)
