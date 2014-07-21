@@ -3,9 +3,11 @@ layout: default
 username: Differential
 repo: accounts-entry
 desc: Meteor sign up and sign in pages.
-version: 0.7.3
+version: 0.8.0
 
 ---
+
+**NOTE** Version 0.8.0 requires that you use Meteor 0.8.2 or higher. You also need to pass the pause param to AccountsEntry.signedInRequired if you are using it.
 
 # accounts-entry
 
