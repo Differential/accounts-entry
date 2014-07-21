@@ -7,12 +7,70 @@ version: 0.6.1
 
 ---
 # Changelog
-### Master
 
-* Don't pull in spark or just-i18n dependencies, neither are directly needed anymore. [fc994c1](https://github.com/BeDifferential/accounts-entry/commit/fc994c1afe10dfcbb54b7aae2b0cf9fc5ba1f5b6)
+### 0.8.0
+
+* Support email verification sending for accounts-password. Fixes #75. Fixes #190. [8540eb5](http://github.com/Differential/accounts-entry/commit/8540eb5fa5a3fdbdc729f2f74e72c9397e66ce37)
+* Put missing stuff back. [7a1178b](http://github.com/Differential/accounts-entry/commit/7a1178b3f4fc949af7e30de926cc4d102031db9d)
+* Pull over gh-pages readme markdown [52fc467](http://github.com/Differential/accounts-entry/commit/52fc4671f2f750fa313829b667ad4f286519e479)
+* Hash passwords client-side before they go over the wire. [f53c7c8](http://github.com/Differential/accounts-entry/commit/f53c7c8a5bc3c3589d4b54fac47c50028345e06d)
+* added arabic translation [3a2fa7b](http://github.com/Differential/accounts-entry/commit/3a2fa7b4c38cdcf866f403fa45d97743b45412ec)
+* added russian translation [4b106e3](http://github.com/Differential/accounts-entry/commit/4b106e3dadcc4638232bcca01d61a2e44ab50346)
+* Add a profile helper to accountButtons helper methods [7c41760](http://github.com/Differential/accounts-entry/commit/7c4176085d170f4fb15077f4a73c8d2fdaaecf7b)
+* Do not use specific version of simple-form [1402fae](http://github.com/Differential/accounts-entry/commit/1402fae29ad01b2533e73453183248f86364407d)
+* Save off extra signup fields [a6dbf42](http://github.com/Differential/accounts-entry/commit/a6dbf42530f49480b5fe338e8480692b6218e6f8)
+* added current route to fromWhere session var [94aafc5](http://github.com/Differential/accounts-entry/commit/94aafc54f7932c29e92b5f3522e97c0346d74731)
+* Add profile to server account create user [d78ed24](http://github.com/Differential/accounts-entry/commit/d78ed248fbc6926145cc4d47888edbf3d0ba521c)
+* updated buttonText helper [31a5917](http://github.com/Differential/accounts-entry/commit/31a5917278a690f9d21918061a759905d48d7c89)
+* redirect user from sign-in if already signed in [8e952fb](http://github.com/Differential/accounts-entry/commit/8e952fb16f5ef8fa031f0bc51103f01f974b2bf5)
+* changed social signUp usage [faea789](http://github.com/Differential/accounts-entry/commit/faea7893ae767384351924114112131db700c295)
+* updated english language sign-up terms [9b774f1](http://github.com/Differential/accounts-entry/commit/9b774f1e5cafbeb3e33421a4f6bb7743d4735995)
+* Change helper calls for blaze. Fixes #170 [7a0eab3](http://github.com/Differential/accounts-entry/commit/7a0eab3d63092450e150b9dd6f432bd746d5a06f)
+* Add showOtherLoginServices option [a3b61e7](http://github.com/Differential/accounts-entry/commit/a3b61e7900ffb2bbf75427478dad1dfe32f44288)
+* Support checkbox type [f8aa7bf](http://github.com/Differential/accounts-entry/commit/f8aa7bf805215d221725a6958ab3fd6b28f9ecb2)
+* Allow template override using signedInTemplate [eaca425](http://github.com/Differential/accounts-entry/commit/eaca425e3a11e8d3fb4d3dc54d7f8ac8081be9a0)
+* Added translation for "Email is required" [8249664](http://github.com/Differential/accounts-entry/commit/8249664d5a11362fb2407c2a9ccca0c11ee7cc22)
+* Added t9n on error message [3af877b](http://github.com/Differential/accounts-entry/commit/3af877b1e2a0e9f48cf30ef7b9df20cd02afe598)
+* Added translation for "User not found" to error: [5e8aaea](http://github.com/Differential/accounts-entry/commit/5e8aaea6dcbb0bddfc1a653b1b48274692783f1d)
+* Translation for "Email already exists." [89feeba](http://github.com/Differential/accounts-entry/commit/89feeba821ee91ed7cff865394118d24725e63e7)
+* Updated male/female addressing messages [6c26f20](http://github.com/Differential/accounts-entry/commit/6c26f20776580f047b189ce691eeb7106a88cb56)
+* Changed some wording [73597b1](http://github.com/Differential/accounts-entry/commit/73597b13dcd3477a1fe2f1eebe2fc8ee9907f74a)
+* Added Incorrect password translation [ddeb56a](http://github.com/Differential/accounts-entry/commit/ddeb56a21874a4c7db9363d45b2a614a5d8b54fb)
+* Update for Slovene language [f23b0f6](http://github.com/Differential/accounts-entry/commit/f23b0f6912c78410660c44eed1e46dd898b21750)
+* added slovene language [6ddaea2](http://github.com/Differential/accounts-entry/commit/6ddaea29d2c9062e43cceed62d7fe8f72e5d8e98)
+* Add extra signup field support. [Fixes #179] [ea0667e](http://github.com/Differential/accounts-entry/commit/ea0667ea03aea3c17ca5093632513b590e38b5af)
+* Get meteor developer accounts working a bit better. [be97ac8](http://github.com/Differential/accounts-entry/commit/be97ac850259018b3fedca3d41dee5ca2cc98bc6)
+* added support for Portuguese. [d069af4](http://github.com/Differential/accounts-entry/commit/d069af48d2663ce91c2010f931d7bacd978395d8)
+* added correct jquery selector for getting the entry [589f668](http://github.com/Differential/accounts-entry/commit/589f668ceaed838a167dcce1eddd0b599c74825e)
+* Added support for Swedish. [28a4bc9](http://github.com/Differential/accounts-entry/commit/28a4bc9b5fe069187a5e1d011727daba0a8a9cfb)
+* Pause is now a function passed to the onBeforeAction method. [b3a8a6d](http://github.com/Differential/accounts-entry/commit/b3a8a6d094e018ed90d53a2b1b9bfe233bdb3e43)
+* Support Meteor accounts forbidClientAccountCreation. [4b64116](http://github.com/Differential/accounts-entry/commit/4b64116e05a419ba3448a7e4786ebb54d535933d)
+* audit argument package support [256d5ef](http://github.com/Differential/accounts-entry/commit/256d5ef96a0ca53e5d8ec5beaa53ef71d52b353d)
+* updating #143 which attempts to correct error #130 [09aaddd](http://github.com/Differential/accounts-entry/commit/09aaddd0651b72e13e3d20ebeee54b49e0c7ff5f)
+* added italian translation [e8f5e68](http://github.com/Differential/accounts-entry/commit/e8f5e68183e42d247d331b95c3ab681fa6f45182)
+* Update german.coffee [461991a](http://github.com/Differential/accounts-entry/commit/461991a37d6dcefe6f344e1382c8311a0b6339eb)
+
+### 0.7.0
+
+* Do not pull in spark or just-i18n dependencies, neither are directly needed anymore. [fc994c1](https://github.com/BeDifferential/accounts-entry/commit/fc994c1afe10dfcbb54b7aae2b0cf9fc5ba1f5b6)
 * Add name attributes on signUp form to be consistent [#107](https://github.com/BeDifferential/accounts-entry/pull/107)
 * Add emailToLower and usernameToLower settings so you can set the package to lowercase email input [#101](https://github.com/BeDifferential/accounts-entry/pull/101)
 * Put autofocus on first field, not just on the email input. [#106](https://github.com/BeDifferential/accounts-entry/pull/106)
+* Include the wrapLinks html, duh [7fb0e8e](http://github.com/Differential/accounts-entry/commit/7fb0e8e745852feb441661285207302bfa1e8441)
+* Clean up wrapLinks for blaze, clean up test syntax now that include works, and add a new wrapLinks test. [7a3296c](http://github.com/Differential/accounts-entry/commit/7a3296cb044fe8c235fce0eab13f490456d67e6a)
+* Fix tests to work with blaze now. [9966e90](http://github.com/Differential/accounts-entry/commit/9966e903ac7a53c391786ef475419e8e226cef21)
+* Use the released version of just-i18n [d3d5185](http://github.com/Differential/accounts-entry/commit/d3d5185c5792db14050208e72dc167d97a42d943)
+* redirect to correct page after social login [8aecc9c](http://github.com/Differential/accounts-entry/commit/8aecc9cc7a1865d43c895a84a36586a41c880d64)
+* Oops, comma [77d7227](http://github.com/Differential/accounts-entry/commit/77d72275e54e3583294c15d915d5e1a6bc468e10)
+* Try to fix accounts-t9n issues. [df238e8](http://github.com/Differential/accounts-entry/commit/df238e82dcb898fa3f3f8247743013ac08525f66)
+* Fix just-i18n issues. Fixes #109 [c6daa42](http://github.com/Differential/accounts-entry/commit/c6daa42730a9001cbb166fb22a6f7b99e05a03c5)
+* Adding ability to override accountButtons signup [4e82743](http://github.com/Differential/accounts-entry/commit/4e82743377ffd8abb153f1c59fc7afd7cf058be4)
+* added sublime project files to gitignore and fix autofocus [9b10992](http://github.com/Differential/accounts-entry/commit/9b109922b54fd39c5284c91c9f1091dcaadab4d6)
+* Changing setting name to usernameToLower and emailToLower, just struggled with insensitive and casesensitive keeping what they ment in my head, i think this is clearer [962a7c5](http://github.com/Differential/accounts-entry/commit/962a7c59fe40f121cb05bd4a391f3769cf96f375)
+* Adding isStringEmail method to AccountsEntry [bafe044](http://github.com/Differential/accounts-entry/commit/bafe044bd564398e0cb342752caee6673c6a46c3)
+* Adding check to make sure username is not an email address [398065d](http://github.com/Differential/accounts-entry/commit/398065d60f92680d8b251d18a2a5b46677be4f28)
+* Adding error.usernameIsEmail to i18n, error text for different languages need check [c7ce0f6](http://github.com/Differential/accounts-entry/commit/c7ce0f68aa54dd6fca9b1005958be1e09204556d)
+* Adding new settings for username and email Insensitive, adding check to signUp to make the username and email insensitive if needed [c5cbb06](http://github.com/Differential/accounts-entry/commit/c5cbb06489abb6360375d3f395cf5604d00d3385)
 
 ### 0.6.2
 
