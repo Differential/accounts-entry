@@ -43,7 +43,7 @@ Tinytest.add "Accounts Entry - forgot password link should not show up if userna
   test.equal(scan, -1, "Forgot password link should not show up if username only is set")
 
 Tinytest.add "Accounts Entry - adding extra fields to the layout", (test) ->
-  AccountsEntry.settings.extraSignUpFields = [{name: 'zipcode', required: true, type: 'number'}]
+  AccountsEntry.settings.extraSignUpFields = [{field: 'zipcode', required: true, type: 'number'}]
   Package['accounts-password'] = true
   div = renderToDiv(Template.test_helper_sign_up)
   html = canonicalizeHtml(div.innerHTML)
