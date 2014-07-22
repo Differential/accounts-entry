@@ -7,7 +7,7 @@ version: 0.8.0
 
 ---
 
-**NOTE** Version 0.8.0 requires that you use Meteor 0.8.2 or higher. You also need to pass the pause param to AccountsEntry.signedInRequired if you are using it.
+**NOTE:** Version 0.8.0 and higher or accounts-entry requires that you use Meteor 0.8.2 or higher. You also need to pass the pause param to AccountsEntry.signedInRequired if you are using it. If you were using master and extraSignUpFields, please review the docs for changes in the 0.8.0 release.
 
 # accounts-entry
 
@@ -109,6 +109,15 @@ Since this is a young package, we are maintaining compatibility with accounts-ui
       profileRoute: 'profile'
       passwordSignupFields: 'EMAIL_ONLY'
       showSignupCode: true
+      showOtherLoginServices: true      // Set to false to hide oauth login buttons on the signin/signup pages. Useful if you are using something like accounts-meld or want to oauth for api access
+      extraSignUpFields: [{             // Add extra signup fields on the signup page
+        field: "name",                           // The database property you want to store the data in
+        name: "This Will Be The Initial Value",  // An initial value for the field, if you want one
+        label: "Full Name",                      // The html lable for the field
+        placeholder: "John Doe",                 // A placeholder for the field
+        type: "text",                            // The type of field you want
+        required: true                           // Adds html 5 required property if true
+       }]
     });
   });
 ```
