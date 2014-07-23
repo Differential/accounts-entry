@@ -10,6 +10,8 @@ en =
   dontHaveAnAccount: "Don't have an account?"
   resetYourPassword: "Reset your password"
   updateYourPassword: "Update your password"
+  enrollYourAccount: "Enroll your account"
+  setYourPassword: "Set your password"
   password: "Password"
   usernameOrEmail: "Username or email"
   email: "Email"

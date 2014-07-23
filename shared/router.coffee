@@ -75,3 +75,10 @@ Router.map ->
     onBeforeAction: ->
       Session.set('entryError', undefined)
       Session.set('resetToken', @params.resetToken)
+
+  @route 'entryEnrollAccount',
+    path: 'enroll-account/:resetToken'
+    onBeforeAction: ->
+      Session.set('entryError', undefined)
+      Session.set('resetToken', @params.resetToken)
+
