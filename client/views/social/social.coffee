@@ -48,7 +48,7 @@ Template.entrySocial.events
     if (Accounts.ui._options.requestPermissions[serviceName])
       options.requestPermissions = Accounts.ui._options.requestPermissions[serviceName]
 
-    if (Accounts.ui._options.requestOfflineToken[serviceName])
+    if (Accounts.ui._options.requestOfflineToken and Accounts.ui._options.requestOfflineToken[serviceName])
       options.requestOfflineToken = Accounts.ui._options.requestOfflineToken[serviceName]
 
     loginWithService(options, callback)
