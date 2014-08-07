@@ -1,6 +1,6 @@
 <template name='entrySignUp'>
-  <div class="container">
-    <div class="row">
+  <div class="{{containerCSSClass}}">
+    <div class="{{rowCSSClass}}">
       {{#if logo}}
         <div class="entry-logo">
             <a href="/"><img src="{{logo}}" alt="logo"></a>
@@ -32,7 +32,7 @@
             {{#if showUsername}}
               <div class="form-group">
                 <label>{{t9n "username"}}</label>
-                <input autofocus name="username" type="string" class="form-control" value=''>
+                <input autofocus name="username" type="string" class="form-control" value=''  autocapitalize="none" autocomplete="off" autocorrect="off">
               </div>
             {{/if}}
 
@@ -40,9 +40,9 @@
               <div class="form-group">
                 <label>{{t9n "emailAddress"}}</label>
                 {{#if showUsername}}
-                  <input type="email" class="form-control" value='{{emailAddress}}'>
+                  <input type="email" class="form-control" value='{{emailAddress}}'  autocapitalize="none" autocomplete="off" autocorrect="off">
                 {{else}}
-                  <input autofocus type="email" class="form-control" value='{{emailAddress}}'>
+                  <input autofocus type="email" class="form-control" value='{{emailAddress}}'  autocapitalize="none" autocomplete="off" autocorrect="off" >
                 {{/if}}
               </div>
             {{/if}}
@@ -55,7 +55,7 @@
             {{#if showSignupCode}}
               <div class="form-group">
                 <label>{{t9n "signupCode"}}</label>
-                <input name="signupCode" type="string" class="form-control" value=''>
+                <input name="signupCode" type="string" class="form-control" value=''  autocapitalize="none" autocomplete="off" autocorrect="off" >
               </div>
             {{/if}}
 

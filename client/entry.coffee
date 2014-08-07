@@ -9,6 +9,8 @@ AccountsEntry =
     entrySignUp: '/sign-up'
     extraSignUpFields: []
     showOtherLoginServices: true
+    fluidLayout: false
+    useContainer: true
 
   isStringEmail: (email) ->
     emailPattern = /^([\w.-]+)@([\w.-]+)\.([a-zA-Z.]{2,6})$/i
