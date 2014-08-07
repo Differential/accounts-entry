@@ -38,3 +38,21 @@ UI.registerHelper 'passwordLoginService', ->
 
 UI.registerHelper 'showCreateAccountLink', ->
   return !Accounts._options.forbidClientAccountCreation
+
+UI.registerHelper 'fluidLayout', ->
+  AccountsEntry.settings.fluidLayout is true
+
+UI.registerHelper 'containerCSSClass', ->
+  if AccountsEntry.settings.useContainer is false
+    "accounts-entry-container"
+  else
+    if AccountsEntry.settings.fluidLayout is true
+      "container-fluid"
+    else
+      "container"
+    
+UI.registerHelper 'rowCSSClass', ->
+  if AccountsEntry.settings.fluidLayout is true
+    "row-fluid"
+  else
+    "row"
