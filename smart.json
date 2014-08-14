@@ -6,7 +6,7 @@
   "version": "0.8.0",
   "git": "https://github.com/Differential/accounts-entry.git",
   "packages": {
-    "iron-router": "0.7.0",
+    "iron-router": "0.8.2",
     "accounts-t9n": "0.0.5",
     "simple-form": ""
   }
