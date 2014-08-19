@@ -25,7 +25,7 @@ Template.entrySocial.events
 
   'click .btn': (event)->
     event.preventDefault()
-    serviceName = $(event.target).attr('id').split('-')[1]
+    serviceName = $(event.target).attr('id').replace 'entry-', ''
     callback = (err) ->
       if (!err)
         if Session.get('fromWhere')
@@ -39,7 +39,7 @@ Template.entrySocial.events
         Accounts._loginButtonsSession.configureService(serviceName)
       else
         Accounts._loginButtonsSession.errorMessage(err.reason || t9n("error.unknown"))
-    if serviceName is 'meteor'
+    if serviceName is 'meteor-developer'
       loginWithService = Meteor["loginWithMeteorDeveloperAccount"]
     else
       loginWithService = Meteor["loginWith" + capitalize(serviceName)]
