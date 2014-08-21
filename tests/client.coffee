@@ -1,6 +1,6 @@
 renderToDiv = (comp) ->
   div = document.createElement("DIV")
-  UI.materialize comp, div
+  Blaze.render(comp).attach(div)
   div
 
 Tinytest.add "Accounts Entry - {{accountButtons}} helper", (test) ->
@@ -47,4 +47,4 @@ Tinytest.add "Accounts Entry - adding extra fields to the layout", (test) ->
   Package['accounts-password'] = true
   div = renderToDiv(Template.test_helper_sign_up)
   html = canonicalizeHtml(div.innerHTML)
-  test.include html, '<div class="form_group"><label for="zipcode">Zipcode</label><input class="form-control" id="zipcode" name="zipcode" required="" type="number" value=""></div>'
+  test.include html, '<div class="form-group"><label for="zipcode">Zipcode</label><input class="form-control" id="zipcode" name="zipcode" required="" type="number" value=""></div>'

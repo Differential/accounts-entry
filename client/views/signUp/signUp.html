@@ -9,7 +9,7 @@
       <div class="entry col-md-4 col-md-offset-4">
         <h3>{{t9n "createAccount"}}</h3>
         {{#if otherLoginServices}}
-          <p class="entry-signin-cta">{{t9n "ifYouAlreadyHaveAnAccount"}} <a href="/sign-in">{{t9n "signin"}}</a>.</p>
+          <p class="entry-signin-cta">{{t9n "ifYouAlreadyHaveAnAccount"}} <a href="{{pathFor 'entrySignIn'}}">{{t9n "signin"}}</a>.</p>
           <div class="entry-social">
             {{#each loginServices}}
               {{> entrySocial}}
@@ -24,7 +24,7 @@
             {{/if}}
           </div>
         {{else}}
-            <p class="entry-signin-cta">{{t9n "ifYouAlreadyHaveAnAccount"}} <a href="/sign-in">{{t9n "signin"}}</a>.</p>
+            <p class="entry-signin-cta">{{t9n "ifYouAlreadyHaveAnAccount"}} <a href="{{pathFor 'entrySignIn'}}">{{t9n "signin"}}</a>.</p>
         {{/if}}
         {{> entryError}}
         {{#if passwordLoginService}}
