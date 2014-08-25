@@ -26,7 +26,7 @@ he =
   with: "עם"
   createAccount: "חשבון חדש"
   and: "ו"
-  "Match failed":  "התאמה נכשלה (Math Failed)"
+  "Match failed":  "התאמה נכשלה (Match Failed)"
   "User not found":  "המשתמש לא נמצא"
 
   error:
