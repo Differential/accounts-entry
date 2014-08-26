@@ -1,9 +1,13 @@
 Package.describe({
-    summary: "Make signin and signout their own pages with routes."
+    summary: "Make signin and signout their own pages with routes.",
+    version: '0.9.0',
+    githubUrl: 'https://github.com/Differential/accounts-entry'
 });
 
 Package.on_use(function(api) {
+  api.versionsFrom("METEOR@0.9.0");
 
+  api.use(['iron:router', 'mrt:accounts-t9n'], ['client', 'server']);
   // CLIENT
   api.use([
     'deps',
@@ -20,7 +24,7 @@ Package.on_use(function(api) {
   , 'client');
 
 
-  api.add_files([
+  api.addFiles([
     'client/entry.coffee',
     'client/entry.less',
     'client/helpers.coffee',
@@ -65,7 +69,7 @@ Package.on_use(function(api) {
     'coffeescript'
   ], 'server');
 
-  api.add_files(['server/entry.coffee'], 'server');
+  api.addFiles(['server/entry.coffee'], 'server');
 
   // CLIENT and SERVER
   api.imply('accounts-base', ['client', 'server']);
@@ -73,7 +77,7 @@ Package.on_use(function(api) {
   api.export('AccountsEntry', ['client', 'server']);
   api.use('iron-router', ['client', 'server']);
   api.use(['accounts-t9n'], ['client', 'server']);
-  api.add_files(['shared/router.coffee'], ['client', 'server']);
+  api.addFiles(['shared/router.coffee'], ['client', 'server']);
 
 });
 
