@@ -1,10 +1,10 @@
 Package.describe({
     summary: "Make signin and signout their own pages with routes.",
     version: '0.9.0',
-    githubUrl: 'https://github.com/Differential/accounts-entry'
+    git: 'https://github.com/Differential/accounts-entry'
 });
 
-Package.on_use(function(api) {
+Package.onUse(function(api) {
   api.versionsFrom("METEOR@0.9.0");
 
   api.use(['iron:router', 'mrt:accounts-t9n'], ['client', 'server']);
@@ -81,7 +81,7 @@ Package.on_use(function(api) {
 
 });
 
-Package.on_test(function (api) {
+Package.onTest(function (api) {
   api.use(['tinytest',
             'underscore',
             'handlebars',
@@ -93,5 +93,5 @@ Package.on_test(function (api) {
             'iron-router']);
   api.use('accounts-entry');
 
-  api.add_files(['tests/route.coffee', 'tests/client.html', 'tests/client.coffee'], 'client');
+  api.addFiles(['tests/route.coffee', 'tests/client.html', 'tests/client.coffee'], 'client');
 })
