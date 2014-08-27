@@ -32,7 +32,7 @@
             {{#if showUsername}}
               <div class="form-group">
                 <label>{{t9n "username"}}</label>
-                <input autofocus name="username" type="string" class="form-control" value=''>
+                <input autofocus name="username" type="text" class="form-control" value='' placeholder="{{t9n 'username'}}">
               </div>
             {{/if}}
 
@@ -40,16 +40,16 @@
               <div class="form-group">
                 <label>{{t9n "emailAddress"}}</label>
                 {{#if showUsername}}
-                  <input type="email" class="form-control" value='{{emailAddress}}'>
+                  <input type="email" class="form-control" value='{{emailAddress}}' placeholder="{{t9n 'email'}}">
                 {{else}}
-                  <input autofocus type="email" class="form-control" value='{{emailAddress}}'>
+                  <input autofocus type="email" class="form-control" value='{{emailAddress}}' placeholder="{{t9n 'email'}}">
                 {{/if}}
               </div>
             {{/if}}
 
             <div class="form-group">
               <label>{{t9n "password"}}</label>
-              <input type="password" class="form-control" value=''>
+              <input type="password" class="form-control" value='' placeholder="{{t9n 'password'}}">
             </div>
 
             {{#if showSignupCode}}
