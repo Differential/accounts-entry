@@ -5,7 +5,6 @@ Router.map ->
     onBeforeAction: ->
       Session.set('entryError', undefined)
       Session.set('buttonText', 'in')
-      Session.set('fromWhere', Router.current().path)
     onRun: ->
       if Meteor.userId()
         Router.go AccountsEntry.settings.dashboardRoute
@@ -75,3 +74,13 @@ Router.map ->
     onBeforeAction: ->
       Session.set('entryError', undefined)
       Session.set('resetToken', @params.resetToken)
+
+# Get all the accounts-entry routes one time
+exclusions = [];
+_.each Router.routes, (route)->
+  exclusions.push route.name
+# Change the fromWhere session variable when you leave a path
+Router.onStop ->
+  # If the route is an entry route, no need to save it
+  if (!_.contains(exclusions, Router.current().route.name))
+    Session.set('fromWhere', Router.current().path)
