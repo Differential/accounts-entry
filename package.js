@@ -18,7 +18,7 @@ Package.onUse(function(api) {
     'handlebars',
     'session',
     'coffeescript',
-    'simple-form',
+    'joshowens:simple-form',
     'less',
     'sha']
   , 'client');
