@@ -82,5 +82,5 @@ _.each Router.routes, (route)->
 # Change the fromWhere session variable when you leave a path
 Router.onStop ->
   # If the route is an entry route, no need to save it
-  if (!_.contains(exclusions, Router.current().route.name))
+  if (Meteor.isClient && !_.contains(exclusions, Router.current().route.name))
     Session.set('fromWhere', Router.current().path)
