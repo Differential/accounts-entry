@@ -59,8 +59,7 @@ You will get routes and the necessary templates for:
 /forgot-password
 ```
 
-{% assign special = '{{> accountButtons}}' %}
-You can then either add links to those directly, or use the `{{ special }}` helper we provide to give you the apppropriate links for signed-in/signed-out users.  The `{{ special }}` helper will display a sign-out link and the user's email address when they are signed-in.
+You can then either add links to those directly, or use the ```{{> accountButtons}}``` helper we provide to give you the apppropriate links for signed-in/signed-out users.  The ```{{> accountButtons}}``` helper will display a sign-out link and the user's email address when they are signed-in.
 
 ## Ensuring signed in users for routes
 
@@ -84,8 +83,7 @@ Use `mrt add accounts-password` if you want to have email/username login authent
 
 ## Setting up OAuth/social integrations
 
-{% assign loginButtons = '{{> loginButtons}}' %}
-Use `accounts-ui` to configure your social/OAuth integrations (or manually create records in your database, if you have those skills). We don't have the nice instructions on how to configure the services built into this package, but if you choose to use <code>{{ loginButtons }}</code> elsewhere in your application (even temporarily), you can configure OAuth logins there.
+Use `accounts-ui` to configure your social/OAuth integrations (or manually create records in your database, if you have those skills). We don't have the nice instructions on how to configure the services built into this package, but if you choose to use <code>```{{> loginButtons}}```</code> elsewhere in your application (even temporarily), you can configure OAuth logins there.
 
 ## Configuration
 
