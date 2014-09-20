@@ -163,7 +163,7 @@ AccountsEntry.entrySignUpEvents = {
         console.log err
         Session.set 'entryError', t9n("error.signupCodeIncorrect")
         return
-  }
+}
 
 Template.entrySignUp.helpers(AccountsEntry.entrySignUpHelpers)
 
