@@ -48,119 +48,121 @@ AccountsEntry.entrySignUpHelpers = {
     Session.get('email')
 }
 
-if !Accounts._options.forbidClientAccountCreation
-  AccountsEntry.entrySignUpEvents = {
-    'submit #signUp': (event, t) ->
-      event.preventDefault()
+AccountsEntry.entrySignUpEvents = {
+  'submit #signUp': (event, t) ->
+    event.preventDefault()
 
-      username =
-        if t.find('input[name="username"]')
-          t.find('input[name="username"]').value.toLowerCase()
-        else
-          undefined
-      if username and AccountsEntry.settings.usernameToLower then username = username.toLowerCase()
+    if Accounts._options.forbidClientAccountCreation
+      return
 
-      signupCode =
-        if t.find('input[name="signupCode"]')
-          t.find('input[name="signupCode"]').value
-        else
-          undefined
+    username =
+      if t.find('input[name="username"]')
+        t.find('input[name="username"]').value.toLowerCase()
+      else
+        undefined
+    if username and AccountsEntry.settings.usernameToLower then username = username.toLowerCase()
 
-      trimInput = (val)->
-        val.replace /^\s*|\s*$/g, ""
+    signupCode =
+      if t.find('input[name="signupCode"]')
+        t.find('input[name="signupCode"]').value
+      else
+        undefined
 
-      email =
-        if t.find('input[type="email"]')
-          trimInput t.find('input[type="email"]').value
-        else
-          undefined
-      if AccountsEntry.settings.emailToLower and email then email = email.toLowerCase()
+    trimInput = (val)->
+      val.replace /^\s*|\s*$/g, ""
 
-      formValues = SimpleForm.processForm(event.target)
-      extraFields = _.pluck(AccountsEntry.settings.extraSignUpFields, 'field')
-      filteredExtraFields = _.pick(formValues, extraFields)
-      password = t.find('input[type="password"]').value
+    email =
+      if t.find('input[type="email"]')
+        trimInput t.find('input[type="email"]').value
+      else
+        undefined
+    if AccountsEntry.settings.emailToLower and email then email = email.toLowerCase()
 
-      fields = AccountsEntry.settings.passwordSignupFields
+    formValues = SimpleForm.processForm(event.target)
+    extraFields = _.pluck(AccountsEntry.settings.extraSignUpFields, 'field')
+    filteredExtraFields = _.pick(formValues, extraFields)
+    password = t.find('input[type="password"]').value
 
-
-      passwordErrors = do (password)->
-        errMsg = []
-        msg = false
-        if password.length < 7
-          errMsg.push t9n("error.minChar")
-        if password.search(/[a-z]/i) < 0
-          errMsg.push t9n("error.pwOneLetter")
-        if password.search(/[0-9]/) < 0
-          errMsg.push t9n("error.pwOneDigit")
-
-        if errMsg.length > 0
-          msg = ""
-          errMsg.forEach (e) ->
-            msg = msg.concat "#{e}\r\n"
-
-          Session.set 'entryError', msg
-          return true
-
-        return false
-
-      if passwordErrors then return
-
-      emailRequired = _.contains([
-        'USERNAME_AND_EMAIL',
-        'EMAIL_ONLY'], fields)
-
-      usernameRequired = _.contains([
-        'USERNAME_AND_EMAIL',
-        'USERNAME_ONLY'], fields)
-
-      if usernameRequired && username.length is 0
-        Session.set('entryError', t9n("error.usernameRequired"))
-        return
-
-      if username && AccountsEntry.isStringEmail(username)
-        Session.set('entryError', t9n("error.usernameIsEmail"))
-        return
-
-      if emailRequired && email.length is 0
-        Session.set('entryError', t9n("error.emailRequired"))
-        return
-
-      if AccountsEntry.settings.showSignupCode && signupCode.length is 0
-        Session.set('entryError', t9n("error.signupCodeRequired"))
-        return
+    fields = AccountsEntry.settings.passwordSignupFields
 
 
-      Meteor.call 'entryValidateSignupCode', signupCode, (err, valid) ->
-        if valid
-          newUserData =
-            username: username
-            email: email
-            password: AccountsEntry.hashPassword(password)
-            profile: filteredExtraFields
-          Meteor.call 'entryCreateUser', newUserData, (err, data) ->
-            if err
+    passwordErrors = do (password)->
+      errMsg = []
+      msg = false
+      if password.length < 7
+        errMsg.push t9n("error.minChar")
+      if password.search(/[a-z]/i) < 0
+        errMsg.push t9n("error.pwOneLetter")
+      if password.search(/[0-9]/) < 0
+        errMsg.push t9n("error.pwOneDigit")
+
+      if errMsg.length > 0
+        msg = ""
+        errMsg.forEach (e) ->
+          msg = msg.concat "#{e}\r\n"
+
+        Session.set 'entryError', msg
+        return true
+
+      return false
+
+    if passwordErrors then return
+
+    emailRequired = _.contains([
+      'USERNAME_AND_EMAIL',
+      'EMAIL_ONLY'], fields)
+
+    usernameRequired = _.contains([
+      'USERNAME_AND_EMAIL',
+      'USERNAME_ONLY'], fields)
+
+    if usernameRequired && username.length is 0
+      Session.set('entryError', t9n("error.usernameRequired"))
+      return
+
+    if username && AccountsEntry.isStringEmail(username)
+      Session.set('entryError', t9n("error.usernameIsEmail"))
+      return
+
+    if emailRequired && email.length is 0
+      Session.set('entryError', t9n("error.emailRequired"))
+      return
+
+    if AccountsEntry.settings.showSignupCode && signupCode.length is 0
+      Session.set('entryError', t9n("error.signupCodeRequired"))
+      return
+
+
+    Meteor.call 'entryValidateSignupCode', signupCode, (err, valid) ->
+      if valid
+        newUserData =
+          username: username
+          email: email
+          password: AccountsEntry.hashPassword(password)
+          profile: filteredExtraFields
+        Meteor.call 'entryCreateUser', newUserData, (err, data) ->
+          if err
+            console.log err
+            T9NHelper.accountsError err
+            return
+          #login on client
+          isEmailSignUp = _.contains([
+            'USERNAME_AND_EMAIL',
+            'EMAIL_ONLY'], AccountsEntry.settings.passwordSignupFields)
+          userCredential = if isEmailSignUp then email else username
+          Meteor.loginWithPassword userCredential, password, (error) ->
+            if error
               console.log err
-              T9NHelper.accountsError err
-              return
-            #login on client
-            isEmailSignUp = _.contains([
-              'USERNAME_AND_EMAIL',
-              'EMAIL_ONLY'], AccountsEntry.settings.passwordSignupFields)
-            userCredential = if isEmailSignUp then email else username
-            Meteor.loginWithPassword userCredential, password, (error) ->
-              if error
-                console.log err
-                T9NHelper.accountsError error
-              else if Session.get 'fromWhere'
-                Router.go Session.get('fromWhere')
-                Session.set 'fromWhere', undefined
-              else
-                Router.go AccountsEntry.settings.dashboardRoute
-        else
-          console.log err
-          Session.set 'entryError', t9n("error.signupCodeIncorrect")
-          return
+              T9NHelper.accountsError error
+            else if Session.get 'fromWhere'
+              Router.go Session.get('fromWhere')
+              Session.set 'fromWhere', undefined
+            else
+              Router.go AccountsEntry.settings.dashboardRoute
+      else
+        console.log err
+        Session.set 'entryError', t9n("error.signupCodeIncorrect")
+        return
   }
 
 Template.entrySignUp.helpers(AccountsEntry.entrySignUpHelpers)
