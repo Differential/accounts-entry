@@ -3,7 +3,7 @@ layout: default
 username: Differential
 repo: accounts-entry
 desc: Meteor sign up and sign in pages.
-version: 0.8.0
+version: 0.9.0
 
 ---
 
@@ -26,6 +26,7 @@ the dropdown box that didn't seem to be easily styled. But we love the ease of a
 Examples of the package in action (check out the sign up or sign in
 links):
 
+* [https://linklyapp.com/](https://linklyapp.com/)
 * [https://carp.io/](https://carp.io/)
 * [https://getliquid.io/](https://getliquid.io/)
 * [http://support.unpolishedcr.com/](http://support.unpolishedcr.com/)
