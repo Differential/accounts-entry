@@ -92,7 +92,7 @@ Package.onTest(function (api) {
             'coffeescript',
             'joshowens:simple-form',
             'iron:router']);
-  api.use('accounts-entry');
+  api.use('benmgreene:accounts-entry-enroll');
 
   api.addFiles(['tests/route.coffee', 'tests/client.html', 'tests/client.coffee'], 'client');
 })
