@@ -90,7 +90,7 @@ Package.onTest(function (api) {
             'mongo-livedata',
             'coffeescript',
             'simple-form',
-            'iron-router']);
+            'iron:router']);
   api.use('accounts-entry');
 
   api.addFiles(['tests/route.coffee', 'tests/client.html', 'tests/client.coffee'], 'client');
