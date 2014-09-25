@@ -1,7 +1,8 @@
 Package.describe({
-    summary: "Make signin and signout their own pages with routes.",
+    summary: "WITH ENROLLMENT - Make signin and signout their own pages with routes.",
     version: '0.9.0',
-    git: 'https://github.com/Differential/accounts-entry'
+    git: 'https://github.com/benmgreene/accounts-entry/tree/enroll',
+    name: "benmgreene:accounts-entry-enroll"
 });
 
 Package.onUse(function(api) {
