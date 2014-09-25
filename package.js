@@ -17,7 +17,7 @@ Package.onUse(function(api) {
     'handlebars',
     'session',
     'coffeescript',
-    'simple-form',
+    'joshowens:simple-form',
     'less',
     'sha']
   , 'client');
@@ -88,7 +88,8 @@ Package.onTest(function (api) {
             'test-helpers',
             'templating',
             'mongo-livedata',
-            'coffeescript']);
+            'coffeescript',
+            'joshowens:simple-form']);
   api.use('accounts-entry');
 
   api.addFiles(['tests/route.coffee', 'tests/client.html', 'tests/client.coffee'], 'client');
