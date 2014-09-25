@@ -18,7 +18,7 @@ Package.onUse(function(api) {
     'handlebars',
     'session',
     'coffeescript',
-    'joshowens:simple-form',
+    'joshowens:simple-form@0.1.8',
     'less',
     'sha']
   , 'client');
@@ -77,7 +77,7 @@ Package.onUse(function(api) {
   api.imply('accounts-base', ['client', 'server']);
   api.imply('accounts-password', ['client', 'server']);
   api.export('AccountsEntry', ['client', 'server']);
-  api.use(['iron:router', 'mrt:accounts-t9n'], ['client', 'server']);
+  api.use(['iron:router@0.9.1', 'mrt:accounts-t9n@0.0.13'], ['client', 'server']);
   api.addFiles(['shared/router.coffee'], ['client', 'server']);
 
 });
@@ -90,7 +90,8 @@ Package.onTest(function (api) {
             'templating',
             'mongo-livedata',
             'coffeescript',
-            'joshowens:simple-form']);
+            'joshowens:simple-form',
+            'iron:router']);
   api.use('accounts-entry');
 
   api.addFiles(['tests/route.coffee', 'tests/client.html', 'tests/client.coffee'], 'client');
