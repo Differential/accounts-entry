@@ -25,10 +25,12 @@ AccountsEntry =
       signUpRoute = Router.routes['entrySignUp']
       signUpRoute.options.template = appConfig.signUpTemplate
 
-  signInRequired: (router, extraCondition) ->
-    extraCondition ?= true
+  signInRequired: (router, extraCondition = true) ->
+    if not _.isFunction extraCondition
+      extraCondition = ( ( v ) -> () -> v )( extraCondition )
+
     unless Meteor.loggingIn()
-      if Meteor.user() and extraCondition
+      if (user = Meteor.user()) and extraCondition user
         router.next()
       else
         Session.set('fromWhere', router.url)
