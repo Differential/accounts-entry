@@ -23,7 +23,7 @@ ja =
   terms: "利用契約"
   sign: "サイン"
   configure: "設定"
-  with: "と"
+  with: ":"
   createAccount: "新規登録"
   and: "と"
   "Match failed":  "Match failed"
