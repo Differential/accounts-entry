@@ -1,14 +1,17 @@
 Package.describe({
     summary: "Make signin and signout their own pages with routes.",
     version: '0.9.0',
-    git: 'https://github.com/dcsan/accounts-entry',
-    name: "dcsan:accounts-entry"
+    git: 'https://github.com/Differential/accounts-entry',
+    name: "joshowens:accounts-entry"
+
+    // git: 'https://github.com/dcsan/accounts-entry',
+    // name: "dcsan:accounts-entry"
 });
 
 Package.onUse(function(api) {
   api.versionsFrom("METEOR@0.9.0");
 
-  console.log('- onUse: accounts-entry ')
+  // console.log('- onUse: accounts-entry ')
 
   // CLIENT
   api.use([
