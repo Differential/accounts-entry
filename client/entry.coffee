@@ -1,5 +1,6 @@
 AccountsEntry =
   settings:
+    logo: "/images/ux/logo/logo.png"
     wrapLinks: true
     homeRoute: '/home'
     dashboardRoute: '/dashboard'
