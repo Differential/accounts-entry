@@ -79,6 +79,8 @@ Package.onUse(function(api) {
 
   // CLIENT and SERVER
   api.imply('accounts-base', ['client', 'server']);
+  api.imply('accounts-twitter', ['client', 'server']);
+  api.imply('accounts-facebook', ['client', 'server']);
   api.imply('accounts-password', ['client', 'server']);
   api.export('AccountsEntry', ['client', 'server']);
   api.use(['iron:router', 'mrt:accounts-t9n'], ['client', 'server']);

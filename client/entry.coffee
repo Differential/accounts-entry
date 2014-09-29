@@ -1,3 +1,18 @@
+Meteor.startup ->
+
+  ##FIXME - clashes with app config
+  ## also we have config in client and server files
+  
+  # Accounts.ui.config
+  #   passwordSignupFields: 'EMAIL_ONLY'
+
+  AccountsEntry.config
+    homeRoute: '/'
+    dashboardRoute: '/dashboard'
+    language: 'en'
+    showSignupCode: false
+
+
 AccountsEntry =
   settings:
     logo: "/images/ux/logo/logo.png"

@@ -5,8 +5,20 @@
       "1.1.1"
     ],
     [
+      "accounts-facebook",
+      "1.0.1"
+    ],
+    [
+      "accounts-oauth",
+      "1.1.1"
+    ],
+    [
       "accounts-password",
       "1.0.2"
+    ],
+    [
+      "accounts-twitter",
+      "1.0.1"
     ],
     [
       "application-configuration",
@@ -61,6 +73,10 @@
       "1.0.3"
     ],
     [
+      "facebook",
+      "1.1.0"
+    ],
+    [
       "follower-livedata",
       "1.0.1"
     ],
@@ -79,6 +95,10 @@
     [
       "htmljs",
       "1.0.1"
+    ],
+    [
+      "http",
+      "1.0.6"
     ],
     [
       "id-map",
@@ -145,6 +165,18 @@
       "0.7.7"
     ],
     [
+      "oauth",
+      "1.1.0"
+    ],
+    [
+      "oauth1",
+      "1.1.0"
+    ],
+    [
+      "oauth2",
+      "1.1.0"
+    ],
+    [
       "observe-sequence",
       "1.0.2"
     ],
@@ -163,6 +195,10 @@
     [
       "reactive-var",
       "1.0.2"
+    ],
+    [
+      "reload",
+      "1.1.0"
     ],
     [
       "retry",
@@ -205,11 +241,19 @@
       "1.0.2"
     ],
     [
+      "twitter",
+      "1.1.0"
+    ],
+    [
       "ui",
       "1.0.3"
     ],
     [
       "underscore",
+      "1.0.0"
+    ],
+    [
+      "url",
       "1.0.0"
     ],
     [
