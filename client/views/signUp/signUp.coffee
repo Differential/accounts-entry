@@ -148,9 +148,8 @@ AccountsEntry.entrySignUpEvents = {
             'EMAIL_ONLY'], AccountsEntry.settings.passwordSignupFields)
           userCredential = if isEmailSignUp then email else username
 
-
           if AccountsEntry.settings.verifyEmail
-            Router.go AccountsEntry.settings.verifyEmailRoute userCredential
+            Router.go AccountsEntry.settings.verifyEmailRoute
           else
             Meteor.loginWithPassword userCredential, password, (error) ->
               if error
