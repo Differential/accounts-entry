@@ -149,8 +149,8 @@ AccountsEntry.entrySignUpEvents = {
           userCredential = if isEmailSignUp then email else username
 
 
-          if AccountsEntry.settings.veryfyEmail
-            Router.go AccountsEntry.settings.veryfyEmailRoute
+          if AccountsEntry.settings.verifyEmail
+            Router.go AccountsEntry.settings.verifyEmailRoute userCredential
           else
             Meteor.loginWithPassword userCredential, password, (error) ->
               if error

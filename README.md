@@ -109,8 +109,8 @@ Since this is a young package, we are maintaining compatibility with accounts-ui
       dashboardRoute: '/dashboard'      // mandatory - path to redirect to after successful sign-in
       profileRoute: 'profile'
       passwordSignupFields: 'EMAIL_ONLY'
-      veryfyEmail: false                // if set to true - the sendVerificationEmail setting needs also be set on Accounts.config 
-      veryfyEmailRoute: '/checkmail'      // route get user redirected after registering a new user profile
+      verifyEmail: false                // if set to true - the sendVerificationEmail setting needs also be set on Accounts.config 
+      verifyEmailRoute: '/checkmail'      // route get user redirected after registering a new user profile
       showSignupCode: true
       showOtherLoginServices: true      // Set to false to hide oauth login buttons on the signin/signup pages. Useful if you are using something like accounts-meld or want to oauth for api access
       extraSignUpFields: [{             // Add extra signup fields on the signup page
