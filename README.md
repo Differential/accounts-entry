@@ -7,6 +7,8 @@ version: 0.9.0
 
 ---
 
+Bump
+
 **NOTE:** Version 0.8.0 and higher or accounts-entry requires that you use Meteor 0.8.2 or higher. You also need to pass the pause param to AccountsEntry.signedInRequired if you are using it. If you were using master and extraSignUpFields, please review the docs for changes in the 0.8.0 release.
 
 # accounts-entry
