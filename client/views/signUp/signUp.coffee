@@ -149,7 +149,7 @@ AccountsEntry.entrySignUpEvents = {
           userCredential = if isEmailSignUp then email else username
           Meteor.loginWithPassword userCredential, password, (error) ->
             if error
-              console.log err
+              console.log error
               T9NHelper.accountsError error
             else if Session.get 'fromWhere'
               Router.go Session.get('fromWhere')
