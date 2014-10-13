@@ -1,5 +1,21 @@
+Meteor.startup ->
+
+  ##FIXME - clashes with app config
+  ## also we have config in client and server files
+  
+  # Accounts.ui.config
+  #   passwordSignupFields: 'EMAIL_ONLY'
+
+  AccountsEntry.config
+    homeRoute: '/'
+    dashboardRoute: '/dashboard'
+    language: 'en'
+    showSignupCode: false
+
+
 AccountsEntry =
   settings:
+    logo: "/images/ux/logo/logo.png"
     wrapLinks: true
     homeRoute: '/home'
     dashboardRoute: '/dashboard'
@@ -9,6 +25,7 @@ AccountsEntry =
     entrySignUp: '/sign-up'
     extraSignUpFields: []
     showOtherLoginServices: true
+    language: "en"
 
   isStringEmail: (email) ->
     emailPattern = /^([\w.-]+)@([\w.-]+)\.([a-zA-Z.]{2,6})$/i

@@ -1,11 +1,17 @@
 Package.describe({
     summary: "Make signin and signout their own pages with routes.",
     version: '0.9.0',
-    git: 'https://github.com/Differential/accounts-entry'
+    // git: 'https://github.com/Differential/accounts-entry',
+    // name: "joshowens:accounts-entry"
+
+    git: 'https://github.com/dcsan/accounts-entry',
+    name: "dcsan:accounts-entry"
 });
 
 Package.onUse(function(api) {
   api.versionsFrom("METEOR@0.9.0");
+
+  // console.log('- onUse: accounts-entry ')
 
   // CLIENT
   api.use([
@@ -17,7 +23,7 @@ Package.onUse(function(api) {
     'handlebars',
     'session',
     'coffeescript',
-    'simple-form',
+    // 'joshowens:simple-form',
     'less',
     'sha']
   , 'client');
@@ -55,7 +61,8 @@ Package.onUse(function(api) {
     'client/t9n/portuguese.coffee',
     'client/t9n/slovene.coffee',
     'client/t9n/russian.coffee',
-    'client/t9n/arabic.coffee'
+    'client/t9n/arabic.coffee',
+    'client/t9n/japanese.coffee'
   ], 'client');
 
   // SERVER
@@ -72,6 +79,8 @@ Package.onUse(function(api) {
 
   // CLIENT and SERVER
   api.imply('accounts-base', ['client', 'server']);
+  api.imply('accounts-twitter', ['client', 'server']);
+  api.imply('accounts-facebook', ['client', 'server']);
   api.imply('accounts-password', ['client', 'server']);
   api.export('AccountsEntry', ['client', 'server']);
   api.use(['iron:router', 'mrt:accounts-t9n'], ['client', 'server']);
