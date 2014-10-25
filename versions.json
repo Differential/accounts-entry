@@ -9,10 +9,6 @@
       "1.0.0"
     ],
     [
-      "accounts-t9n",
-      "0.0.0"
-    ],
-    [
       "application-configuration",
       "1.0.0"
     ],
@@ -22,11 +18,7 @@
     ],
     [
       "blaze",
-      "1.0.2"
-    ],
-    [
-      "blaze-layout",
-      "0.0.0"
+      "1.0.3"
     ],
     [
       "blaze-tools",
@@ -46,7 +38,7 @@
     ],
     [
       "deps",
-      "1.0.0"
+      "1.0.1"
     ],
     [
       "ejson",
@@ -81,8 +73,24 @@
       "1.0.0"
     ],
     [
-      "iron-router",
-      "0.0.0"
+      "iron:core",
+      "0.3.2"
+    ],
+    [
+      "iron:dynamic-template",
+      "0.3.0"
+    ],
+    [
+      "iron:layout",
+      "0.3.0"
+    ],
+    [
+      "iron:router",
+      "0.9.1"
+    ],
+    [
+      "joshowens:simple-form",
+      "0.2.0"
     ],
     [
       "jquery",
@@ -94,11 +102,11 @@
     ],
     [
       "less",
-      "1.0.4"
+      "1.0.5"
     ],
     [
       "livedata",
-      "1.0.4"
+      "1.0.7"
     ],
     [
       "localstorage",
@@ -122,7 +130,11 @@
     ],
     [
       "mongo-livedata",
-      "1.0.2"
+      "1.0.3"
+    ],
+    [
+      "mrt:underscore-string-latest",
+      "2.3.3"
     ],
     [
       "npm-bcrypt",
@@ -165,8 +177,8 @@
       "1.0.0"
     ],
     [
-      "simple-form",
-      "0.0.0"
+      "softwarerero:accounts-t9n",
+      "1.0.0"
     ],
     [
       "spacebars",
@@ -193,15 +205,11 @@
       "1.0.0"
     ],
     [
-      "underscore-string-latest",
-      "0.0.0"
-    ],
-    [
       "webapp",
       "1.0.2"
     ]
   ],
   "pluginDependencies": [],
-  "toolVersion": "meteor-tool@1.0.12",
+  "toolVersion": "meteor-tool@1.0.34",
   "format": "1.0"
 }
