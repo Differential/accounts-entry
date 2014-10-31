@@ -73,7 +73,7 @@ Router.map ->
       if AccountsEntry.settings.homeRoute
         Meteor.logout () ->
           Router.go AccountsEntry.settings.homeRoute
-      next()
+      @next()
       return
 
   @route 'entryResetPassword',
@@ -81,7 +81,7 @@ Router.map ->
     onBeforeAction: ->
       Session.set('entryError', undefined)
       Session.set('resetToken', @params.resetToken)
-      next()
+      @next()
       return
 
 # Get all the accounts-entry routes one time
