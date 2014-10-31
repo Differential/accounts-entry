@@ -5,6 +5,8 @@ Router.map ->
     onBeforeAction: ->
       Session.set('entryError', undefined)
       Session.set('buttonText', 'in')
+      @next()
+      return
     onRun: ->
       if Meteor.userId()
         Router.go AccountsEntry.settings.dashboardRoute
@@ -34,6 +36,8 @@ Router.map ->
     onBeforeAction: ->
       Session.set('entryError', undefined)
       Session.set('buttonText', 'up')
+      @next()
+      return
     onRun: ->
       if AccountsEntry.settings.signUpTemplate
         @template = AccountsEntry.settings.signUpTemplate
@@ -59,21 +63,26 @@ Router.map ->
     path: "/forgot-password"
     onBeforeAction: ->
       Session.set('entryError', undefined)
+      @next()
+      return
 
   @route 'entrySignOut',
     path: '/sign-out'
-    onBeforeAction: (pause)->
+    onBeforeAction: ()->
       Session.set('entryError', undefined)
       if AccountsEntry.settings.homeRoute
         Meteor.logout () ->
           Router.go AccountsEntry.settings.homeRoute
-      pause()
+      @next()
+      return
 
   @route 'entryResetPassword',
     path: 'reset-password/:resetToken'
     onBeforeAction: ->
       Session.set('entryError', undefined)
       Session.set('resetToken', @params.resetToken)
+      @next()
+      return
 
 # Get all the accounts-entry routes one time
 exclusions = [];
