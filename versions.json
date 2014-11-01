@@ -9,10 +9,6 @@
       "1.0.0"
     ],
     [
-      "accounts-t9n",
-      "0.0.0"
-    ],
-    [
       "application-configuration",
       "1.0.0"
     ],
@@ -81,7 +77,7 @@
       "1.0.0"
     ],
     [
-      "iron-router",
+      "iron:router",
       "0.0.0"
     ],
     [
@@ -166,6 +162,10 @@
     ],
     [
       "simple-form",
+      "0.0.0"
+    ],
+    [
+      "softwarerero:accounts-t9n",
       "0.0.0"
     ],
     [
