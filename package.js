@@ -1,12 +1,14 @@
 Package.describe({
     summary: "Make signin and signout their own pages with routes.",
-    version: '0.9.0',
-    git: 'https://github.com/Differential/accounts-entry'
+    version: '1.0.0',
+    name: "joshowens:accounts-entry",
+    githubUrl: 'https://github.com/Differential/accounts-entry',
 });
 
 Package.onUse(function(api) {
   api.versionsFrom("METEOR@0.9.0");
 
+  api.use(['iron:router@1.0.0', 'softwarerero:accounts-t9n@1.0.0', 'joshowens:simple-form@0.1.8'], ['client', 'server']);
   // CLIENT
   api.use([
     'deps',
@@ -17,7 +19,6 @@ Package.onUse(function(api) {
     'handlebars',
     'session',
     'coffeescript',
-    'simple-form',
     'less',
     'sha']
   , 'client');
@@ -74,7 +75,6 @@ Package.onUse(function(api) {
   api.imply('accounts-base', ['client', 'server']);
   api.imply('accounts-password', ['client', 'server']);
   api.export('AccountsEntry', ['client', 'server']);
-  api.use(['iron:router','softwarerero:accounts-t9n'], ['client', 'server']);
   api.addFiles(['shared/router.coffee'], ['client', 'server']);
 
 });
@@ -86,10 +86,10 @@ Package.onTest(function (api) {
             'test-helpers',
             'templating',
             'mongo-livedata',
-            'coffeescript',
-            'simple-form',
-            'iron:router']);
-  api.use('accounts-entry');
+            'coffeescript'
+            ]);
+  api.use(['iron:router', 'softwarerero:accounts-t9n', 'joshowens:simple-form'], ['client', 'server']);
+  api.use('joshowens:accounts-entry');
 
   api.addFiles(['tests/route.coffee', 'tests/client.html', 'tests/client.coffee'], 'client');
 });
