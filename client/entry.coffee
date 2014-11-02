@@ -29,7 +29,7 @@ AccountsEntry =
     extraCondition ?= true
     unless Meteor.loggingIn()
       if Meteor.user() and extraCondition
-        @next()
+        router.next()
       else
         Session.set('fromWhere', router.path)
         Router.go('/sign-in')
