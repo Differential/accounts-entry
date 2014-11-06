@@ -1,8 +1,8 @@
 Package.describe({
+    name: 'vilango:accounts-entry',
     summary: "Make signin and signout their own pages with routes.",
-    version: '1.0.0',
-    name: "joshowens:accounts-entry",
-    githubUrl: 'https://github.com/Differential/accounts-entry',
+    version: '1.0.0-1',
+    git: 'https://github.com/Vilango/accounts-entry'
 });
 
 Package.onUse(function(api) {
