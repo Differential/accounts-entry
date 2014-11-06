@@ -25,14 +25,15 @@ AccountsEntry =
       signUpRoute = Router.routes['entrySignUp']
       signUpRoute.options.template = appConfig.signUpTemplate
 
-  signInRequired: (router, pause, extraCondition) ->
+  signInRequired: (router, extraCondition) ->
     extraCondition ?= true
     unless Meteor.loggingIn()
-      unless Meteor.user() and extraCondition
-        Session.set('fromWhere', router.path)
+      if Meteor.user() and extraCondition
+        router.next()
+      else
+        Session.set('fromWhere', router.url)
         Router.go('/sign-in')
         Session.set('entryError', t9n('error.signInRequired'))
-        pause.call()
 
 @AccountsEntry = AccountsEntry
 
