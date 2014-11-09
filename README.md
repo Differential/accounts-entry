@@ -19,7 +19,7 @@ and sign in.
 
 We wanted something to work with that used [Iron Router](https://github.com/EventedMind/iron-router),
 [Bootstrap 3](https://github.com/mangasocial/meteor-bootstrap-3), and didn't require the forcing of
-the dropdown box that didn't seem to be easily styled. But we love the ease of adding more packages like `accounts-facebook` or `accounts-twitter`, so we fully support the OAuth packages by adding buttons to let people sign-up/sign-in with those services if you add them.  By default, accounts-entry doesn't offer email/password login functionality.  If you `mrt add accounts-password`, accounts-entry will offer your users the option to sign-up/sign-in with a username and password.
+the dropdown box that didn't seem to be easily styled. But we love the ease of adding more packages like `accounts-facebook` or `accounts-twitter`, so we fully support the OAuth packages by adding buttons to let people sign-up/sign-in with those services if you add them.  By default, accounts-entry doesn't offer email/password login functionality.  If you `meteor add accounts-password`, accounts-entry will offer your users the option to sign-up/sign-in with a username and password.
 
 ![Example](http://github.differential.io/accounts-entry/images/Example.png)
 
@@ -43,7 +43,7 @@ accounts-entry is presently compatible with Iron Router 0.6.0 and above. Since m
 Run:
 
 ```
-mrt add accounts-entry
+meteor add joshowens:accounts-entry
 ```
 
 You can install the `accounts-ui` package, as it is still used for OAuth setup.
@@ -80,7 +80,7 @@ Here is an Iron-Router route example:
 
 ## Setting up password login
 
-Use `mrt add accounts-password` if you want to have email/username login authentication options. This is now optional and will only display if installed. You need to configure an OAuth option if you choose not to have password logins.
+Use `meteor add accounts-password` if you want to have email/username login authentication options. This is now optional and will only display if installed. You need to configure an OAuth option if you choose not to have password logins.
 
 ## Setting up OAuth/social integrations
 
@@ -152,4 +152,4 @@ dashboard (used after signing in).
 
 ## Interested in building a quick meteor app that starts with Accounts-Entry?
 
-We've created a [meteor-boilerplate repo](http://github.differential.io/meteor-boilerplate/) that you can clone as a starting point for an app.  It follows all our standards that we use for building apps for our clients.
+We've created a [meteor-boilerplate repo](http://github.differential.com/meteor-boilerplate/) that you can clone as a starting point for an app.  It follows all our standards that we use for building apps for our clients.
