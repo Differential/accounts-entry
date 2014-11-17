@@ -1,7 +1,7 @@
 Package.describe({
     summary: "Make signin and signout their own pages with routes.",
     version: '1.0.0',
-    name: "oafmedium:accounts-entry",
+    name: "joshowens:accounts-entry",
     githubUrl: 'https://github.com/Differential/accounts-entry',
 });
 
