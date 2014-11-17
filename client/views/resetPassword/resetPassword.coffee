@@ -1,10 +1,10 @@
-Template.entryResetPassword.helpers
+AccountsEntry.entryResetPasswordHelpers =
   error: -> Session.get('entryError')
 
   logo: ->
     AccountsEntry.settings.logo
 
-Template.entryResetPassword.events
+AccountsEntry.entryResetPasswordEvents =
 
   'submit #resetPassword': (event) ->
     event.preventDefault()
@@ -38,3 +38,7 @@ Template.entryResetPassword.events
       else
         Session.set('resetToken', null)
         Router.go AccountsEntry.settings.dashboardRoute
+
+Template.entryResetPassword.helpers AccountsEntry.entryResetPasswordHelpers
+
+Template.entryResetPassword.events AccountsEntry.entryResetPasswordEvents

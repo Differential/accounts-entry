@@ -9,7 +9,7 @@ overrideTemplate = (options, self) ->
 
   if userRendered
     Template[self.template].rendered = ->
-      pkgRendered.call(self)
+      pkgRendered.call(self) if pkgRendered
       userRendered.call(self)
   else
     Template[self.template].rendered = pkgRendered

@@ -21,9 +21,19 @@ AccountsEntry =
     if appConfig.language
       T9n.language = appConfig.language
 
+
+    if appConfig.signInTemplate
+      signInRoute = Router.routes['entrySignIn']
+      signInRoute.options.template = appConfig.signInTemplate
     if appConfig.signUpTemplate
       signUpRoute = Router.routes['entrySignUp']
       signUpRoute.options.template = appConfig.signUpTemplate
+    if appConfig.forgotPasswordTemplate
+      forgotPasswordRoute = Router.routes['entryForgotPassword']
+      forgotPasswordRoute.options.template = appConfig.forgotPasswordTemplate
+    if appConfig.resetPasswordTemplate
+      resetPasswordRoute = Router.routes['entryResetPassword']
+      resetPasswordRoute.options.template = appConfig.resetPasswordTemplate
 
   signInRequired: (router, extraCondition) ->
     extraCondition ?= true
