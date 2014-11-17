@@ -1,3 +1,22 @@
+overrideTemplate = (options, self) ->
+  self.template = options.newTemplate
+
+  # If the user has a custom template, and not using the helper, then
+  # maintain the package Javascript so that OpenGraph tags and share
+  # buttons still work.
+  pkgRendered= options.oldTemplate.rendered
+  userRendered = Template[self.template].rendered
+
+  if userRendered
+    Template[self.template].rendered = ->
+      pkgRendered.call(self)
+      userRendered.call(self)
+  else
+    Template[self.template].rendered = pkgRendered
+
+  Template[self.template].events options.oldEvents
+  Template[self.template].helpers options.oldHelpers
+
 Router.map ->
 
   @route "entrySignIn",
@@ -11,23 +30,12 @@ Router.map ->
         Router.go AccountsEntry.settings.dashboardRoute
 
       if AccountsEntry.settings.signInTemplate
-        @template = AccountsEntry.settings.signInTemplate
-
-        # If the user has a custom template, and not using the helper, then
-        # maintain the package Javascript so that OpenGraph tags and share
-        # buttons still work.
-        pkgRendered= Template.entrySignIn.rendered
-        userRendered = Template[@template].rendered
-
-        if userRendered
-          Template[@template].rendered = ->
-            pkgRendered.call(@)
-            userRendered.call(@)
-        else
-          Template[@template].rendered = pkgRendered
-
-        Template[@template].events(AccountsEntry.entrySignInEvents)
-        Template[@template].helpers(AccountsEntry.entrySignInHelpers)
+        overrideTemplate
+          oldTemplate: Template.entrySignIn
+          oldEvents: AccountsEntry.entrySignInEvents
+          oldHelpers: AccountsEntry.entrySignInHelpers
+          newTemplate: AccountsEntry.settings.signInTemplate
+        , this
       @next()
 
 
@@ -39,23 +47,12 @@ Router.map ->
       @next()
     onRun: ->
       if AccountsEntry.settings.signUpTemplate
-        @template = AccountsEntry.settings.signUpTemplate
-
-        # If the user has a custom template, and not using the helper, then
-        # maintain the package Javascript so that OpenGraph tags and share
-        # buttons still work.
-        pkgRendered= Template.entrySignUp.rendered
-        userRendered = Template[@template].rendered
-
-        if userRendered
-          Template[@template].rendered = ->
-            pkgRendered.call(@)
-            userRendered.call(@)
-        else
-          Template[@template].rendered = pkgRendered
-
-        Template[@template].events(AccountsEntry.entrySignUpEvents)
-        Template[@template].helpers(AccountsEntry.entrySignUpHelpers)
+        overrideTemplate
+          oldTemplate: Template.entrySignUp
+          oldEvents: AccountsEntry.entrySignUpEvents
+          oldHelpers: AccountsEntry.entrySignUpHelpers
+          newTemplate: AccountsEntry.settings.signUpTemplate
+        , this
       @next()
 
 
@@ -66,23 +63,12 @@ Router.map ->
       @next()
     onRun: ->
       if AccountsEntry.settings.forgotPasswordTemplate
-        @template = AccountsEntry.settings.forgotPasswordTemplate
-
-        # If the user has a custom template, and not using the helper, then
-        # maintain the package Javascript so that OpenGraph tags and share
-        # buttons still work.
-        pkgRendered= Template.entryForgotPassword.rendered
-        userRendered = Template[@template].rendered
-
-        if userRendered
-          Template[@template].rendered = ->
-            pkgRendered.call(@)
-            userRendered.call(@)
-        else
-          Template[@template].rendered = pkgRendered
-
-        Template[@template].events(AccountsEntry.entryForgotPasswordEvents)
-        Template[@template].helpers(AccountsEntry.entryForgotPasswordHelpers)
+        overrideTemplate
+          oldTemplate: Template.entryForgotPassword
+          oldEvents: AccountsEntry.entryForgotPasswordEvents
+          oldHelpers: AccountsEntry.entryForgotPasswordHelpers
+          newTemplate: AccountsEntry.settings.forgotPasswordTemplate
+        , this
       @next()
 
   @route 'entrySignOut',
@@ -101,23 +87,12 @@ Router.map ->
       @next()
     onRun: ->
       if AccountsEntry.settings.resetPasswordTemplate
-        @template = AccountsEntry.settings.resetPasswordTemplate
-
-        # If the user has a custom template, and not using the helper, then
-        # maintain the package Javascript so that OpenGraph tags and share
-        # buttons still work.
-        pkgRendered= Template.entryResetPassword.rendered
-        userRendered = Template[@template].rendered
-
-        if userRendered
-          Template[@template].rendered = ->
-            pkgRendered.call(@)
-            userRendered.call(@)
-        else
-          Template[@template].rendered = pkgRendered
-
-        Template[@template].events(AccountsEntry.entryResetPasswordEvents)
-        Template[@template].helpers(AccountsEntry.entryResetPasswordHelpers)
+        overrideTemplate
+          oldTemplate: Template.entryResetPassword
+          oldEvents: AccountsEntry.entryResetPasswordEvents
+          oldHelpers: AccountsEntry.entryResetPasswordHelpers
+          newTemplate: AccountsEntry.settings.resetPasswordTemplate
+        , this
       @next()
 
 # Get all the accounts-entry routes one time
