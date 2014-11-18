@@ -102,7 +102,7 @@
     ],
     [
       "iron:location",
-      "1.0.0"
+      "1.0.1"
     ],
     [
       "iron:middleware-stack",
@@ -110,7 +110,7 @@
     ],
     [
       "iron:router",
-      "1.0.0"
+      "1.0.1"
     ],
     [
       "iron:url",
