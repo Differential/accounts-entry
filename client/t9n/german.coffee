@@ -15,6 +15,7 @@ de =
   email: "E-Mail"
   ifYouAlreadyHaveAnAccount: "Falls Sie ein Konto haben, bitte hier"
   signUpWithYourEmailAddress: "Mit E-Mail registrieren"
+  signUpWithUsername: "Register with a username"
   username: "Benutzername"
   optional: "Optional"
   signupCode: "Registrierungscode"

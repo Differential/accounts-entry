@@ -15,6 +15,7 @@ ru =
   email: "Email"
   ifYouAlreadyHaveAnAccount: "Если у вас уже есть аккаунт"
   signUpWithYourEmailAddress: "Зарегистрируйтесь с вашим email адресом"
+  signUpWithUsername: "Register with a username"
   username: "Имя пользователя"
   optional: "Необязательно"
   signupCode: "Регистрационный код"

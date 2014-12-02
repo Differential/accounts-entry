@@ -14,6 +14,7 @@ es =
   email: "Email"
   ifYouAlreadyHaveAnAccount: "Si ya tenés una cuenta"
   signUpWithYourEmailAddress: "Suscribir con tu email"
+  signUpWithUsername: "Register with a username"
   username: "Usuario"
   optional: "Opcional"
   signupCode: "Codigo para suscribir"

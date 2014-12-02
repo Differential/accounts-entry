@@ -15,6 +15,7 @@ pt =
   email: "E-mail"
   ifYouAlreadyHaveAnAccount: "Se você já tem uma conta"
   signUpWithYourEmailAddress: "Entre usando seu endereço de e-mail"
+  signUpWithUsername: "Register with a username"
   username: "Nome de usuário"
   optional: "Opcional"
   signupCode: "Código de acesso"

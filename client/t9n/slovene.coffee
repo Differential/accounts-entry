@@ -15,6 +15,7 @@ sl =
   email: "Email"
   ifYouAlreadyHaveAnAccount: "Če si že registriran(a),"
   signUpWithYourEmailAddress: "Prijava z email naslovom"
+  signUpWithUsername: "Register with a username"
   username: "Uporabniško ime"
   optional: "Po želji"
   signupCode: "Prijavna koda"

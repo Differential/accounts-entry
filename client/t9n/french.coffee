@@ -15,6 +15,7 @@ fr =
   email: "Email"
   ifYouAlreadyHaveAnAccount: "Si vous avez déjà un compte"
   signUpWithYourEmailAddress: "S'enregistrer avec votre adresse email"
+  signUpWithUsername: "Register with a username"
   username: "Nom d'utilisateur"
   optional: "Optionnel"
   signupCode: "Code d'inscription"

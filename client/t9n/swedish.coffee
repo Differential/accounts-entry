@@ -15,6 +15,7 @@ sv =
   email: "E-postadress"
   ifYouAlreadyHaveAnAccount: "Om du redan har ett konto"
   signUpWithYourEmailAddress: "Skapa ett konto med din e-postadress"
+  signUpWithUsername: "Register with a username"
   username: "Användarnamn"
   optional: "Valfri"
   signupCode: "Registreringskod"

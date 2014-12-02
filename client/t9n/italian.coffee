@@ -15,6 +15,7 @@ it =
   email: "Email"
   ifYouAlreadyHaveAnAccount: "Se hai già un account"
   signUpWithYourEmailAddress: "Registrati con il tuo indirizzo email"
+  signUpWithUsername: "Register with a username"
   username: "Username"
   optional: "Opzionale"
   signupCode: "Codice di Registrazione"

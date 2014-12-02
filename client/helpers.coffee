@@ -38,3 +38,12 @@ UI.registerHelper 'passwordLoginService', ->
 
 UI.registerHelper 'showCreateAccountLink', ->
   return !Accounts._options.forbidClientAccountCreation
+
+UI.registerHelper 'usernameSignup', ->
+  return (AccountsEntry.settings.passwordSignupFields == "USERNAME_ONLY")
+
+UI.registerHelper 'emailSignup', ->
+  return (AccountsEntry.settings.passwordSignupFields == "EMAIL_ONLY")
+
+UI.registerHelper 'usernameOptEmailSignup', ->
+  return (AccountsEntry.settings.passwordSignupFields == "USERNAME_AND_OPTIONAL_EMAIL")

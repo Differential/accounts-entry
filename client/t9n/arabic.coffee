@@ -15,6 +15,7 @@ ar =
   email: "البريد الالكترونى"
   ifYouAlreadyHaveAnAccount: "اذا كان عندك حساب"
   signUpWithYourEmailAddress: "سجل ببريدك الالكترونى"
+  signUpWithUsername: "Register with a username"
   username: "اسم المستخدم"
   optional: "اختيارى"
   signupCode: "رمز التسجيل"

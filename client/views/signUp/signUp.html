@@ -18,7 +18,15 @@
               <div class="email-option">
                 <strong class="line-thru">{{t9n "OR"}}</strong>
                 <a data-toggle="collapse" href="#signUp">
+                {{#if emailSignup}}
                   {{t9n "signUpWithYourEmailAddress"}}
+                {{/if}}
+                {{#if usernameSignup}}
+                  {{t9n "signUpWithUsername"}}
+                {{/if}}
+                {{#if usernameOptEmailSignup}}
+                  {{t9n "signUpWithUsername"}}
+                {{/if}}
                 </a>
               </div>
             {{/if}}
