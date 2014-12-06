@@ -3,7 +3,7 @@ layout: default
 username: Differential
 repo: accounts-entry
 desc: Meteor sign up and sign in pages.
-version: 0.9.0
+version: 1.0.2
 
 ---
 
