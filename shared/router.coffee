@@ -72,6 +72,7 @@ Router.map ->
       if AccountsEntry.settings.homeRoute
         Meteor.logout () ->
           Router.go AccountsEntry.settings.homeRoute
+      @next()
 
   @route 'entryResetPassword',
     path: 'reset-password/:resetToken'
