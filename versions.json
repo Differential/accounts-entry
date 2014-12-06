@@ -86,39 +86,39 @@
     ],
     [
       "iron:controller",
-      "1.0.0"
+      "1.0.3"
     ],
     [
       "iron:core",
-      "1.0.0"
+      "1.0.3"
     ],
     [
       "iron:dynamic-template",
-      "1.0.0"
+      "1.0.3"
     ],
     [
       "iron:layout",
-      "1.0.0"
+      "1.0.3"
     ],
     [
       "iron:location",
-      "1.0.0"
+      "1.0.3"
     ],
     [
       "iron:middleware-stack",
-      "1.0.0"
+      "1.0.3"
     ],
     [
       "iron:router",
-      "1.0.0"
+      "1.0.3"
     ],
     [
       "iron:url",
-      "1.0.0"
+      "1.0.3"
     ],
     [
       "joshowens:simple-form",
-      "0.1.8"
+      "0.2.2"
     ],
     [
       "jquery",
@@ -193,6 +193,10 @@
       "1.0.2"
     ],
     [
+      "schnie:uploader",
+      "2.0.3"
+    ],
+    [
       "service-configuration",
       "1.0.2"
     ],
@@ -206,7 +210,7 @@
     ],
     [
       "softwarerero:accounts-t9n",
-      "1.0.0"
+      "1.0.3"
     ],
     [
       "spacebars",
