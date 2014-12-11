@@ -3,7 +3,7 @@ AccountsEntry.entrySignInHelpers = {
     if AccountsEntry.settings.passwordSignupFields is 'EMAIL_ONLY'
       'email'
     else
-      'string'
+      'text'
 
   emailPlaceholder: ->
     fields = AccountsEntry.settings.passwordSignupFields
