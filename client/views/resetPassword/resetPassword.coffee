@@ -8,7 +8,7 @@ Template.entryResetPassword.events
 
   'submit #resetPassword': (event) ->
     event.preventDefault()
-    password = $('input[type="password"]').val()
+    password =  $('input[type="password"][name="new-password"]').val()
 
     passwordErrors = do (password)->
       errMsg = []
