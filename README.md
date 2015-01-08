@@ -91,7 +91,7 @@ Use `accounts-ui` to configure your social/OAuth integrations (or manually creat
 
 ### Signup codes
 
-We have added support for a signupCode in case you want to have a special code to handout to keep signups at a pace you want. This code is checked if you turn on the client and server side options listed below.
+We have added support for a signupCode in case you want to have a special code to handout to keep signups at a pace you want. This code is checked if you turn on the client and server side options listed below. You can use multiple passcodes by entering them as an array of strings.
 
 **The signup code is only checked for accounts-password logins, so know that OAuth logins will still allow people in.**
 
@@ -130,7 +130,7 @@ Call `AccountsEntry.config` with a hash of optional configuration:
 ```js
   Meteor.startup(function () {
     AccountsEntry.config({
-      signupCode: 's3cr3t',         // only restricts username+password users, not OAuth
+      signupCode: ['s3cr3t', '3nt8y'],         // only restricts username+password users, not OAuth, 
       defaultProfile:
           someDefault: 'default'
     });
