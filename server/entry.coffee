@@ -13,7 +13,8 @@ Meteor.startup ->
   Meteor.methods
     entryValidateSignupCode: (signupCode) ->
       check signupCode, Match.OneOf(String, null, undefined)
-      not AccountsEntry.settings.signupCode or _.contains(AccountsEntry.settings.signupCode, signupCode)
+      re = new RegExp("\^"+signupCode+"\$", "i")
+      not AccountsEntry.settings.signupCode or (_.find AccountsEntry.settings.signupCode, (item, index) -> re.test(item))?
 
     entryCreateUser: (user) ->
       check user, Object
