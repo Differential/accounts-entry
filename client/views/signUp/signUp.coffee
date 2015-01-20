@@ -86,11 +86,12 @@ AccountsEntry.entrySignUpEvents = {
     passwordErrors = do (password)->
       errMsg = []
       msg = false
-      if password.length < 7
+      minLength = if AccountsEntry.settings.minLength? then AccountsEntry.settings.minLength else 7
+      if password.length < minLength
         errMsg.push t9n("error.minChar")
       if password.search(/[a-z]/i) < 0
-        errMsg.push t9n("error.pwOneLetter")
-      if password.search(/[0-9]/) < 0
+        errMsg.push t9n("error.pwOneLetter") and AccountsEntry.settings.requireAlpha?
+      if password.search(/[0-9]/) < 0 and AccountsEntry.settings.requireDigits?
         errMsg.push t9n("error.pwOneDigit")
 
       if errMsg.length > 0

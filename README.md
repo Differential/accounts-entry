@@ -119,6 +119,9 @@ Since this is a young package, we are maintaining compatibility with accounts-ui
         type: "text",                            // The type of field you want
         required: true                           // Adds html 5 required property if true
        }]
+      requireDigits = true,             // true by default, set to false if digits not required in password
+      requireAlpha  = true,             // true by default, set to false if alpha not required in password
+      minLength     = 7                 // 7 characters by default, set to whatever is required
     });
   });
 ```
