@@ -1,0 +1,26 @@
+<template name='entryEnrollAccount'>
+  <div class="container">
+    <div class="row">
+      {{#if logo}}
+        <div class="entry-logo">
+            <a href="/"><img src="{{logo}}" alt="logo"></a>
+        </div>
+      {{/if}}
+      <div class="entry col-md-4 col-md-offset-4">
+        {{#if error}}
+          <div class='alert alert-danger'>{{error}}</div>
+        {{/if}}
+        <h3>{{t9n "choosePassword"}}</h3>
+        <form id='setPassword'>
+          <div class="form-group">
+            <input type="password" name="new-password" class="form-control" value=''>
+          </div>
+          <button type="submit" class="btn btn-default">{{t9n "setPassword"}}</button>
+        </form>
+        {{#if showSignupCode}}
+          <p class="entry-signup-cta">{{t9n 'dontHaveAnAccount'}} <a href="/sign-up">{{t9n 'signUp'}}</a></p>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</template>
