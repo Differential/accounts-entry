@@ -8,11 +8,18 @@ Template.entryResetPassword.events
 
   'submit #resetPassword': (event) ->
     event.preventDefault()
-    password = $('input[type="password"]').val()
+    password = $('input[name="new-password"]').val()
 
     passwordErrors = do (password)->
       errMsg = []
       msg = false
+
+      if AccountsEntry.settings.requirePasswordConfirmation
+        password2 = $('input[name="new-password2"]').val()
+
+        if password isnt password2
+          errMsg.push t9n("error.pwNoMatch")
+
       if password.length < 7
         errMsg.push t9n("error.minChar")
       if password.search(/[a-z]/i) < 0

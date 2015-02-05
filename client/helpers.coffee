@@ -33,6 +33,9 @@ UI.registerHelper 'loginServices', ->
 UI.registerHelper 'showSignupCode', ->
   AccountsEntry.settings.showSignupCode is true
 
+UI.registerHelper 'showPasswordConfirmation', ->
+  AccountsEntry.settings.requirePasswordConfirmation is true
+
 UI.registerHelper 'passwordLoginService', ->
   !!Package['accounts-password']
 

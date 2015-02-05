@@ -49,8 +49,15 @@
 
             <div class="form-group">
               <label>{{t9n "password"}}</label>
-              <input type="password" class="form-control" value=''>
+              <input type="password" class="form-control" name="password1" value=''>
             </div>
+
+            {{#if showPasswordConfirmation}}
+              <div class="form-group">
+                <label>{{t9n "confirmPassword"}}</label>
+                <input type="password" class="form-control" name="password2" value=''>
+              </div>
+            {{/if}}
 
             {{#if showSignupCode}}
               <div class="form-group">

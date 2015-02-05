@@ -78,7 +78,7 @@ AccountsEntry.entrySignUpEvents = {
     formValues = SimpleForm.processForm(event.target)
     extraFields = _.pluck(AccountsEntry.settings.extraSignUpFields, 'field')
     filteredExtraFields = _.pick(formValues, extraFields)
-    password = t.find('input[type="password"]').value
+    password = t.find('input[name="password1"]').value
 
     fields = AccountsEntry.settings.passwordSignupFields
 
@@ -86,6 +86,13 @@ AccountsEntry.entrySignUpEvents = {
     passwordErrors = do (password)->
       errMsg = []
       msg = false
+
+      if AccountsEntry.settings.requirePasswordConfirmation
+        password2 = t.find('input[name="password2"]').value
+
+        if password2 isnt password
+          errMsg.push t9n("error.pwNoMatch")
+
       if password.length < 7
         errMsg.push t9n("error.minChar")
       if password.search(/[a-z]/i) < 0
