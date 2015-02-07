@@ -146,17 +146,20 @@ AccountsEntry.entrySignUpEvents = {
           isEmailSignUp = _.contains([
             'USERNAME_AND_EMAIL',
             'EMAIL_ONLY'], AccountsEntry.settings.passwordSignupFields)
-          userCredential = if isEmailSignUp then email else username
+          if isEmailSignUp 
+            userCredential = email 
+          else 
+            userCredential = username
           if AccountsEntry.settings.signInAfterRegistration is true
-          Meteor.loginWithPassword userCredential, password, (error) ->
-            if error
-              console.log error
-              T9NHelper.accountsError error
-            else if Session.get 'fromWhere'
-              Router.go Session.get('fromWhere')
-              Session.set 'fromWhere', undefined
-            else
-              Router.go AccountsEntry.settings.dashboardRoute
+            Meteor.loginWithPassword userCredential, password, (error) ->
+              if error
+                console.log error
+                T9NHelper.accountsError error
+              else if Session.get 'fromWhere'
+                Router.go Session.get('fromWhere')
+                Session.set 'fromWhere', undefined
+              else
+                Router.go AccountsEntry.settings.dashboardRoute
           else
             if AccountsEntry.settings.emailVerificationPendingRoute
               Router.go AccountsEntry.settings.emailVerificationPendingRoute
