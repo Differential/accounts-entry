@@ -77,8 +77,9 @@ Router.map ->
 
   @route 'entryVerificationPending',
     path: '/verification-pending'
-    onBeforeAction: (pause)->
+    onBeforeAction: ->
       Session.set('entryError', undefined)
+      @next()
 
   @route 'entryResetPassword',
     path: 'reset-password/:resetToken'
