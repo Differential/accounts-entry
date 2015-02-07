@@ -11,6 +11,8 @@ AccountsEntry =
     showOtherLoginServices: true
     fluidLayout: false
     useContainer: true
+    signInAfterRegistration: true
+    emailVerificationPendingRoute: '/verification-pending'
 
   isStringEmail: (email) ->
     emailPattern = /^([\w.-]+)@([\w.-]+)\.([a-zA-Z.]{2,6})$/i

@@ -25,6 +25,8 @@ fr =
   configure: "Configurer"
   with: "avec"
   createAccount: "Créer un compte"
+  verificationPending: "Confirm your email address"
+  verificationPendingDetails: "A confirmation email has been sent to the email address you provided. Click on the confirmation link in the email to activate your account."
   and: "et"
 
   error:

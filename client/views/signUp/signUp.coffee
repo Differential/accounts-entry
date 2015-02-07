@@ -147,6 +147,7 @@ AccountsEntry.entrySignUpEvents = {
             'USERNAME_AND_EMAIL',
             'EMAIL_ONLY'], AccountsEntry.settings.passwordSignupFields)
           userCredential = if isEmailSignUp then email else username
+          if AccountsEntry.settings.signInAfterRegistration is true
           Meteor.loginWithPassword userCredential, password, (error) ->
             if error
               console.log error
@@ -156,6 +157,9 @@ AccountsEntry.entrySignUpEvents = {
               Session.set 'fromWhere', undefined
             else
               Router.go AccountsEntry.settings.dashboardRoute
+      else
+            if AccountsEntry.settings.emailVerificationPendingRoute
+              Router.go AccountsEntry.settings.emailVerificationPendingRoute
       else
         console.log err
         Session.set 'entryError', t9n("error.signupCodeIncorrect")
