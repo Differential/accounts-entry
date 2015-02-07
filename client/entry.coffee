@@ -9,6 +9,8 @@ AccountsEntry =
     entrySignUp: '/sign-up'
     extraSignUpFields: []
     showOtherLoginServices: true
+    signInAfterRegistration: true
+    emailVerificationPendingRoute: '/verification-pending'
 
   isStringEmail: (email) ->
     emailPattern = /^([\w.-]+)@([\w.-]+)\.([a-zA-Z.]{2,6})$/i
