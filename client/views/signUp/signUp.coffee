@@ -137,7 +137,9 @@ AccountsEntry.entrySignUpEvents = {
           email: email
           password: AccountsEntry.hashPassword(password)
           profile: filteredExtraFields
+        Session.set 'talkingToServer', true
         Meteor.call 'entryCreateUser', newUserData, (err, data) ->
+          Session.set 'talkingToServer', false
           if err
             console.log err
             T9NHelper.accountsError err
@@ -151,7 +153,9 @@ AccountsEntry.entrySignUpEvents = {
           else 
             userCredential = username
           if AccountsEntry.settings.signInAfterRegistration is true
+            Session.set 'talkingToServer', true
             Meteor.loginWithPassword userCredential, password, (error) ->
+              Session.set 'talkingToServer', false
               if error
                 console.log error
                 T9NHelper.accountsError error
@@ -160,6 +164,7 @@ AccountsEntry.entrySignUpEvents = {
                 Session.set 'fromWhere', undefined
               else
                 Router.go AccountsEntry.settings.dashboardRoute
+
           else
             if AccountsEntry.settings.emailVerificationPendingRoute
               Router.go AccountsEntry.settings.emailVerificationPendingRoute

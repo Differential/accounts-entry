@@ -41,6 +41,13 @@ UI.registerHelper 'showCreateAccountLink', ->
 
 UI.registerHelper 'fluidLayout', ->
   AccountsEntry.settings.fluidLayout is true
+  
+UI.registerHelper 'talkingToServer', ->
+  if AccountsEntry.settings.showSpinner is true
+    Meteor.Spinner.options = AccountsEntry.settings.spinnerOptions
+    return (Session.get('talkingToServer') is true)
+  else
+    return false
 
 UI.registerHelper 'containerCSSClass', ->
   if AccountsEntry.settings.useContainer is false
@@ -55,4 +62,4 @@ UI.registerHelper 'rowCSSClass', ->
   if AccountsEntry.settings.fluidLayout is true
     "row-fluid"
   else
-    "row"
+    "row"    
