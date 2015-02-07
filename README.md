@@ -8,7 +8,7 @@ and sign in.
 Run:
 
 ```
-joshowens:accounts-entry
+meteor add joshowens:accounts-entry
 ```
 
 You can install the `accounts-ui` package, as it is still used for OAuth setup.
