@@ -1,8 +1,7 @@
-# accounts-entry [![Build Status](https://travis-ci.org/Differential/accounts-entry.png)](https://travis-ci.org/Differential/accounts-entry)
+# Meteor accounts-entry [![Build Status](https://travis-ci.org/Differential/accounts-entry.png)](https://travis-ci.org/Differential/accounts-entry)
 
-accounts-entry is a meteorite package that relies on Iron Router and provides an
-alternative interface to accounts-ui, with whole pages for sign up
-and sign in.
+accounts-entry is a meteor package that relies on Iron Router and provides an alternative interface to accounts-ui, with whole pages for sign up and sign in.
+
 ## Getting started
 
 Run:
@@ -27,7 +26,7 @@ links):
 * [https://carp.io/](https://carp.io/)
 * [https://getliquid.io/](https://getliquid.io/)
 * [http://support.unpolishedcr.com/](http://support.unpolishedcr.com/)
-* Email team@differential.io to add your project to the list.
+* Submit PR with a description to add your project to the list.
 
 [Changelog](https://github.com/BeDifferential/accounts-entry/blob/master/CHANGELOG.md)
 
