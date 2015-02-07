@@ -2,6 +2,9 @@ language: node_js
 node_js:
   - "0.10"
 before_install:
-  - "curl -L http://git.io/ejPSng | /bin/sh"
+  - "wget https://raw.github.com/arunoda/travis-ci-meteor-packages/master/Makefile"
+  - "wget https://raw.github.com/arunoda/travis-ci-meteor-packages/master/start_test.js"
+  - "wget https://raw.github.com/arunoda/travis-ci-meteor-packages/master/phantom_runner.js"
+  - "curl https://install.meteor.com | /bin/sh"
 notifications:
   slack: differential:L6ydnf9YbCImkL3LHFfNRpf6
