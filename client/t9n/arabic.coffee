@@ -25,6 +25,8 @@ ar =
   configure: "تعديل"
   with: "مع"
   createAccount: "افتح حساب جديد"
+  verificationPending: "Confirm your email address"
+  verificationPendingDetails: "A confirmation email has been sent to the email address you provided. Click on the confirmation link in the email to activate your account."
   and: "و"
   "Match failed":  "المطابقة فشلت"
   "User not found":  "اسم المستخدم غير موجود"

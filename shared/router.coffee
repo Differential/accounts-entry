@@ -74,6 +74,11 @@ Router.map ->
           Router.go AccountsEntry.settings.homeRoute
       @next()
 
+  @route 'entryVerificationPending',
+    path: '/verification-pending'
+    onBeforeAction: (pause)->
+      Session.set('entryError', undefined)
+
   @route 'entryResetPassword',
     path: 'reset-password/:resetToken'
     onBeforeAction: ->

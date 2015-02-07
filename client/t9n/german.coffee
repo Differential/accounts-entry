@@ -25,6 +25,8 @@ de =
   configure: "Konfigurieren"
   with: "mit"
   createAccount: "Konto erzeugen"
+  verificationPending: "Confirm your email address"
+  verificationPendingDetails: "A confirmation email has been sent to the email address you provided. Click on the confirmation link in the email to activate your account."
   and: "und"
 
   error:
