@@ -1,21 +1,18 @@
----
-layout: default
-username: Differential
-repo: accounts-entry
-desc: Meteor sign up and sign in pages.
-version: 1.0.3
-
----
-
-**NOTE:** Version 0.8.0 and higher or accounts-entry requires that you use Meteor 0.8.2 or higher. You also need to pass the pause param to AccountsEntry.signedInRequired if you are using it. If you were using master and extraSignUpFields, please review the docs for changes in the 0.8.0 release.
-
-# accounts-entry
-
-[![Build Status](https://travis-ci.org/Differential/accounts-entry.png)](https://travis-ci.org/Differential/accounts-entry)
+# accounts-entry [![Build Status](https://travis-ci.org/Differential/accounts-entry.png)](https://travis-ci.org/Differential/accounts-entry)
 
 accounts-entry is a meteorite package that relies on Iron Router and provides an
 alternative interface to accounts-ui, with whole pages for sign up
 and sign in.
+## Getting started
+
+Run:
+
+```
+joshowens:accounts-entry
+```
+
+You can install the `accounts-ui` package, as it is still used for OAuth setup.
+
 
 We wanted something to work with that used [Iron Router](https://github.com/EventedMind/iron-router),
 [Bootstrap 3](https://github.com/mangasocial/meteor-bootstrap-3), and didn't require the forcing of
@@ -36,17 +33,7 @@ links):
 
 ## Compatibility
 
-accounts-entry is presently compatible with Iron Router 0.6.0 and above. Since meteorite doesn't support semantic version locking, we are currently pegged to 0.6.4 of Iron-router.
-
-## Getting started
-
-Run:
-
-```
-mrt add accounts-entry
-```
-
-You can install the `accounts-ui` package, as it is still used for OAuth setup.
+accounts-entry is presently compatible with Iron Router 1.0.3 and above.
 
 ## Provided routes
 
