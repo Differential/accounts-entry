@@ -43,6 +43,7 @@ You will get routes and the necessary templates for:
 /sign-out
 /sign-up
 /forgot-password
+/verification-pending
 ```
 
 You can then either add links to those directly, or use the `{{ special }}` helper we provide to give you the apppropriate links for signed-in/signed-out users.  The `{{ special }}` helper will display a sign-out link and the user's email address when they are signed-in.
@@ -103,6 +104,11 @@ Since this is a young package, we are maintaining compatibility with accounts-ui
         type: "text",                            // The type of field you want
         required: true                           // Adds html 5 required property if true
        }]
+       fluidLayout: false               // Set to true to use bootstrap3 container-fluid and row-fluid classes.
+       useContainer: true               // Set to false to use an unstyled "accounts-entry-container" class instead of a bootstrap3 "container" or "container-fluid" class. 
+       signInAfterRegistration: true     // Set to false to avoid prevent users being automatically signed up upon sign-up e.g. to wait until their email has been verified. 
+       emailVerificationPendingRoute: '/verification-pending' // The route to which users should be directed after sign-up. Only relevant if signInAfterRegistration is false.
+
     });
   });
 ```
