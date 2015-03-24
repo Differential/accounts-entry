@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/Differential/accounts-entry.png?label=ready&title=Ready)](https://waffle.io/Differential/accounts-entry)
 # Meteor accounts-entry [![Build Status](https://travis-ci.org/Differential/accounts-entry.png)](https://travis-ci.org/Differential/accounts-entry)
 
 accounts-entry is a meteor package that relies on Iron Router and provides an alternative interface to accounts-ui, with whole pages for sign up and sign in.
