@@ -69,9 +69,16 @@ Router.map ->
     path: '/sign-out'
     onBeforeAction: ()->
       Session.set('entryError', undefined)
-      if AccountsEntry.settings.homeRoute
+      if not AccountsEntry.settings.homeRoute
+        @next()
+      else
         Meteor.logout () ->
           Router.go AccountsEntry.settings.homeRoute
+
+  @route 'entryVerificationPending',
+    path: '/verification-pending'
+    onBeforeAction: ->
+      Session.set('entryError', undefined)
       @next()
 
   @route 'entryResetPassword',

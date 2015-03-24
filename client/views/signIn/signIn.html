@@ -1,6 +1,6 @@
 <template name='entrySignIn'>
-  <div class="container">
-    <div class="row">
+  <div class="{{containerCSSClass}}">
+    <div class="{{rowCSSClass}}">
       {{#if logo}}
         <div class="entry-logo">
             <a href="/"><img src="{{logo}}" alt="logo"></a>
@@ -28,7 +28,7 @@
         {{#if passwordLoginService}}
           <form class="entry-form" id='signIn'>
             <div class="form-group">
-              <input autofocus name="email" type="{{emailInputType}}" class="form-control" value='{{email}}' placeholder="{{emailPlaceholder}}">
+              <input autofocus name="email" type="{{emailInputType}}" class="form-control" value='{{email}}' placeholder="{{emailPlaceholder}}" autocapitalize="none" autocomplete="off" autocorrect="off">
             </div>
             <div class="form-group">
               <input name="password" type="password" class="form-control" value='{{password}}' placeholder="{{t9n 'password'}}">
@@ -41,6 +41,9 @@
         {{/if}}
         {{#if showCreateAccountLink}}
         <p class="entry-signup-cta">{{t9n "dontHaveAnAccount"}} <a href="{{pathFor 'entrySignUp'}}">{{t9n "signUp"}}</a></p>
+        {{/if}}
+        {{#if talkingToServer}}
+          {{> spinner}}
         {{/if}}
       </div>
     </div>

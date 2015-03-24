@@ -8,7 +8,7 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom("METEOR@0.9.0");
 
-  api.use(['iron:router@1.0.3', 'softwarerero:accounts-t9n@1.0.3', 'joshowens:simple-form@0.2.2'], ['client', 'server']);
+  api.use(['iron:router@1.0.3', 'softwarerero:accounts-t9n@1.0.3', 'joshowens:simple-form@0.2.2', 'sacha:spin@2.0.4'], ['client', 'server']);
   // CLIENT
   api.use([
     'deps',
@@ -48,6 +48,8 @@ Package.onUse(function(api) {
     'client/views/accountButtons/_wrapLinks.html',
     'client/views/accountButtons/signedIn.html',
     'client/views/accountButtons/accountButtons.coffee',
+    'client/views/verificationPending/verificationPending.html',
+    'client/views/verificationPending/verificationPending.coffee',
     'client/t9n/english.coffee',
     'client/t9n/french.coffee',
     'client/t9n/german.coffee',
@@ -58,7 +60,8 @@ Package.onUse(function(api) {
     'client/t9n/portuguese.coffee',
     'client/t9n/slovene.coffee',
     'client/t9n/russian.coffee',
-    'client/t9n/arabic.coffee'
+    'client/t9n/arabic.coffee',
+    'client/t9n/hebrew.coffee'
   ], 'client');
 
   // SERVER

@@ -1,6 +1,6 @@
 renderToDiv = (comp) ->
   div = document.createElement("DIV")
-  Blaze.render(comp).attach(div)
+  Blaze.render(comp,div)
   div
 
 Tinytest.add "Accounts Entry - {{accountButtons}} helper", (test) ->

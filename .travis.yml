@@ -3,5 +3,5 @@ node_js:
   - "0.10"
 before_install:
   - "curl -L http://git.io/ejPSng | /bin/sh"
-notifications:
-  slack: differential:L6ydnf9YbCImkL3LHFfNRpf6
+env:
+  - TEST_COMMAND=meteor

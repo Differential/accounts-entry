@@ -32,7 +32,9 @@ Template.entryResetPassword.events
 
     if passwordErrors then return
 
+    Session.set 'talkingToServer', true
     Accounts.resetPassword Session.get('resetToken'), password, (error) ->
+      Session.set 'talkingToServer', false
       if error
         Session.set('entryError', (error.reason || "Unknown error"))
       else
