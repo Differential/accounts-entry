@@ -13,6 +13,8 @@ AccountsEntry =
     useContainer: true
     signInAfterRegistration: true
     emailVerificationPendingRoute: '/verification-pending'
+    showSpinner: true
+    spinnerOptions: { color: "#000", top: "80%" }
 
   isStringEmail: (email) ->
     emailPattern = /^([\w.-]+)@([\w.-]+)\.([a-zA-Z.]{2,6})$/i

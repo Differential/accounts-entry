@@ -107,8 +107,10 @@ Since this is a young package, we are maintaining compatibility with accounts-ui
        }]
        fluidLayout: false               // Set to true to use bootstrap3 container-fluid and row-fluid classes.
        useContainer: true               // Set to false to use an unstyled "accounts-entry-container" class instead of a bootstrap3 "container" or "container-fluid" class. 
-       signInAfterRegistration: true     // Set to false to avoid prevent users being automatically signed up upon sign-up e.g. to wait until their email has been verified. 
+       signInAfterRegistration: true    // Set to false to avoid prevent users being automatically signed up upon sign-up e.g. to wait until their email has been verified. 
        emailVerificationPendingRoute: '/verification-pending' // The route to which users should be directed after sign-up. Only relevant if signInAfterRegistration is false.
+       showSpinner: true                // Show the spinner when the client is talking to the server (spin.js)
+       spinnerOptions: { color: "#000", top: "80%" } // options as per [spin.js](http://fgnass.github.io/spin.js/)
 
     });
   });
