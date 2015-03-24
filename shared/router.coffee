@@ -88,6 +88,12 @@ Router.map ->
       Session.set('resetToken', @params.resetToken)
       @next()
 
+  @route 'entryEnrollAccount',
+    path: 'enroll-account/:resetToken'
+    onBeforeAction: ->
+      Session.set('entryError', undefined)
+      Session.set('resetToken', @params.resetToken)
+
 # Get all the accounts-entry routes one time
 exclusions = []
 _.each Router.routes, (route)->

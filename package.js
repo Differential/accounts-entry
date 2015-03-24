@@ -38,6 +38,8 @@ Package.onUse(function(api) {
     'client/views/forgotPassword/forgotPassword.coffee',
     'client/views/resetPassword/resetPassword.html',
     'client/views/resetPassword/resetPassword.coffee',
+    'client/views/enrollAccount/enrollAccount.html',
+    'client/views/enrollAccount/enrollAccount.coffee',
     'client/views/social/social.html',
     'client/views/social/social.coffee',
     'client/views/error/error.html',
