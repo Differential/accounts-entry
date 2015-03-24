@@ -75,6 +75,12 @@ Router.map ->
         Meteor.logout () ->
           Router.go AccountsEntry.settings.homeRoute
 
+  @route 'entryVerificationPending',
+    path: '/verification-pending'
+    onBeforeAction: ->
+      Session.set('entryError', undefined)
+      @next()
+
   @route 'entryResetPassword',
     path: 'reset-password/:resetToken'
     onBeforeAction: ->

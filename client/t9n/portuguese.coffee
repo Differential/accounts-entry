@@ -25,6 +25,8 @@ pt =
   configure: "Configurar"
   with: "com"
   createAccount: "Criar Conta"
+  verificationPending: "Confirm your email address"
+  verificationPendingDetails: "A confirmation email has been sent to the email address you provided. Click on the confirmation link in the email to activate your account."
   and: "e"
   "Match failed":  "Usuário ou senha não encontrado"
   "User not found":  "Usuário não encontrado"

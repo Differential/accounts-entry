@@ -46,6 +46,8 @@ Package.onUse(function(api) {
     'client/views/accountButtons/_wrapLinks.html',
     'client/views/accountButtons/signedIn.html',
     'client/views/accountButtons/accountButtons.coffee',
+    'client/views/verificationPending/verificationPending.html',
+    'client/views/verificationPending/verificationPending.coffee',
     'client/t9n/english.coffee',
     'client/t9n/french.coffee',
     'client/t9n/german.coffee',
