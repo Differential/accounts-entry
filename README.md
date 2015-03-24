@@ -16,7 +16,7 @@ You can install the `accounts-ui` package, as it is still used for OAuth setup.
 
 We wanted something to work with that used [Iron Router](https://github.com/EventedMind/iron-router),
 [Bootstrap 3](https://github.com/mangasocial/meteor-bootstrap-3), and didn't require the forcing of
-the dropdown box that didn't seem to be easily styled. But we love the ease of adding more packages like `accounts-facebook` or `accounts-twitter`, so we fully support the OAuth packages by adding buttons to let people sign-up/sign-in with those services if you add them.  By default, accounts-entry doesn't offer email/password login functionality.  If you `mrt add accounts-password`, accounts-entry will offer your users the option to sign-up/sign-in with a username and password.
+the dropdown box that didn't seem to be easily styled. But we love the ease of adding more packages like `accounts-facebook` or `accounts-twitter`, so we fully support the OAuth packages by adding buttons to let people sign-up/sign-in with those services if you add them.  By default, accounts-entry doesn't offer email/password login functionality.  If you `meteor add accounts-password`, accounts-entry will offer your users the option to sign-up/sign-in with a username and password.
 
 ![Example](http://github.differential.com/accounts-entry/images/Example.png)
 
