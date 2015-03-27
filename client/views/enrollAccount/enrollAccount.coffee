@@ -6,9 +6,9 @@ Template.entryEnrollAccount.helpers
 
 Template.entryEnrollAccount.events
 
-  'submit #setPassword': (event) ->
+  'submit form.set-password': (event, template) ->
     event.preventDefault()
-    password = $('input[type="password"]').val()
+    password = template.$('input[type="password"]').val()
 
     passwordErrors = do (password)->
       errMsg = []

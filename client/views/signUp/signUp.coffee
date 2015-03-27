@@ -49,7 +49,7 @@ AccountsEntry.entrySignUpHelpers = {
 }
 
 AccountsEntry.entrySignUpEvents = {
-  'submit #signUp': (event, t) ->
+  'submit form.sign-up': (event, t) ->
     event.preventDefault()
 
     username =
