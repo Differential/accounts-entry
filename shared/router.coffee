@@ -93,6 +93,7 @@ Router.map ->
     onBeforeAction: ->
       Session.set('entryError', undefined)
       Session.set('resetToken', @params.resetToken)
+      @next()
 
 # Get all the accounts-entry routes one time
 exclusions = []
