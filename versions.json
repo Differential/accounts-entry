@@ -157,10 +157,6 @@
       "1.0.8"
     ],
     [
-      "mrt:underscore-string-latest",
-      "2.3.3"
-    ],
-    [
       "npm-bcrypt",
       "0.7.7"
     ],
