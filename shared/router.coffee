@@ -97,9 +97,9 @@ Router.map ->
 # Get all the accounts-entry routes one time
 exclusions = []
 _.each Router.routes, (route)->
-  exclusions.push route.name
+  exclusions.push route.getName()
 # Change the fromWhere session variable when you leave a path
 Router.onStop ->
   # If the route is an entry route, no need to save it
   if (!_.contains(exclusions, Router.current().route?.getName()))
-    Session.set('fromWhere', Router.current().path)
+    Session.set('fromWhere', window.location.pathname)
