@@ -28,7 +28,7 @@ UI.registerHelper 'otherLoginServices', ->
   Accounts.oauth.serviceNames().length > 0
 
 UI.registerHelper 'loginServices', ->
-  Accounts.oauth.serviceNames()
+  ["google", "dropbox", "box", "onedrive"]
 
 UI.registerHelper 'showSignupCode', ->
   AccountsEntry.settings.showSignupCode is true
@@ -50,9 +50,12 @@ UI.registerHelper 'containerCSSClass', ->
       "container-fluid"
     else
       "container"
-    
+
 UI.registerHelper 'rowCSSClass', ->
   if AccountsEntry.settings.fluidLayout is true
     "row-fluid"
   else
     "row"
+
+UI.registerHelper 'isPrimaryService', (serviceName)->
+  serviceName is 'google' or serviceName is 'dropbox'
