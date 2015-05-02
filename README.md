@@ -105,6 +105,7 @@ Since this is a young package, we are maintaining compatibility with accounts-ui
         type: "text",                            // The type of field you want
         required: true                           // Adds html 5 required property if true
        }]
+       useSchemaFieldsInSignUp: Schemas.User          // Sign Up form will use SimpleSchema fields, don't forget to use {autoform: { omit: true}} for server only fields
        fluidLayout: false               // Set to true to use bootstrap3 container-fluid and row-fluid classes.
        useContainer: true               // Set to false to use an unstyled "accounts-entry-container" class instead of a bootstrap3 "container" or "container-fluid" class. 
        signInAfterRegistration: true    // Set to false to avoid prevent users being automatically signed up upon sign-up e.g. to wait until their email has been verified. 
@@ -114,6 +115,77 @@ Since this is a young package, we are maintaining compatibility with accounts-ui
 
     });
   });
+```
+
+### Using Schemas
+Here a brief sample of Schema, inspired in aldeed:collection [sample](https://github.com/aldeed/meteor-collection2/#attach-a-schema-to-meteorusers)
+
+```js
+Schema = {};
+
+Schema.UserProfile = new SimpleSchema({
+  firstName: {
+    label: 'Nome',
+    type: String,
+    regEx: /^[a-zA-Z-]{2,25}$/,
+  },
+  lastName: {
+    label: 'Sobrenome',
+    type: String,
+    regEx: /^[a-zA-Z]{2,25}$/,
+  },
+  birthday: {
+    label: 'Aniversario',
+    type: Date,
+  },
+  gender: {
+    label: 'Sexo',
+    type: String,
+    allowedValues: [ 'M', 'F' ],
+    optional: true
+  }
+});
+
+Schema.User = new SimpleSchema({
+  emails: {
+    type: [ Object ],
+    // this must be optional if you also use other login services like facebook,
+    // but if you use only accounts-password, then it can be required
+    autoform: { omit: true }
+  },
+  "emails.$.address": {
+    type: String,
+    regEx: SimpleSchema.RegEx.Email,
+  },
+  "emails.$.verified": {
+    type: Boolean
+  },
+  createdAt: {
+    type: Date,
+    autoform: { omit: true }
+  },
+  profile: {
+    type: Schema.UserProfile,
+    label: 'Dados de perfil',
+    optional: true
+  },
+  services: {
+    type: Object,
+    blackbox: true,
+    autoform: { omit: true }, // Notice you have to omit this to not be recognized by AutoForm
+  },
+  
+  // Option 2: [String] type
+  // If you are sure you will never need to use role groups, then
+  // you can specify [String] as the type
+  roles: {
+    type: [ String ],
+    optional: true,
+    autoform: { omit: true }
+  }
+});
+
+Meteor.users.attachSchema( Schema.User );
 ```
 
 ### In SERVER code only

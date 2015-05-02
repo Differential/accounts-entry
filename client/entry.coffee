@@ -8,6 +8,7 @@ AccountsEntry =
     usernameToLower: false
     entrySignUp: '/sign-up'
     extraSignUpFields: []
+    useSchema: false
     showOtherLoginServices: true
     fluidLayout: false
     useContainer: true

@@ -77,11 +77,15 @@ AccountsEntry.entrySignUpEvents = {
 
     formValues = SimpleForm.processForm(event.target)
     extraFields = _.pluck(AccountsEntry.settings.extraSignUpFields, 'field')
+    aFSchemaFields = AutoForm.getFormValues('entryExtraSignUpFieldsAf')
     filteredExtraFields = _.pick(formValues, extraFields)
     password = t.find('input[type="password"]').value
+    console.log('password', password)
 
     fields = AccountsEntry.settings.passwordSignupFields
 
+    if aFSchemaFields
+      aFSchemaFields = aFSchemaFields.insertDoc
 
     passwordErrors = do (password)->
       errMsg = []
@@ -137,6 +141,7 @@ AccountsEntry.entrySignUpEvents = {
           email: email
           password: AccountsEntry.hashPassword(password)
           profile: filteredExtraFields
+        newUserData = _.extend(newUserData, aFSchemaFields)
         Session.set 'talkingToServer', true
         Meteor.call 'entryCreateUser', newUserData, (err, data) ->
           Session.set 'talkingToServer', false

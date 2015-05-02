@@ -2,6 +2,14 @@
     {{#each extraSignUpFields}}
     {{> _entryExtraSignUpField}}
     {{/each}}
+
+    {{#if useSchema}}
+        {{#autoForm schema=useSchema id="entryExtraSignUpFieldsAf"}}
+            {{#each afFieldNames}}
+                {{> afQuickField name=this.name options=afOptionsFromSchema}}
+            {{/each}}
+        {{/autoForm}}
+    {{/if}}
 </template>
 
 <template name="_entryExtraSignUpField">
