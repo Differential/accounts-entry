@@ -25,5 +25,8 @@ Meteor.startup ->
       userId = Accounts.createUser(user)
       Accounts.setPassword(userId, user.password);
 
+      if(user.roles && Meteor.roles)
+        Roles.addUsersToRoles(userId, user.roles)
+
       if (user.email && Accounts._options.sendVerificationEmail)
         Accounts.sendVerificationEmail(userId, user.email)

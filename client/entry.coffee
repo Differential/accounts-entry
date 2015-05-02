@@ -9,6 +9,7 @@ AccountsEntry =
     entrySignUp: '/sign-up'
     extraSignUpFields: []
     useSchema: false
+    addRolesAtSignUp: []
     showOtherLoginServices: true
     fluidLayout: false
     useContainer: true

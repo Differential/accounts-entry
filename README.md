@@ -105,7 +105,8 @@ Since this is a young package, we are maintaining compatibility with accounts-ui
         type: "text",                            // The type of field you want
         required: true                           // Adds html 5 required property if true
        }]
-       useSchemaFieldsInSignUp: Schemas.User          // Sign Up form will use SimpleSchema fields, don't forget to use {autoform: { omit: true}} for server only fields
+       useSchema: Schemas.User          // Sign Up form will use SimpleSchema fields, don't forget to use {autoform: { omit: true}} for server only fields
+       addRolesAtSignUp: []             // You can specify roles to be added at sign up, you have to add alanning:roles package. (Just strings by now)
        fluidLayout: false               // Set to true to use bootstrap3 container-fluid and row-fluid classes.
        useContainer: true               // Set to false to use an unstyled "accounts-entry-container" class instead of a bootstrap3 "container" or "container-fluid" class. 
        signInAfterRegistration: true    // Set to false to avoid prevent users being automatically signed up upon sign-up e.g. to wait until their email has been verified. 
@@ -123,23 +124,20 @@ Here a brief sample of Schema, inspired in aldeed:collection [sample](https://gi
 ```js
 Schema = {};
 
+// Notice that just UserProfile will be used
 Schema.UserProfile = new SimpleSchema({
   firstName: {
-    label: 'Nome',
     type: String,
     regEx: /^[a-zA-Z-]{2,25}$/,
   },
   lastName: {
-    label: 'Sobrenome',
     type: String,
     regEx: /^[a-zA-Z]{2,25}$/,
   },
   birthday: {
-    label: 'Aniversario',
     type: Date,
   },
   gender: {
-    label: 'Sexo',
     type: String,
     allowedValues: [ 'M', 'F' ],
     optional: true
@@ -166,7 +164,6 @@ Schema.User = new SimpleSchema({
   },
   profile: {
     type: Schema.UserProfile,
-    label: 'Dados de perfil',
     optional: true
   },
   services: {
