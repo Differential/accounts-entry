@@ -21,12 +21,13 @@ Meteor.startup ->
     entryCreateUser: (user) ->
       check user, Object
       profile = AccountsEntry.settings.defaultProfile || {}
+      addRolesAtSignUp = AccountsEntry.settings.addRolesAtSignUp
       user.profile = _.extend(profile, user.profile)
       userId = Accounts.createUser(user)
       Accounts.setPassword(userId, user.password);
 
-      if(user.roles && Meteor.roles)
-        Roles.addUsersToRoles(userId, user.roles)
+      if(addRolesAtSignUp && Meteor.roles)
+        Roles.addUsersToRoles(userId, addRolesAtSignUp)
 
       if (user.email && Accounts._options.sendVerificationEmail)
         Accounts.sendVerificationEmail(userId, user.email)

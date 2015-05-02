@@ -80,7 +80,6 @@ AccountsEntry.entrySignUpEvents = {
     aFSchemaFields = AutoForm.getFormValues('entryExtraSignUpFieldsAf')
     filteredExtraFields = _.pick(formValues, extraFields)
     password = t.find('input[type="password"]').value
-    addRolesAtSignUp = AccountsEntry.settings.addRolesAtSignUp
 
     fields = AccountsEntry.settings.passwordSignupFields
 
@@ -141,7 +140,6 @@ AccountsEntry.entrySignUpEvents = {
           email: email
           password: AccountsEntry.hashPassword(password)
           profile: filteredExtraFields
-          roles: addRolesAtSignUp
         newUserData = _.extend(newUserData, aFSchemaFields)
         
         Session.set 'talkingToServer', true
