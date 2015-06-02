@@ -7,7 +7,7 @@ Router.map ->
       Session.set('buttonText', 'in')
       @next()
     onRun: ->
-      if Meteor.userId()
+      if Meteor.user()
         Router.go AccountsEntry.settings.dashboardRoute
 
       if AccountsEntry.settings.signInTemplate
