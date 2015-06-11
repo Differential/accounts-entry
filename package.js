@@ -1,6 +1,6 @@
 Package.describe({
     summary: "Make signin and signout their own pages with routes.",
-    version: '1.0.3-4',
+    version: '1.0.3-5',
     name: "vilango:accounts-entry"
   });
 

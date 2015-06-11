@@ -46,5 +46,5 @@ class @Helper
     $btns.attr("disabled", "disabled")
 
   @enableBtns = ($btns) ->
-    $btns.html(s.strLeft($btns.html(),' <i class="fa fa-spinner fa-animate"></i>'))
+    $btns.html(_.strLeft($btns.html(),' <i class="fa fa-spinner fa-animate"></i>'))
     $btns.attr("disabled", null)
