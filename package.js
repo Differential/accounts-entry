@@ -1,13 +1,17 @@
 Package.describe({
     summary: "Make signin and signout their own pages with routes.",
-    version: '1.0.3-2',
+    version: '1.0.3-3',
     name: "vilango:accounts-entry"
   });
 
 Package.onUse(function(api) {
-  api.versionsFrom("METEOR@0.9.0");
+  api.versionsFrom("METEOR@0.9.2");
 
-  api.use(['iron:router', 'softwarerero:accounts-t9n', 'joshowens:simple-form'], ['client', 'server']);
+  api.use([
+    'iron:router@1.0.9', 
+    'softwarerero:accounts-t9n@1.1.1', 
+    'joshowens:simple-form@0.2.2'
+    ], ['client', 'server']);
   // CLIENT
   api.use([
     'deps',
