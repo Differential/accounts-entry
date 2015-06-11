@@ -38,3 +38,13 @@ UI.registerHelper 'passwordLoginService', ->
 
 UI.registerHelper 'showCreateAccountLink', ->
   return !Accounts._options.forbidClientAccountCreation
+
+
+class @Helper
+  @disableBtns = ($btns) ->
+    $btns.html($btns.html()+' <i class="fa fa-spinner fa-animate"></i>')
+    $btns.attr("disabled", "disabled")
+
+  @enableBtns = ($btns) ->
+    $btns.html(s.strLeft($btns.html(),' <i class="fa fa-spinner fa-animate"></i>'))
+    $btns.attr("disabled", null)
