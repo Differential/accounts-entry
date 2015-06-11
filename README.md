@@ -3,11 +3,9 @@ layout: default
 username: Differential
 repo: accounts-entry
 desc: Meteor sign up and sign in pages.
-version: 0.9.0
+version: 1.0.3-2
 
 ---
-
-Bump
 
 **NOTE:** Version 0.8.0 and higher or accounts-entry requires that you use Meteor 0.8.2 or higher. You also need to pass the pause param to AccountsEntry.signedInRequired if you are using it. If you were using master and extraSignUpFields, please review the docs for changes in the 0.8.0 release.
 
@@ -111,8 +109,6 @@ Since this is a young package, we are maintaining compatibility with accounts-ui
       dashboardRoute: '/dashboard'      // mandatory - path to redirect to after successful sign-in
       profileRoute: 'profile'
       passwordSignupFields: 'EMAIL_ONLY'
-      verifyEmail: false                // if set to true - the sendVerificationEmail setting needs also be set on Accounts.config 
-      verifyEmailRoute: '/checkmail'      // route get user redirected after registering a new user profile
       showSignupCode: true
       showOtherLoginServices: true      // Set to false to hide oauth login buttons on the signin/signup pages. Useful if you are using something like accounts-meld or want to oauth for api access
       extraSignUpFields: [{             // Add extra signup fields on the signup page

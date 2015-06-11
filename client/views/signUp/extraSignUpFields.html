@@ -16,4 +16,10 @@
         {{check_box name label=label required=required}}
     </div>
     {{/if}}
+
+    {{#if isSelectbox}}
+    <div class="selectbox">
+        {{select_box field class=field optionValues=optionValues type=type label=label required=required}}
+    </div>
+    {{/if}}
 </template>

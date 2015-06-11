@@ -30,6 +30,9 @@ AccountsEntry.entrySignInEvents = {
   'submit #signIn': (event) ->
     event.preventDefault()
 
+    $btns = $(event.target).find("button[type='submit']")
+    Helper.disableBtns($btns)
+
     email = $('input[name="email"]').val()
     if (AccountsEntry.isStringEmail(email) and AccountsEntry.settings.emailToLower) or
      (not AccountsEntry.isStringEmail(email) and AccountsEntry.settings.usernameToLower)
@@ -47,6 +50,8 @@ AccountsEntry.entrySignInEvents = {
         Session.set('fromWhere', undefined)
       else
         Router.go AccountsEntry.settings.dashboardRoute
+
+      Helper.enableBtns($btns)
     )
 }
 

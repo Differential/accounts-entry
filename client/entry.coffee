@@ -10,6 +10,10 @@ AccountsEntry =
     extraSignUpFields: []
     showOtherLoginServices: true
 
+  hooks:
+    afterSignUpHook: (newUserId)->
+      console.log "afterSignUp hook", newUserId
+
   isStringEmail: (email) ->
     emailPattern = /^([\w.-]+)@([\w.-]+)\.([a-zA-Z.]{2,6})$/i
     if email.match emailPattern then true else false
@@ -29,11 +33,12 @@ AccountsEntry =
     extraCondition ?= true
     unless Meteor.loggingIn()
       if Meteor.user() and extraCondition
-        router.next()
+        #router.next()
       else
         Session.set('fromWhere', router.url)
         Router.go('/sign-in')
         Session.set('entryError', t9n('error.signInRequired'))
+        #router.next()
 
 @AccountsEntry = AccountsEntry
 

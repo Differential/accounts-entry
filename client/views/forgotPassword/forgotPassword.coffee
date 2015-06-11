@@ -7,10 +7,21 @@ Template.entryForgotPassword.helpers
 Template.entryForgotPassword.events
   'submit #forgotPassword': (event) ->
     event.preventDefault()
-    Session.set('email', $('input[name="forgottenEmail"]').val())
+    Session.set('entryError', null)
+
+    email = $('input[name="forgottenEmail"]').val()
+    if (AccountsEntry.isStringEmail(email) and AccountsEntry.settings.emailToLower) or
+     (not AccountsEntry.isStringEmail(email) and AccountsEntry.settings.usernameToLower)
+      email = email.toLowerCase()
+
+    Session.set('email', email)    
+    $btns = $(event.target).find("button[type='submit']")
+    Helper.disableBtns($btns)
 
     if Session.get('email').length is 0
       Session.set('entryError', 'Email is required')
+
+      Helper.enableBtns($btns)
       return
 
     Accounts.forgotPassword({
@@ -19,5 +30,7 @@ Template.entryForgotPassword.events
         if error
           Session.set('entryError', error.reason)
         else
-          Router.go AccountsEntry.settings.homeRoute
+          Router.go AccountsEntry.settings.resetPasswordSuccessRoute
+
+        Helper.enableBtns($btns)
     )

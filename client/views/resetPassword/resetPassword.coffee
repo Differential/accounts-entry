@@ -8,6 +8,9 @@ Template.entryResetPassword.events
 
   'submit #resetPassword': (event) ->
     event.preventDefault()
+    $btns = $(event.target).find("button[type='submit']")
+    Helper.disableBtns($btns)
+
     password = $('input[type="password"]').val()
 
     passwordErrors = do (password)->
@@ -30,7 +33,9 @@ Template.entryResetPassword.events
 
       return false
 
-    if passwordErrors then return
+    if passwordErrors 
+      Helper.enableBtns($btns)
+      return
 
     Accounts.resetPassword Session.get('resetToken'), password, (error) ->
       if error
@@ -38,3 +43,5 @@ Template.entryResetPassword.events
       else
         Session.set('resetToken', null)
         Router.go AccountsEntry.settings.dashboardRoute
+        
+      Helper.enableBtns($btns)

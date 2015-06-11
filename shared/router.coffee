@@ -69,8 +69,11 @@ Router.map ->
     path: '/sign-out'
     onBeforeAction: ()->
       Session.set('entryError', undefined)
-      if AccountsEntry.settings.homeRoute
-        Meteor.logout () ->
+      Meteor.logout (error) ->
+        if error
+          console.error "logout failed", error
+          @next()
+        else
           Router.go AccountsEntry.settings.homeRoute
 
   @route 'entryResetPassword',
@@ -88,5 +91,5 @@ _.each Router.routes, (route)->
 Router.onStop ->
   # If the route is an entry route, no need to save it
   if Meteor.isClient
-    if (!_.contains(exclusions, Router.current().route.name))
+    if (!_.contains(exclusions, Router.current()?.route?.name))
       Session.set('fromWhere', Router.current().path)

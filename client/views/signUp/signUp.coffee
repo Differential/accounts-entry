@@ -52,6 +52,10 @@ AccountsEntry.entrySignUpEvents = {
   'submit #signUp': (event, t) ->
     event.preventDefault()
 
+    $btns = $(event.target).find("button[type='submit']")
+    Helper.disableBtns($btns)
+
+
     username =
       if t.find('input[name="username"]')
         t.find('input[name="username"]').value.toLowerCase()
@@ -103,7 +107,9 @@ AccountsEntry.entrySignUpEvents = {
 
       return false
 
-    if passwordErrors then return
+    if passwordErrors
+      Helper.enableBtns($btns)
+      return
 
     emailRequired = _.contains([
       'USERNAME_AND_EMAIL',
@@ -115,18 +121,22 @@ AccountsEntry.entrySignUpEvents = {
 
     if usernameRequired && username.length is 0
       Session.set('entryError', t9n("error.usernameRequired"))
+      Helper.enableBtns($btns)
       return
 
     if username && AccountsEntry.isStringEmail(username)
       Session.set('entryError', t9n("error.usernameIsEmail"))
+      Helper.enableBtns($btns)
       return
 
     if emailRequired && email.length is 0
       Session.set('entryError', t9n("error.emailRequired"))
+      Helper.enableBtns($btns)
       return
 
     if AccountsEntry.settings.showSignupCode && signupCode.length is 0
       Session.set('entryError', t9n("error.signupCodeRequired"))
+      Helper.enableBtns($btns)
       return
 
 
@@ -137,11 +147,15 @@ AccountsEntry.entrySignUpEvents = {
           email: email
           password: AccountsEntry.hashPassword(password)
           profile: filteredExtraFields
-        Meteor.call 'entryCreateUser', newUserData, (err, data) ->
+        Meteor.call 'entryCreateUser', newUserData, (err, newUserId) ->
           if err
             console.log err
             T9NHelper.accountsError err
+            Helper.enableBtns($btns)
             return
+
+          AccountsEntry.hooks.afterSignUpHook(newUserId)
+
           #login on client
           isEmailSignUp = _.contains([
             'USERNAME_AND_EMAIL',
@@ -163,6 +177,7 @@ AccountsEntry.entrySignUpEvents = {
       else
         console.log err
         Session.set 'entryError', t9n("error.signupCodeIncorrect")
+        Helper.enableBtns($btns)
         return
 }
 

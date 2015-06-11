@@ -1,14 +1,13 @@
 Package.describe({
-    name: 'vilango:accounts-entry',
     summary: "Make signin and signout their own pages with routes.",
-    version: '1.0.0-1',
-    git: 'https://github.com/Vilango/accounts-entry'
-});
+    version: '1.0.3-2',
+    name: "vilango:accounts-entry"
+  });
 
 Package.onUse(function(api) {
   api.versionsFrom("METEOR@0.9.0");
 
-  api.use(['iron:router@1.0.0', 'softwarerero:accounts-t9n@1.0.0', 'joshowens:simple-form@0.1.8'], ['client', 'server']);
+  api.use(['iron:router', 'softwarerero:accounts-t9n', 'joshowens:simple-form'], ['client', 'server']);
   // CLIENT
   api.use([
     'deps',
@@ -89,7 +88,7 @@ Package.onTest(function (api) {
             'coffeescript'
             ]);
   api.use(['iron:router', 'softwarerero:accounts-t9n', 'joshowens:simple-form'], ['client', 'server']);
-  api.use('joshowens:accounts-entry');
+  api.use('vilango:accounts-entry');
 
   api.addFiles(['tests/route.coffee', 'tests/client.html', 'tests/client.coffee'], 'client');
 });
