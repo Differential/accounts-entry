@@ -160,14 +160,14 @@ AccountsEntry.entrySignUpEvents = {
                 console.log error
                 T9NHelper.accountsError error
               else if Session.get 'fromWhere'
-                Router.go Session.get('fromWhere')
+                FlowRouter.go Session.get('fromWhere')
                 Session.set 'fromWhere', undefined
               else
-                Router.go AccountsEntry.settings.dashboardRoute
+                FlowRouter.go AccountsEntry.settings.dashboardRoute
 
           else
             if AccountsEntry.settings.emailVerificationPendingRoute
-              Router.go AccountsEntry.settings.emailVerificationPendingRoute
+              FlowRouter.go AccountsEntry.settings.emailVerificationPendingRoute
       else
         console.log err
         Session.set 'entryError', t9n("error.signupCodeIncorrect")

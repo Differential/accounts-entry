@@ -1,27 +1,28 @@
 Package.describe({
-    summary: "Make signin and signout their own pages with routes.",
-    version: '1.0.3',
-    name: "joshowens:accounts-entry",
-    githubUrl: 'https://github.com/Differential/accounts-entry',
+   name: "dovrosenberg:accounts-entry-flow",
+   version: '0.9.0',
+   summary: "Make signin and signout their own pages with routes.",
+   git: 'https://github.com/dovrosenberg/accounts-entry',
+   documentation: 'README.md'
 });
 
 Package.onUse(function(api) {
   api.versionsFrom("METEOR@0.9.0");
 
-  api.use(['iron:router@1.0.3', 'softwarerero:accounts-t9n@1.0.3', 'joshowens:simple-form@0.2.2', 'sacha:spin@2.0.4'], ['client', 'server']);
+  api.use(['meteorhacks:flow-router', 'softwarerero:accounts-t9n@1.0.3', 'joshowens:simple-form@0.2.2', 'sacha:spin@2.0.4'], ['client', 'server']);
   // CLIENT
   api.use([
-    'deps',
-    'service-configuration',
-    'accounts-base',
-    'underscore',
-    'templating',
-    'handlebars',
-    'session',
-    'coffeescript',
-    'less',
-    'sha']
-  , 'client');
+      'deps',
+      'service-configuration',
+      'accounts-base',
+      'underscore',
+      'templating',
+      'handlebars',
+      'session',
+      'coffeescript',
+      'less',
+      'sha'],
+    'client');
 
 
   api.addFiles([
@@ -80,7 +81,8 @@ Package.onUse(function(api) {
   api.imply('accounts-base', ['client', 'server']);
   api.imply('accounts-password', ['client', 'server']);
   api.export('AccountsEntry', ['client', 'server']);
-  api.addFiles(['shared/router.coffee'], ['client', 'server']);
+  api.export('AccountsEntrySignInRequired', ['client', 'server']);
+  api.addFiles(['shared/router.js'], ['client', 'server']);
 
 });
 
@@ -93,7 +95,7 @@ Package.onTest(function (api) {
             'mongo-livedata',
             'coffeescript'
             ]);
-  api.use(['iron:router', 'softwarerero:accounts-t9n', 'joshowens:simple-form'], ['client', 'server']);
+  api.use(['meteorhacks:flow-router', 'softwarerero:accounts-t9n', 'joshowens:simple-form'], ['client', 'server']);
   api.use('joshowens:accounts-entry');
 
   api.addFiles(['tests/route.coffee', 'tests/client.html', 'tests/client.coffee'], 'client');

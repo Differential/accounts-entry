@@ -45,10 +45,10 @@ AccountsEntry.entrySignInEvents = {
       if error
         T9NHelper.accountsError error
       else if Session.get('fromWhere')
-        Router.go Session.get('fromWhere')
+        FlowRouter.go Session.get('fromWhere')
         Session.set('fromWhere', undefined)
       else
-        Router.go AccountsEntry.settings.dashboardRoute
+        FlowRouter.go AccountsEntry.settings.dashboardRoute
     )
 }
 
