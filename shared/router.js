@@ -131,21 +131,21 @@ FlowRouter.route('/enroll-account/:resetToken', {
    }
 });
 
+AccountsEntryRouteList = [
+   'entrySignIn',
+   'entrySignUp',
+   'entryForgotPassword',
+   'entrySignOut',
+   'entryVerificationPending',
+   'entryResetPassword',
+   'entryEnrollAccount'
+];
+
 // set the fromWhere when you leave any path except the en
 FlowRouter.triggers.exit([
       function(context) {
          Session.set('fromWhere', context.path);
       }
    ],
-   {
-      except: [
-         'entrySignIn',
-         'entrySignUp',
-         'entryForgotPassword',
-         'entrySignOut',
-         'entryVerificationPending',
-         'entryResetPassword',
-         'entryEnrollAccount'
-      ]
-   }
+   { except: AccountsEntryRouteList }
 );

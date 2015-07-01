@@ -42,3 +42,8 @@ FlowRouter.route('/dashboard', {
 	}
 );
 ````
+
+You can also apply this to every route at once (making sure to exclude the logged out route):
+````js
+FlowRouter.triggers.enter([AccountsEntrySignInRequired], {except: ['loggedOut']});
+````

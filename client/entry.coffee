@@ -34,11 +34,11 @@ AccountsEntry =
 @AccountsEntry = AccountsEntry
 
 AccountsEntrySignInRequired = (context, redirect) ->
- unless Meteor.loggingIn()
-   unless Meteor.user()
-     Session.set('fromWhere', context.path)
-     redirect('/sign-in')
-     Session.set('entryError', t9n('error.signInRequired'))
+  if !_.contains(AccountsEntryRouteList, context.route.name) and 
+     !Meteor.loggingIn() and !Meteor.user()
+    Session.set 'fromWhere', context.path
+    redirect '/sign-in'
+    Session.set('entryError', t9n('error.signInRequired'))
 
 class @T9NHelper
 
