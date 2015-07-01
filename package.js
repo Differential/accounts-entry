@@ -85,18 +85,3 @@ Package.onUse(function(api) {
   api.addFiles(['shared/router.js'], ['client', 'server']);
 
 });
-
-Package.onTest(function (api) {
-  api.use(['tinytest',
-            'underscore',
-            'handlebars',
-            'test-helpers',
-            'templating',
-            'mongo-livedata',
-            'coffeescript'
-            ]);
-  api.use(['meteorhacks:flow-router', 'softwarerero:accounts-t9n', 'joshowens:simple-form'], ['client', 'server']);
-  api.use('joshowens:accounts-entry');
-
-  api.addFiles(['tests/route.coffee', 'tests/client.html', 'tests/client.coffee'], 'client');
-});
