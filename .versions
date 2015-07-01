@@ -11,7 +11,7 @@ coffeescript@1.0.6
 cosmos:browserify@0.3.0
 ddp@1.1.0
 deps@1.0.7
-dovrosenberg:accounts-entry-flow@0.9.0
+dovrosenberg:accounts-entry-flow@0.9.1
 ejson@1.0.6
 email@1.0.6
 geojson-utils@1.0.3
