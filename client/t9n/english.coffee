@@ -30,7 +30,7 @@ en =
   "User not found":  "User not found"
 
   error:
-    minChar: "7 character minimum password."
+    minChar: "6 character minimum password."
     pwOneLetter: "Password requires 1 letter."
     pwOneDigit: "Password must have at least one digit."
     usernameRequired: "Username is required."

@@ -83,15 +83,31 @@ AccountsEntry.entrySignUpEvents = {
     fields = AccountsEntry.settings.passwordSignupFields
 
 
+#    passwordErrors = do (password)->
+#      errMsg = []
+#      msg = false
+#      if password.length < 7
+#        errMsg.push t9n("error.minChar")
+#      if password.search(/[a-z]/i) < 0
+#        errMsg.push t9n("error.pwOneLetter")
+#      if password.search(/[0-9]/) < 0
+#        errMsg.push t9n("error.pwOneDigit")
+#
+#      if errMsg.length > 0
+#        msg = ""
+#        errMsg.forEach (e) ->
+#          msg = msg.concat "#{e}\r\n"
+#
+#        Session.set 'entryError', msg
+#        return true
+#
+#      return false
+
     passwordErrors = do (password)->
       errMsg = []
       msg = false
-      if password.length < 7
+      if password.length < 6
         errMsg.push t9n("error.minChar")
-      if password.search(/[a-z]/i) < 0
-        errMsg.push t9n("error.pwOneLetter")
-      if password.search(/[0-9]/) < 0
-        errMsg.push t9n("error.pwOneDigit")
 
       if errMsg.length > 0
         msg = ""
