@@ -3,6 +3,8 @@ Router.map ->
   @route "entrySignIn",
     path: "/sign-in"
     onBeforeAction: ->
+      if Meteor.user()
+        Router.go AccountsEntry.settings.dashboardRoute
       Session.set('entryError', undefined)
       Session.set('buttonText', 'in')
       @next()
@@ -34,6 +36,8 @@ Router.map ->
   @route "entrySignUp",
     path: "/sign-up"
     onBeforeAction: ->
+      if Meteor.user()
+        Router.go AccountsEntry.settings.dashboardRoute
       Session.set('entryError', undefined)
       Session.set('buttonText', 'up')
       @next()
@@ -62,6 +66,8 @@ Router.map ->
   @route "entryForgotPassword",
     path: "/forgot-password"
     onBeforeAction: ->
+      if Meteor.user()
+        Router.go AccountsEntry.settings.dashboardRoute
       Session.set('entryError', undefined)
       @next()
 
@@ -78,6 +84,8 @@ Router.map ->
   @route 'entryResetPassword',
     path: 'reset-password/:resetToken'
     onBeforeAction: ->
+      if Meteor.user()
+        Router.go AccountsEntry.settings.dashboardRoute
       Session.set('entryError', undefined)
       Session.set('resetToken', @params.resetToken)
       @next()
