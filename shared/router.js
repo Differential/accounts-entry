@@ -62,9 +62,8 @@ FlowRouter.route('/sign-up', {
 
          Template[this.template].events(AccountsEntry.entrySignUpEvents);
          Template[this.template].helpers(AccountsEntry.entrySignUpHelpers);
-
-         FlowLayout.render('entrySignUp');
       }
+      FlowLayout.render('entrySignUp');
    }
 });
 
