@@ -1,19 +1,9 @@
 <template name='entrySocial'>
   {{#if isPrimaryService this}}
     <button class="btn" id="entry-{{this}}" name="{{this}}">
-      {{#if unconfigured}}
-        <i class="fa fa-{{icon}}"></i> {{t9n "configure"}} {{capitalize this}}
-      {{else}}
-        <i class="fa fa-{{icon}}"></i> {{buttonText}} {{t9n "with"}} {{capitalize this}}
-      {{/if}}
     </button>
   {{else}}
-    <a class="btn" id="entry-{{this}}" name="{{this}}">
-      {{#if unconfigured}}
-        <i class="fa fa-{{icon}}"></i> {{t9n "configure"}} {{capitalize this}}
-      {{else}}
-        <i class="fa fa-{{icon}}"></i> {{buttonText}} {{t9n "with"}} {{capitalize this}}
-      {{/if}}
-    </a>
+    <button class="btn" id="entry-{{this}}" name="{{this}}">
+    </button>
   {{/if}}
 </template>
