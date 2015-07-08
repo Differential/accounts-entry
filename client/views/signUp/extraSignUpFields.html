@@ -6,8 +6,9 @@
 
 <template name="_entryExtraSignUpField">
     {{#if isTextField }}
-    <div class="form-group">
-        {{text_field field type=type required=required label=label placeholder=placeholder }}
+    <div class="form-group your-name">
+        <label>Your name:</label>
+        {{text_field field type=type required=required}}
     </div>
     {{/if}}
 

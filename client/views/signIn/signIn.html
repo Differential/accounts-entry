@@ -10,60 +10,57 @@
         <div class="col-md-12">
           <div class="header-signin">
             <h1>Login</h1>
-            <p>you must log in to access this document. just take 1 min<br> to get all features of lumin</p>
+            <p>you must log in to access this document</p>
           </div>
         </div>
         <div class="entry col-md-12">
-          {{#if passwordLoginService}}
-            <div class="col-md-6">
-              <form class="entry-form" id='signIn'>
-                <h3>By your email account</h3>
-                <div class="form-group">
-                  <label>Your email address:</label>
-                  <input autofocus name="email" type="{{emailInputType}}" class="form-control" value='{{email}}' autocapitalize="none" autocomplete="off" autocorrect="off">
-                </div>
-                <div class="form-group">
-                  <label>Password:</label>
-                  <input name="password" type="password" class="form-control" value='{{password}}'>
-                </div>
-                {{#unless isUsernameOnly}}
-                <div class="row">
-                  <div class="col-md-4">
-                    <button type="submit" class="submit btn btn-block btn-default">log me in</button>
+          <div class="row">
+            {{#if passwordLoginService}}
+              <div class="col-md-6">
+                <form class="entry-form" id='signIn'>
+                  <h3>By your email account:</h3>
+                  <div class="form-group">
+                    <label>Your email address:</label>
+                    <input autofocus name="email" type="{{emailInputType}}" class="form-control" value='{{email}}' autocapitalize="none" autocomplete="off" autocorrect="off">
                   </div>
-                  <div class="col-md-8">
-                    <div class="forgot">
-                      <a href="{{pathFor 'entryForgotPassword'}}"><i class="icon-right"></i><span>Forgot ID/PW?</span></a>
-                      {{#if showCreateAccountLink}}
-                      <a href="{{pathFor 'entrySignUp'}}"><i class="icon-right"></i><span>Register new account</span></a>
-                      {{/if}}
+                  <div class="form-group">
+                    <label>Password:</label>
+                    <input name="password" type="password" class="form-control" value='{{password}}'>
+                  </div>
+                  {{#unless isUsernameOnly}}
+                  <div class="row">
+                    <div class="col-md-4">
+                      <button type="submit" class="submit btn btn-block btn-default"><span>log me in</span></button>
                     </div>
-                  </div> 
-                </div>
-                {{/unless}}
-              </form>
-            </div>
-          {{/if}}
-
-          {{#if otherLoginServices}}
-          <div class="entry-social col-md-6">
-            <h3>Log in with</h3>
-            {{#each loginServices}}
-              {{> entrySocial}}
-            {{/each}}
-<!--             {{#if passwordLoginService}}
-            <div class="email-option">
-              <strong class="line-thru or-sign-in">{{t9n "OR"}}</strong>
-            </div>
+                    <div class="col-md-8">
+                      <div class="forgot">
+                        <a href="{{pathFor 'entryForgotPassword'}}"><i class="icon-right"></i><span>Forgot ID/PW?</span></a>
+                        {{#if showCreateAccountLink}}
+                        <a href="{{pathFor 'entrySignUp'}}"><i class="icon-right"></i><span>Register new account</span></a>
+                        {{/if}}
+                      </div>
+                    </div> 
+                  </div>
+                  {{/unless}}
+                </form>
+              </div>
             {{/if}}
- -->          </div>
-          {{/if}}
-          {{> entryError}}
-          {{#unless otherLoginServices}}
-            <div class="email-option">
-              <h3>{{t9n "signIn"}}</h3>
+
+            {{#if otherLoginServices}}
+              <div class="entry-social col-md-6">
+                <h3>Log in with</h3>
+                {{#each loginServices}}
+                  {{> entrySocial}}
+                {{/each}}  
+              </div>
+            {{/if}}
+            {{> entryError}}
+            {{#unless otherLoginServices}}
+              <div class="email-option">
+                <h3>{{t9n "signIn"}}</h3>
+              </div>
+            {{/unless}}
             </div>
-          {{/unless}}
         </div>
       </div>
     </div>
