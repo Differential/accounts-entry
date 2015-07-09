@@ -1,6 +1,6 @@
 Package.describe({
    name: "dovrosenberg:accounts-entry-flow",
-   version: '0.9.3',
+   version: '0.9.4',
    summary: "Make signin and signout their own pages with routes.",
    git: 'https://github.com/dovrosenberg/accounts-entry',
    documentation: 'README.md'
