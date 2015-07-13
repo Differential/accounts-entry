@@ -3,8 +3,6 @@ Router.map ->
   @route "entrySignIn",
     path: "/sign-in"
     onBeforeAction: ->
-      if Meteor.user()
-        Router.go AccountsEntry.settings.dashboardRoute
       Session.set('entryError', undefined)
       Session.set('buttonText', 'in')
       @next()
