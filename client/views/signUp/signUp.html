@@ -18,6 +18,7 @@
             <div class="col-md-6">
               {{#if passwordLoginService}}
               <h3>By your email:</h3>
+              {{> entryError}}
               <form class="entry-form" id='signUp'>
                 {{> entryExtraSignUpFields}}
                 {{#if showUsername}}
@@ -81,7 +82,6 @@
             {{else}}
                 <p class="entry-signin-cta" style="display:none">{{t9n "ifYouAlreadyHaveAnAccount"}} <a href="{{pathFor 'entrySignIn'}}">{{t9n "signin"}}</a>.</p>
             {{/if}}
-            {{> entryError}}
 
             {{#if both}}
               <p class="entry-agreement">{{t9n "clickAgree"}}

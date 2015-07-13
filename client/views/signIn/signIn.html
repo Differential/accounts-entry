@@ -19,6 +19,7 @@
               <div class="col-md-6">
                 <form class="entry-form" id='signIn'>
                   <h3>By your email account:</h3>
+                   {{> entryError}}
                   <div class="form-group">
                     <label>Your email address:</label>
                     <input autofocus name="email" type="{{emailInputType}}" class="form-control" value='{{email}}' autocapitalize="none" autocomplete="off" autocorrect="off">
@@ -57,7 +58,6 @@
                 {{/each}}  
               </div>
             {{/if}}
-            {{> entryError}}
             {{#unless otherLoginServices}}
               <div class="email-option">
                 <h3>{{t9n "signIn"}}</h3>
