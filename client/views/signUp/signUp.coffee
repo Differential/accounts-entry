@@ -163,7 +163,7 @@ AccountsEntry.entrySignUpEvents = {
                 Router.go Session.get('fromWhere')
                 Session.set 'fromWhere', undefined
               else
-                Router.go AccountsEntry.settings.dashboardRoute
+                Router.go AccountsEntry.dashboardRoute()
 
           else
             if AccountsEntry.settings.emailVerificationPendingRoute

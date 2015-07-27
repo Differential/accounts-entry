@@ -37,4 +37,4 @@ Template.entryEnrollAccount.events
         Session.set('entryError', (error.reason || "Unknown error"))
       else
         Session.set('resetToken', null)
-        Router.go AccountsEntry.settings.dashboardRoute
+        Router.go AccountsEntry.dashboardRoute()

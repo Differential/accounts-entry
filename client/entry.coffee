@@ -42,6 +42,12 @@ AccountsEntry =
         Session.set('entryError', t9n('error.signInRequired'))
         router.next()
 
+  dashboardRoute: ->
+    if 'function' is typeof @settings.dashboardRoute
+      @settings.dashboardRoute()
+    else
+      @settings.dashboardRoute
+
 @AccountsEntry = AccountsEntry
 
 
