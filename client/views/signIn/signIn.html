@@ -10,7 +10,7 @@
         <div class="col-md-12">
           <div class="header-signin">
             <h1>Login</h1>
-            <p>you must log in to access this document</p>
+            <p>Just take 1 min to get all lumin features</p>
           </div>
         </div>
         <div class="entry col-md-12">
@@ -18,7 +18,7 @@
             {{#if passwordLoginService}}
               <div class="col-md-6">
                 <form class="entry-form" id='signIn'>
-                  <h3>By your email account:</h3>
+                  <h3>With your email:</h3>
                    {{> entryError}}
                   <div class="form-group">
                     <label>Your email address:</label>
@@ -52,7 +52,7 @@
 
             {{#if otherLoginServices}}
               <div class="entry-social col-md-6">
-                <h3>Log in with</h3>
+                <h3>Log in with:</h3>
                 {{#each loginServices}}
                   {{> entrySocial}}
                 {{/each}}  
