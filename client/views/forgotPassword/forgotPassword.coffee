@@ -21,5 +21,5 @@ Template.entryForgotPassword.events
         if error
           Session.set('entryError', error.reason)
         else
-          Router.go AccountsEntry.settings.homeRoute
+          FlowRouter.go AccountsEntry.settings.homeRoute
     )
