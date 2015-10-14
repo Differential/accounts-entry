@@ -1,8 +1,8 @@
 Package.describe({
-    summary: "Make signin and signout their own pages with routes. Modified to work with Meteor 1.2",
-    version: '1.0.3',
-    name: "joshowens:accounts-entry-1.2",
-    githubUrl: 'https://github.com/jakubbilko/accounts-entry',
+    summary: "Make signin and signout their own pages with routes.",
+    version: '1.0.4',
+    name: "joshowens:accounts-entry",
+    githubUrl: 'https://github.com/Differential/accounts-entry',
 });
 
 Package.onUse(function(api) {
