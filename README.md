@@ -10,7 +10,7 @@ accounts-entry is a meteor package that relies on Iron Router and provides an al
 Clone The repository into a *packages/accounts-entry/* directory in your project. Run:
 
 ```
-meteor add joshowens:accounts-entry-1.2
+meteor add joshowens:accounts-entry
 ```
 
 Then, follow the [original docs](https://github.com/Differential/accounts-entry).
