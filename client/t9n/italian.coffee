@@ -25,6 +25,8 @@ it =
   configure: "Configura"
   with: "con"
   createAccount: "Crea un Account"
+  verificationPending: "Confirm your email address"
+  verificationPendingDetails: "A confirmation email has been sent to the email address you provided. Click on the confirmation link in the email to activate your account."
   and: "e"
   "Match failed":  "Riscontro fallito"
   "User not found":  "Utente non trovato"

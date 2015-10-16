@@ -13,9 +13,11 @@ Template.entryForgotPassword.events
       Session.set('entryError', 'Email is required')
       return
 
+    Session.set 'talkingToServer', true
     Accounts.forgotPassword({
       email: Session.get('email')
       }, (error)->
+        Session.set 'talkingToServer', false
         if error
           Session.set('entryError', error.reason)
         else

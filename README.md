@@ -1,27 +1,24 @@
----
-layout: default
-username: Differential
-repo: accounts-entry
-desc: Meteor sign up and sign in pages.
-version: 1.0.2
+[![Stories in Ready](https://badge.waffle.io/Differential/accounts-entry.png?label=ready&title=Ready)](https://waffle.io/Differential/accounts-entry)
+# Meteor accounts-entry [![Build Status](https://travis-ci.org/Differential/accounts-entry.png)](https://travis-ci.org/Differential/accounts-entry)
 
----
+accounts-entry is a meteor package that relies on Iron Router and provides an alternative interface to accounts-ui, with whole pages for sign up and sign in.
 
-**NOTE:** Version 0.8.0 and higher or accounts-entry requires that you use Meteor 0.8.2 or higher. You also need to pass the pause param to AccountsEntry.signedInRequired if you are using it. If you were using master and extraSignUpFields, please review the docs for changes in the 0.8.0 release.
+## Getting started
 
-# accounts-entry
+Run:
 
-[![Build Status](https://travis-ci.org/Differential/accounts-entry.png)](https://travis-ci.org/Differential/accounts-entry)
+```
+meteor add joshowens:accounts-entry
+```
 
-accounts-entry is a meteorite package that relies on Iron Router and provides an
-alternative interface to accounts-ui, with whole pages for sign up
-and sign in.
+You can install the `accounts-ui` package, as it is still used for OAuth setup.
+
 
 We wanted something to work with that used [Iron Router](https://github.com/EventedMind/iron-router),
 [Bootstrap 3](https://github.com/mangasocial/meteor-bootstrap-3), and didn't require the forcing of
-the dropdown box that didn't seem to be easily styled. But we love the ease of adding more packages like `accounts-facebook` or `accounts-twitter`, so we fully support the OAuth packages by adding buttons to let people sign-up/sign-in with those services if you add them.  By default, accounts-entry doesn't offer email/password login functionality.  If you `mrt add accounts-password`, accounts-entry will offer your users the option to sign-up/sign-in with a username and password.
+the dropdown box that didn't seem to be easily styled. But we love the ease of adding more packages like `accounts-facebook` or `accounts-twitter`, so we fully support the OAuth packages by adding buttons to let people sign-up/sign-in with those services if you add them.  By default, accounts-entry doesn't offer email/password login functionality.  If you `meteor add accounts-password`, accounts-entry will offer your users the option to sign-up/sign-in with a username and password.
 
-![Example](http://github.differential.io/accounts-entry/images/Example.png)
+![Example](http://github.differential.com/accounts-entry/images/Example.png)
 
 Examples of the package in action (check out the sign up or sign in
 links):
@@ -30,23 +27,13 @@ links):
 * [https://carp.io/](https://carp.io/)
 * [https://getliquid.io/](https://getliquid.io/)
 * [http://support.unpolishedcr.com/](http://support.unpolishedcr.com/)
-* Email team@differential.io to add your project to the list.
+* Submit PR with a description to add your project to the list.
 
 [Changelog](https://github.com/BeDifferential/accounts-entry/blob/master/CHANGELOG.md)
 
 ## Compatibility
 
-accounts-entry is presently compatible with Iron Router 0.6.0 and above. Since meteorite doesn't support semantic version locking, we are currently pegged to 0.6.4 of Iron-router.
-
-## Getting started
-
-Run:
-
-```
-mrt add accounts-entry
-```
-
-You can install the `accounts-ui` package, as it is still used for OAuth setup.
+accounts-entry is presently compatible with Iron Router 1.0.3 and above.
 
 ## Provided routes
 
@@ -57,9 +44,9 @@ You will get routes and the necessary templates for:
 /sign-out
 /sign-up
 /forgot-password
+/verification-pending
 ```
 
-{% assign special = '{{> accountButtons}}' %}
 You can then either add links to those directly, or use the `{{ special }}` helper we provide to give you the apppropriate links for signed-in/signed-out users.  The `{{ special }}` helper will display a sign-out link and the user's email address when they are signed-in.
 
 ## Ensuring signed in users for routes
@@ -84,7 +71,6 @@ Use `mrt add accounts-password` if you want to have email/username login authent
 
 ## Setting up OAuth/social integrations
 
-{% assign loginButtons = '{{> loginButtons}}' %}
 Use `accounts-ui` to configure your social/OAuth integrations (or manually create records in your database, if you have those skills). We don't have the nice instructions on how to configure the services built into this package, but if you choose to use <code>{{ loginButtons }}</code> elsewhere in your application (even temporarily), you can configure OAuth logins there.
 
 ## Configuration
@@ -119,6 +105,13 @@ Since this is a young package, we are maintaining compatibility with accounts-ui
         type: "text",                            // The type of field you want
         required: true                           // Adds html 5 required property if true
        }]
+       fluidLayout: false               // Set to true to use bootstrap3 container-fluid and row-fluid classes.
+       useContainer: true               // Set to false to use an unstyled "accounts-entry-container" class instead of a bootstrap3 "container" or "container-fluid" class. 
+       signInAfterRegistration: true    // Set to false to avoid prevent users being automatically signed up upon sign-up e.g. to wait until their email has been verified. 
+       emailVerificationPendingRoute: '/verification-pending' // The route to which users should be directed after sign-up. Only relevant if signInAfterRegistration is false.
+       showSpinner: true                // Show the spinner when the client is talking to the server (spin.js)
+       spinnerOptions: { color: "#000", top: "80%" } // options as per [spin.js](http://fgnass.github.io/spin.js/)
+
     });
   });
 ```
@@ -152,4 +145,4 @@ dashboard (used after signing in).
 
 ## Interested in building a quick meteor app that starts with Accounts-Entry?
 
-We've created a [meteor-boilerplate repo](http://github.differential.io/meteor-boilerplate/) that you can clone as a starting point for an app.  It follows all our standards that we use for building apps for our clients.
+We've created a [meteor-boilerplate repo](http://github.differential.com/meteor-boilerplate/) that you can clone as a starting point for an app.  It follows all our standards that we use for building apps for our clients.

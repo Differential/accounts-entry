@@ -76,6 +76,11 @@ Router.map ->
           Router.go AccountsEntry.settings.homeRoute
         @next()
 
+  @route 'entryVerificationPending',
+    path: '/verification-pending'
+    onBeforeAction: ->
+      Session.set('entryError', undefined)
+      @next()
 
   @route 'entryResetPassword',
     path: 'reset-password/:resetToken'
@@ -84,19 +89,18 @@ Router.map ->
       Session.set('resetToken', @params.resetToken)
       @next()
 
-  @route 'enrollPassword',
-    path: 'enroll-password/:enrollToken'
+  @route 'entryEnrollAccount',
+    path: 'enroll-account/:resetToken'
     onBeforeAction: ->
       Session.set('entryError', undefined)
-      Session.set('enrollToken', @params.enrollToken)
-      @next()
+      Session.set('resetToken', @params.resetToken)
 
 # Get all the accounts-entry routes one time
 exclusions = []
 _.each Router.routes, (route)->
-  exclusions.push route.name
+  exclusions.push route.getName()
 # Change the fromWhere session variable when you leave a path
 Router.onStop ->
   # If the route is an entry route, no need to save it
   if (!_.contains(exclusions, Router.current().route?.getName()))
-    Session.set('fromWhere', Router.current().path)
+    Session.set('fromWhere', window.location.pathname)

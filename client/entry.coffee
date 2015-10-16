@@ -1,7 +1,7 @@
 AccountsEntry =
   settings:
     wrapLinks: true
-    homeRoute: '/home'
+    homeRoute: '/'
     dashboardRoute: '/dashboard'
     passwordSignupFields: 'EMAIL_ONLY'
     emailToLower: true
@@ -9,6 +9,12 @@ AccountsEntry =
     entrySignUp: '/sign-up'
     extraSignUpFields: []
     showOtherLoginServices: true
+    fluidLayout: false
+    useContainer: true
+    signInAfterRegistration: true
+    emailVerificationPendingRoute: '/verification-pending'
+    showSpinner: true
+    spinnerOptions: { color: "#000", top: "80%" }
 
   isStringEmail: (email) ->
     emailPattern = /^([\w.-]+)@([\w.-]+)\.([a-zA-Z.]{2,6})$/i

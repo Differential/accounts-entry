@@ -1,0 +1,26 @@
+<template name='entryVerificationPending'>
+  <div class="{{containerCSSClass}}">
+    <div class="{{rowCSSClass}}">
+      {{#if logo}}
+        <div class="entry-logo">
+            <a href="/"><img src="{{logo}}" alt="logo"></a>
+        </div>
+      {{/if}}
+      <div class="entry col-md-4 col-md-offset-4">
+        {{#if error}}
+          <div class='alert alert-danger'>{{error}}</div>
+        {{/if}}
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title">{{t9n 'verificationPending'}}</h3>
+          </div>
+          <div class="panel-body">
+            {{t9n 'verificationPendingDetails'}}
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+

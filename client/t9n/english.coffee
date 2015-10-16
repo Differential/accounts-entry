@@ -26,6 +26,8 @@ en =
   configure: "Configure"
   with: "with"
   createAccount: "Create an Account"
+  verificationPending: "Confirm your email address"
+  verificationPendingDetails: "A confirmation email has been sent to the email address you provided. Click on the confirmation link in the email to activate your account."
   and: "and"
   "Match failed":  "Match failed"
   "User not found":  "User not found"

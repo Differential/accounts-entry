@@ -1,14 +1,14 @@
 Package.describe({
     summary: "Make signin and signout their own pages with routes.",
-    version: '1.0.3',
+    version: '1.0.4',
     name: "joshowens:accounts-entry",
     githubUrl: 'https://github.com/Differential/accounts-entry',
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom("METEOR@0.9.0");
+  api.versionsFrom("METEOR@1.2.0.1");
 
-  api.use(['iron:router@1.0.3', 'softwarerero:accounts-t9n@1.0.3', 'joshowens:simple-form@0.2.2'], ['client', 'server']);
+  api.use(['iron:router@1.0.3', 'softwarerero:accounts-t9n@1.0.3', 'joshowens:simple-form@0.2.1', 'sacha:spin@2.0.4'], ['client', 'server']);
   // CLIENT
   api.use([
     'deps',
@@ -39,6 +39,8 @@ Package.onUse(function(api) {
     'client/views/forgotPassword/forgotPassword.coffee',
     'client/views/resetPassword/resetPassword.html',
     'client/views/resetPassword/resetPassword.coffee',
+    'client/views/enrollAccount/enrollAccount.html',
+    'client/views/enrollAccount/enrollAccount.coffee',
     'client/views/social/social.html',
     'client/views/social/social.coffee',
     'client/views/error/error.html',
@@ -47,6 +49,8 @@ Package.onUse(function(api) {
     'client/views/accountButtons/_wrapLinks.html',
     'client/views/accountButtons/signedIn.html',
     'client/views/accountButtons/accountButtons.coffee',
+    'client/views/verificationPending/verificationPending.html',
+    'client/views/verificationPending/verificationPending.coffee',
     'client/t9n/english.coffee',
     'client/t9n/french.coffee',
     'client/t9n/german.coffee',
@@ -57,7 +61,8 @@ Package.onUse(function(api) {
     'client/t9n/portuguese.coffee',
     'client/t9n/slovene.coffee',
     'client/t9n/russian.coffee',
-    'client/t9n/arabic.coffee'
+    'client/t9n/arabic.coffee',
+    'client/t9n/hebrew.coffee'
   ], 'client');
 
   // SERVER

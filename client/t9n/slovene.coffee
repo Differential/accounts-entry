@@ -25,6 +25,8 @@ sl =
   configure: "Nastavi"
   with: "z"
   createAccount: "Nova registracija"
+  verificationPending: "Confirm your email address"
+  verificationPendingDetails: "A confirmation email has been sent to the email address you provided. Click on the confirmation link in the email to activate your account."
   and: "in"
   "Match failed":  "Prijava neuspešna"
   "User not found":  "Uporabnik ne obstaja"

@@ -1,6 +1,6 @@
 <template name='entrySignUp'>
-  <div class="container">
-    <div class="row">
+  <div class="{{containerCSSClass}}">
+    <div class="{{rowCSSClass}}">
       {{#if logo}}
         <div class="entry-logo">
             <a href="/"><img src="{{logo}}" alt="logo"></a>
@@ -28,10 +28,6 @@
         {{/if}}
         {{> entryError}}
         {{#if passwordLoginService}}
-          {{!-- {{#if validZipArea}} --}}
-            {{!-- <div class="alert alert-success">
-              Great! We deliver to your zip code.
-            </div> --}}
             <form class="entry-form {{signupClass}}" id='signUp'>
               {{#if showUsername}}
                 <div class="form-group">
@@ -67,21 +63,11 @@
               {{> entryError}}
               <button type="submit" class="submit btn btn-block btn-default">{{t9n "signUp"}}</button>
             </form>
-          {{!-- {{else}} --}}
-            {{!-- <div class="form-group">
-              <label>{{t9n "zipCode"}}</label>
-              <p class="help-block">Before registering, check to see if NimbleRx is able to provide you service.</p>
-              <input type="text" class="form-control" placeholder="i.e. 94027" id="zipCode" maxlength="5">
-              <p class="warning zip-code-help help-block">
-                {{zipCodeHelp}}
-              </p>
-            </div>
-          {{/if}} --}}
         {{/if}}
         {{#if both}}
           <p class="entry-agreement">{{t9n "clickAgree"}}
             <a href="{{privacyUrl}}">{{t9n "privacyPolicy"}}</a>,
-            <a href={{pathFor 'hipaa'}}>HIPAA Privacy Policy</a>, 
+            <a href={{pathFor 'hipaa'}}>HIPAA Privacy Policy</a>,
             <a href="{{termsUrl}}">{{t9n "terms"}}</a> and acknowledge that, by using NimbleRx, your prescriptions will be delivered to your specified address and you authorize NimbleRx to make said deliveries.
           </p>
         {{else}}
@@ -91,6 +77,9 @@
               {{#if termsUrl}}<a href="{{termsUrl}}">{{t9n "terms"}}</a> and acknowledge that, by using NimbleRx, your prescriptions will be delivered to your specified address and that you authorize NimbleRx to make said deliveries.{{/if}}
             </p>
           {{/unless}}
+        {{/if}}
+        {{#if talkingToServer}}
+          {{> spinner}}
         {{/if}}
       </div>
     </div>

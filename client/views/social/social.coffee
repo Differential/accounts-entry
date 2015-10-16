@@ -27,6 +27,7 @@ Template.entrySocial.events
     event.preventDefault()
     serviceName = $(event.target).attr('id').replace 'entry-', ''
     callback = (err) ->
+      Session.set 'talkingToServer', false
       if (!err)
         if Session.get('fromWhere')
           Router.go Session.get('fromWhere')
@@ -50,7 +51,7 @@ Template.entrySocial.events
 
     if (Accounts.ui._options.requestOfflineToken and Accounts.ui._options.requestOfflineToken[serviceName])
       options.requestOfflineToken = Accounts.ui._options.requestOfflineToken[serviceName]
-
+    Session.set 'talkingToServer', true
     loginWithService(options, callback)
 
 capitalize = (str) ->
