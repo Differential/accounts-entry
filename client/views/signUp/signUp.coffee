@@ -46,9 +46,45 @@ AccountsEntry.entrySignUpHelpers = {
 
   emailAddress: ->
     Session.get('email')
+
+  # validZipArea: ->
+  #   Session.get('validZipCode')
+
+  # zipCodeHelp: ->
+  #   Session.get('zipCodeHelp')
 }
 
 AccountsEntry.entrySignUpEvents = {
+
+  # 'keypress #zipCode': (e, t) ->
+  #   setTimeout ( ->
+  #     len = $(e.target).val().toString().length;
+  #     if len < 5
+  #       left = 5-len+""
+  #       Session.set("zipCodeHelp", "Only " + left + " more number(s) needed for a valid zip code.")
+  #     else if len is 5
+  #       if Match.test({zip: $(e.target).val()}, Schema.Zip)
+  #         Session.set("validZipCode", true);
+  #         Session.set("zipCodeHelp", null)
+  #       else
+  #         Session.set("zipCodeHelp", "We apologize, but it appears we do not provide service in your area. If you'd like to see service in your area, drop us a note via our contact page.")
+  #     else if len > 5
+  #       console.log("bad")
+  #   ) , 100
+
+
+  #WIP
+  # 'focusin #popover-password-input': () ->
+  #   $('#popover-password-div').toggleClass('input-group')
+  #   $('#password-popover').toggleClass('hidden')
+  #
+  # 'focusout #popover-password-input': () ->
+  #   $('#password-popover').addClass('hidden')
+  #   $('#popover-password-div').removeClass('input-group')
+
+  # 'click #password-popover': (e) ->
+  #   $(this).hover.call(this)
+
   'submit #signUp': (event, t) ->
     event.preventDefault()
 
@@ -90,6 +126,8 @@ AccountsEntry.entrySignUpEvents = {
         errMsg.push t9n("error.minChar")
       if password.search(/[a-z]/i) < 0
         errMsg.push t9n("error.pwOneLetter")
+      if password.search(/[A-Z]/) < 0
+        errMsg.push t9n("error.pwUpperLower")
       if password.search(/[0-9]/) < 0
         errMsg.push t9n("error.pwOneDigit")
 
@@ -162,6 +200,16 @@ AccountsEntry.entrySignUpEvents = {
         return
 }
 
+AccountsEntry.entrySignUpHooks = {
+  rendered: ->
+    console.log "Sign Up"
+    $('[data-toggle="popover"]').popover()
+    # $("#password-popover").popover({ trigger: "hover", container: "body" })
+}
+
+
 Template.entrySignUp.helpers(AccountsEntry.entrySignUpHelpers)
 
 Template.entrySignUp.events(AccountsEntry.entrySignUpEvents)
+
+Template.entrySignUp.hooks(AccountsEntry.entrySignUpHooks)

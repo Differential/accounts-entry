@@ -69,16 +69,26 @@ Router.map ->
     path: '/sign-out'
     onBeforeAction: ()->
       Session.set('entryError', undefined)
-      if AccountsEntry.settings.homeRoute
+      if not AccountsEntry.settings.homeRoute
+        @next()
+      else
         Meteor.logout () ->
           Router.go AccountsEntry.settings.homeRoute
-      @next()
+        @next()
+
 
   @route 'entryResetPassword',
     path: 'reset-password/:resetToken'
     onBeforeAction: ->
       Session.set('entryError', undefined)
       Session.set('resetToken', @params.resetToken)
+      @next()
+
+  @route 'enrollPassword',
+    path: 'enroll-password/:enrollToken'
+    onBeforeAction: ->
+      Session.set('entryError', undefined)
+      Session.set('enrollToken', @params.enrollToken)
       @next()
 
 # Get all the accounts-entry routes one time

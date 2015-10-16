@@ -3,6 +3,7 @@ en =
   signin: "sign in"
   signOut: "Sign Out"
   signUp: "Register"
+  zipCode: "Zip Code"
   OR: "OR"
   forgotPassword: "Forgot your password?"
   emailAddress: "Email Address"
@@ -32,6 +33,7 @@ en =
   error:
     minChar: "7 character minimum password."
     pwOneLetter: "Password requires 1 letter."
+    pwUpperLower: "Password requires 1 uppercase letter."
     pwOneDigit: "Password must have at least one digit."
     usernameRequired: "Username is required."
     emailRequired: "Email is required."

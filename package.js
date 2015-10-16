@@ -34,6 +34,7 @@ Package.onUse(function(api) {
     'client/views/signUp/signUp.coffee',
     'client/views/signUp/extraSignUpFields.html',
     'client/views/signUp/extraSignUpFields.coffee',
+    'client/views/signUp/extraSignUpFields.js',
     'client/views/forgotPassword/forgotPassword.html',
     'client/views/forgotPassword/forgotPassword.coffee',
     'client/views/resetPassword/resetPassword.html',

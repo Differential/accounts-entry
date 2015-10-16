@@ -29,14 +29,22 @@ AccountsEntry.entrySignInHelpers = {
 AccountsEntry.entrySignInEvents = {
   'submit #signIn': (event) ->
     event.preventDefault()
+    Session.set("entryError", undefined)
 
-    email = $('input[name="email"]').val()
+    email = $('#loginEmail').val();
     if (AccountsEntry.isStringEmail(email) and AccountsEntry.settings.emailToLower) or
      (not AccountsEntry.isStringEmail(email) and AccountsEntry.settings.usernameToLower)
       email = email.toLowerCase()
 
     Session.set('email', email)
     Session.set('password', $('input[name="password"]').val())
+
+    if _.isEmpty(email)
+      Session.set("entryError", "Please input a value for your email.")
+      return false
+    if _.isEmpty(Session.get('password'))
+      Session.set("entryError", "Please input a value for your password.")
+      return false
 
     Meteor.loginWithPassword(Session.get('email'), Session.get('password'), (error)->
       Session.set('password', undefined)
@@ -45,6 +53,12 @@ AccountsEntry.entrySignInEvents = {
       else if Session.get('fromWhere')
         Router.go Session.get('fromWhere')
         Session.set('fromWhere', undefined)
+      else if Roles.userIsInRole(Meteor.userId(), ['admin','warden'])
+        Router.go AccountsEntry.settings.adminRoute
+      else if Roles.userIsInRole(Meteor.userId(), ['provider'])
+        Router.go AccountsEntry.settings.providerRoute
+      else if Roles.userIsInRole(Meteor.userId(), ['sales'])
+        Router.go AccountsEntry.settings.salesRoute
       else
         Router.go AccountsEntry.settings.dashboardRoute
     )

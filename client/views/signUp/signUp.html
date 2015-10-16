@@ -28,51 +28,67 @@
         {{/if}}
         {{> entryError}}
         {{#if passwordLoginService}}
-          <form class="entry-form {{signupClass}}" id='signUp'>
-            {{#if showUsername}}
-              <div class="form-group">
-                <label>{{t9n "username"}}</label>
-                <input autofocus name="username" type="string" class="form-control" value=''>
-              </div>
-            {{/if}}
+          {{!-- {{#if validZipArea}} --}}
+            {{!-- <div class="alert alert-success">
+              Great! We deliver to your zip code.
+            </div> --}}
+            <form class="entry-form {{signupClass}}" id='signUp'>
+              {{#if showUsername}}
+                <div class="form-group">
+                  <label>{{t9n "username"}}</label>
+                  <input autofocus name="username" type="string" class="form-control" value='' autocapitalize="none" autocomplete="off" autocorrect="off">
+                </div>
+              {{/if}}
 
-            {{#if showEmail}}
-              <div class="form-group">
-                <label>{{t9n "emailAddress"}}</label>
-                {{#if showUsername}}
-                  <input type="email" class="form-control" value='{{emailAddress}}'>
-                {{else}}
-                  <input autofocus type="email" class="form-control" value='{{emailAddress}}'>
-                {{/if}}
-              </div>
-            {{/if}}
+              {{#if showEmail}}
+                <div class="form-group {{hasError}}">
+                  <label>{{t9n "emailAddress"}}</label>
+                  {{#if showUsername}}
+                    <input type="email" class="form-control" value='{{emailAddress}}' autocapitalize="none" autocomplete="off" autocorrect="off">
+                  {{else}}
+                    <input autofocus type="email" class="form-control" value='{{emailAddress}}' autocapitalize="none" autocomplete="off" autocorrect="off">
+                  {{/if}}
+                </div>
+              {{/if}}
 
-            <div class="form-group">
-              <label>{{t9n "password"}}</label>
-              <input type="password" class="form-control" value=''>
+              <div class="form-group {{hasErrorPW}}">
+								<label>{{t9n "password"}}</label>
+								<input class="form-control" type="password" value="" placeholder="•••••••••••••" data-toggle="popover" data-trigger="focus" data-placement="auto" data-content="Must be at least 7 characters long, and must contain at least one uppercase letter and number.">
+              </div>
+
+              {{#if showSignupCode}}
+                <div class="form-group">
+                  <label>{{t9n "signupCode"}}</label>
+                  <input name="signupCode" type="string" class="form-control" value='' autocapitalize="none" autocomplete="off" autocorrect="off">
+                </div>
+              {{/if}}
+
+              {{> entryExtraSignUpFields}}
+              {{> entryError}}
+              <button type="submit" class="submit btn btn-block btn-default">{{t9n "signUp"}}</button>
+            </form>
+          {{!-- {{else}} --}}
+            {{!-- <div class="form-group">
+              <label>{{t9n "zipCode"}}</label>
+              <p class="help-block">Before registering, check to see if NimbleRx is able to provide you service.</p>
+              <input type="text" class="form-control" placeholder="i.e. 94027" id="zipCode" maxlength="5">
+              <p class="warning zip-code-help help-block">
+                {{zipCodeHelp}}
+              </p>
             </div>
-
-            {{#if showSignupCode}}
-              <div class="form-group">
-                <label>{{t9n "signupCode"}}</label>
-                <input name="signupCode" type="string" class="form-control" value=''>
-              </div>
-            {{/if}}
-
-            {{> entryExtraSignUpFields}}
-            <button type="submit" class="submit btn btn-block btn-default">{{t9n "signUp"}}</button>
-          </form>
+          {{/if}} --}}
         {{/if}}
         {{#if both}}
           <p class="entry-agreement">{{t9n "clickAgree"}}
-            <a href="{{privacyUrl}}">{{t9n "privacyPolicy"}}</a> {{t9n "and"}}
-            <a href="{{termsUrl}}">{{t9n "terms"}}</a>.
+            <a href="{{privacyUrl}}">{{t9n "privacyPolicy"}}</a>,
+            <a href={{pathFor 'hipaa'}}>HIPAA Privacy Policy</a>, 
+            <a href="{{termsUrl}}">{{t9n "terms"}}</a> and acknowledge that, by using NimbleRx, your prescriptions will be delivered to your specified address and you authorize NimbleRx to make said deliveries.
           </p>
         {{else}}
           {{#unless neither}}
             <p class="entry-agreement">{{t9n "clickAgree"}}
               {{#if privacyUrl}}<a href="{{privacyUrl}}">{{t9n "privacyPolicy"}}</a>.{{/if}}
-              {{#if termsUrl}}<a href="{{termsUrl}}">{{t9n "terms"}}</a>.{{/if}}
+              {{#if termsUrl}}<a href="{{termsUrl}}">{{t9n "terms"}}</a> and acknowledge that, by using NimbleRx, your prescriptions will be delivered to your specified address and that you authorize NimbleRx to make said deliveries.{{/if}}
             </p>
           {{/unless}}
         {{/if}}

@@ -27,14 +27,15 @@
         {{/unless}}
         {{#if passwordLoginService}}
           <form class="entry-form" id='signIn'>
-            <div class="form-group">
-              <input autofocus name="email" type="{{emailInputType}}" class="form-control" value='{{email}}' placeholder="{{emailPlaceholder}}">
+            <div class="form-group {{hasError}}">
+              <input autofocus name="email" type="{{emailInputType}}" class="form-control" value='{{email}}' placeholder="{{emailPlaceholder}}" id="loginEmail" autocapitalize="none" autocomplete="off" autocorrect="off">
             </div>
-            <div class="form-group">
+            <div class="form-group {{hasErrorPW}}">
               <input name="password" type="password" class="form-control" value='{{password}}' placeholder="{{t9n 'password'}}">
             </div>
             {{#unless isUsernameOnly}}
               <p><a href="{{pathFor 'entryForgotPassword'}}">{{t9n "forgotPassword"}}</a></p>
+              {{> entryError}}
               <button type="submit" class="submit btn btn-block btn-default">{{t9n "signIn"}}</button>
             {{/unless}}
           </form>
