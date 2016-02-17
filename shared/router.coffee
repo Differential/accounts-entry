@@ -84,8 +84,8 @@ Router.map ->
     onBeforeAction: ->
       if Meteor.user()
         Router.go AccountsEntry.settings.dashboardRoute
-      Session.set('entryError', undefined)
-      Session.set('resetToken', @params.resetToken)
+      Session.set 'entryError', null
+      Session.set 'resetToken', @params.resetToken
       @next()
 
 # Get all the accounts-entry routes one time

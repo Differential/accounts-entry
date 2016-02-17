@@ -8,17 +8,17 @@ Template.entryResetPassword.events
 
   'submit #resetPassword': (event) ->
     event.preventDefault()
-    password = $('input[type="password"]').val()
+    password = $('input[name="new-password"]').val()
 
     passwordErrors = do (password)->
       errMsg = []
       msg = false
-      if password.length < 7
+      if password.length < 6
         errMsg.push t9n("error.minChar")
-      if password.search(/[a-z]/i) < 0
-        errMsg.push t9n("error.pwOneLetter")
-      if password.search(/[0-9]/) < 0
-        errMsg.push t9n("error.pwOneDigit")
+      # if password.search(/[a-z]/i) < 0
+      #   errMsg.push t9n("error.pwOneLetter")
+      # if password.search(/[0-9]/) < 0
+      #   errMsg.push t9n("error.pwOneDigit")
 
       if errMsg.length > 0
         msg = ""
@@ -34,7 +34,7 @@ Template.entryResetPassword.events
 
     Accounts.resetPassword Session.get('resetToken'), password, (error) ->
       if error
-        Session.set('entryError', (error.reason || "Unknown error"))
+        Session.set 'entryError', (error.reason || "Unknown error")
       else
-        Session.set('resetToken', null)
+        Session.set 'resetToken', null
         Router.go AccountsEntry.settings.dashboardRoute
