@@ -1,3 +1,12 @@
+#UNMAINTAINED
+Due to the adoption of React by the Meteor community and the continual updating of Meteor's own Account UI this project is no longer maintained. 
+
+The last version of Meteor this package supports is `1.1.0.3`
+
+If you are looking for similar packages, take a look at [useraccounts:iron-routing](https://atmospherejs.com/useraccounts/iron-routing)
+
+---
+
 [![Stories in Ready](https://badge.waffle.io/Differential/accounts-entry.png?label=ready&title=Ready)](https://waffle.io/Differential/accounts-entry)
 # Meteor accounts-entry [![Build Status](https://travis-ci.org/Differential/accounts-entry.png)](https://travis-ci.org/Differential/accounts-entry)
 
