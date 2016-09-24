@@ -8,7 +8,7 @@ Router.map ->
       @next()
     onRun: ->
       if Meteor.userId()
-        Router.go AccountsEntry.settings.dashboardRoute
+        Router.go AccountsEntry.dashboardRoute()
 
       if AccountsEntry.settings.signInTemplate
         @template = AccountsEntry.settings.signInTemplate
