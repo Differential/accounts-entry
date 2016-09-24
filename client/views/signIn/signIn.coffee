@@ -27,16 +27,16 @@ AccountsEntry.entrySignInHelpers = {
 }
 
 AccountsEntry.entrySignInEvents = {
-  'submit #signIn': (event) ->
+  'submit form.entry-form.sign-in': (event, template) ->
     event.preventDefault()
 
-    email = $('input[name="email"]').val()
+    email = template.$('input[name="email"]').val()
     if (AccountsEntry.isStringEmail(email) and AccountsEntry.settings.emailToLower) or
      (not AccountsEntry.isStringEmail(email) and AccountsEntry.settings.usernameToLower)
       email = email.toLowerCase()
 
     Session.set('email', email)
-    Session.set('password', $('input[name="password"]').val())
+    Session.set('password', template.$('input[name="password"]').val())
     Session.set 'talkingToServer', true
 
     Meteor.loginWithPassword(Session.get('email'), Session.get('password'), (error)->

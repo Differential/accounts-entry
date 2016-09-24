@@ -17,7 +17,7 @@
             {{#if passwordLoginService}}
               <div class="email-option">
                 <strong class="line-thru">{{t9n "OR"}}</strong>
-                <a data-toggle="collapse" href="#signUp">
+                <a data-toggle="collapse" href="form.sign-up">
                   {{t9n "signUpWithYourEmailAddress"}}
                 </a>
               </div>
@@ -28,7 +28,7 @@
         {{/if}}
         {{> entryError}}
         {{#if passwordLoginService}}
-          <form class="entry-form {{signupClass}}" id='signUp'>
+          <form class="entry-form {{signupClass}} sign-up">
             {{#if showUsername}}
               <div class="form-group">
                 <label>{{t9n "username"}}</label>
