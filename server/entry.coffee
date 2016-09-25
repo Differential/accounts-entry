@@ -19,6 +19,9 @@ Meteor.startup ->
       not AccountsEntry.settings.signupCode or signupCode is AccountsEntry.settings.signupCode
 
     entryCreateUser: (user) ->
+      if Accounts._options.forbidClientAccountCreation
+        return
+
       check user, Object
       profile = AccountsEntry.settings.defaultProfile || {}
       if user.username

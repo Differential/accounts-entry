@@ -52,6 +52,9 @@ AccountsEntry.entrySignUpEvents = {
   'submit #signUp': (event, t) ->
     event.preventDefault()
 
+    if Accounts._options.forbidClientAccountCreation
+      return
+
     username =
       if t.find('input[name="username"]')
         t.find('input[name="username"]').value.toLowerCase()
