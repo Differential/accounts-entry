@@ -57,6 +57,7 @@ Package.onUse(function(api) {
     'client/t9n/polish.coffee',
     'client/t9n/spanish.coffee',
     'client/t9n/swedish.coffee',
+    'client/t9n/norwegian.coffee',
     'client/t9n/portuguese.coffee',
     'client/t9n/slovene.coffee',
     'client/t9n/russian.coffee',
