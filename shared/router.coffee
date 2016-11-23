@@ -3,6 +3,8 @@ Router.map ->
   @route "entrySignIn",
     path: "/sign-in"
     onBeforeAction: ->
+      @layout AccountsEntry.settings.layoutTemplate if AccountsEntry.settings?.layoutTemplate?
+
       Session.set('entryError', undefined)
       Session.set('buttonText', 'in')
       @next()
@@ -34,6 +36,8 @@ Router.map ->
   @route "entrySignUp",
     path: "/sign-up"
     onBeforeAction: ->
+      @layout AccountsEntry.settings.layoutTemplate if AccountsEntry.settings?.layoutTemplate?
+
       Session.set('entryError', undefined)
       Session.set('buttonText', 'up')
       @next()
@@ -62,12 +66,16 @@ Router.map ->
   @route "entryForgotPassword",
     path: "/forgot-password"
     onBeforeAction: ->
+      @layout AccountsEntry.settings.layoutTemplate if AccountsEntry.settings?.layoutTemplate?
+
       Session.set('entryError', undefined)
       @next()
 
   @route 'entrySignOut',
     path: '/sign-out'
     onBeforeAction: ()->
+      @layout AccountsEntry.settings.layoutTemplate if AccountsEntry.settings?.layoutTemplate?
+
       Session.set('entryError', undefined)
       if not AccountsEntry.settings.homeRoute
         @next()
@@ -78,12 +86,16 @@ Router.map ->
   @route 'entryVerificationPending',
     path: '/verification-pending'
     onBeforeAction: ->
+      @layout AccountsEntry.settings.layoutTemplate if AccountsEntry.settings?.layoutTemplate?
+
       Session.set('entryError', undefined)
       @next()
 
   @route 'entryResetPassword',
     path: 'reset-password/:resetToken'
     onBeforeAction: ->
+      @layout AccountsEntry.settings.layoutTemplate if AccountsEntry.settings?.layoutTemplate?
+
       Session.set('entryError', undefined)
       Session.set('resetToken', @params.resetToken)
       @next()
@@ -91,6 +103,8 @@ Router.map ->
   @route 'entryEnrollAccount',
     path: 'enroll-account/:resetToken'
     onBeforeAction: ->
+      @layout AccountsEntry.settings.layoutTemplate if AccountsEntry.settings?.layoutTemplate?
+
       Session.set('entryError', undefined)
       Session.set('resetToken', @params.resetToken)
 
