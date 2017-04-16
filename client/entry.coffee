@@ -27,9 +27,10 @@ AccountsEntry =
     if appConfig.language
       T9n.language = appConfig.language
 
-    if appConfig.signUpTemplate
-      signUpRoute = Router.routes['entrySignUp']
-      signUpRoute.options.template = appConfig.signUpTemplate
+    templates = appConfig.templates
+    if templates?
+      for name, template of templates
+        Router.routes[name]?.options.template = template
 
   signInRequired: (router, extraCondition) ->
     extraCondition ?= true
